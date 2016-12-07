@@ -1,0 +1,41 @@
+.navbar {
+  min-height: 75px;
+}
+
+.nav li {
+  min-height: 75px;
+}
+
+.nav li a {
+  min-height: 75px;
+}
+
+.nav h2 {
+  margin-right: 5em;
+}
+
+body {
+  background-color: #ddd;
+}
+
+main {
+  background-color: white;
+}
+
+.btn-round {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  margin-top: -10px;
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  background-color: green;
+}
+
+.login {
+  margin-top: 10em;
+  margin-bottom: 10em;
+}
