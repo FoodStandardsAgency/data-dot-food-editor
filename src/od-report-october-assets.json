@@ -1,0 +1,3199 @@
+[
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-01-01a",
+      "notation":"FSA 01/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"FSA Board",
+      "description":"Register of Gifts and Hospitality",
+      "published":true,
+      "owner":"Noel Sykes",
+      "notes":null,
+      "elements": [
+        {
+          "title": "FSA Board and directors registered gifts and hospitality 2012-2013",
+          "description": "FSA Board and directors registered gifts and hospitality 2012-2013",
+          "html": "",
+          "json": "",
+          "xml": "",
+          "csv": "http://www.food.gov.uk/sites/default/files/csv/fsa-board-directors-gifts-hosp-2014-15q1.csv",
+          "fromDate": "01/04/2012",
+          "toDate": "31/03/2013"
+        }
+      ]
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-01-01b",
+      "notation":"FSA 01/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"FSA Board",
+      "description":"FSA Board and Directors expenses",
+      "published":true,
+      "owner":"Noel Sykes",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-01-05a",
+      "notation":"FSA 01/05a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"Complaints",
+      "description":"Register of Complaints",
+      "published":false,
+      "owner":"Noel Sykes",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-01-08a",
+      "notation":"FSA 01/08a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"Internal Whistleblowing referrals",
+      "description":"Log of Internal Whistleblowing Cases",
+      "published":false,
+      "owner":"Noel Sykes",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-02-01a",
+      "notation":"FSA 02/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Business Continuity Plans",
+      "description":"Business Continuity - incident event/issues  log & contact details",
+      "published":false,
+      "owner":"Rebecca Merritt\nRoberta Ferson (NI)\nHelen George (Wales)",
+      "notes":"No intention to publish – refers to internal FSA incidents only and contains personal data"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-02-02a",
+      "notation":"FSA 02/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"Organisational Performance",
+      "description":"Organisational Performance - Corporate & Directorate Level Data",
+      "published":false,
+      "owner":"Michael Todd",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-02-03a",
+      "notation":"FSA 02/03a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Risk Management",
+      "description":"Risk Registers - Corporate and Group",
+      "published":false,
+      "owner":"Michael Todd",
+      "notes":"Agreed with business"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-02-04a",
+      "notation":"FSA 02/04a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Business Planning",
+      "description":"Corporate & Divisions Business Plan (progress tables )",
+      "published":false,
+      "owner":"Richard McLean\nRoberta Ferson (NI)\nHelen George (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-00a",
+      "notation":"FSA 04/00a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"(All)",
+      "description":"Food Policy Stakeholder Lists\n- Meat Hygiene\n- Micro Criteria\n- Fish and Shellfish\n- General Food Hygiene\n- Animal Feed\n- TSEs\n- Review of EU Official Controls",
+      "published":false,
+      "owner":"Food Policy Teams Leaders",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-01a",
+      "notation":"FSA 04/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Contaminants & Residues",
+      "description":"Results of research & surveys (published as Food Surveillance Information sheets or as research report)",
+      "published":true,
+      "owner":"Mark Willis\nMichael Jackson/Kirsten Dunbar (NI)\nAlice Teague (Wales)",
+      "notes":"Exercise to map research data onto catalogue under way"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-01b",
+      "notation":"FSA 04/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Contaminants & Residues",
+      "description":"Industry/Other Government Department owned  contaminants data (sent to European Food Safety Authority - approx. 15-16 datasets for contaminants - single or groups of)",
+      "published":false,
+      "owner":"Mark Willis\nMichael Jackson/Kirsten Dunbar (NI)\nAlice Teague (Wales)",
+      "notes":"Holding entry - may be more than 1 dataset"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-02a",
+      "notation":"FSA 04/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Meat Hygiene",
+      "description":"Meat Hygiene  third party industry data (analysed for approval of processes)",
+      "published":false,
+      "owner":"James Ridsdale\nKirsten Dunbar (NI)\nAlice Teague (Wales)",
+      "notes":"Holding entry - may be more than 1 dataset"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-03b",
+      "notation":"FSA 04/03b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Food Hygiene",
+      "description":"Raw Drinking Milks Approved Producers",
+      "published":true,
+      "owner":"Linden Jack\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":"Is this Operations or Policy owned?"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-03e",
+      "notation":"FSA 04/03e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Food Hygiene",
+      "description":"Codex International Food Standards records and list",
+      "published":false,
+      "owner":"Linden Jack\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-04b",
+      "notation":"FSA 04/04b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Animal Feed",
+      "description":"Feed Additive Trial information ",
+      "published":false,
+      "owner":"Keith Millar\nKirsten Dunbar (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-05a",
+      "notation":"FSA 04/05a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - TSE\nTransmissible spongiform encephalopathy",
+      "description":"TSE ( Transmissible spongiform encephalopathies)Project Date (only one live)",
+      "published":true,
+      "owner":"Keith Millar\nKirsten Dunbar (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-07a",
+      "notation":"FSA 04/07a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Foodborne Disease Strategy\n\n",
+      "description":"Campylobacter Retail Survey (time-related update)",
+      "published":true,
+      "owner":"Kevin Hargin\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-07b",
+      "notation":"FSA 04/07b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Foodborne Disease Strategy\n\n",
+      "description":"On-Farm Project Data (National Farmer Union owned)",
+      "published":false,
+      "owner":"Kevin Hargin\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":"Futher explanation needed"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-07c",
+      "notation":"FSA 04/07c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Foodborne Disease Strategy\n\n",
+      "description":"Measuring Foodborne Illness Levels",
+      "published":true,
+      "owner":"Kevin Hargin\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-10a",
+      "notation":"FSA 04/10a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Additives/Enzymes/Flavourings/Processing Aids & Extraction",
+      "description":"Industry data on levels of additives used in certain products",
+      "published":false,
+      "owner":"Mark Willis\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-10b",
+      "notation":"FSA 04/10b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Additives/Enzymes/Flavourings/Processing Aids & Extraction",
+      "description":"Current EU approved additives and their E Numbers: ",
+      "published":true,
+      "owner":"Mark Willis\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-10c",
+      "notation":"FSA 04/10c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Additives/Enzymes/Flavourings/Processing Aids & Extraction",
+      "description":"Products free from the colours associated with hyperactivity",
+      "published":true,
+      "owner":"Mark Willis\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-12a",
+      "notation":"FSA 04/12a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Food Allergens\n",
+      "description":"Contractor held data from research projects (clinical & social science data not held by FSA - only gets summary). ",
+      "published":true,
+      "owner":"Paul Tossell\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":"Exercise to map research data onto catalogue under way"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-13a",
+      "notation":"FSA 04/13a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Novel Foods",
+      "description":"Log of Applications made under Novel Food Regulations",
+      "published":false,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-13b",
+      "notation":"FSA 04/13b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Novel Foods",
+      "description":"Insects Industry Contacts",
+      "published":false,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":"Due to merge to 1 stakeholder list"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-13c",
+      "notation":"FSA 04/13c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Novel Foods",
+      "description":"Novel Foods – Unauthorized",
+      "published":true,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-13d",
+      "notation":"FSA 04/13d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Novel Foods",
+      "description":"Novel Foods - Nanotechnology-enabled foods and food contact materials on the UK market:",
+      "published":true,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-14a",
+      "notation":"FSA 04/14a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - GM Foods",
+      "description":"Genetically Modified Food Research Programme Data",
+      "published":true,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-14b",
+      "notation":"FSA 04/14b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - GM Foods",
+      "description":"Novel Foods - GM labelling",
+      "published":true,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-15a",
+      "notation":"FSA 04/15a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Food Irradiation",
+      "description":"Approval and Inspection of Irradiation Facilities",
+      "published":false,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-16a",
+      "notation":"FSA 04/16a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Radiological Contamination",
+      "description":"TRAMP (Terrestrial Radiological Monitoring Programme) Monitoring Database",
+      "published":false,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-16b",
+      "notation":"FSA 04/16b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Radiological Contamination",
+      "description":"TRAMS (Terrestrial Radiological Monitoring System)  Monitoring Database",
+      "published":false,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-16c",
+      "notation":"FSA 04/16c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Radiological Contamination",
+      "description":"RIFE (Radioactivity in Food and Environment report) Distribution List",
+      "published":false,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-16d",
+      "notation":"FSA 04/16d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Radiological Contamination",
+      "description":"Time recording for cost recovery from industry in relation to FSA functions for environmental permit regulation \n",
+      "published":false,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-16e",
+      "notation":"FSA 04/16e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Radiological Contamination",
+      "description":"CEFAS (Centre for Environment Fisheries and Aquaculture) Science Spreadsheets (Radiological Monitoring Data - Annual Dataset + partial datasets throughout year)",
+      "published":true,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-16f",
+      "notation":"FSA 04/16f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records - Radiological Contamination",
+      "description":"RSR Authorisation Applications (Environment Agency information - FSA are statutory consultee)",
+      "published":false,
+      "owner":"Stephen Johnson\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-17a",
+      "notation":"FSA 04/17a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Imported Food",
+      "description":"GRAIL Import Conditions, Legislation and Guidance Notes for food products ",
+      "published":true,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-17b",
+      "notation":"FSA 04/17b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Imported Food",
+      "description":"HMRC Import Data",
+      "published":false,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":"Publically available"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-17c",
+      "notation":"FSA 04/17c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Imported Food",
+      "description":"Imported Food Quarterly Return Data",
+      "published":false,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-17d",
+      "notation":"FSA 04/17d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Imported Food",
+      "description":"Early Warning System (EWS) - daily analysis of RASFF (Rapid Alert) data",
+      "published":false,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-17e",
+      "notation":"FSA 04/17e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Imported Food",
+      "description":"Intelligence Reports on MEMEX (Imported Food Database - non-compliant and illegal imports)",
+      "published":false,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-17f",
+      "notation":"FSA 04/17f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Imported Food",
+      "description":"TRACES (Trade Control and Expert System) - EU data to which FSA has access - pre-notification system of high-risk imported foods",
+      "published":false,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-17g",
+      "notation":"FSA 04/17g",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Imported Food",
+      "description":"List of Foodstuff with current EU Restrictions",
+      "published":true,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-17h",
+      "notation":"FSA 04/17h",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Imported Food",
+      "description":"Imports – Designated Points of Entry",
+      "published":true,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-17i",
+      "notation":"FSA 04/17i",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Imported Food",
+      "description":"List of External Temporary Storage Facilities",
+      "published":true,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-18a",
+      "notation":"FSA 04/18a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Policy Development Records - Exported Food",
+      "description":"Approval and ongoing compliance reports for exports to 3rd countries ",
+      "published":false,
+      "owner":"Gary Welsh\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-04-19a",
+      "notation":"FSA 04/19a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Policy Development Records: Food Standards & Authenticity",
+      "description":"Food Standards & Authenticity - Data in published research reports",
+      "published":true,
+      "owner":"Javier Dominquez\nMichael Jackson (NI)\nAlice Teague (Wales)",
+      "notes":"Exercise to map research data onto catalogue under way"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-05-01a",
+      "notation":"FSA 05/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Chemical Risk Assessment",
+      "description":"Chemical Risk - Data reports awaiting publication ",
+      "published":true,
+      "owner":"Javier Dominquez",
+      "notes":"Exercise to map research data onto catalogue under way"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-05-02a",
+      "notation":"FSA 05/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Microbiological Risk Assessment",
+      "description":"Year 1 EU harmonised survey on AMR (FS102109) – Sample data and results on AMR analysis of samples.",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-05-02b",
+      "notation":"FSA 05/02b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Microbiological Risk Assessment",
+      "description":"Year 2 EU harmonised survey on AMR (FS102109) – Sample data and results on AMR analysis of samples.",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-05-02c",
+      "notation":"FSA 05/02c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Microbiological Risk Assessment",
+      "description":"Campylobacter source attribution project (FS101013) – possible data set on sources of Campylobacter infection & WGS data of Campylobacter isolates.",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-05-02d",
+      "notation":"FSA 05/02d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Microbiological Risk Assessment",
+      "description":"The NoVAS project (FS101040 - NoV attribution study) - possible 5 datasets.  These include a list of published literature included in the systematic review and further datasets summarising the results of the other work packages including data on NoV in retail oysters samples, NoV in retail fresh produce samples, NoV contamination in catering premises and NoV capsid integrity findings (made available at the end of the study).",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-05-02e",
+      "notation":"FSA 05/02e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Microbiological Risk Assessment",
+      "description":"A critical review of approaches on measuring HEV infectivity (FS301014) - dataset on relevant published literature included in the critical review (made available at the end of the study).",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-05-02f",
+      "notation":"FSA 05/02f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Microbiological Risk Assessment",
+      "description":"A systematic review of the relative proportion of foodborne disease caused by faults in food preparation and handling in the home (FS101098) - database on the publications included in the systematic review (made available at the end of the study).",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-05-02g",
+      "notation":"FSA 05/02g",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Microbiological Risk Assessment",
+      "description":"A systematic review on the occurrence of AMR in foodborne pathogenic and non-pathogenic bacteria in food at retail (FS102127) - database of the published literature/papers included in the systematic review (made available at the end of the study).",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-05-02h",
+      "notation":"FSA 05/02h",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Microbiological Risk Assessment",
+      "description":"Microbiological Research Projects (including research data - sent periodically from research provider)",
+      "published":true,
+      "owner":"Javier Dominquez",
+      "notes":"Exercise to map research data onto catalogue under way"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-06-01a",
+      "notation":"FSA 06/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Analytics",
+      "description":"Analytics Impact Assessments",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":"Decision on publication being made"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-06-01b",
+      "notation":"FSA 06/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Analytics",
+      "description":"Internal/External Data Analysis",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-06-01c",
+      "notation":"FSA 06/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Analytics",
+      "description":"Social Research Survey - Food And You",
+      "published":true,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-06-01d",
+      "notation":"FSA 06/01d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Analytics",
+      "description":"Social research survey - Omnibus ",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-06-01e",
+      "notation":"FSA 06/01e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Analytics",
+      "description":"Analytics Official Statistics",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-06-01f",
+      "notation":"FSA 06/01f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Analytics",
+      "description":"Output from Commissioned Research",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":"Exercise to map research data onto catalogue under way"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-06-02a",
+      "notation":"FSA 06/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Strategic Evidence Programme",
+      "description":"Strategic Evidence Programme Outputs - Lists of projects and financial information",
+      "published":true,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-06-03a",
+      "notation":"FSA 06/03a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/policy-and-science",
+         "label":"Policy & Science"
+      },
+      "title":"Evidence Portfolio and Prioritisation",
+      "description":"Evidence Portfolio - list of projects and related financial information",
+      "published":false,
+      "owner":"Javier Dominquez",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-07-01a",
+      "notation":"FSA 07/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"Correspondence Case Records",
+      "description":"Correspondence Case Record - Ministerial",
+      "published":false,
+      "owner":"Noel Sykes\nHelen George (Wales)",
+      "notes":"Jenny to speak to team - adopt IKM approach"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-07-01b",
+      "notation":"FSA 07/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"Correspondence Case Records",
+      "description":"Correspondence Case Record - Treat Official",
+      "published":false,
+      "owner":"Noel Sykes\nHelen George (Wales)",
+      "notes":"Jenny to speak to team - adopt IKM approach"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-07-01c",
+      "notation":"FSA 07/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"Correspondence Case Records",
+      "description":"Correspondence Case Record - Branch",
+      "published":false,
+      "owner":"Noel Sykes\nHelen George (Wales)",
+      "notes":"Jenny to speak to team - adopt IKM approach"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-07-01d",
+      "notation":"FSA 07/01d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"Correspondence Case Records",
+      "description":"Correspondence Case Record - Complex Cases",
+      "published":false,
+      "owner":"Noel Sykes\nHelen George (Wales)",
+      "notes":"Jenny to speak to team - adopt IKM approach"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-01a",
+      "notation":"FSA 08/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Incidents",
+      "description":"Annual Report of Incidents",
+      "published":true,
+      "owner":"Richard Hoskin\nHelen George (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-01b",
+      "notation":"FSA 08/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Incidents",
+      "description":"Incidents Emergency Contact List",
+      "published":false,
+      "owner":"Richard Hoskin\nKathryn Baker (NI)\nJorge Martin-Almargo (Wales)",
+      "notes":"Not for publication – personal data"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-01c",
+      "notation":"FSA 08/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Incidents",
+      "description":"Incidents - Food Safety Data",
+      "published":true,
+      "owner":"Richard Hoskin\nKathryn Baker (NI)\nJorge Martin-Almargo (Wales)",
+      "notes":"This is already published (where?)"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-01d",
+      "notation":"FSA 08/01d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Incidents",
+      "description":"FEPA (Food & Environment Protection Act)  Database",
+      "published":false,
+      "owner":"Richard Hoskin\nKathryn Baker (NI)\nJorge Martin-Almargo (Wales)",
+      "notes":"Agreed at EMT Nov 2016 -Licenses and authorisations – apply consistent approach and publish"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-01e",
+      "notation":"FSA 08/01e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Incidents",
+      "description":"Rapid Alert (RASFF) Information",
+      "published":false,
+      "owner":"Richard Hoskin\nKathryn Baker (NI)\nJorge Martin-Almargo (Wales)",
+      "notes":"Published through Commission "
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-01f",
+      "notation":"FSA 08/01f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Incidents",
+      "description":"Allergy Alerts",
+      "published":true,
+      "owner":"Richard Hoskin\nKathryn Baker (NI)\nJorge Martin-Almargo (Wales)",
+      "notes":"Work ongoing to develop and API"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-01g",
+      "notation":"FSA 08/01g",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Incidents",
+      "description":"Product Recalls and Withdrawals",
+      "published":true,
+      "owner":"Richard Hoskin\nKathryn Baker (NI)\nJorge Martin-Almargo (Wales)",
+      "notes":"Work ongoing to develop and API"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-01h",
+      "notation":"FSA 08/01h",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Incidents",
+      "description":"Quarterly incident reports ",
+      "published":true,
+      "owner":"Richard Hoskin\nKathryn Baker (NI)\nJorge Martin-Almargo (Wales)",
+      "notes":"Ask Anne Gravett - where is this published?"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-03a",
+      "notation":"FSA 08/03a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Food Crime",
+      "description":"Food Crime dataset - Threat Assessment",
+      "published":false,
+      "owner":"Andy Morling\nKathryn Baker (NI)\nJorge Martin-Almargo (Wales)",
+      "notes":"Already published (where?)"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-08-03b",
+      "notation":"FSA 08/03b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Food Crime",
+      "description":"Food Crime dataset - Work ongoing to develop and API",
+      "published":false,
+      "owner":"Andy Morling\nKathryn Baker (NI)\nJorge Martin-Almargo (Wales)",
+      "notes":"Agreed at EMT Nov 2016 -To be published"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01a",
+      "notation":"FSA 09/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Milk and Dairies Inspection Scheduling Data",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 -Publish historical data about dairy inspections (as with meat, so linked to premise) "
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01b",
+      "notation":"FSA 09/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Enforcement Data  - enforcement reports",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 - Enforcement data published retrospectively after the appeal process has passed.  Proposed that this is published quarterly."
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01c",
+      "notation":"FSA 09/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Wine Standards Database (harvest type of wine hecterage of field and volume and product declaration)",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 -Review presentation of data so that it meets data standards.  Apply approvals principles."
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01d",
+      "notation":"FSA 09/01d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Contamination Dataset",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 -Publish historical anonymised data quarterly at a country level."
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01e",
+      "notation":"FSA 09/01e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Official Veterinarian Visit Reports",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01f",
+      "notation":"FSA 09/01f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Food Complaints From Approved Premises Log",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 -Publish with personal data redacted – deal with as ‘Report a Food Problem’"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01g",
+      "notation":"FSA 09/01g",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"FSA audit score of approved meat establishments",
+      "published":true,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01h",
+      "notation":"FSA 09/01h",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Authorisations Held by FSA staff - certified to enter premises, carry out business",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 -anonymised number to be published"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01i",
+      "notation":"FSA 09/01i",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Contract staff list - list of staff and contacts worked on",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01j",
+      "notation":"FSA 09/01j",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Statement of Resources (agreement between FSA and FBO on opening hours = MHIs, timesheet analysis)",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01k",
+      "notation":"FSA 09/01k",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Poultry Process Verification  - new inspection process March 2016",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 to publish"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01l",
+      "notation":"FSA 09/01l",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Unannounced inspections of standalone cutting plants",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01m",
+      "notation":"FSA 09/01m",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Lead Veterinary themed visits (recently HACCP) (used for OV management)",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01n",
+      "notation":"FSA 09/01n",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Salmonella testing results",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 to publish"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01o",
+      "notation":"FSA 09/01o",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"SLA data (trichinella testing, residue sampling of organs by FBO)  ",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01p",
+      "notation":"FSA 09/01p",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"CCTV Surveys - Lists of areas covered in plant",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01q",
+      "notation":"FSA 09/01q",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"3rd Country Exports (which plants approved to export where)",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01r",
+      "notation":"FSA 09/01r",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"OV Flexibility (when OV should and should not be used)",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01s",
+      "notation":"FSA 09/01s",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"NOVs (Novice Official Veterinarians) - log of hours undertaken",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01t",
+      "notation":"FSA 09/01t",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Poultry Inspection Assistants (FBO own staff used for inspection)",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 to publish"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01u",
+      "notation":"FSA 09/01u",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"FCI/CCIR -  IRIS conditions - will supersede AM and PM for cattle sheep poultry",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 to Country level publication (potential more detail In future) - in EMT Paper Nov 2016"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01v",
+      "notation":"FSA 09/01v",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Animal Welfare Annual Survey Dataset",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01w",
+      "notation":"FSA 09/01w",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Raw Milk Quarterly Sampling",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01x",
+      "notation":"FSA 09/01x",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Dairy Inspection Visits",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01y",
+      "notation":"FSA 09/01y",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Red Tractor Approved Premises (determines visit frequency)",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"May not be FSA dataset"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01z",
+      "notation":"FSA 09/01z",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Dairy Species Data",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01aa",
+      "notation":"FSA 09/01aa",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Dairy Produce Data",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01ab",
+      "notation":"FSA 09/01ab",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Dairy Customer/Purchaser Data",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01ac",
+      "notation":"FSA 09/01ac",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"TB Reactor Data",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01ad",
+      "notation":"FSA 09/01ad",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Laundry garments log",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 to Publish quarterly at a premise level"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01ae",
+      "notation":"FSA 09/01ae",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Premises approved for Poulty Inspection Assistant",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 to Publish data monthly at a premise level "
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-01af",
+      "notation":"FSA 09/01af",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Poulty Inspection Assisstant Log",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 to Publish anonymised data monthly at a premise level "
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-02a",
+      "notation":"FSA 09/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Meat Inspector Training Data ",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-03a",
+      "notation":"FSA 09/03a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Establishments",
+      "description":"List of FSA approved establishments",
+      "published":true,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-03b",
+      "notation":"FSA 09/03b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Establishments",
+      "description":"List of Local Authority approved food businesses",
+      "published":true,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-03c",
+      "notation":"FSA 09/03c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Establishments",
+      "description":"Lists of Establishments approved for SRM removal",
+      "published":true,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-03d",
+      "notation":"FSA 09/03d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Establishments",
+      "description":"UK Vineyard Register (is this same as dataset FSA 09/01i)",
+      "published":true,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-03e",
+      "notation":"FSA 09/03e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Establishments",
+      "description":"List of Registered Milk Production Holdings",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 for publication monthly as other premise data - is this part of FSA09/03a?"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-03f",
+      "notation":"FSA 09/03f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Establishments",
+      "description":"List of registered Milk Production Holdings additionally registered to produce RCDM",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 For publication monthly as other premise data - is this part of FSA09/03a?"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-04a",
+      "notation":"FSA 09/04a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Ante-Mortem Post-Mortem Data separate dataset for each species ",
+      "published":true,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 - Anonymised data published – at a country level.  Proposed that this is published quarterly."
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-04b",
+      "notation":"FSA 09/04b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Food Business Operator Audit Data  - includes KPIs (timely completion of FBO audits, timely submission of FBO audits to FBOs, FBO audit quality)",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-04c",
+      "notation":"FSA 09/04c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Enforcement Data (Legal Action and Prosecutions)",
+      "published":true,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Data published retrospectively after the appeal process has passed.  Proposed that this is published quarterly."
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-04d",
+      "notation":"FSA 09/04d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Slaughterer's Licensing Record (Live and Legacy Datasets)",
+      "published":true,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Anonymised data published at a plant level.  Historical and current on a monthly basis."
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-04e",
+      "notation":"FSA 09/04e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Animal Welfare Dataset",
+      "published":true,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Anonymised data published – at a country level.  Proposed that this is published quarterly. "
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-04f",
+      "notation":"FSA 09/04f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Contractor Key Performance Indicators",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Agreed at EMT Nov 2016 - For publication quarterly after the contract notice period has expired."
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-09-04g",
+      "notation":"FSA 09/04g",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-operating-officer-group",
+         "label":"Chief Operating Officer Group"
+      },
+      "title":"Field Operations Management",
+      "description":"Cleansing and Disinfection Dataset",
+      "published":false,
+      "owner":"Simon Dawson\nKirsten Dunbar (NI)",
+      "notes":"Sian to talk to Simon Dawson wc 14/11"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-01a",
+      "notation":"FSA 10/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Industry Assurance",
+      "description":"Earned Recognition - Exception Reports Summary",
+      "published":false,
+      "owner":"Marcia Nightingale\nMichael Jackson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-01b",
+      "notation":"FSA 10/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Industry Assurance",
+      "description":"List of LA's with Partnerships (third party owned)",
+      "published":false,
+      "owner":"Marcia Nightingale\nMichael Jackson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-01c",
+      "notation":"FSA 10/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Industry Assurance",
+      "description":"Number of businesses potentially covered by C&E strategy initiatives",
+      "published":false,
+      "owner":"Marcia Nightingale\nMichael Jackson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-01d",
+      "notation":"FSA 10/01d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Industry Assurance",
+      "description":"Primary Authority Inspection Plan",
+      "published":false,
+      "owner":"Marcia Nightingale\nMichael Jackson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-01e",
+      "notation":"FSA 10/01e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Industry Assurance",
+      "description":"Primary Authority Notification Tracker",
+      "published":false,
+      "owner":"Marcia Nightingale\nMichael Jackson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-01f",
+      "notation":"FSA 10/01f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Industry Assurance",
+      "description":"Inspection Bodies Industry Summary",
+      "published":false,
+      "owner":"Marcia Nightingale\nMichael Jackson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-01g",
+      "notation":"FSA 10/01g",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Industry Assurance",
+      "description":"British Retail Consortium Business Selection Table",
+      "published":false,
+      "owner":"Marcia Nightingale\nMichael Jackson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-02a",
+      "notation":"FSA 10/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Monitoring",
+      "description":"Statutory Monitoring Data - LAEMS (performance data, raw XML and analysis)",
+      "published":true,
+      "owner":"John Cragg\nKathryn Baker (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-03a",
+      "notation":"FSA 10/03a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Delivery Assurance",
+      "description":"Local Authority Audit - Action Plans",
+      "published":true,
+      "owner":"John Cragg\nKathryn Baker (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-03b",
+      "notation":"FSA 10/03b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Delivery Assurance",
+      "description":"Local Authority Food Law Enforcement returns",
+      "published":true,
+      "owner":"John Cragg\nKathryn Baker (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-03c",
+      "notation":"FSA 10/03c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Delivery Assurance",
+      "description":"Northern Ireland 184 Food establishments in the area which are broadly compliant with food hygiene law",
+      "published":true,
+      "owner":"John Cragg\nKathryn Baker (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-05e",
+      "notation":"FSA 10/05e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Enforcement Officer Training",
+      "description":"Local Authority Authorised Officer Training Records",
+      "published":false,
+      "owner":"Rachel Patrick\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-06a",
+      "notation":"FSA 10/06a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Product Specific Delivery - Shellfish",
+      "description":"Shellfish Dataset",
+      "published":true,
+      "owner":"Nathan Philippo\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":"Maybe be more than 1 shellfish dataset, one of which is fully linked"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-07a",
+      "notation":"FSA 10/07a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Feed Official Controls",
+      "description":"Annual Planned Activity on Delivery of Feed Law Controls",
+      "published":false,
+      "owner":"Mark Davis\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-07b",
+      "notation":"FSA 10/07b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Feed Official Controls",
+      "description":"Quarterly Monitoring of Feed Law Controls",
+      "published":false,
+      "owner":"Mark Davis\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-07c",
+      "notation":"FSA 10/07c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Feed Official Controls",
+      "description":"Lists of Registered and Approved Feed Law Businesses",
+      "published":false,
+      "owner":"Mark Davis\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-07d",
+      "notation":"FSA 10/07d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Feed Official Controls",
+      "description":"Feed Law - List of 3rd Country Representatives",
+      "published":false,
+      "owner":"Mark Davis\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-08a",
+      "notation":"FSA 10/08a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Food Hygiene Rating Scheme",
+      "description":"Food Hygiene Rating Scheme Dataset",
+      "published":true,
+      "owner":"Angela Towers\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-09a",
+      "notation":"FSA 10/09a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Stakeholder Engagement - Local Authorities",
+      "description":"Environmental Health Officer Directory",
+      "published":true,
+      "owner":"Kevin Maher\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":"Planning to publish Local Authority Register"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-10a",
+      "notation":"FSA 10/10a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"UKFSS",
+      "description":"Sampling/surveillance dataset (UKFSS)",
+      "published":true,
+      "owner":"John Cragg\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-11a",
+      "notation":"FSA 10/11a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Sampling",
+      "description":"Lab Analysis Results of Food Sampling",
+      "published":false,
+      "owner":"John Cragg\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-11b",
+      "notation":"FSA 10/11b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Sampling",
+      "description":"National Reference Laboratories",
+      "published":true,
+      "owner":"John Cragg\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-11c",
+      "notation":"FSA 10/11c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Sampling",
+      "description":" List of official Feed and Food Control Laboratories",
+      "published":true,
+      "owner":"John Cragg\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-10-12a",
+      "notation":"FSA 10/12a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Product Specific Delivery - Eggs",
+      "description":"Egg Inspection Dataset",
+      "published":false,
+      "owner":"Mark Davis\nMichael Jackson (NI)\nKate Thompson (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-11-01a",
+      "notation":"FSA 11/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Audit Casework",
+      "description":"Internal audit outcome monitoring ",
+      "published":false,
+      "owner":"John Furley",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-11-01b",
+      "notation":"FSA 11/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Audit Casework",
+      "description":"list of completed internal audits",
+      "published":false,
+      "owner":"John Furley",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-11-01c",
+      "notation":"FSA 11/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Audit Casework",
+      "description":"forward plan of future internal audits",
+      "published":false,
+      "owner":"John Furley",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01a",
+      "notation":"FSA 12/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Information Management Enquiry Logs (1 per annum)",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01b",
+      "notation":"FSA 12/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Data Protection Privacy Impact Assessment log ",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01c",
+      "notation":"FSA 12/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Data Protection Breaches log",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01d",
+      "notation":"FSA 12/01d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Subject Access Requests log",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01e",
+      "notation":"FSA 12/01e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Information Management enquiry KPIs",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01f",
+      "notation":"FSA 12/01f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Wisdom (Records Management System) Master Configuration documents ",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01g",
+      "notation":"FSA 12/01g",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Wisdom (Records Management System) usage reports ",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01h",
+      "notation":"FSA 12/01h",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Data Sharing Register",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01i",
+      "notation":"FSA 12/01i",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Information Asset Register ",
+      "published":true,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-01j",
+      "notation":"FSA 12/01j",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Mailbox size reports",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-02a",
+      "notation":"FSA 12/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Historic Records Review",
+      "description":"List of records transferred to National Archives (one per annum plus subsidiary lists)",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-02b",
+      "notation":"FSA 12/02b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Historic Records Review",
+      "description":"Food Electronic Data System (FEDS) file and document databases with selections for retention",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-02c",
+      "notation":"FSA 12/02c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Historic Records Review",
+      "description":"Off-Site File Store Inventories (Iron Mountain and TNT)",
+      "published":false,
+      "owner":"Siân Thomas\nNI: Roberta Ferson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-03a",
+      "notation":"FSA 12/03a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"Freedom of Information and Environmental Information Regulations",
+      "description":"Freedom of Information and Environmental Information Regulations  Case Record",
+      "published":true,
+      "owner":"Noel Sykes",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-12-03b",
+      "notation":"FSA 12/03b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/chief-executive-and-directors",
+         "label":"Chief Executive & Directors"
+      },
+      "title":"Freedom of Information and Environmental Information Regulations",
+      "description":"Quarterly and annual FOI statistics ",
+      "published":true,
+      "owner":"Noel Sykes",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-01a",
+      "notation":"FSA 13/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounts Receivable",
+      "description":"Accounts Receivable - Cash Management Data",
+      "published":false,
+      "owner":"Richard Collier",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-01b",
+      "notation":"FSA 13/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounts Receivable",
+      "description":"Accounts Receivable - Customer Details",
+      "published":false,
+      "owner":"Richard Collier",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-01c",
+      "notation":"FSA 13/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounts Receivable",
+      "description":"Accounts Receivable - Debt Recovery Data",
+      "published":false,
+      "owner":"Richard Collier",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-01d",
+      "notation":"FSA 13/01d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounts Receivable",
+      "description":"Throughput Data for Charging",
+      "published":false,
+      "owner":"Richard Collier",
+      "notes":"DEFRA oublsih throughput species by week country level form data collected via FBO surveys"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-01e",
+      "notation":"FSA 13/01e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounts Receivable",
+      "description":"Timesheet Data of Field Operations Staff",
+      "published":false,
+      "owner":"Richard Collier",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-02a",
+      "notation":"FSA 13/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Payroll + Pensions",
+      "description":"Payroll/Expenses Archives",
+      "published":false,
+      "owner":"Matthew Walker",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-02b",
+      "notation":"FSA 13/02b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Payroll + Pensions",
+      "description":"Non-consolidated  performance management payments ",
+      "published":true,
+      "owner":"Matthew Walker",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-02c",
+      "notation":"FSA 13/02c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Payroll + Pensions",
+      "description":"FSA Pay scales",
+      "published":true,
+      "owner":"Matthew Walker",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-02d",
+      "notation":"FSA 13/02d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Payroll + Pensions",
+      "description":"Pension contribution archives",
+      "published":false,
+      "owner":"Matthew Walker",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-03a",
+      "notation":"FSA 13/03a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounts Payable",
+      "description":"Accounts payable - Contract payments",
+      "published":false,
+      "owner":"Matthew Walker",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-03b",
+      "notation":"FSA 13/03b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounts Payable",
+      "description":"Accounts Payable - Delegated Authority",
+      "published":false,
+      "owner":"Matthew Walker",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-03c",
+      "notation":"FSA 13/03c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounts Payable",
+      "description":"Accounts Payable - Supplier Banking Details",
+      "published":false,
+      "owner":"Matthew Walker",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04a",
+      "notation":"FSA 13/04a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Accounting Audit Reports",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04b",
+      "notation":"FSA 13/04b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Budget/Forecasts",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04c",
+      "notation":"FSA 13/04c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Chart of Accounts",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04d",
+      "notation":"FSA 13/04d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Journals",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04e",
+      "notation":"FSA 13/04e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Reconciliations",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04f",
+      "notation":"FSA 13/04f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Financial Reports",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04g",
+      "notation":"FSA 13/04g",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Fixed Asset Information",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04h",
+      "notation":"FSA 13/04h",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Historical Accounts",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04i",
+      "notation":"FSA 13/04i",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Whole of Government Accounts",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04j",
+      "notation":"FSA 13/04j",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Publication of all GPC transactions ",
+      "published":true,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04k",
+      "notation":"FSA 13/04k",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Publication of expenditure over £25k ",
+      "published":true,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04l",
+      "notation":"FSA 13/04l",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"FSA spending controls - approved exemptions ",
+      "published":true,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04m",
+      "notation":"FSA 13/04m",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Activity Based Costing model ",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04n",
+      "notation":"FSA 13/04n",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"Average Salary model",
+      "published":false,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-13-04o",
+      "notation":"FSA 13/04o",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Accounting",
+      "description":"FSA Science and Evidence Expenditure 2013/14 (also 2010-11 and 2011-12)",
+      "published":true,
+      "owner":"Martin Brewer",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-14-01a",
+      "notation":"FSA 14/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Staff Data",
+      "description":"Appraisal Markings",
+      "published":false,
+      "owner":"Matthew Walker",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-14-01b",
+      "notation":"FSA 14/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Staff Data",
+      "description":"Workforce management information ",
+      "published":true,
+      "owner":"Matthew Walker",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-14-02a",
+      "notation":"FSA 14/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/undefined",
+         "label":null
+      },
+      "title":"Health, Safety & Wellbeing",
+      "description":"Health and Safety Database",
+      "published":false,
+      "owner":"Martin Evans",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-14-04a",
+      "notation":"FSA 14/04a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/northern-ireland-and-organisational-development",
+         "label":"Northern Ireland & Organisational Development"
+      },
+      "title":"Organisational Development",
+      "description":"Training and Development Records",
+      "published":false,
+      "owner":"Maria Jennings",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-15-01a",
+      "notation":"FSA 15/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"IT Service Management",
+      "description":"IT Service Desk Records",
+      "published":false,
+      "owner":"Phillippa Tasseli",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-15-01b",
+      "notation":"FSA 15/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"IT Service Management",
+      "description":"Software Licensing Database",
+      "published":false,
+      "owner":"Phillippa Tasseli",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-15-02c",
+      "notation":"FSA 15/02c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"IT Infrastructure",
+      "description":"Active Directory  Account Audit Trails",
+      "published":false,
+      "owner":"Phillippa Tasseli",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-15-02d",
+      "notation":"FSA 15/02d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"IT Infrastructure",
+      "description":"IT Configuration Management DB",
+      "published":false,
+      "owner":"Phillippa Tasseli",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-15-02e",
+      "notation":"FSA 15/02e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"IT Infrastructure",
+      "description":"Firewall Reports",
+      "published":false,
+      "owner":"Phillippa Tasseli",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-15-02f",
+      "notation":"FSA 15/02f",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"IT Infrastructure",
+      "description":"IT System Source Code",
+      "published":false,
+      "owner":"Phillippa Tasseli",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-15-02g",
+      "notation":"FSA 15/02g",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"IT Infrastructure",
+      "description":"List of FSA IT Applications",
+      "published":false,
+      "owner":"Phillippa Tasseli",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-16-01a",
+      "notation":"FSA 16/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Legal Investigations",
+      "description":"Summary of Investigations",
+      "published":false,
+      "owner":"Gareth Williams",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-16-01b",
+      "notation":"FSA 16/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Legal Investigations",
+      "description":"Ongoing Enforcement Case Management",
+      "published":false,
+      "owner":"Gareth Williams",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-16-01c",
+      "notation":"FSA 16/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Legal Investigations",
+      "description":"Prosecutions Taken Spreadsheet",
+      "published":true,
+      "owner":"Gareth Williams",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-16-02d",
+      "notation":"FSA 16/02d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"Legal Advice Casework",
+      "description":"Legal Advice Case Tracking",
+      "published":false,
+      "owner":"Robert Madge",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-01a",
+      "notation":"FSA 17/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Press Office",
+      "description":"Quarterly Media Evaluation (from Gorkana)",
+      "published":false,
+      "owner":"Bradley Smythe",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-02a",
+      "notation":"FSA 17/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/wales-and-local-delivery",
+         "label":"Wales & Local Delivery"
+      },
+      "title":"Uned Laith Gymraeg",
+      "description":"Welsh Translations Database",
+      "published":false,
+      "owner":"Helen George",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-03a",
+      "notation":"FSA 17/03a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Internal Communications",
+      "description":"Dashboard information for usage of Yammer and Foodweb",
+      "published":false,
+      "owner":"Addeel Khan",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-04a",
+      "notation":"FSA 17/04a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Stakeholder Engagement Consumers",
+      "description":"Stakeholder Contact Details",
+      "published":false,
+      "owner":"Kate Todd",
+      "notes":"Due to merge to 1 stakeholder list"
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-04b",
+      "notation":"FSA 17/04b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Stakeholder Engagement Consumers",
+      "description":"Helpline Stats",
+      "published":false,
+      "owner":"Kate Todd",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-04c",
+      "notation":"FSA 17/04c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Stakeholder Engagement Consumers",
+      "description":"Helpline - Food Poisoning Table",
+      "published":false,
+      "owner":"Kate Todd",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-05a",
+      "notation":"FSA 17/05a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Digital Communications",
+      "description":"Website Metrics (Visitors, Cost, etc.) - whole site and campaign specific",
+      "published":true,
+      "owner":"Christina Hammond-Aziz",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-05b",
+      "notation":"FSA 17/05b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Digital Communications",
+      "description":"Report a Food Problem metrics - Completion rate, Cost per click, Cost per transaction, User Feedback ",
+      "published":false,
+      "owner":"Christina Hammond-Aziz",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-05c",
+      "notation":"FSA 17/05c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Digital Communications",
+      "description":"Social Media Analytics - Reach, Engagement, Activity, Sharing",
+      "published":false,
+      "owner":"Christina Hammond-Aziz",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-05d",
+      "notation":"FSA 17/05d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Digital Communications",
+      "description":"Subscribers to FSA Alerts  and metrics related to individual emails",
+      "published":false,
+      "owner":"Christina Hammond-Aziz",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-05e",
+      "notation":"FSA 17/05e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Digital Communications",
+      "description":"Food Hygiene Rating Scheme Analytics",
+      "published":false,
+      "owner":"Christina Hammond-Aziz",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-06a",
+      "notation":"FSA 17/06a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Marketing",
+      "description":"Consumer Research (includes Campaign Tracker and qualitative information)",
+      "published":false,
+      "owner":"Michelle Patel",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-06b",
+      "notation":"FSA 17/06b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Marketing",
+      "description":"Events (one project grid per event)",
+      "published":false,
+      "owner":"Michelle Patel",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-06c",
+      "notation":"FSA 17/06c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Marketing",
+      "description":"Biannual Public Attitudes Tracker",
+      "published":false,
+      "owner":"Michelle Patel",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-17-06d",
+      "notation":"FSA 17/06d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Marketing",
+      "description":"One-off consumer research projects (multiple sets)",
+      "published":false,
+      "owner":"Michelle Patel",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-18-01a",
+      "notation":"FSA 18/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Tendering",
+      "description":"Tender Exercise Dataset",
+      "published":true,
+      "owner":"Karen Benton",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-18-02b",
+      "notation":"FSA 18/02b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Contract Management",
+      "description":"Contract Management Dataset",
+      "published":true,
+      "owner":"Karen Benton",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-18-02c",
+      "notation":"FSA 18/02c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Contract Management",
+      "description":"Management Information data reports on travel",
+      "published":false,
+      "owner":"Karen Benton",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-19-01a",
+      "notation":"FSA 19/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Estates Management",
+      "description":"Estates Key Performance Metrics",
+      "published":false,
+      "owner":"Louis Loizou\nRoberta Ferson (NI)\nHelen George (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-19-02a",
+      "notation":"FSA 19/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Sustainability",
+      "description":"Sustainability Commitment Data in annual report",
+      "published":false,
+      "owner":"Karen Benton\nRoberta Ferson (NI)\nHelen George (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-19-02b",
+      "notation":"FSA 19/02b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Sustainability",
+      "description":"Greening Government  Returns",
+      "published":false,
+      "owner":"Karen Benton\nRoberta Ferson (NI)\nHelen George (Wales)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-21-01a",
+      "notation":"FSA 21/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"EU/3rd Country Liaison",
+      "description":"Includes lists of Food Legislation 1970-present",
+      "published":false,
+      "owner":"Rose MacFarlane",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-21-01b",
+      "notation":"FSA 21/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/regulatory-and-legal-strategy",
+         "label":"Regulatory & Legal Strategy"
+      },
+      "title":"EU/3rd Country Liaison",
+      "description":"Prioritisation of countries for engagement",
+      "published":false,
+      "owner":"Rose MacFarlane",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-22-01a",
+      "notation":"FSA 22/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Portfolio",
+      "description":"Portfolio Board Documentation",
+      "published":false,
+      "owner":"John Thursfield",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-22-01b",
+      "notation":"FSA 22/01b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Portfolio",
+      "description":"Regulating our Future Programme Documentation",
+      "published":false,
+      "owner":"John Thursfield",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-22-01c",
+      "notation":"FSA 22/01c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Portfolio",
+      "description":"Our Ways of Working Programme Documentation",
+      "published":false,
+      "owner":"John Thursfield",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-22-01d",
+      "notation":"FSA 22/01d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Portfolio",
+      "description":"Science, Evidence and Information Programme Documentation",
+      "published":false,
+      "owner":"John Thursfield",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-22-01e",
+      "notation":"FSA 22/01e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/finance-and-performance",
+         "label":"Finance & Performance"
+      },
+      "title":"Portfolio",
+      "description":"Campylobacter Programme Documentation",
+      "published":false,
+      "owner":"John Thursfield",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-23-01a",
+      "notation":"FSA 23/01a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Personnel Security",
+      "description":"Personnel Security Clearance Information",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-23-02a",
+      "notation":"FSA 23/02a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Physical Security",
+      "description":"Building Access Information",
+      "published":false,
+      "owner":"Siân Thomas\nRoberta Ferson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-23-02b",
+      "notation":"FSA 23/02b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Physical Security",
+      "description":"Civil Service Pass Maker records (London office only)",
+      "published":false,
+      "owner":"Siân Thomas\nRoberta Ferson (NI)",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-23-03a",
+      "notation":"FSA 23/03a",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Security, IT Security",
+      "description":"IT Server Room Access records",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-23-03b",
+      "notation":"FSA 23/03b",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Security, IT Security",
+      "description":"IT Penetration Testing Results",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-23-03c",
+      "notation":"FSA 23/03c",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Security, IT Security",
+      "description":"security incidents log",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-23-03d",
+      "notation":"FSA 23/03d",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Security, IT Security",
+      "description":"performance metrics dashboard from IT supplier",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa-23-03e",
+      "notation":"FSA 23/03e",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Security, IT Security",
+      "description":"compliance audit outcome tables",
+      "published":false,
+      "owner":"Siân Thomas",
+      "notes":null
+   },
+   {
+      "dataset":"http://data.food.gov.uk/dataset/fsa12-01k",
+      "notation":"FSA12/01k",
+      "directorate":{
+         "_about":"http://data.food.gov.uk/direcotorate/openness-digital-and-data",
+         "label":"Openness, Digital & Data"
+      },
+      "title":"Information Assurance Framework",
+      "description":"Data Catalogue",
+      "published":true,
+      "owner":"Sian Thomas",
+      "notes":null
+   }
+]
