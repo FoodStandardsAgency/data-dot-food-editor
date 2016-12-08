@@ -2,13 +2,36 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueRouter from 'vue-router'
 import App from './App'
+import DatasetDetails from './Dataset-Details'
+import DatasetList from './Dataset-List'
+
+// TODO - clean up global jQuery!
+import $ from 'jquery'
+window.$ = $
+
+Vue.use(VueRouter)
+Vue.use(Vuex)
+
+const router = new VueRouter({
+  mode: 'history',
+  base: __dirname,
+  routes: [
+    { path: '/', component: DatasetList },
+    { path: '/dataset/:id', component: DatasetDetails }// ,
+    // { path: '/bar', component: Bar }
+  ]
+})
 
 /* eslint-disable no-new */
 new Vue({
+  router,
   el: '#app',
-  template: '<App/>',
-  components: { App }
+  template: `
+    <div id="app">
+      <app></app>
+    </div>
+    `,
+  components: {App}
 })
-
-Vue.use(Vuex)

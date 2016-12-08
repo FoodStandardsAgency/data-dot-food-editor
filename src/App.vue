@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <Dataset-Details></Dataset-Details>
+  <div>
+    <cairnNav></cairnNav>
+    <router-view class="view"></router-view>
+    <cairnFooter></cairnFooter>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-import Details from './Dataset-Details'
-
-export default {
-  name: 'app',
-  components: {
-    Hello,
-    'Dataset-Details': Details
+  import cairnNav from './components/Navigation'
+  import cairnFooter from './components/Footer'
+  export default {
+    name: 'app',
+    components: {
+      cairnNav,
+      cairnFooter
+    }
   }
-}
 </script>
 
 <style lang="scss">
-@import "assets/bootstrap-override";
-@import "assets/app";
-
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  @import "assets/bootstrap-override";
+  @import "assets/app";
+  #app {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 </style>
