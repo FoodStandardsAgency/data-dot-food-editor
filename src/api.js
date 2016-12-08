@@ -10,3 +10,10 @@ export function getPost (id, cb) {
     }
   }, 100)
 }
+
+export function getAll (cb) {
+  // fake an API request
+  setTimeout(() => {
+    cb(null, datasets)
+  }, 100)
+}
