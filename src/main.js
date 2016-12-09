@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 import App from './App'
 import DatasetDetails from './Dataset-Details'
 import DatasetList from './Dataset-List'
+var VueTables = require('vue-tables-2')
 
 // TODO - clean up global jQuery!
 import $ from 'jquery'
@@ -13,6 +14,7 @@ window.$ = $
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.use(VueTables.client, {}, false)
 
 const router = new VueRouter({
   mode: 'history',

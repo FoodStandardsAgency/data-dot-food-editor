@@ -19,9 +19,9 @@
 <script>
   import { getAll } from './api'
   import $ from 'jquery'
+
   import 'datatables.net/js/jquery.dataTables.js'
   import 'datatables.net-bs/js/dataTables.bootstrap.js'
-  import CATALOGUE from './od-report-october-assets.json'
 
   /* Simple mockup of dataset editor list view */
 
@@ -32,46 +32,46 @@
     }
 
     var initialiseDatatable = function () {
-      $('#dataset-catalogue').DataTable({
-        data: CATALOGUE,
-        columns: [
-          {
-            data: 'published',
-            title: 'published?',
-            render: function (data, type, row) {
-              return data ? 'Y' : 'N'
-            }
-          },
-          { data: 'notation', title: 'ID' },
-          { data: 'title', title: 'Title' },
-          { data: 'description', title: 'Description' }
-        ]
-      })
+      // $('#dataset-catalogue').DataTable({
+      //   data: CATALOGUE,
+      //   columns: [
+      //     {
+      //       data: 'published',
+      //       title: 'published?',
+      //       render: function (data, type, row) {
+      //         return data ? 'Y' : 'N'
+      //       }
+      //     },
+      //     { data: 'notation', title: 'ID' },
+      //     { data: 'title', title: 'Title' },
+      //     { data: 'description', title: 'Description' }
+      //   ]
+      // })
     }
 
     var initialiseEvents = function () {
-      $('table')
-        .on('click', 'tr', onRowClick)
-        .on('mouseenter', 'tr', function (e) {
-          if (isInTableBody(e.currentTarget)) {
-            $(e.currentTarget).css('background-color', '#bbbb99')
-          }
-        })
-        .on('mouseleave', 'tr', function (e) {
-          $(e.currentTarget).css('background-color', 'white')
-        })
+      // $('table')
+      //   .on('click', 'tr', onRowClick)
+      //   .on('mouseenter', 'tr', function (e) {
+      //     if (isInTableBody(e.currentTarget)) {
+      //       $(e.currentTarget).css('background-color', '#bbbb99')
+      //     }
+      //   })
+      //   .on('mouseleave', 'tr', function (e) {
+      //     $(e.currentTarget).css('background-color', 'white')
+      //   })
     }
 
-    var onRowClick = function (e) {
-      if (isInTableBody(e.currentTarget)) {
-        console.log(e.currentTarget)
-        window.location = '/dataset/' + e.currentTarget
-      }
-    }
-
-    var isInTableBody = function (elem) {
-      return $(elem).parents('tbody').length > 0
-    }
+    // var onRowClick = function (e) {
+    //   // if (isInTableBody(e.currentTarget)) {
+    //   //   console.log(e.currentTarget)
+    //   //   window.location = '/dataset/' + e.currentTarget
+    //   // }
+    // }
+    //
+    // var isInTableBody = function (elem) {
+    //   // return $(elem).parents('tbody').length > 0
+    // }
 
     return {
       init: init
@@ -83,21 +83,72 @@
   })
 
   export default {
-    components: {
+    props: ['tableData'],
+    data () {
+      return {
+        headers: [
+          { title: 'title' },
+          { title: 'description', class: 'some-special-class' }
+          // { title: 'Column Names' },
+          // { title: 'Here' }
+        ],
+        rows: [],
+        dtHandle: null
+      }
     },
-    created () {
+    watch: {
+      tableData (val, oldVal) {
+        let vm = this
+        // let rows = []
+        // You should _probably_ check that this is changed data... but we'll skip that for this example.
+        console.log(val)
+        if (!val) {
+          return
+        }
+        val.forEach(function (item) {
+          // Fish out the specific column data for each item in your data set and push it to the appropriate place.
+          // Basically we're just building a multi-dimensional array here. If the data is _already_ in the right format you could
+          // skip this loop...
+          let row = []
+
+          row.push(item.title)
+          row.push(item.description)
+          row.push(item.another_thing)
+          row.push(item.final_thing)
+
+          vm.rows.push(row)
+        })
+
+        // Here's the magic to keeping the DataTable in sync.
+        // It must be cleared, new rows added, then redrawn!
+        vm.dtHandle.clear()
+        vm.dtHandle.rows.add(vm.rows)
+        vm.dtHandle.draw()
+      }
+    },
+    ready: function () {
+    },
+    components: {},
+    created: function () {
+      console.log('Created event')
+      // Instantiate the datatable and store the reference to the instance in our dtHandle element.
+      this.dtHandle = $('#dataset-catalogue').DataTable({ // this.$el
+        // Specify whatever options you want, at a minimum these:
+        columns: this.headers,
+        data: this.rows
+      })
       this.fetchData()
     },
     methods: {
       fetchData () {
         this.error = this.post = null
         this.loading = true
-        getPost(this.$route.params.id, (err, dataset) => {
+        getAll((err, dataset) => {
           this.loading = false
           if (err) {
             this.error = err.toString()
           } else {
-            this.dataset = dataset
+            this.tableData = dataset
           }
         })
       }
