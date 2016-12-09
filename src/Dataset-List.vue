@@ -110,7 +110,7 @@
   @import "~datatables.net-bs/css/dataTables.bootstrap.css";
   @import "~bootstrap-tagsinput/dist/bootstrap-tagsinput.css";
 
-  .bootstrap-tagsinput{
+  .bootstrap-tagsinput {
     width:100%;
     /* Copied from input-lg in BS */
     height: 46px;
