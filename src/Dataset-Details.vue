@@ -4,8 +4,8 @@
       <div class="container">
         <form>
           <div class="pull-right">
-            <a href="dataset-editor-list.html" class="btn btn-danger">Cancel</a>
-            <a href="dataset-editor-list.html" class="btn btn-success">Save</a>
+            <a @click="cancel" class="btn btn-danger">Cancel</a>
+            <a @click="save" class="btn btn-success">Save</a>
           </div>
           <div class="form-group" style="clear:right;">
             <label for="title">Title</label>
@@ -29,67 +29,20 @@
             </select>
           </div>
           <div class="form-group assets-group">
-            <button type="button" class="btn btn-success pull-right" aria-label="Add" data-toggle="modal" data-target="#myModal">
+            <a @click="addElement" class="btn btn-success pull-right" aria-label="Add">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            </button>
+            </a>
+
             <label for="assets">Elements</label>
-            <div class="asset-table" style="clear:right; height:200px;overflow:scroll;border: 1px solid #ddd">
-              <table id="assets" class="display" cellspacing="0" width="100%">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Format</th>
-                    <th>URL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a data-toggle="modal" data-target="#myModal">FSA Board and directors registered gifts and hospitality 2012-2013</a></td>
-                    <td>FSA Board and directors registered gifts and hospitality 2012-2013</td>
-                    <td>CSV</td>
-                    <td>http://www.food.gov.uk/sites/default/files/csv/fsa-board-directors-gifts-hosp-2014-15q1.csv</td>
-                  </tr>
-                  <tr>
-                    <td><a data-toggle="modal" data-target="#myModal">FSA Board and directors registered gifts and hospitality 2013-14 Quarter 1</a></td>
-                    <td>FSA Board and directors registered gifts and hospitality 2013-14 Quarter 1</td>
-                    <td>CSV</td>
-                    <td>http://www.food.gov.uk/sites/default/files/csv/fsa-board-directors-gifts-hosp-2014-15q1.csv</td>
-                  </tr>
-                  <tr>
-                    <td><a data-toggle="modal" data-target="#myModal">FSA Board and directors registered gifts and hospitality 2013-14 Quarter 2</a></td>
-                    <td>FSA Board and directors registered gifts and hospitality 2013-14 Quarter 2 </td>
-                    <td>CSV</td>
-                    <td>http://www.food.gov.uk/sites/default/files/csv/fsa-board-directors-gifts-hosp-2014-15q1.csv</td>
-                  </tr>
-                  <tr>
-                    <td><a data-toggle="modal" data-target="#myModal">FSA Board and directors registered gifts and hospitality 2013-14 Quarter 3</a></td>
-                    <td>FSA Board and directors registered gifts and hospitality 2013-14 Quarter 3 </td>
-                    <td>CSV</td>
-                    <td>http://www.food.gov.uk/sites/default/files/csv/fsa-board-directors-gifts-hosp-2014-15q1.csv</td>
-                  </tr>
-                  <tr>
-                    <td><a data-toggle="modal" data-target="#myModal">FSA Board and directors registered gifts and hospitality 2013-14 Quarter 4</a></td>
-                    <td>FSA Board and directors registered gifts and hospitality 2013-14 Quarter 4</td>
-                    <td>CSV</td>
-                    <td>http://www.food.gov.uk/sites/default/files/csv/fsa-board-directors-gifts-hosp-2014-15q1.csv</td>
-                  </tr>
-                  <tr>
-                    <td><a data-toggle="modal" data-target="#myModal">FSA Board and directors registered gifts and hospitality 2014-15 Quarter 1</a></td>
-                    <td>FSA Board and directors registered gifts and hospitality 2014-15 Quarter 1 </td>
-                    <td>CSV</td>
-                    <td>http://www.food.gov.uk/sites/default/files/csv/fsa-board-directors-gifts-hosp-2014-15q1.csv</td>
-                  </tr>
-                  <tr>
-                    <td><a data-toggle="modal" data-target="#myModal">FSA Board and directors registered gifts and hospitality 2014-15 Quarter 2</a></td>
-                    <td>FSA Board and directors registered gifts and hospitality 2014-15 Quarter 2</td>
-                    <td>CSV</td>
-                    <td>http://www.food.gov.uk/sites/default/files/csv/fsa-board-directors-gifts-hosp-2014-15q2.csv</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="asset-table" style="clear:right; max-height:250px;overflow:scroll;border: 1px solid #ddd;">
+              <grid
+                :data="dataset.elements"
+                :columns="headers"
+                :clickEv="openElement"
+                :filter-key="searchQuery">
+              </grid>
             </div>
-            <span class="daterange">Spans April 2012 - April 2015</span>
+            <span class="daterange">{{firstDate | moment('MMMM Do YYYY') }} - {{lastDate | moment('MMMM Do YYYY') }}</span>
           </div>
           <div class="form-group">
             <label for="exampleInputFile">Domain</label>
@@ -116,7 +69,10 @@
         <form>
           <div class="form-group">
             <label for="tags">Tags</label>
-            <input type="text" v-model="dataset.tags" id="tags" />
+            <tags-input
+              :tags="dataset.tags"
+              @tags-change="handleTagsChange"></tags-input>
+            {{dataset.tags}}
           </div>
           <div class="form-group">
             <label for="owner">Owner</label>
@@ -128,6 +84,7 @@
           </div>
         </form>
       </div>
+      <modal :element="selectedElement" :delFunction="deleteElement"></modal>
     </div>
     <div id="details" v-else>
       Sorry, we can't find that dataset
@@ -136,12 +93,12 @@
 </template>
 
 <script>
-  /* global $ confirm */
+  /* global confirm */
   import { getPost } from './api'
   import 'bootstrap'
-  import 'bootstrap-tagsinput'
-  import 'datatables.net/js/jquery.dataTables.js'
-  import 'datatables.net-bs/js/dataTables.bootstrap.js'
+  import Element from 'components/Element'
+  import $ from 'jquery'
+  import tagsinput from 'vue-tagsinput'
 
   // import Bloodhound from 'bloodhound'
 // <!-- ''
@@ -222,11 +179,56 @@
     data () {
       return {
         loading: false,
-        dataset: null,
-        error: null
+        dataset: {
+          elements: [],
+          tags: ['one']
+        },
+        error: null,
+        headers: [
+          'title',
+          'description',
+          'fromDate',
+          'toDate'
+        ],
+        searchQuery: '',
+        selectedElement: {}
       }
     },
     methods: {
+      handleTagsChange (index, text) {
+        if (text) {
+          this.dataset.tags.splice(index, 0, text)
+        } else {
+          this.dataset.tags.splice(index, 1)
+        }
+      },
+      deleteElement (el) {
+        this.dataset.elements.splice(this.dataset.elements.indexOf(el), 1)
+      },
+      cancel () {
+        if (confirm('Are you sure you want to cancel?')) {
+          this.$router.push({path: '/'})
+        }
+      },
+      save () {
+        console.error('TODO')
+        this.$router.push({path: '/'})
+      },
+      addElement () {
+        let newElement = {
+          title: '',
+          description: '',
+          fromDate: '',
+          toDate: ''
+        }
+        this.dataset.elements.push(newElement)
+        this.openElement(newElement) // Open editor
+      },
+      openElement (el) {
+        console.log(el)
+        this.selectedElement = el
+        $('#elementModal').modal('show')
+      },
       fetchData () {
         if (this.$route.params.id === 'new') {
           this.loading = false
@@ -246,16 +248,6 @@
         }
       },
       initComponents () {
-        console.log('Initing components')
-        $('#tags').tagsinput({
-          // typeaheadjs: {
-          //   name: 'users',
-          //   displayKey: 'label',
-          //   valueKey: 'label'// ,
-          //   // source: engine.ttAdapter()
-          // }
-        })
-
         $('#tags').on('beforeItemAdd', function (event) {
           event.item = event.item.toLowerCase()
           if (event.item === 'something') {
@@ -266,32 +258,49 @@
           // event.item: contains the item
           // event.cancel: set to true to prevent the item getting added
         })
-
-        $('#assets').DataTable({
-          'paging': false,
-          'ordering': true,
-          'info': false,
-          'searching': false
+      }
+    },
+    components: {
+      modal: Element,
+      'tags-input': tagsinput
+    },
+    computed: {
+      firstDate () {
+        let refDate = new Date()
+        this.dataset.elements.forEach(function (item) {
+          // console.log(item.fromDate, firstDate, item.fromDate > firstDate)
+          if (new Date(item.fromDate) < refDate) {
+            refDate = new Date(item.fromDate)
+          }
         })
+        return refDate
+      },
+      lastDate () {
+        let refDate = new Date('1970-1-1')
+        // console.log(item.toDate, lastDate, item.toDate < lastDate)
+        this.dataset.elements.forEach(function (item) {
+          if (new Date(item.toDate) > refDate) {
+            refDate = new Date(item.toDate)
+          }
+        })
+        return refDate
       }
     }
   }
 </script>
 
 <style lang='scss'>
-  @import "~datatables/media/css/jquery.dataTables.css";
-  @import "~datatables.net-bs/css/dataTables.bootstrap.css";
-  @import "~bootstrap-tagsinput/dist/bootstrap-tagsinput.css";
-
-  .bootstrap-tagsinput{
-    width:100%;
-    /* Copied from input-lg in BS */
-    height: 46px;
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.3333333;
-    border-radius: 6px;
-  }
+  // @import "~bootstrap-tagsinput/dist/bootstrap-tagsinput.css";
+  //
+  // .bootstrap-tagsinput{
+  //   width:100%;
+  //   /* Copied from input-lg in BS */
+  //   height: 46px;
+  //   padding: 10px 16px;
+  //   font-size: 18px;
+  //   line-height: 1.3333333;
+  //   border-radius: 6px;
+  // }
 
   .twitter-typeahead .tt-query,
   .twitter-typeahead .tt-hint {
