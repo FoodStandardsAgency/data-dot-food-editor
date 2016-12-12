@@ -228,16 +228,22 @@
     },
     methods: {
       fetchData () {
-        this.error = this.post = null
-        this.loading = true
-        getPost(this.$route.params.id, (err, dataset) => {
+        if (this.$route.params.id === 'new') {
           this.loading = false
-          if (err) {
-            this.error = err.toString()
-          } else {
-            this.dataset = dataset
-          }
-        })
+          this.dataset = {} // Empty dataset object
+        } else {
+          let cleanedId = decodeURIComponent(this.$route.params.id)
+          this.error = null
+          this.loading = true
+          getPost(cleanedId, (err, dataset) => {
+            this.loading = false
+            if (err) {
+              this.error = err.toString()
+            } else {
+              this.dataset = dataset
+            }
+          })
+        }
       },
       initComponents () {
         console.log('Initing components')
