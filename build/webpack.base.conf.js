@@ -70,16 +70,6 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.jsx$/,
-        loader: 'babel',
-        // include: projectRoot,
-        exclude: /node_modules(?!\/(vue-tables-2|vue-pagination-2))/
-        // query: {
-        //   plugins: ["transform-vue-jsx"],
-        //   presets: ["es2015"]
-        // }
-      },
-      {
         test: /\.json$/,
         loader: 'json'
       },
