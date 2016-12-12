@@ -6,7 +6,7 @@ import VueRouter from 'vue-router'
 import App from './App'
 import DatasetDetails from './Dataset-Details'
 import DatasetList from './Dataset-List'
-var VueTables = require('vue-tables-2')
+import Grid from './components/Grid.vue'
 
 // TODO - clean up global jQuery!
 import $ from 'jquery'
@@ -14,14 +14,16 @@ window.$ = $
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
-Vue.use(VueTables.client, {}, false)
+Vue.use(require('vue-moment'))
+
+Vue.component('grid', Grid)
 
 const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: DatasetList },
-    { path: '/dataset/:id', component: DatasetDetails }// ,
+    { path: '/', component: DatasetList, name: 'list' },
+    { path: '/dataset/:id', component: DatasetDetails, name: 'dataset' }// ,
     // { path: '/bar', component: Bar }
   ]
 })
