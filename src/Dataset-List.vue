@@ -3,7 +3,9 @@
   <div class="container">
     <h1>FSA open data catalogue</h1>
     <div class="pull-right">
-      <router-link to="/dataset/new" class="btn btn-lg btn-round" title="add dataset">+</router-link>
+      <router-link to="/dataset/new" class="btn btn-success" title="add dataset">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </router-link>
     </div>
     <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
 
