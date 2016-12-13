@@ -32,23 +32,6 @@ Allow editing of all attributes
               <option>Wales & Local Delivery</option>
             </select>
           </div>
-          <div class="form-group assets-group">
-            <a @click="addElement" class="btn btn-success pull-right" aria-label="Add">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            </a>
-
-            <label for="assets">Elements</label>
-            <div class="asset-table" style="clear:right; max-height:250px;overflow:scroll;border: 1px solid #ddd;">
-              <grid
-                :data="dataset.elements"
-                :columns="headers"
-                :click-ev="openElement"
-                :filter-key="searchQuery"
-                :custom-empty-table-text="'No elements'">
-              </grid>
-            </div>
-            <span class="daterange">{{firstDate | moment('MMMM Do YYYY') }} - {{lastDate | moment('MMMM Do YYYY') }}</span>
-          </div>
           <div class="form-group">
             <label for="exampleInputFile">Domain</label>
             <select class="form-control input-lg">
@@ -87,6 +70,23 @@ Allow editing of all attributes
             <textarea class="form-control input-lg" rows="2" v-model="dataset.notes"></textarea>
           </div>
         </form>
+        <div class="form-group assets-group">
+          <a @click="addElement" class="btn btn-success pull-right" aria-label="Add">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </a>
+
+          <label for="assets">Elements</label>
+          <div class="asset-table" style="clear:right; max-height:250px;overflow:scroll;border: 1px solid #ddd;">
+            <grid
+              :data="dataset.elements"
+              :columns="headers"
+              :click-ev="openElement"
+              :filter-key="searchQuery"
+              :custom-empty-table-text="'No elements'">
+            </grid>
+          </div>
+          <span class="daterange">{{firstDate | moment('MMMM Do YYYY') }} - {{lastDate | moment('MMMM Do YYYY') }}</span>
+        </div>
       </div>
       <modal :element="selectedElement" :delFunction="deleteElement"></modal>
     </div>
