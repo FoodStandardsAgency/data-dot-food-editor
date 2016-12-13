@@ -266,6 +266,9 @@
     },
     computed: {
       firstDate () {
+        if (!this.dataset.elements || !this.dataset.elements.length) {
+          return '∞'
+        }
         let refDate = new Date()
         this.dataset.elements.forEach(function (item) {
           // console.log(item.fromDate, firstDate, item.fromDate > firstDate)
@@ -276,6 +279,9 @@
         return refDate
       },
       lastDate () {
+        if (!this.dataset.elements || !this.dataset.elements.length) {
+          return '∞'
+        }
         let refDate = new Date('1970-1-1')
         // console.log(item.toDate, lastDate, item.toDate < lastDate)
         this.dataset.elements.forEach(function (item) {
