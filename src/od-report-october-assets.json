@@ -46,7 +46,8 @@
       "description":"FSA Board and Directors expenses",
       "published":true,
       "owner":"Noel Sykes",
-      "notes":null
+      "notes":null,
+      "tags": ["One", "Two", "Three", "Four", "Five"]
    },
    {
       "dataset":"http://data.food.gov.uk/dataset/fsa-01-05a",
