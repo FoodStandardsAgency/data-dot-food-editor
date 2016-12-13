@@ -8,10 +8,10 @@
       </router-link>
     </div>
     <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
+    <search :searchEvent="searchListener"></search>
 
     <div class="row">
       <div class="col-sm-12" id="wrapper">
-        <input type="text" v-model="searchQuery"/>
         <grid
           :data="tableData"
           :columns="headers"
@@ -99,6 +99,9 @@
             this.tableData = dataset
           }
         })
+      },
+      searchListener: function (val) {
+        this.searchQuery = val
       }
     }
   }

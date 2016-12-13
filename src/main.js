@@ -7,6 +7,7 @@ import App from './App'
 import DatasetDetails from './Dataset-Details'
 import DatasetList from './Dataset-List'
 import Grid from './components/Grid.vue'
+import Search from './components/Search.vue'
 
 // TODO - clean up global jQuery!
 import $ from 'jquery'
@@ -17,6 +18,7 @@ Vue.use(Vuex)
 Vue.use(require('vue-moment'))
 
 Vue.component('grid', Grid)
+Vue.component('search', Search)
 
 const router = new VueRouter({
   mode: 'history',
