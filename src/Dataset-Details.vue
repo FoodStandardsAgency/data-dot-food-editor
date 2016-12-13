@@ -73,7 +73,6 @@
             <tags-input
               :tags="dataset.tags"
               @tags-change="handleTagsChange"></tags-input>
-            {{dataset.tags}}
           </div>
           <div class="form-group">
             <label for="owner">Owner</label>
@@ -197,6 +196,9 @@
     },
     methods: {
       handleTagsChange (index, text) {
+        if (!this.dataset.tags) {
+          this.dataset.tags = []
+        }
         if (text) {
           this.dataset.tags.splice(index, 0, text)
         } else {
@@ -297,6 +299,18 @@
 </script>
 
 <style lang='scss'>
+  .tags-input .tag, .tags-input .gap  {
+    font-size: 18px!important;
+    line-height: 1.33333!important;
+  }
+
+  .tags-input{
+    border-radius: 6px;
+  }
+
+  .tags-input input.input{
+    font-family: inherit!important;
+  }
   // @import "~bootstrap-tagsinput/dist/bootstrap-tagsinput.css";
   //
   // .bootstrap-tagsinput{
