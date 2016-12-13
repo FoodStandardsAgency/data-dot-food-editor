@@ -1,3 +1,7 @@
+<!--
+Custom search component
+Renders a search box and uses callback for input update events
+-->
 <template>
   <div class="custom-search-input">
     <div class="input-group col-md-12">

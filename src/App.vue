@@ -1,3 +1,8 @@
+<!--
+Base Vue instance
+Composite the Vue components together
+Apply any custom site-wide styles
+-->
 <template>
   <div>
     <cairnNav></cairnNav>

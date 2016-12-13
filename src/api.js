@@ -1,3 +1,6 @@
+/*
+  Development API endpoint for mocked server interaction
+*/
 import datasets from './od-report-october-assets.json'
 
 export function getPost (id, cb) {

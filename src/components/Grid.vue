@@ -1,3 +1,8 @@
+<!--
+Generic table view
+Has support for searching on all keys
+Also supports an empty text value
+-->
 <template>
   <table class="table table-striped table-bordered table-hover">
     <thead>
@@ -28,13 +33,12 @@
 
 <script>
   export default {
-//    template: '#grid-template',
     props: {
-      data: Array,
-      columns: Array,
-      filterKey: String,
-      clickEv: Function,
-      customEmptyTableText: ''
+      data: Array, // Unfiltered table data
+      columns: Array, // List of columns ['title', 'description']
+      filterKey: String, // String to filter on ''
+      clickEv: Function, // Callback event for row clicking events
+      customEmptyTableText: '' // optional text override for empty table
     },
     data: function () {
       var sortOrders = {}
@@ -107,15 +111,7 @@
     background-color: #42b983;
     color: rgba(255,255,255,0.66);
     cursor: pointer;
-    /*-webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;*/
   }
-
-  /*td {
-    background-color: #f9f9f9;
-  }*/
 
   th, td {
     min-width: 120px;

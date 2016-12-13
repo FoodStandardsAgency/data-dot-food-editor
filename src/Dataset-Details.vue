@@ -1,3 +1,7 @@
+<!--
+Details view for a dataset
+Allow editing of all attributes
+-->
 <template>
   <main>
     <div id="details" v-if="dataset" :key="dataset.id">
@@ -311,17 +315,6 @@
   .tags-input input.input{
     font-family: inherit!important;
   }
-  // @import "~bootstrap-tagsinput/dist/bootstrap-tagsinput.css";
-  //
-  // .bootstrap-tagsinput{
-  //   width:100%;
-  //   /* Copied from input-lg in BS */
-  //   height: 46px;
-  //   padding: 10px 16px;
-  //   font-size: 18px;
-  //   line-height: 1.3333333;
-  //   border-radius: 6px;
-  // }
 
   .twitter-typeahead .tt-query,
   .twitter-typeahead .tt-hint {

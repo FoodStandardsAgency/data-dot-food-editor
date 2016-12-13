@@ -1,3 +1,6 @@
+<!--
+Template footer
+-->
 <template>
   <footer>
     <div class="container">

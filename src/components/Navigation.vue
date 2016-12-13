@@ -1,3 +1,7 @@
+<!--
+Template Navigation
+Replace with any site-specific navigation elements and styling
+-->
 <template>
   <nav class="navbar navbar-default">
     <div class="container">

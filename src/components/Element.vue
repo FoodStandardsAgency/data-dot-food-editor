@@ -1,3 +1,8 @@
+<!--
+Elements are an attribute of Datasets
+They hold details of a specific item inside a dataset with a start and end date
+Displayed as a modal
+-->
 <template>
   <div class="modal fade" id="elementModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -56,7 +61,7 @@
           <a class="btn btn-danger" @click="del">Delete</a>
         </div>
       </div>
-      
+
     </div>
   </div>
 </template>
@@ -66,8 +71,8 @@
 
   export default {
     props: {
-      element: Object,
-      delFunction: Function
+      element: Object, // Object literal of Element
+      delFunction: Function // Callback function for delete action
     },
     data () {
       return {
