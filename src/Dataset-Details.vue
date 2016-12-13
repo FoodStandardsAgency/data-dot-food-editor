@@ -38,8 +38,9 @@
               <grid
                 :data="dataset.elements"
                 :columns="headers"
-                :clickEv="openElement"
-                :filter-key="searchQuery">
+                :click-ev="openElement"
+                :filter-key="searchQuery"
+                :custom-empty-table-text="'No elements'">
               </grid>
             </div>
             <span class="daterange">{{firstDate | moment('MMMM Do YYYY') }} - {{lastDate | moment('MMMM Do YYYY') }}</span>

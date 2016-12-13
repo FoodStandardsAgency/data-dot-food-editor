@@ -17,6 +17,11 @@
           {{entry[key]}}
         </td>
       </tr>
+      <tr v-if="!data || !data.length">
+        <td :colspan="columns.length" class="noData">
+          {{emptyTableText}}
+        </td>
+      </tr>
     </tbody>
   </table>
 </template>
@@ -28,7 +33,8 @@
       data: Array,
       columns: Array,
       filterKey: String,
-      clickEv: Function
+      clickEv: Function,
+      customEmptyTableText: ''
     },
     data: function () {
       var sortOrders = {}
@@ -41,6 +47,13 @@
       }
     },
     computed: {
+      emptyTableText: function () {
+        if (this.customEmptyTableText) {
+          return this.customEmptyTableText
+        } else {
+          return 'No data to show'
+        }
+      },
       filteredData: function () {
         var sortKey = this.sortKey
         var filterKey = this.filterKey && this.filterKey.toLowerCase()
@@ -83,6 +96,9 @@
 </script>
 
 <style>
+  .noData{
+    text-align: center;
+  }
   .clickable {
     cursor: pointer;
   }
