@@ -8,7 +8,7 @@ Allow editing of all attributes
       <div class="container">
         <form>
           <div class="pull-right">
-            <a @click="cancel" class="btn btn-danger">Cancel</a>
+            <router-link to="/" class="btn btn-danger">Cancel</router-link>
             <a @click="save" class="btn btn-success">Save</a>
           </div>
           <div class="form-group" style="clear:right;">
@@ -179,7 +179,25 @@ Allow editing of all attributes
       this.initComponents()
     },
     watch: {
-      '$route': 'fetchData'
+      '$route': 'fetchData',
+      'dataset': {
+        deep: true,
+        handler: function (val, oldVal) {
+          if (val.notation === oldVal.notation) {
+            console.log(val, oldVal)
+            this.unsavedChanges = true
+          }
+        }
+      }
+    },
+    beforeRouteLeave (to, from, next) {
+      if (this.unsavedChanges) {
+        if (confirm('Are you sure you want to cancel?')) {
+          next()
+        }
+      } else {
+        next()
+      }
     },
     data () {
       return {
@@ -189,6 +207,7 @@ Allow editing of all attributes
           tags: ['one']
         },
         error: null,
+        unsavedChanges: false,
         headers: [
           'title',
           'description',
@@ -212,11 +231,6 @@ Allow editing of all attributes
       },
       deleteElement (el) {
         this.dataset.elements.splice(this.dataset.elements.indexOf(el), 1)
-      },
-      cancel () {
-        if (confirm('Are you sure you want to cancel?')) {
-          this.$router.push({path: '/'})
-        }
       },
       save () {
         console.error('TODO')
