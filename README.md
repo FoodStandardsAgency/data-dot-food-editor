@@ -1,6 +1,7 @@
 # dataset-browse
 
 > Dataset browser front-end
+Based on Vue.js
 
 ## Build Setup
 
@@ -23,5 +24,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
