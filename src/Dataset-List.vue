@@ -1,12 +1,12 @@
 <template>
   <main>
   <div class="container">
-    <h1>FSA open data catalogue</h1>
-    <div class="pull-right">
+    <div class="pull-right" style="margin-top:15px;">
       <router-link to="/dataset/new" class="btn btn-success" title="add dataset">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       </router-link>
     </div>
+    <h1>FSA open data catalogue</h1>
     <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
     <search :searchEvent="searchListener"></search>
 
@@ -107,11 +107,7 @@
   }
 </script>
 
-<style lang='scss'>
-  @import "~datatables/media/css/jquery.dataTables.css";
-  @import "~datatables.net-bs/css/dataTables.bootstrap.css";
-  @import "~bootstrap-tagsinput/dist/bootstrap-tagsinput.css";
-
+<style lang='scss' scoped>
   .bootstrap-tagsinput {
     width:100%;
     /* Copied from input-lg in BS */

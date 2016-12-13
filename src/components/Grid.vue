@@ -95,7 +95,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .noData{
     text-align: center;
   }

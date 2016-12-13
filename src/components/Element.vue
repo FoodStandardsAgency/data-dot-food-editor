@@ -2,6 +2,7 @@
   <div class="modal fade" id="elementModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
+
         <div class="modal-header">
           <div class="pull-right">
             <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
@@ -11,10 +12,6 @@
 
         <div class="modal-body">
           <form>
-            <!-- <div class="pull-right">
-              <button type="submit" class="btn btn-danger">Cancel</button>
-              <button type="submit" class="btn btn-success">Save</button>
-            </div> -->
             <div class="form-group" style="clear:left">
               <label for="title">Title</label>
               <input type="text" class="form-control" v-model="element.title" id="text">
@@ -59,6 +56,7 @@
           <a class="btn btn-danger" @click="del">Delete</a>
         </div>
       </div>
+      
     </div>
   </div>
 </template>
@@ -86,5 +84,5 @@
   }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 </style>
