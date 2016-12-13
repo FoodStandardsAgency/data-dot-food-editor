@@ -219,8 +219,8 @@
       },
       addElement () {
         let newElement = {
-          title: '',
-          description: '',
+          title: 'Example title',
+          description: 'Example description',
           fromDate: '',
           toDate: ''
         }
