@@ -43,7 +43,22 @@ Add new dataset
           { title: 'description', class: 'some-special-class' }
         ],
         headers: [
-          'published', 'notation', 'title', 'description'
+          {
+            title: 'published',
+            key: 'published',
+            render: function (val) {
+              return val ? 'yes' : 'no'
+            }
+          }, {
+            title: 'notation',
+            key: 'notation'
+          }, {
+            title: 'title',
+            key: 'title'
+          }, {
+            title: 'description',
+            key: 'description'
+          }
         ],
         searchQuery: '',
         rows: [],

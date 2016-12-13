@@ -10,7 +10,7 @@ Also supports an empty text value
         <th v-for="key in columns"
           @click="sortBy(key)"
           :class="{ act: sortKey == key }">
-          {{ key | capitalize }}
+          {{ key.title | capitalize }}
           <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
           </span>
         </th>
@@ -19,7 +19,12 @@ Also supports an empty text value
     <tbody>
       <tr v-for="entry in filteredData" @click="rowEvent(entry)" :class="{ clickable: !!clickEv }">
         <td v-for="key in columns">
-          {{entry[key]}}
+          <template v-if="key.render">
+            {{ key.render(entry[key.key]) }}
+          </template>
+          <template v-else>
+            {{entry[key.key] }}
+          </template>
         </td>
       </tr>
       <tr v-if="!data || !data.length">

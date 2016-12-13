@@ -209,10 +209,22 @@ Allow editing of all attributes
         error: null,
         unsavedChanges: false,
         headers: [
-          'title',
-          'description',
-          'fromDate',
-          'toDate'
+          {
+            title: 'title',
+            key: 'title'
+          },
+          {
+            title: 'description',
+            key: 'description'
+          },
+          {
+            title: 'fromDate',
+            key: 'fromDate'
+          },
+          {
+            title: 'toDate',
+            key: 'toDate'
+          }
         ],
         searchQuery: '',
         selectedElement: {}
