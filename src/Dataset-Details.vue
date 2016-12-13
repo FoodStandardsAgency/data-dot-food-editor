@@ -44,8 +44,9 @@ Allow editing of all attributes
         </form>
         <form class="form-inline">
           <div class="form-group form-group-lg">
+            <label>Publish</label>
             <label class="radio">
-              <label class="control-label col-sm-2" for="inlineRadio1">Publish</label>
+              <label class="control-label col-sm-2" for="inlineRadio1">Published</label>
               <input type="radio" name="inlineRadioOptions" id="inlineRadio1" class="input-lg" v-model="dataset.published" v-bind:value="true">
             </label>
             <label class="radio">
