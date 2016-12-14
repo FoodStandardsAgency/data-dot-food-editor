@@ -243,6 +243,7 @@ Allow editing of all attributes
       },
       save () {
         console.error('TODO')
+        this.unsavedChanges = false
         this.$router.push({path: '/'})
       },
       addElement () {
