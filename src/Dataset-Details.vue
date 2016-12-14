@@ -27,7 +27,7 @@ Allow editing of all attributes
               </option>
             </select>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="exampleInputFile">Domain</label>
             <select class="form-control input-lg">
               <option>Safety</option>
@@ -35,7 +35,7 @@ Allow editing of all attributes
               <option>Health</option>
               <option>Alerts</option>
             </select>
-          </div>
+          </div> -->
         </form>
         <form class="form-inline">
           <div class="form-group form-group-lg">
