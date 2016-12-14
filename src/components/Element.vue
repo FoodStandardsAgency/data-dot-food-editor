@@ -26,36 +26,34 @@ Displayed as a modal
               <textarea class="form-control" v-model="element.description" rows="3"></textarea>
             </div>
             <div class="form-group">
-              <label for="csv" class="col-sm-2 form-label">HTML</label>
+              <label for="access" class="col-sm-2 form-label">Format</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" v-model="element.html" id="html" placeholder="http://">
+                <select class="form-control input-lg" v-model="element.format">
+                  <option v-for="format in formats" v-bind:value="format">
+                    {{format}}
+                  </option>
+                </select>
               </div>
             </div>
             <div class="form-group">
-              <label for="csv" class="col-sm-2 form-label">JSON</label>
+              <label for="access" class="col-sm-2 form-label">Access URL</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" v-model="element.json" id="json" placeholder="http://">
+                <input type="text" class="form-control" v-model="element.accessURL" id="access" placeholder="http://">
               </div>
             </div>
             <div class="form-group">
-              <label for="csv" class="col-sm-2 form-label">XML</label>
+              <label for="download" class="col-sm-2 form-label">Download URL</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" v-model="element.xml" id="xml" placeholder="http://">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="csv" class="col-sm-2 form-label">CSV</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" v-model="element.csv" id="csv" placeholder="http://">
+                <input type="text" class="form-control" v-model="element.downloadURL" id="download" placeholder="http://">
               </div>
             </div>
             <div class="form-group">
               <label for="startdate">From Date</label>
-              <input type="date" class="form-control" v-model="element.fromDate" id="startdate" placeholder="startDate">
+              <input type="date" class="form-control" v-model="element.temporalStart" id="startdate" placeholder="startDate">
             </div>
             <div class="form-group">
               <label for="enddate">To Date</label>
-              <input type="date" class="form-control" v-model="element.toDate" id="enddate" placeholder="endDate">
+              <input type="date" class="form-control" v-model="element.temporalEnd" id="enddate" placeholder="endDate">
             </div>
           </form>
           <a class="btn btn-danger" @click="del">Delete</a>
@@ -77,7 +75,8 @@ Displayed as a modal
     data () {
       return {
         loading: false,
-        error: null
+        error: null,
+        formats: ['json', 'html', 'csv', 'xml', 'rdf']
       }
     },
     methods: {
