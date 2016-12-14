@@ -8,6 +8,7 @@ Allow editing of all attributes
       <div class="container">
         <form>
           <div class="pull-right">
+            <a @click="remove" class="btn btn-danger">Delete</a>
             <router-link to="/" class="btn btn-danger">Cancel</router-link>
             <a @click="save" class="btn btn-success">Save</a>
           </div>
@@ -27,15 +28,6 @@ Allow editing of all attributes
               </option>
             </select>
           </div>
-          <!-- <div class="form-group">
-            <label for="exampleInputFile">Domain</label>
-            <select class="form-control input-lg">
-              <option>Safety</option>
-              <option>Accountability</option>
-              <option>Health</option>
-              <option>Alerts</option>
-            </select>
-          </div> -->
         </form>
         <form class="form-inline">
           <div class="form-group form-group-lg">
@@ -52,9 +44,9 @@ Allow editing of all attributes
         </form>
         <form>
           <div class="form-group">
-            <label for="tags">Tags</label>
+            <label for="keyword">Keywords</label>
             <tags-input
-              :tags="dataset.tags"
+              :tags="dataset.keyword"
               @tags-change="handleTagsChange"></tags-input>
           </div>
           <div class="form-group">
@@ -74,7 +66,7 @@ Allow editing of all attributes
           <label for="assets">Elements</label>
           <div class="asset-table" style="clear:right; max-height:250px;overflow:scroll;border: 1px solid #ddd;">
             <grid
-              :data="dataset.elements"
+              :data="dataset.element"
               :columns="headers"
               :click-ev="openElement"
               :filter-key="searchQuery"
@@ -85,7 +77,9 @@ Allow editing of all attributes
         </div>
       </div>
       <modal :element="selectedElement" :delFunction="deleteElement"></modal>
+
     </div>
+
     <div id="details" v-else>
       Sorry, we can't find that dataset
     </div>
@@ -99,80 +93,10 @@ Allow editing of all attributes
   import Element from 'components/Element'
   import $ from 'jquery'
   import tagsinput from 'vue-tagsinput'
-  import directorates from './directorates.json'
-
-  // import Bloodhound from 'bloodhound'
-// <!-- ''
-// <!-- 'js/typeahead.js'
-// <!-- Include all compiled plugins (below), or include individual files as needed -->
-// <!--
-  //   var tags = [{
-  //     label: 'registered'
-  //   }, {
-  //     label: 'gifts'
-  //   }, {
-  //     label: 'hospitality'
-  //   }, {
-  //     label: 'alerts'
-  //   }, {
-  //     label: 'allergy'
-  //   }, {
-  //     label: 'alerts'
-  //   }, {
-  //     label: 'audits'
-  //   }, {
-  //     label: 'approved'
-  //   }, {
-  //     label: 'meat'
-  //   }, {
-  //     label: 'establishments'
-  //   }, {
-  //     label: 'Radiological'
-  //   }, {
-  //     label: 'Monitoring'
-  //   }, {
-  //     label: 'local'
-  //   }, {
-  //     label: 'authority'
-  //   }, {
-  //     label: 'food'
-  //   }, {
-  //     label: 'law'
-  //   }, {
-  //     label: 'enforcement'
-  //   }, {
-  //     label: 'hygiene'
-  //   }, {
-  //     label: 'transactions'
-  //   }, {
-  //     label: 'expenditure'
-  //   }, {
-  //     label: 'evidence'
-  //   }, {
-  //     label: 'science'
-  //   }, {
-  //     label: 'scheme'
-  //   }, {
-  //     label: 'food'
-  //   }, {
-  //     label: 'rating'
-  //   }, {
-  //     label: 'gpc'
-  //   }]
-    // var engine = new Bloodhound({
-    //   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
-    //   queryTokenizer: Bloodhound.tokenizers.whitespace,
-    //   local: tags,
-    //   identify: function (obj) { return obj.label }
-    // })
-    // engine.initialize()
 
   export default {
     created () {
       this.fetchData()
-    },
-    mounted () {
-      this.initComponents()
     },
     watch: {
       '$route': 'fetchData',
@@ -180,8 +104,10 @@ Allow editing of all attributes
         deep: true,
         handler: function (val, oldVal) {
           if (val.notation === oldVal.notation) {
-            console.log(val, oldVal)
             this.unsavedChanges = true
+          } else {
+            // Make copy of old Elements so we can diff them on save
+            this.element = JSON.parse(JSON.strigify(val.element))
           }
         }
       }
@@ -197,10 +123,11 @@ Allow editing of all attributes
     },
     data () {
       return {
+        element: [],
         loading: false,
         dataset: {
-          elements: [],
-          tags: ['one']
+          element: [],
+          keyword: ['']
         },
         error: null,
         unsavedChanges: false,
@@ -224,40 +151,41 @@ Allow editing of all attributes
         ],
         searchQuery: '',
         selectedElement: {},
-        directorates
+        directorates: []
       }
     },
     methods: {
       handleTagsChange (index, text) {
-        if (!this.dataset.tags) {
-          this.dataset.tags = []
+        if (!this.dataset.keyword) {
+          this.dataset.keyword = []
         }
         if (text) {
-          this.dataset.tags.splice(index, 0, text)
+          this.dataset.keyword.splice(index, 0, text)
         } else {
-          this.dataset.tags.splice(index, 1)
+          this.dataset.keyword.splice(index, 1)
         }
       },
       deleteElement (el) {
-        this.dataset.elements.splice(this.dataset.elements.indexOf(el), 1)
+        this.dataset.element.splice(this.dataset.element.indexOf(el), 1)
       },
       save () {
         console.error('TODO')
         this.unsavedChanges = false
         this.$router.push({path: '/'})
       },
-      addElement () {
-        let newElement = {
-          title: 'Example title',
-          description: 'Example description',
-          fromDate: '',
-          toDate: ''
+      remove () {
+        console.error('TODO')
+        if (confirm('Are you sure you want to delete this Dataset?')) {
+          this.unsavedChanges = false
+          this.$router.push({path: '/'})
         }
-        this.dataset.elements.push(newElement)
+      },
+      addElement () {
+        let newElement = require('./blank-element')
+        this.dataset.element.push(newElement)
         this.openElement(newElement) // Open editor
       },
       openElement (el) {
-        console.log(el)
         this.selectedElement = el
         $('#elementModal').modal('show')
       },
@@ -269,7 +197,7 @@ Allow editing of all attributes
           let cleanedId = decodeURIComponent(this.$route.params.id)
           this.error = null
           this.loading = true
-          getPost(cleanedId, (err, dataset) => {
+          getPost(this, cleanedId, (err, dataset) => {
             this.loading = false
             if (err) {
               this.error = err.toString()
@@ -278,18 +206,6 @@ Allow editing of all attributes
             }
           })
         }
-      },
-      initComponents () {
-        $('#tags').on('beforeItemAdd', function (event) {
-          event.item = event.item.toLowerCase()
-          if (event.item === 'something') {
-            if (!confirm('Are you sure you want to create a new tag?')) {
-              event.cancel = true
-            }
-          }
-          // event.item: contains the item
-          // event.cancel: set to true to prevent the item getting added
-        })
       }
     },
     components: {
@@ -298,12 +214,11 @@ Allow editing of all attributes
     },
     computed: {
       firstDate () {
-        if (!this.dataset.elements || !this.dataset.elements.length) {
+        if (!this.dataset.element || !this.dataset.element.length) {
           return '∞'
         }
         let refDate = new Date()
-        this.dataset.elements.forEach(function (item) {
-          // console.log(item.fromDate, firstDate, item.fromDate > firstDate)
+        this.dataset.element.forEach(function (item) {
           if (new Date(item.fromDate) < refDate) {
             refDate = new Date(item.fromDate)
           }
@@ -311,17 +226,16 @@ Allow editing of all attributes
         return refDate
       },
       lastDate () {
-        if (!this.dataset.elements || !this.dataset.elements.length) {
+        if (!this.dataset.element || !this.dataset.element.length) {
           return '∞'
         }
         let refDate = new Date('1970-1-1')
-        // console.log(item.toDate, lastDate, item.toDate < lastDate)
-        this.dataset.elements.forEach(function (item) {
-          if (new Date(item.toDate) > refDate) {
-            refDate = new Date(item.toDate)
+        this.dataset.element.forEach(function (item) { // Loop through to dates
+          if (new Date(item.toDate) > refDate) { // If larger
+            refDate = new Date(item.toDate) // Set as current largest
           }
         })
-        return refDate
+        return refDate // Return current largest
       }
     }
   }
