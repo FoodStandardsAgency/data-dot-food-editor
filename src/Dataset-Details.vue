@@ -76,25 +76,15 @@ Allow editing of all attributes
           </div>
         </form>
         <div class="form-group assets-group">
-          <a @click="addElement" class="btn btn-success pull-right" aria-label="Add">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          </a>
-
-          <label for="assets">Elements</label>
-          <div class="asset-table" style="clear:right; max-height:250px;overflow:scroll;border: 1px solid #ddd;">
-            <grid
-              :data="dataset.element"
-              :columns="headers"
-              :click-ev="openElement"
-              :filter-key="searchQuery"
-              :custom-empty-table-text="'No elements'">
-            </grid>
+          <p>
+            <label for="assets">Elements</label>
+          </p>
+          <span class="daterange">contains {{dataset.element.length}} element(s) from {{firstDate | moment('MMMM Do YYYY') }} - {{lastDate | moment('MMMM Do YYYY') }}</span>
+          <div>
+            <router-link :to="{ name: 'elements', params: { id: dataset['@id'] }}" class="btn btn-danger">Edit elements</router-link>
           </div>
-          <span class="daterange">{{firstDate | moment('MMMM Do YYYY') }} - {{lastDate | moment('MMMM Do YYYY') }}</span>
         </div>
       </div>
-      <modal :element="selectedElement" :delFunction="deleteElement"></modal>
-
     </div>
 
     <div id="details" v-else>
@@ -107,8 +97,6 @@ Allow editing of all attributes
   /* global confirm */
   import { getPost } from './api'
   import 'bootstrap'
-  import Element from 'components/Element'
-  import $ from 'jquery'
   import tagsinput from 'vue-tagsinput'
 
   export default {
@@ -122,9 +110,6 @@ Allow editing of all attributes
         handler: function (val, oldVal) {
           if (val.notation === oldVal.notation) {
             this.unsavedChanges = true
-          } else {
-            // Make copy of old Elements so we can diff them on save
-            this.element = JSON.parse(JSON.strigify(val.element))
           }
         }
       }
@@ -140,7 +125,6 @@ Allow editing of all attributes
     },
     data () {
       return {
-        element: [],
         loading: false,
         dataset: {
           element: [],
@@ -167,7 +151,6 @@ Allow editing of all attributes
           }
         ],
         searchQuery: '',
-        selectedElement: {},
         directorates: []
       }
     },
@@ -182,9 +165,6 @@ Allow editing of all attributes
           this.dataset.keyword.splice(index, 1)
         }
       },
-      deleteElement (el) {
-        this.dataset.element.splice(this.dataset.element.indexOf(el), 1)
-      },
       save () {
         console.error('TODO')
         this.unsavedChanges = false
@@ -196,15 +176,6 @@ Allow editing of all attributes
           this.unsavedChanges = false
           this.$router.push({path: '/'})
         }
-      },
-      addElement () {
-        let newElement = require('./blank-element')
-        this.dataset.element.push(newElement)
-        this.openElement(newElement) // Open editor
-      },
-      openElement (el) {
-        this.selectedElement = el
-        $('#elementModal').modal('show')
       },
       fetchData () {
         if (this.$route.params.id === 'new') {
@@ -226,7 +197,6 @@ Allow editing of all attributes
       }
     },
     components: {
-      modal: Element,
       'tags-input': tagsinput
     },
     computed: {

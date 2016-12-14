@@ -60,7 +60,7 @@ Add new dataset
         dtHandle: null,
         tableData: [],
         rowClick: function (ev) {
-          this.$router.push({name: 'dataset', params: { id: ev.notation }})
+          this.$router.push({name: 'dataset', params: { id: ev['@id'] }})
         }
       }
     },
@@ -71,7 +71,7 @@ Add new dataset
       fetchData () {
         this.error = this.post = null
         this.loading = true
-        getAll((err, dataset) => {
+        getAll(this, (err, dataset) => {
           this.loading = false
           if (err) {
             this.error = err.toString()

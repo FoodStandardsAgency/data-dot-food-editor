@@ -11,6 +11,7 @@ import App from './App' // Compositor
 import VueResource from 'vue-resource'
 
 import DatasetDetails from './Dataset-Details'
+import ElementList from './Element-List'
 import DatasetList from './Dataset-List'
 import Grid from './components/Grid.vue'
 import Search from './components/Search.vue'
@@ -31,7 +32,8 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     { path: '/', component: DatasetList, name: 'list' },
-    { path: '/dataset/:id', component: DatasetDetails, name: 'dataset' }
+    { path: '/dataset/:id', component: DatasetDetails, name: 'dataset' },
+    { path: '/dataset/:id/elements', component: ElementList, name: 'elements' }
   ]
 })
 
