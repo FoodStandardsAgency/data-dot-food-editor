@@ -21,15 +21,10 @@ Allow editing of all attributes
           </div>
           <div class="form-group">
             <label for="exampleInputFile">Directorate</label>
-            <select class="form-control input-lg">
-              <option>Chief Executive & Directors</option>
-              <option>Chief Operating Officer Group</option>
-              <option>Finance & Performance</option>
-              <option>Northern Ireland & Organisational Development</option>
-              <option>Openness, Digital & Data</option>
-              <option>Policy & Science</option>
-              <option>Regulatory & Legal Strategy</option>
-              <option>Wales & Local Delivery</option>
+            <select class="form-control input-lg" v-model="dataset.directorate">
+              <option v-for="directorate in directorates" v-bind:value="directorate">
+                {{directorate.label}}
+              </option>
             </select>
           </div>
           <div class="form-group">
@@ -104,6 +99,7 @@ Allow editing of all attributes
   import Element from 'components/Element'
   import $ from 'jquery'
   import tagsinput from 'vue-tagsinput'
+  import directorates from './directorates.json'
 
   // import Bloodhound from 'bloodhound'
 // <!-- ''
@@ -227,7 +223,8 @@ Allow editing of all attributes
           }
         ],
         searchQuery: '',
-        selectedElement: {}
+        selectedElement: {},
+        directorates
       }
     },
     methods: {
