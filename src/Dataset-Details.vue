@@ -79,7 +79,7 @@ Allow editing of all attributes
           <p>
             <label for="assets">Elements</label>
           </p>
-          <span class="daterange">contains {{dataset.element.length}} element(s) from {{firstDate | moment('MMMM Do YYYY') }} - {{lastDate | moment('MMMM Do YYYY') }}</span>
+          <date-range :dataset="dataset"></date-range>
           <div>
             <router-link :to="{ name: 'elements', params: { id: dataset['@id'] }}" class="btn btn-danger">Edit elements</router-link>
           </div>
@@ -98,6 +98,7 @@ Allow editing of all attributes
   import { getPost } from './api'
   import 'bootstrap'
   import tagsinput from 'vue-tagsinput'
+  import daterange from './components/Date-Range'
 
   export default {
     created () {
@@ -125,12 +126,10 @@ Allow editing of all attributes
     },
     data () {
       return {
-        loading: false,
         dataset: {
           element: [],
           keyword: ['']
         },
-        error: null,
         unsavedChanges: false,
         headers: [
           {
@@ -197,33 +196,8 @@ Allow editing of all attributes
       }
     },
     components: {
-      'tags-input': tagsinput
-    },
-    computed: {
-      firstDate () {
-        if (!this.dataset.element || !this.dataset.element.length) {
-          return '∞'
-        }
-        let refDate = new Date()
-        this.dataset.element.forEach(function (item) {
-          if (new Date(item.fromDate) < refDate) {
-            refDate = new Date(item.fromDate)
-          }
-        })
-        return refDate
-      },
-      lastDate () {
-        if (!this.dataset.element || !this.dataset.element.length) {
-          return '∞'
-        }
-        let refDate = new Date('1970-1-1')
-        this.dataset.element.forEach(function (item) { // Loop through to dates
-          if (new Date(item.toDate) > refDate) { // If larger
-            refDate = new Date(item.toDate) // Set as current largest
-          }
-        })
-        return refDate // Return current largest
-      }
+      'tags-input': tagsinput,
+      'date-range': daterange
     }
   }
 </script>

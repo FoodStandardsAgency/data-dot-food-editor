@@ -24,7 +24,7 @@ Allow editing of all attributes
               :custom-empty-table-text="'No elements'">
             </grid>
           </div>
-          <span class="daterange">{{firstDate | moment('MMMM Do YYYY') }} - {{lastDate | moment('MMMM Do YYYY') }}</span>
+          <date-range :dataset="dataset"></date-range>
         </div>
       </div>
       <modal :element="selectedElement" :delFunction="deleteElement"></modal>
@@ -43,6 +43,7 @@ Allow editing of all attributes
   import 'bootstrap'
   import Element from 'components/Element'
   import $ from 'jquery'
+  import daterange from 'components/Date-Range'
 
   export default {
     created () {
@@ -97,8 +98,7 @@ Allow editing of all attributes
           }
         ],
         searchQuery: '',
-        selectedElement: {},
-        directorates: []
+        selectedElement: {}
       }
     },
     methods: {
@@ -149,33 +149,8 @@ Allow editing of all attributes
       }
     },
     components: {
-      modal: Element
-    },
-    computed: {
-      firstDate () {
-        if (!this.dataset.element || !this.dataset.element.length) {
-          return '∞'
-        }
-        let refDate = new Date()
-        this.dataset.element.forEach(function (item) {
-          if (new Date(item.fromDate) < refDate) {
-            refDate = new Date(item.fromDate)
-          }
-        })
-        return refDate
-      },
-      lastDate () {
-        if (!this.dataset.element || !this.dataset.element.length) {
-          return '∞'
-        }
-        let refDate = new Date('1970-1-1')
-        this.dataset.element.forEach(function (item) { // Loop through to dates
-          if (new Date(item.toDate) > refDate) { // If larger
-            refDate = new Date(item.toDate) // Set as current largest
-          }
-        })
-        return refDate // Return current largest
-      }
+      modal: Element,
+      'date-range': daterange
     }
   }
 </script>
