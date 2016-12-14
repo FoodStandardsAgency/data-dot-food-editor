@@ -8,6 +8,7 @@ import Vue from 'vue'
 import Vuex from 'vuex' // State management
 import VueRouter from 'vue-router' // Router
 import App from './App' // Compositor
+import VueResource from 'vue-resource'
 
 import DatasetDetails from './Dataset-Details'
 import DatasetList from './Dataset-List'
@@ -18,6 +19,7 @@ import moment from 'vue-moment'
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(moment) // Vue moment.js date filter
+Vue.use(VueResource)
 
 // Register custom components as globally available
 Vue.component('grid', Grid)
