@@ -46,7 +46,7 @@ Add new dataset
             }
           }, {
             title: 'notation',
-            key: 'notation'
+            key: '@id'
           }, {
             title: 'title',
             key: 'title'

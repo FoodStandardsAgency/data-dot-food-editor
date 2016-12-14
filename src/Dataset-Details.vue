@@ -21,6 +21,23 @@ Allow editing of all attributes
             <textarea class="form-control" rows="4" v-model="dataset.description"></textarea>
           </div>
           <div class="form-group">
+            <label for="exampleInputPassword1">Publisher</label>
+            <input type="text" class="form-control input-lg" v-model="dataset.publisher"/>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Licence</label>
+            <input type="text" class="form-control input-lg" v-model="dataset.licence"/>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Frequency</label>
+            <input type="text" class="form-control input-lg" v-model="dataset.frequency"/>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Landing Page</label>
+            <input type="text" class="form-control input-lg" v-model="dataset.landingPage"/>
+          </div>
+
+          <div class="form-group">
             <label for="exampleInputFile">Directorate</label>
             <select class="form-control input-lg" v-model="dataset.directorate">
               <option v-for="directorate in directorates" v-bind:value="directorate">
