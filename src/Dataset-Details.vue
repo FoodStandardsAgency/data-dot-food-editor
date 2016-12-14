@@ -96,7 +96,6 @@ Allow editing of all attributes
 <script>
   /* global confirm */
   import { getPost } from './api'
-  import 'bootstrap'
   import tagsinput from 'vue-tagsinput'
   import daterange from './components/Date-Range'
 
@@ -178,16 +177,11 @@ Allow editing of all attributes
       },
       fetchData () {
         if (this.$route.params.id === 'new') {
-          this.loading = false
           this.dataset = {} // Empty dataset object
         } else {
           let cleanedId = decodeURIComponent(this.$route.params.id)
-          this.error = null
-          this.loading = true
           getPost(this, cleanedId, (err, dataset) => {
-            this.loading = false
             if (err) {
-              this.error = err.toString()
             } else {
               this.dataset = dataset
             }

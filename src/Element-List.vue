@@ -72,12 +72,10 @@ Allow editing of all attributes
     data () {
       return {
         elements: [],
-        loading: false,
         dataset: {
           element: [],
           keyword: ['']
         },
-        error: null,
         unsavedChanges: false,
         headers: [
           {
@@ -128,10 +126,7 @@ Allow editing of all attributes
       },
       fetchData () {
         let cleanedId = decodeURIComponent(this.$route.params.id)
-        this.error = null
-        this.loading = true
         getElements(this, cleanedId, (err, elements) => {
-          this.loading = false
           if (err) {
             this.error = err.toString()
           } else {
@@ -139,7 +134,6 @@ Allow editing of all attributes
           }
         })
         getPost(this, cleanedId, (err, dataset) => {
-          this.loading = false
           if (err) {
             this.error = err.toString()
           } else {
