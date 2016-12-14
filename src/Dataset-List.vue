@@ -37,11 +37,6 @@ Add new dataset
   export default {
     data () {
       return {
-        hdres: [
-          { title: 'published' },
-          { title: 'title' },
-          { title: 'description', class: 'some-special-class' }
-        ],
         headers: [
           {
             title: 'published',
