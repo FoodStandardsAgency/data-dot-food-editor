@@ -39,11 +39,10 @@ Allow editing of all attributes
 
 <script>
   /* global confirm */
-  import { getElements, getPost } from './api'
+  import { getElements, getDataset } from './api'
   import 'bootstrap'
   import Element from 'components/Element'
   import $ from 'jquery'
-  import daterange from 'components/Date-Range'
 
   export default {
     created () {
@@ -133,7 +132,7 @@ Allow editing of all attributes
             this.elements = elements
           }
         })
-        getPost(this, cleanedId, (err, dataset) => {
+        getDataset(this, cleanedId, (err, dataset) => {
           if (err) {
             this.error = err.toString()
           } else {
@@ -143,8 +142,7 @@ Allow editing of all attributes
       }
     },
     components: {
-      modal: Element,
-      'date-range': daterange
+      modal: Element
     }
   }
 </script>

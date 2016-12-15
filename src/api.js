@@ -2,7 +2,7 @@
   Development API endpoint for mocked server interaction
 */
 
-export function getPost (v, id, cb) {
+export function getDataset (v, id, cb) {
   var resource = v.$resource('/metadata-repository/catalogue/dataset{/id}')
 
   // during development strip id from url

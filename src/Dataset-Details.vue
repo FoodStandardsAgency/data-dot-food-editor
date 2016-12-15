@@ -95,9 +95,8 @@ Allow editing of all attributes
 
 <script>
   /* global confirm */
-  import { getPost } from './api'
+  import { getDataset } from './api'
   import tagsinput from 'vue-tagsinput'
-  import daterange from './components/Date-Range'
 
   export default {
     created () {
@@ -180,7 +179,7 @@ Allow editing of all attributes
           this.dataset = {} // Empty dataset object
         } else {
           let cleanedId = decodeURIComponent(this.$route.params.id)
-          getPost(this, cleanedId, (err, dataset) => {
+          getDataset(this, cleanedId, (err, dataset) => {
             if (err) {
             } else {
               this.dataset = dataset
@@ -190,8 +189,7 @@ Allow editing of all attributes
       }
     },
     components: {
-      'tags-input': tagsinput,
-      'date-range': daterange
+      'tags-input': tagsinput
     }
   }
 </script>
