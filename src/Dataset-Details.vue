@@ -59,6 +59,7 @@ Allow editing of all attributes
             </label>
           </div>
         </form>
+
         <form>
           <div class="form-group">
             <label for="keyword">Keywords</label>
@@ -75,6 +76,7 @@ Allow editing of all attributes
             <textarea class="form-control input-lg" rows="2" v-model="dataset.notes"></textarea>
           </div>
         </form>
+
         <div class="form-group assets-group">
           <p>
             <label for="assets">Elements</label>
@@ -89,6 +91,7 @@ Allow editing of all attributes
             </template>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -102,6 +105,7 @@ Allow editing of all attributes
   /* global confirm */
   import { getDataset, getDirectorates, getElement } from './api'
   import tagsinput from 'vue-tagsinput'
+  import blankDataset from './blank-dataset'
 
   export default {
     created () {
@@ -131,10 +135,8 @@ Allow editing of all attributes
     },
     data () {
       return {
-        dataset: {
-          element: [],
-          keyword: ['']
-        },
+        beforeLoad: true,
+        dataset: JSON.parse(JSON.stringify(blankDataset)),
         unsavedChanges: false,
         headers: [
           {
@@ -183,9 +185,7 @@ Allow editing of all attributes
         }
       },
       fetchData () {
-        if (this.$route.params.id === 'new') {
-          this.dataset = {} // Empty dataset object
-        } else {
+        if (this.$route.params.id !== 'new') {
           getDataset({id: this.$route.params.id}, (err, dataset) => {
             if (!err) {
               this.dataset = dataset
