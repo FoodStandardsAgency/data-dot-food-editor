@@ -39,10 +39,10 @@ Allow editing of all attributes
 
 <script>
   /* global confirm */
-  import { getElements, getDataset } from './api'
   import 'bootstrap'
   import Element from 'components/Element'
   import $ from 'jquery'
+  import { getElement, getDataset } from './api'
 
   export default {
     created () {
@@ -124,12 +124,12 @@ Allow editing of all attributes
         $('#elementModal').modal('show')
       },
       fetchData () {
-        getElements(this, this.$route.params.id, (err, elements) => {
+        getElement({id: this.$route.params.id}, (err, elements) => {
           if (err) {} else {
             this.elements = elements
           }
         })
-        getDataset(this, this.$route.params.id, (err, dataset) => {
+        getDataset({id: this.$route.params.id}, (err, dataset) => {
           if (err) {} else {
             this.dataset = dataset
           }

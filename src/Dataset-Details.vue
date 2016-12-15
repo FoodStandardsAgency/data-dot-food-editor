@@ -178,7 +178,7 @@ Allow editing of all attributes
         if (this.$route.params.id === 'new') {
           this.dataset = {} // Empty dataset object
         } else {
-          getDataset(this, this.$route.params.id, (err, dataset) => {
+          getDataset({id: this.$route.params.id}, (err, dataset) => {
             if (err) {
             } else {
               this.dataset = dataset

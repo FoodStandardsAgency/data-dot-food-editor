@@ -2,44 +2,37 @@
   Development API endpoint for mocked server interaction
 */
 
-export function getDataset (v, id, cb) {
-  var resource = v.$resource('/metadata-repository/catalogue/dataset{/id}')
-  resource.get({id: id}).then(function (d) {
+import Vue from 'vue'
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
+let dataset = Vue.resource('/metadata-repository/catalogue/dataset{/id}')
+let element = Vue.resource('/metadata-repository/catalogue/dataset{/id}/element')
+
+export function getDataset (query, cb) {
+  dataset.get(query).then(function (d) {
     d.json().then(function (resp) {
-      return cb(null, resp.item)
+      return cb(null, resp.item ? resp.item : resp.items)
     })
   }, function (e) {})
 }
 
-export function getElements (v, id, cb) {
-  var resource = v.$resource('/metadata-repository/catalogue/dataset{/id}/element')
-  // during development strip id from url
-  // TODO - use proper id
-  id = decodeURIComponent(id)
-  let cleanId = id.split('/').pop()
-  resource.get({id: cleanId}).then(function (d) {
+export function getElement (query, cb) {
+  element.get(query).then(function (d) {
     d.json().then(function (resp) {
-      return cb(null, resp.items)
+      return cb(null, resp.item ? resp.item : resp.items)
     })
   }, function (e) {})
 }
 
 export function getDirectorates (v, id, cb) {
-  v.$http.get('/static/api/datasets.json', {}).then(function (d) {
+  v.$http.get('/static/api/directorates.json', {}).then(function (d) {
     d.json().then(function (datasets) {
       for (let value in datasets) {
         if (datasets[value].notation === id) {
           return cb(null, datasets[value])
         }
       }
-    })
-  }, function (e) {})
-}
-
-export function getAll (v, cb) {
-  v.$http.get('/metadata-repository/catalogue/dataset', {}).then(function (d) {
-    d.json().then(function (d2) {
-      cb(null, d2.items)
     })
   }, function (e) {})
 }

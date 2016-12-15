@@ -32,8 +32,7 @@ Add new dataset
 </template>
 
 <script>
-  import { getAll } from './api'
-
+  import { getDataset } from './api'
   export default {
     data () {
       return {
@@ -73,7 +72,7 @@ Add new dataset
       fetchData () {
         this.error = this.post = null
         this.loading = true
-        getAll(this, (err, dataset) => {
+        getDataset({}, (err, dataset) => {
           this.loading = false
           if (err) {
             this.error = err.toString()

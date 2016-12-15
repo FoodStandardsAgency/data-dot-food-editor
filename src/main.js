@@ -8,7 +8,6 @@ import Vue from 'vue'
 import Vuex from 'vuex' // State management
 import VueRouter from 'vue-router' // Router
 import App from './App' // Compositor
-import VueResource from 'vue-resource'
 
 import DatasetDetails from './Dataset-Details'
 import ElementList from './Element-List'
@@ -20,7 +19,6 @@ import Moment from 'vue-moment'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
-Vue.use(VueResource)
 Vue.use(Moment)
 
 // Register custom components as globally available
