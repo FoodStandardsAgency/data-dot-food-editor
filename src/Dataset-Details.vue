@@ -79,9 +79,14 @@ Allow editing of all attributes
           <p>
             <label for="assets">Elements</label>
           </p>
-          <date-range :arr="element" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
           <div>
-            <router-link :to="{ name: 'elements', params: { id: $route.params.id }}" class="btn btn-danger">Edit elements</router-link>
+            <template v-if="$route.params.id !== 'new'">
+              <date-range :arr="element" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
+              <router-link :to="{ name: 'elements', params: { id: $route.params.id }}" class="btn btn-danger">Edit elements</router-link>
+            </template>
+            <template v-else>
+              <p>Please save Dataset before adding elements</p>
+            </template>
           </div>
         </div>
       </div>
