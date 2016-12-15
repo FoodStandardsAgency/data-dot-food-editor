@@ -4,12 +4,7 @@
 
 export function getDataset (v, id, cb) {
   var resource = v.$resource('/metadata-repository/catalogue/dataset{/id}')
-
-  // during development strip id from url
-  // TODO - use proper id
-  id = decodeURIComponent(id)
-  let cleanId = id.split('/').pop()
-  resource.get({id: cleanId}).then(function (d) {
+  resource.get({id: id}).then(function (d) {
     d.json().then(function (resp) {
       return cb(null, resp.item)
     })
