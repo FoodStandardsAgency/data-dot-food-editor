@@ -25,14 +25,10 @@ export function getElement (query, cb) {
   }, function (e) {})
 }
 
-export function getDirectorates (v, id, cb) {
-  v.$http.get('/static/api/directorates.json', {}).then(function (d) {
-    d.json().then(function (datasets) {
-      for (let value in datasets) {
-        if (datasets[value].notation === id) {
-          return cb(null, datasets[value])
-        }
-      }
+export function getDirectorates (cb) {
+  Vue.http.get('/static/api/directorates.json', {}).then(function (d) {
+    d.json().then(function (directorates) {
+      return cb(null, directorates)
     })
   }, function (e) {})
 }
