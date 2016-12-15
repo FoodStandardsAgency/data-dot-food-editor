@@ -10,7 +10,7 @@ Allow editing of all attributes
           <div class="pull-right">
             <a @click="remove" class="btn btn-danger">Delete</a>
             <router-link to="/" class="btn btn-danger">Cancel</router-link>
-            <a @click="save" class="btn btn-success">Save</a>
+            <a @click="save" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</a>
           </div>
           <div class="form-group" style="clear:right;">
             <label for="title">Title</label>
@@ -107,9 +107,11 @@ Allow editing of all attributes
       'dataset': {
         deep: true,
         handler: function (val, oldVal) {
-          if (val.notation === oldVal.notation) {
+          console.log('Modified', val, oldVal)
+          if (val.notation === oldVal.notation && !this.beforeLoad) {
             this.unsavedChanges = true
           }
+          this.beforeLoad = false
         }
       }
     },
