@@ -15,16 +15,18 @@ import ElementList from './Element-List'
 import DatasetList from './Dataset-List'
 import Grid from './components/Grid.vue'
 import Search from './components/Search.vue'
-import daterange from './components/Date-Range'
+import DateRange from './components/Date-Range'
+import Moment from 'vue-moment'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(VueResource)
+Vue.use(Moment)
 
 // Register custom components as globally available
 Vue.component('grid', Grid)
 Vue.component('search', Search)
-Vue.component('date-range', daterange)
+Vue.component('date-range', DateRange)
 
 // Configure routes
 const router = new VueRouter({

@@ -10,8 +10,6 @@ Also supports an empty text value
 </template>
 
 <script>
-  import moment from 'vue-moment'
-
   export default {
     props: {
       dataset: Object // data
@@ -41,10 +39,7 @@ Also supports an empty text value
         })
         return refDate // Return current largest
       }
-    },
-    filter: [
-      moment // Vue moment.js date filter
-    ]
+    }
   }
 </script>
 
