@@ -124,18 +124,13 @@ Allow editing of all attributes
         $('#elementModal').modal('show')
       },
       fetchData () {
-        let cleanedId = decodeURIComponent(this.$route.params.id)
-        getElements(this, cleanedId, (err, elements) => {
-          if (err) {
-            this.error = err.toString()
-          } else {
+        getElements(this, this.$route.params.id, (err, elements) => {
+          if (err) {} else {
             this.elements = elements
           }
         })
-        getDataset(this, cleanedId, (err, dataset) => {
-          if (err) {
-            this.error = err.toString()
-          } else {
+        getDataset(this, this.$route.params.id, (err, dataset) => {
+          if (err) {} else {
             this.dataset = dataset
           }
         })

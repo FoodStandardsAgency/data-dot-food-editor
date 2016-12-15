@@ -60,7 +60,9 @@ Add new dataset
         dtHandle: null,
         tableData: [],
         rowClick: function (ev) {
-          this.$router.push({name: 'dataset', params: { id: ev['@id'] }})
+          let id = decodeURIComponent(ev['@id'])
+          let cleanId = id.split('/').pop()
+          this.$router.push({name: 'dataset', params: { id: cleanId }})
         }
       }
     },

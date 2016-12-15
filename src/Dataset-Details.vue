@@ -81,7 +81,7 @@ Allow editing of all attributes
           </p>
           <date-range :dataset="dataset"></date-range>
           <div>
-            <router-link :to="{ name: 'elements', params: { id: dataset['@id'] }}" class="btn btn-danger">Edit elements</router-link>
+            <router-link :to="{ name: 'elements', params: { id: $route.params.id }}" class="btn btn-danger">Edit elements</router-link>
           </div>
         </div>
       </div>
@@ -178,8 +178,7 @@ Allow editing of all attributes
         if (this.$route.params.id === 'new') {
           this.dataset = {} // Empty dataset object
         } else {
-          let cleanedId = decodeURIComponent(this.$route.params.id)
-          getDataset(this, cleanedId, (err, dataset) => {
+          getDataset(this, this.$route.params.id, (err, dataset) => {
             if (err) {
             } else {
               this.dataset = dataset
