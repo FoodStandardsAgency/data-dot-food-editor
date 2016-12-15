@@ -79,7 +79,7 @@ Allow editing of all attributes
           <p>
             <label for="assets">Elements</label>
           </p>
-          <date-range :dataset="dataset"></date-range>
+          <date-range :arr="element" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
           <div>
             <router-link :to="{ name: 'elements', params: { id: $route.params.id }}" class="btn btn-danger">Edit elements</router-link>
           </div>
@@ -95,7 +95,7 @@ Allow editing of all attributes
 
 <script>
   /* global confirm */
-  import { getDataset } from './api'
+  import { getDataset, getDirectorates, getElement } from './api'
   import tagsinput from 'vue-tagsinput'
 
   export default {
@@ -148,7 +148,8 @@ Allow editing of all attributes
           }
         ],
         searchQuery: '',
-        directorates: []
+        directorates: [],
+        element: []
       }
     },
     methods: {
@@ -179,12 +180,22 @@ Allow editing of all attributes
           this.dataset = {} // Empty dataset object
         } else {
           getDataset({id: this.$route.params.id}, (err, dataset) => {
-            if (err) {
-            } else {
+            if (!err) {
               this.dataset = dataset
             }
           })
+
+          getElement({id: this.$route.params.id}, (err, ele) => {
+            if (!err) {
+              this.element = ele
+            }
+          })
         }
+        getDirectorates((err, dset) => {
+          if (!err) {
+            this.directorates = dset
+          }
+        })
       }
     },
     components: {

@@ -24,7 +24,7 @@ Allow editing of all attributes
               :custom-empty-table-text="'No elements'">
             </grid>
           </div>
-          <date-range :dataset="dataset"></date-range>
+          <date-range :arr="elements" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
         </div>
       </div>
       <modal :element="selectedElement" :delFunction="deleteElement"></modal>
@@ -100,7 +100,7 @@ Allow editing of all attributes
     },
     methods: {
       deleteElement (el) {
-        this.dataset.element.splice(this.dataset.element.indexOf(el), 1)
+        this.element.splice(this.element.indexOf(el), 1)
       },
       save () {
         console.error('TODO')
@@ -116,7 +116,7 @@ Allow editing of all attributes
       },
       addElement () {
         let newElement = require('./blank-element')
-        this.dataset.element.push(newElement)
+        this.element.push(newElement)
         this.openElement(newElement) // Open editor
       },
       openElement (el) {
