@@ -4,6 +4,13 @@ Allow editing of all attributes
 -->
 <template>
   <main>
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="/">Datasets</a></li>
+        <li><router-link :to="{ name: 'dataset', params: { id: $route.params.id }}" class="active">{{$route.params.id}}</router-link></li>
+        <li>Elements</li>
+      </ol>
+    </div>
     <div id="details" v-if="dataset" :key="dataset.id">
       <div class="container">
 

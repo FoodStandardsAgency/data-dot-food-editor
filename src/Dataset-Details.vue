@@ -4,6 +4,12 @@ Allow editing of all attributes
 -->
 <template>
   <main>
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="/">Datasets</a></li>
+        <li>{{$route.params.id}}</li>
+      </ol>
+    </div>
     <div id="details" v-if="dataset" :key="dataset.id">
       <div class="container">
         <form>
