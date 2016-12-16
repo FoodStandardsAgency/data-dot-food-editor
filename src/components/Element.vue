@@ -10,7 +10,8 @@ Displayed as a modal
 
         <div class="modal-header">
           <div class="pull-right">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+            <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+            <button @click="save" type="button" class="btn btn-success">Save</button>
           </div>
           <h4 class="modal-title" id="myModalLabel">Asset editor</h4>
         </div>
@@ -26,24 +27,20 @@ Displayed as a modal
               <textarea class="form-control" v-model="element.description" rows="3"></textarea>
             </div>
             <div class="form-group">
-              <label for="access" class="col-sm-2 form-label">Format</label>
-              <div class="col-sm-10">
-                <select class="form-control input-lg" v-model="element.format">
-                  <option v-for="format in formats" v-bind:value="format">
-                    {{format}}
-                  </option>
-                </select>
-              </div>
+              <label for="access">Format</label>
+              <select class="form-control input-lg" v-model="element.format">
+                <option v-for="format in formats" v-bind:value="format">
+                  {{format}}
+                </option>
+              </select>
             </div>
             <div class="form-group">
-              <label for="access" class="col-sm-2 form-label">Access URL</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" v-model="element.accessURL" id="access" placeholder="http://">
-              </div>
+              <label for="access" class="form-label">Access URL</label>
+              <input type="text" class="form-control" v-model="element.accessURL" id="access" placeholder="http://">
             </div>
             <div class="form-group">
-              <label for="download" class="col-sm-2 form-label">Download URL</label>
-              <div class="col-sm-10">
+              <label for="download" class="form-label">Download URL</label>
+              <div>
                 <input type="text" class="form-control" v-model="element.downloadURL" id="download" placeholder="http://">
               </div>
             </div>
@@ -56,7 +53,7 @@ Displayed as a modal
               <input type="date" class="form-control" v-model="element.temporalEnd" id="enddate" placeholder="endDate">
             </div>
           </form>
-          <a class="btn btn-danger" @click="del">Delete</a>
+          <a class="btn btn-danger" @click="remove">Delete</a>
         </div>
       </div>
 
