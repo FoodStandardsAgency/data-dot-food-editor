@@ -58,15 +58,6 @@ Allow editing of all attributes
       this.fetchData()
     },
     watch: {
-      '$route': 'fetchData',
-      'dataset': {
-        deep: true,
-        handler: function (val, oldVal) {
-          if (val.notation === oldVal.notation) {
-            this.unsavedChanges = true
-          }
-        }
-      }
     },
     beforeRouteLeave (to, from, next) {
       if (this.unsavedChanges) {
@@ -84,7 +75,6 @@ Allow editing of all attributes
           element: [],
           keyword: ['']
         },
-        unsavedChanges: false,
         headers: [
           {
             title: 'title',
