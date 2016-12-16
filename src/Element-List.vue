@@ -27,7 +27,7 @@ Allow editing of all attributes
           <date-range :arr="elements" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
         </div>
       </div>
-      <modal :element="selectedElement" :delFunction="deleteElement"></modal>
+      <modal :element="selectedElement" :closeFunction="closeElement"></modal>
 
     </div>
 
@@ -99,20 +99,9 @@ Allow editing of all attributes
       }
     },
     methods: {
-      deleteElement (el) {
-        this.element.splice(this.element.indexOf(el), 1)
-      },
-      save () {
-        console.error('TODO')
-        this.unsavedChanges = false
-        this.$router.push({path: '/'})
-      },
-      remove () {
-        console.error('TODO')
-        if (confirm('Are you sure you want to delete this Dataset?')) {
-          this.unsavedChanges = false
-          this.$router.push({path: '/'})
-        }
+      closeElement (el) {
+        // Update the full list of elements - may have changed.
+        this.fetchData()
       },
       addElement () {
         let newElement = require('./blank-element')
@@ -120,7 +109,7 @@ Allow editing of all attributes
         this.openElement(newElement) // Open editor
       },
       openElement (el) {
-        this.selectedElement = el
+        this.selectedElement = JSON.parse(JSON.stringify(el))
         $('#elementModal').modal('show')
       },
       fetchData () {
