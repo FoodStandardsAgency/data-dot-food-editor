@@ -103,7 +103,7 @@ Allow editing of all attributes
 
 <script>
   /* global confirm */
-  import { getDataset, getDirectorates, getElement } from './api'
+  import { getDataset, getDirectorates, getElement, saveDataset, removeDataset } from './api'
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
 
@@ -116,7 +116,6 @@ Allow editing of all attributes
       'dataset': {
         deep: true,
         handler: function (val, oldVal) {
-          console.log('Modified', val, oldVal)
           if (val.notation === oldVal.notation && !this.beforeLoad) {
             this.unsavedChanges = true
           }
@@ -173,15 +172,21 @@ Allow editing of all attributes
         }
       },
       save () {
-        console.error('TODO')
-        this.unsavedChanges = false
-        this.$router.push({path: '/'})
+        saveDataset({id: this.$route.params.id}, this.dataset, (err, resp) => {
+          if (!err) {
+            this.unsavedChanges = false
+            this.$router.push({path: '/'})
+          }
+        })
       },
       remove () {
-        console.error('TODO')
         if (confirm('Are you sure you want to delete this Dataset?')) {
-          this.unsavedChanges = false
-          this.$router.push({path: '/'})
+          removeDataset({id: this.$route.params.id}, (err, resp) => {
+            if (!err) {
+              this.unsavedChanges = false
+              this.$router.push({path: '/'})
+            }
+          })
         }
       },
       fetchData () {
