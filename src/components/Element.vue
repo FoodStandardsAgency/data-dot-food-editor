@@ -87,8 +87,8 @@ Displayed as a modal
       },
       save () {
         saveElement({
-          id: 'FSA-13-04',
-          eid: this.element['@id'].split('/').pop()
+          id: this.$route.params.id,
+          eid: this.element['@id'] ? this.element['@id'].split('/').pop() : null
         }, this.element, (err, resp) => {
           console.log('Logging on save', err, resp)
           this.unsavedChanges = false
