@@ -10,6 +10,8 @@ Allow editing of all attributes
         <h2>{{dataset.title}}</h2>
 
         <div class="form-group assets-group">
+          <search :searchEvent="searchListener"></search>
+
           <a @click="addElement" class="btn btn-success pull-right" aria-label="Add">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           </a>
@@ -99,6 +101,9 @@ Allow editing of all attributes
       }
     },
     methods: {
+      searchListener: function (val) {
+        this.searchQuery = val
+      },
       closeElement (el) {
         // Update the full list of elements - may have changed.
         this.fetchData()
