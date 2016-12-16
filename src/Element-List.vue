@@ -108,7 +108,7 @@ Allow editing of all attributes
       },
       addElement () {
         let newElement = require('./blank-element')
-        this.element.push(newElement)
+        this.elements.push(newElement)
         this.openElement(newElement) // Open editor
       },
       openElement (el) {
