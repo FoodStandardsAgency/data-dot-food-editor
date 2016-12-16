@@ -61,13 +61,15 @@ Displayed as a modal
   </div>
 </template>
 <script>
+  /* global confirm */
   import 'bootstrap'
   import $ from 'jquery'
+  import {saveElement, removeElement} from '../Api'
 
   export default {
     props: {
       element: Object, // Object literal of Element
-      delFunction: Function // Callback function for delete action
+      closeFunction: Function // Callback function for after delete action
     },
     data () {
       return {
@@ -77,9 +79,33 @@ Displayed as a modal
       }
     },
     methods: {
-      del () {
-        this.delFunction(this.element)
+      close () {
         $('#elementModal').modal('hide')
+        if (this.closeFunction) {
+          this.closeFunction()
+        }
+      },
+      save () {
+        saveElement({
+          id: 'FSA-13-04',
+          eid: this.element['@id'].split('/').pop()
+        }, this.element, (err, resp) => {
+          console.log('Logging on save', err, resp)
+          this.unsavedChanges = false
+          this.close()
+        })
+      },
+      remove () {
+        if (confirm('Are you sure you want to delete this element?')) {
+          removeElement({
+            id: 'FSA-13-04',
+            eid: this.element['@id'].split('/').pop()
+          }, (err, resp) => {
+            console.log('Logging on remove', err, resp)
+            this.unsavedChanges = false
+            this.close()
+          })
+        }
       }
     }
   }
