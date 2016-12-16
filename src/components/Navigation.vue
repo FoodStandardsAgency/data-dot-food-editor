@@ -13,7 +13,7 @@ Replace with any site-specific navigation elements and styling
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img src="/static/img/logo.png" alt="Food Standards Agency" height="50"/>
         </a>
       </div>
