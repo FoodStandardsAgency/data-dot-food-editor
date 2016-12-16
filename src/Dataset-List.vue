@@ -32,7 +32,7 @@ Add new dataset
 </template>
 
 <script>
-  import { getDataset } from './api'
+  import { getDataset } from './Api'
   export default {
     data () {
       return {

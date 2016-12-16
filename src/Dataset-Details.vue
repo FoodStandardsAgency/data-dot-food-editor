@@ -109,7 +109,7 @@ Allow editing of all attributes
 
 <script>
   /* global confirm */
-  import { getDataset, getDirectorates, getElement, saveDataset, removeDataset } from './api'
+  import { getDataset, getDirectorates, getElement, saveDataset, removeDataset } from './Api'
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
 

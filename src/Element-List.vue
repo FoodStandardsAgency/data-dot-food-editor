@@ -51,13 +51,14 @@ Allow editing of all attributes
   import 'bootstrap'
   import Element from 'components/Element'
   import $ from 'jquery'
-  import { getElement, getDataset } from './api'
+  import { getElement, getDataset } from './Api'
 
   export default {
     created () {
       this.fetchData()
     },
     watch: {
+      '$route': 'fetchData'
     },
     beforeRouteLeave (to, from, next) {
       if (this.unsavedChanges) {
