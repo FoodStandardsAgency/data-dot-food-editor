@@ -9,7 +9,7 @@ Allow editing of all attributes
         <form>
           <div class="pull-right">
             <a @click="remove" class="btn btn-danger">Delete</a>
-            <router-link to="/" class="btn btn-danger">Cancel</router-link>
+            <router-link to="/" class="btn">Cancel</router-link>
             <a @click="save" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</a>
           </div>
           <div class="form-group" style="clear:right;">
@@ -18,7 +18,7 @@ Allow editing of all attributes
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
-            <textarea class="form-control" rows="4" v-model="dataset.description"></textarea>
+            <textarea class="form-control" rows="6" v-model="dataset.description"></textarea>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Publisher</label>
