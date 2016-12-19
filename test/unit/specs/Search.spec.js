@@ -5,8 +5,8 @@ describe('Search.vue', () => {
   it('should render correct contents', () => {
     const vm = new Vue({
       el: document.createElement('div'),
-      render: (h) => h(Component)
+      render: (h) => h(Component, {arr: [], startProp: '', endProp: ''})
     })
-    expect(vm.$el.querySelector('button.btn')).to.exist()
+    expect(vm.$el.querySelector('button.btn')).to.exist
   })
 })

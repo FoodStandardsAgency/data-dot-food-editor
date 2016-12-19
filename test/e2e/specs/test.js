@@ -11,9 +11,28 @@ module.exports = {
     browser
       .url(devServer)
       .waitForElementVisible('#app', 5000)
-      .assert.elementPresent('.hello')
-      .assert.containsText('h1', 'Welcome to Your Vue.js App')
-      .assert.elementCount('img', 1)
-      .end()
+      .pause(2000)
+      .assert.elementPresent('.navbar')
+      .verify.containsText('h2', 'Dataset catalogue')
+
+      // FSA branding header
+      .verify.containsText('h1', 'FSA open data catalogue')
+      .expect.element('.view').to.be.present
+
+    browser
+      // Searching data set
+      // Publication of all GPC transactions
+      // 'audits' in to Search
+      // Text doesn't exits
+      .expect.element('td').to.have.value.equal('Publication of all GPC transactions')
+
+    browser
+      .setValue('input[type=text]', 'audits')
+
+    browser
+      .expect.element('td').to.not.have.value.equal('Publication of all GPC transactions')
+
+      // .assert.elementCount('img', 1)
+    browser.end()
   }
 }
