@@ -36,7 +36,7 @@ Allow editing of all attributes
           <date-range :arr="elements" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
         </div>
       </div>
-      <modal :element="selectedElement" :closeFunction="closeElement"></modal>
+      <modal v-if="selectedElement" :element="selectedElement" :closeFunction="closeElement"></modal>
 
     </div>
 
@@ -56,6 +56,15 @@ Allow editing of all attributes
   export default {
     created () {
       this.fetchData()
+
+      if (this.$route.params.eid) {
+        getElement({id: this.$route.params.id, eid: this.$route.params.eid}, (err, element) => {
+          if (err) {} else {
+            this.selectedElement = element
+            $('#elementModal').modal('show')
+          }
+        })
+      }
     },
     watch: {
       '$route': 'fetchData'
@@ -112,6 +121,10 @@ Allow editing of all attributes
         this.openElement(newElement) // Open editor
       },
       openElement (el) {
+        let id = decodeURIComponent(el['@id'])
+        let cleanId = id.split('/').pop()
+        this.$router.push({name: 'element', params: { id: this.$route.params.id, eid: cleanId }})
+
         this.selectedElement = JSON.parse(JSON.stringify(el))
         $('#elementModal').modal('show')
       },

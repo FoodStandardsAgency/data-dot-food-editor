@@ -33,7 +33,8 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: DatasetList, name: 'list' },
     { path: '/dataset/:id', component: DatasetDetails, name: 'dataset' },
-    { path: '/dataset/:id/elements', component: ElementList, name: 'elements' }
+    { path: '/dataset/:id/elements', component: ElementList, name: 'elements' },
+    { path: '/dataset/:id/elements/:eid', component: ElementList, name: 'element' }
   ]
 })
 
