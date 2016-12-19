@@ -11,7 +11,7 @@ Displayed as a modal
         <div class="modal-header">
           <div class="pull-right">
             <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-            <button @click="save" type="button" class="btn btn-success">Save</button>
+            <button @click="save" type="button" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</button>
           </div>
           <h4 class="modal-title" id="myModalLabel">Asset editor</h4>
         </div>
@@ -71,27 +71,58 @@ Displayed as a modal
       element: Object, // Object literal of Element
       closeFunction: Function // Callback function for after delete action
     },
-    data () {
-      return {
-        loading: false,
-        error: null,
-        formats: ['json', 'html', 'csv', 'xml', 'rdf']
+    watch: {
+      'element': {
+        deep: true,
+        handler: function (val, oldVal) {
+          if (val.notation === oldVal.notation && !this.beforeLoad) {
+            this.unsavedChanges = true
+          } else {
+            this.beforeLoad = false
+          }
+        }
       }
     },
+    beforeRouteLeave (to, from, next) {
+      if (this.unsavedChanges) {
+        if (confirm('Are you sure you want to cancel?')) {
+          next()
+        }
+      } else {
+        next()
+      }
+    },
+    data () {
+      return {
+        formats: ['json', 'html', 'csv', 'xml', 'rdf'],
+        unsavedChanges: false,
+        beforeLoad: true
+      }
+    },
+    mounted () {
+      console.log('mounted')
+      $('#elementModal').on('hide.bs.modal', (e) => {
+        this.close()
+      })
+    },
     methods: {
-      close () {
+      hide () {
         $('#elementModal').modal('hide')
+      },
+      close () {
         if (this.closeFunction) {
           this.closeFunction()
         }
+        this.$router.push({name: 'elements', params: { id: this.$route.params.id }})
       },
       save () {
         saveElement({
           id: this.$route.params.id,
           eid: this.element['@id'] ? this.element['@id'].split('/').pop() : null
         }, this.element, (err, resp) => {
-          console.log('Logging on save', err, resp)
+          console.log('On save', err, resp)
           this.unsavedChanges = false
+          this.hide()
           this.close()
         })
       },
@@ -101,8 +132,9 @@ Displayed as a modal
             id: 'FSA-13-04',
             eid: this.element['@id'].split('/').pop()
           }, (err, resp) => {
-            console.log('Logging on remove', err, resp)
+            console.log('On remove', err, resp)
             this.unsavedChanges = false
+            this.hide()
             this.close()
           })
         }
