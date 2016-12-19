@@ -53,7 +53,7 @@ Displayed as a modal
               <input type="date" class="form-control" v-model="element.temporalEnd" id="enddate" placeholder="endDate">
             </div>
           </form>
-          <a class="btn btn-danger" @click="remove">Delete</a>
+          <a v-if="$route.params.eid !== 'undefined'" class="btn btn-danger" @click="remove">Delete</a>
         </div>
       </div>
 
@@ -115,7 +115,7 @@ Displayed as a modal
       save () {
         saveElement({
           id: this.$route.params.id,
-          eid: this.element['@id'] ? this.element['@id'].split('/').pop() : null
+          eid: this.$route.params.eid
         }, this.element).then((resp) => {
           this.unsavedChanges = false
           this.hide()
