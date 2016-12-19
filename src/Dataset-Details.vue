@@ -108,7 +108,7 @@ Allow editing of all attributes
 </template>
 
 <script>
-  /* global confirm */
+  /* global confirm alert */
   import { getDataset, getDirectorates, getElement, saveDataset, removeDataset } from './Api'
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
@@ -197,22 +197,22 @@ Allow editing of all attributes
       },
       fetchData () {
         if (this.$route.params.id !== 'new') {
-          getDataset({id: this.$route.params.id}, (err, dataset) => {
-            if (!err) {
-              this.dataset = dataset
-            }
+          getDataset({id: this.$route.params.id}).then((dataset) => {
+            this.dataset = dataset
+          }, (e) => {
+            alert('sorry, something went wrong')
           })
 
-          getElement({id: this.$route.params.id}, (err, ele) => {
-            if (!err) {
-              this.element = ele
-            }
+          getElement({id: this.$route.params.id}).then((ele) => {
+            this.element = ele
+          }, (e) => {
+            alert('sorry, something went wrong')
           })
         }
-        getDirectorates((err, dset) => {
-          if (!err) {
-            this.directorates = dset
-          }
+        getDirectorates().then((dset) => {
+          this.directorates = dset
+        }, (e) => {
+          alert('sorry, something went wrong')
         })
       }
     },

@@ -61,7 +61,7 @@ Displayed as a modal
   </div>
 </template>
 <script>
-  /* global confirm */
+  /* global confirm alert */
   import 'bootstrap'
   import $ from 'jquery'
   import {saveElement, removeElement} from './Api'
@@ -116,11 +116,12 @@ Displayed as a modal
         saveElement({
           id: this.$route.params.id,
           eid: this.element['@id'] ? this.element['@id'].split('/').pop() : null
-        }, this.element, (err, resp) => {
-          console.log('On save', err, resp)
+        }, this.element).then((resp) => {
           this.unsavedChanges = false
           this.hide()
           this.close()
+        }, (e) => {
+          alert('sorry, something went wrong.')
         })
       },
       remove () {
@@ -128,11 +129,12 @@ Displayed as a modal
           removeElement({
             id: 'FSA-13-04',
             eid: this.element['@id'].split('/').pop()
-          }, (err, resp) => {
-            console.log('On remove', err, resp)
+          }).then((resp) => {
             this.unsavedChanges = false
             this.hide()
             this.close()
+          }, (e) => {
+            alert('sorry, something went wrong.')
           })
         }
       }

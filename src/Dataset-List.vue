@@ -72,13 +72,11 @@ Add new dataset
       fetchData () {
         this.error = this.post = null
         this.loading = true
-        getDataset({}, (err, dataset) => {
+        getDataset({}).then((dataset) => {
           this.loading = false
-          if (err) {
-            this.error = err.toString()
-          } else {
-            this.tableData = dataset
-          }
+          this.tableData = dataset
+        }, (e) => {
+          console.log('couldn\'t load datasets', e)
         })
       },
       searchListener: function (val) {

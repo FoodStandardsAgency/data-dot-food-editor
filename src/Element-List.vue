@@ -129,15 +129,11 @@ Allow editing of all attributes
         $('#elementModal').modal('show')
       },
       fetchData () {
-        getElement({id: this.$route.params.id}, (err, elements) => {
-          if (err) {} else {
-            this.elements = elements
-          }
+        getElement({id: this.$route.params.id}).then((elements) => {
+          this.elements = elements
         })
-        getDataset({id: this.$route.params.id}, (err, dataset) => {
-          if (err) {} else {
-            this.dataset = dataset
-          }
+        getDataset({id: this.$route.params.id}).then((dataset) => {
+          this.dataset = dataset
         })
       }
     },
