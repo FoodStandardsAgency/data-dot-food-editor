@@ -14,7 +14,7 @@ Allow editing of all attributes
       <div class="container">
         <form>
           <div class="pull-right">
-            <a @click="remove" class="btn btn-danger">Delete</a>
+            <a v-if="$route.params.id !== 'new'" @click="remove" class="btn btn-danger">Delete</a>
             <router-link to="/" class="btn">Cancel</router-link>
             <a @click="save" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</a>
           </div>
