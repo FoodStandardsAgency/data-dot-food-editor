@@ -39,19 +39,19 @@ Add new dataset
         headers: [
           {
             title: 'published',
-            key: 'published',
+            path: 'published',
             render: function (val) {
               return val ? 'yes' : 'no'
             }
           }, {
             title: 'notation',
-            key: '@id'
+            path: '@id'
           }, {
             title: 'title',
-            key: 'title'
+            path: 'title'
           }, {
             title: 'description',
-            key: 'description'
+            path: 'description'
           }
         ],
         searchQuery: '',

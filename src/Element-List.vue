@@ -79,19 +79,19 @@ Allow editing of all attributes
         headers: [
           {
             title: 'title',
-            key: 'title'
+            path: 'title'
           },
           {
             title: 'description',
-            key: 'description'
+            path: 'description'
           },
           {
             title: 'fromDate',
-            key: 'temporalStart'
+            path: 'temporalStart'
           },
           {
             title: 'toDate',
-            key: 'temporalEnd'
+            path: 'temporalEnd'
           }
         ],
         searchQuery: '',

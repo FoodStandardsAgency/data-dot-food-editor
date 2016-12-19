@@ -8,10 +8,10 @@ Also supports an empty text value
     <thead>
       <tr>
         <th v-for="key in columns"
-          @click="sortBy(key)"
-          :class="{ act: sortKey == key }">
+          @click="sortBy(key.path)"
+          :class="{ act: sortKey == key.path }">
           {{ key.title | capitalize }}
-          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+          <span class="arrow" :class="sortOrders[key.path] > 0 ? 'asc' : 'dsc'">
           </span>
         </th>
       </tr>
@@ -20,10 +20,10 @@ Also supports an empty text value
       <tr v-for="entry in filteredData" @click="rowEvent(entry)" :class="{ clickable: !!clickEv }">
         <td v-for="key in columns">
           <template v-if="key.render">
-            {{ key.render(entry[key.key]) }}
+            {{ key.render(entry[key.path]) }}
           </template>
           <template v-else>
-            {{entry[key.key] }}
+            {{entry[key.path] }}
           </template>
         </td>
       </tr>
@@ -48,7 +48,7 @@ Also supports an empty text value
     data: function () {
       var sortOrders = {}
       this.columns.forEach(function (key) {
-        sortOrders[key] = 1
+        sortOrders[key.path] = 1
       })
       return {
         sortKey: '',
