@@ -64,12 +64,11 @@ Displayed as a modal
   /* global confirm */
   import 'bootstrap'
   import $ from 'jquery'
-  import {saveElement, removeElement} from '../Api'
+  import {saveElement, removeElement} from './Api'
 
   export default {
     props: {
-      element: Object, // Object literal of Element
-      closeFunction: Function // Callback function for after delete action
+      element: Object // Object literal of Element
     },
     watch: {
       'element': {
@@ -110,9 +109,7 @@ Displayed as a modal
         $('#elementModal').modal('hide')
       },
       close () {
-        if (this.closeFunction) {
-          this.closeFunction()
-        }
+        this.$emit('close')
         this.$router.push({name: 'elements', params: { id: this.$route.params.id }})
       },
       save () {

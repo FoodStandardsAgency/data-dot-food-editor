@@ -49,7 +49,7 @@ Allow editing of all attributes
 <script>
   /* global confirm */
   import 'bootstrap'
-  import Element from 'components/Element'
+  import Element from './Element'
   import $ from 'jquery'
   import { getElement, getDataset } from './Api'
 
