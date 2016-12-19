@@ -28,7 +28,7 @@ Allow editing of all attributes
             <grid
               :data="elements"
               :columns="headers"
-              :click-ev="openElement"
+              @clickRow="openElement"
               :filter-key="searchQuery"
               :custom-empty-table-text="'No elements'">
             </grid>
@@ -36,7 +36,7 @@ Allow editing of all attributes
           <date-range :arr="elements" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
         </div>
       </div>
-      <modal v-if="selectedElement" :element="selectedElement" :closeFunction="closeElement"></modal>
+      <modal v-if="selectedElement" :element="selectedElement" @close="closeElement"></modal>
 
     </div>
 

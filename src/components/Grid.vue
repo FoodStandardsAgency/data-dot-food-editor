@@ -42,7 +42,6 @@ Also supports an empty text value
       data: Array, // Unfiltered table data
       columns: Array, // List of columns ['title', 'description']
       filterKey: String, // String to filter on ''
-      clickEv: Function, // Callback event for row clicking events
       customEmptyTableText: '' // optional text override for empty table
     },
     data: function () {
@@ -96,9 +95,7 @@ Also supports an empty text value
         this.sortOrders[key] = this.sortOrders[key] * -1
       },
       rowEvent: function (entry) {
-        if (this.clickEv) {
-          this.clickEv(entry)
-        }
+        this.$emit('clickRow', entry)
       }
     }
   }

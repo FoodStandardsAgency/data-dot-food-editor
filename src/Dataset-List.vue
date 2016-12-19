@@ -22,7 +22,7 @@ Add new dataset
         <grid
           :data="tableData"
           :columns="headers"
-          :clickEv="rowClick"
+          @clickRow="rowClick"
           :filter-key="searchQuery">
         </grid>
       </div>
@@ -57,18 +57,18 @@ Add new dataset
         searchQuery: '',
         rows: [],
         dtHandle: null,
-        tableData: [],
-        rowClick: function (ev) {
-          let id = decodeURIComponent(ev['@id'])
-          let cleanId = id.split('/').pop()
-          this.$router.push({name: 'dataset', params: { id: cleanId }})
-        }
+        tableData: []
       }
     },
     created: function () {
       this.fetchData()
     },
     methods: {
+      rowClick (ev) {
+        let id = decodeURIComponent(ev['@id'])
+        let cleanId = id.split('/').pop()
+        this.$router.push({name: 'dataset', params: { id: cleanId }})
+      },
       fetchData () {
         this.error = this.post = null
         this.loading = true
