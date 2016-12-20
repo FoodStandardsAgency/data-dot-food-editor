@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "vue2-bootstrap-table": "^0.1.0"
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",

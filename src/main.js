@@ -12,7 +12,7 @@ import App from './App' // Compositor
 import DatasetDetails from './Dataset-Details'
 import ElementList from './Element-List'
 import DatasetList from './Dataset-List'
-import Grid from './components/Grid.vue'
+import Grid from 'vue2-bootstrap-table'
 import Search from './components/Search.vue'
 import DateRange from './components/Date-Range'
 import Moment from 'vue-moment'
