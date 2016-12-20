@@ -1,9 +1,12 @@
 <!--
-Generic table view
-Has support for searching on all keys
-Also supports an empty text value
+Generic table view based on bootstrap styles
+Features:
+  * Filtering on all keys
+  * Pagination
+  * Sorting and reverse sorting on any key
 -->
 <template>
+  <div>
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
@@ -17,7 +20,7 @@ Also supports an empty text value
       </tr>
     </thead>
     <tbody>
-      <tr v-for="entry in filteredData" @click="rowEvent(entry)" :class="{ clickable: !!clickEv }">
+      <tr v-for="entry in limitedData" @click="rowEvent(entry)" :class="{ clickable: !!clickEv }">
         <td v-for="key in columns">
           <template v-if="key.render">
             {{ key.render(entry[key.path]) }}
@@ -28,12 +31,26 @@ Also supports an empty text value
         </td>
       </tr>
       <tr v-if="!data || !data.length">
-        <td :colspan="columns.length" class="noData">
+        <td :colspan="columns.length" class="text-center noData">
           {{emptyTableText}}
         </td>
       </tr>
     </tbody>
   </table>
+    <div class="row">
+      <div class="text-center">
+        <ul class="pagination">
+          <li :class="{disabled: (currentPage === 0)}"><a href="#" @click="previous">Previous</a></li>
+          <template>
+            <li v-for="page in noPages" :class="{active: page === currentPage}">
+              <a href="#" @click="(e) => goToPage(page, e)">{{page + 1}}</a>
+            </li>
+          </template>
+          <li :class="{disabled: (currentPage + 1 === noPages.length)}"><a href="#" @click="next">Next</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -42,7 +59,8 @@ Also supports an empty text value
       data: Array, // Unfiltered table data
       columns: Array, // List of columns ['title', 'description']
       filterKey: String, // String to filter on ''
-      customEmptyTableText: '' // optional text override for empty table
+      customEmptyTableText: '', // optional text override for empty table
+      rowsPerPage: Number // Number of rows per page of results
     },
     data: function () {
       var sortOrders = {}
@@ -51,18 +69,28 @@ Also supports an empty text value
       })
       return {
         sortKey: '',
-        sortOrders: sortOrders
+        sortOrders: sortOrders,
+        currentPage: 0
+      }
+    },
+    watch: {
+      'filterKey': function (a, b) { // Reset to page 0 when search changes
+        this.currentPage = 0
       }
     },
     computed: {
-      emptyTableText: function () {
+      noPages: function () { // No. pages as an array. Used for rendering paginator
+        let pages = Math.ceil(this.filteredData.length / this.rowsPerPage)
+        return [...Array(pages).keys()]
+      },
+      emptyTableText: function () { // Default text shown when there's no data in the table
         if (this.customEmptyTableText) {
           return this.customEmptyTableText
         } else {
           return 'No data to show'
         }
       },
-      filteredData: function () {
+      filteredData: function () { // Data filtered through the local search
         var sortKey = this.sortKey
         var filterKey = this.filterKey && this.filterKey.toLowerCase()
         var order = this.sortOrders[sortKey] || 1
@@ -74,7 +102,7 @@ Also supports an empty text value
             })
           })
         }
-        if (sortKey) {
+        if (sortKey) { // If sort specified, sort
           data = data.slice().sort(function (a, b) {
             a = a[sortKey]
             b = b[sortKey]
@@ -82,29 +110,48 @@ Also supports an empty text value
           })
         }
         return data
+      },
+      limitedData: function () { // Data limited to a page
+        return this.filteredData.slice(
+          this.currentPage * this.rowsPerPage,
+          this.rowsPerPage * (this.currentPage + 1)
+        )
       }
     },
     filters: {
-      capitalize: function (str) {
+      capitalize: function (str) { // Capitalise the first letter text
         return str.charAt(0).toUpperCase() + str.slice(1)
       }
     },
     methods: {
-      sortBy: function (key) {
+      sortBy: function (key) { // header row click handler. Sort by column
         this.sortKey = key
         this.sortOrders[key] = this.sortOrders[key] * -1
       },
-      rowEvent: function (entry) {
+      rowEvent: function (entry) { // Event broadcase from table with clicked element
         this.$emit('clickRow', entry)
+      },
+      previous: function (e) { // Previous page click handler
+        e.preventDefault()
+        if (this.currentPage !== 0) {
+          --this.currentPage
+        }
+      },
+      next: function (e) { // Next page click handler
+        e.preventDefault()
+        if (this.currentPage + 1 !== this.noPages.length) {
+          ++this.currentPage
+        }
+      },
+      goToPage: function (page, e) { // Go to a specific page click handler
+        e.preventDefault()
+        this.currentPage = page
       }
     }
   }
 </script>
 
 <style scoped>
-  .noData{
-    text-align: center;
-  }
   .clickable {
     cursor: pointer;
   }

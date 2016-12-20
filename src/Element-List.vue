@@ -29,6 +29,7 @@ Allow editing of all attributes
               :data="elements"
               :columns="headers"
               @clickRow="openElement"
+              :rowsPerPage="25"
               :filter-key="searchQuery"
               :custom-empty-table-text="'No elements'">
             </grid>

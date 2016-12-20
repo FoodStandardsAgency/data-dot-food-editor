@@ -22,6 +22,7 @@ Add new dataset
         <grid
           :data="tableData"
           :columns="headers"
+          :rowsPerPage="10"
           @clickRow="rowClick"
           :filter-key="searchQuery">
         </grid>
@@ -55,8 +56,6 @@ Add new dataset
           }
         ],
         searchQuery: '',
-        rows: [],
-        dtHandle: null,
         tableData: []
       }
     },
