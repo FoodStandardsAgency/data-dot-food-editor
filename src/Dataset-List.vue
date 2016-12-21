@@ -46,13 +46,15 @@ Add new dataset
             }
           }, {
             title: 'notation',
-            path: '@id'
+            path: '@id',
+            addClass: 'hidden-xs'
           }, {
             title: 'title',
             path: 'title'
           }, {
             title: 'description',
-            path: 'description'
+            path: 'description',
+            addClass: 'hidden-xs'
           }
         ],
         searchQuery: '',

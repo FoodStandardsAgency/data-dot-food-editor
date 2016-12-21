@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "vue-resource": "^1.0.3",
-    "vue2-bootstrap-table": "^0.1.0"
+    "vue2-bootstrap-table": "^0.1.2"
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",

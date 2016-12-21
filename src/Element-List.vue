@@ -101,7 +101,8 @@ Allow editing of all attributes
           },
           {
             title: 'toDate',
-            path: 'temporalEnd'
+            path: 'temporalEnd',
+            addClass: 'hidden-xs'
           }
         ],
         searchQuery: '',
