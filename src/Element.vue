@@ -24,7 +24,7 @@ Displayed as a modal
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Description</label>
-              <textarea class="form-control" v-model="element.description" rows="3"></textarea>
+              <textarea class="form-control" v-model="element.description" rows="5"></textarea>
             </div>
             <div class="form-group">
               <label for="access">Format</label>
