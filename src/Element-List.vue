@@ -96,8 +96,13 @@ Allow editing of all attributes
             path: 'description'
           },
           {
+            title: 'format',
+            path: 'format'
+          },
+          {
             title: 'fromDate',
-            path: 'temporalStart'
+            path: 'temporalStart',
+            addClass: 'hidden-xs'
           },
           {
             title: 'toDate',
