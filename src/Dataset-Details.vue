@@ -208,20 +208,20 @@ Allow editing of all attributes
         }
       },
       save () {
-        saveDataset({id: this.$route.params.id}, this.dataset, (err, resp) => {
-          if (!err) {
-            this.unsavedChanges = false
-            this.$router.push({path: '/'})
-          }
+        saveDataset({id: this.$route.params.id}, this.dataset).then((resp) => {
+          this.unsavedChanges = false
+          this.$router.push({path: '/'})
+        }, (err) => {
+          console.log('Something went wrong ' + err.message)
         })
       },
       remove () {
         if (confirm('Are you sure you want to delete this Dataset?')) {
-          removeDataset({id: this.$route.params.id}, (err, resp) => {
-            if (!err) {
-              this.unsavedChanges = false
-              this.$router.push({path: '/'})
-            }
+          removeDataset({id: this.$route.params.id}).then((resp) => {
+            this.unsavedChanges = false
+            this.$router.push({path: '/'})
+          }, (err) => {
+            console.log('Something went wrong ' + err.message)
           })
         }
       },
