@@ -19,38 +19,43 @@ Displayed as a modal
         <div class="modal-body">
           <form>
             <div class="form-group" style="clear:left">
-              <label for="title">Title</label>
-              <input type="text" class="form-control" v-model="element.title" id="text">
+              <label for="Eltitle">Title</label>
+              <input type="text" class="form-control" v-model="element.title" id="Eltitle" v-validate data-vv-rules="required|min:8" name="Eltitle">
+              <span class="validation-errors" v-show="errors.has('Eltitle')">{{ errors.first('Eltitle') }}</span>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Description</label>
-              <textarea class="form-control" v-model="element.description" rows="5"></textarea>
+              <label for="Eldescription">Description</label>
+              <textarea class="form-control" v-model="element.description" rows="5" id="Eldescription" v-validate data-vv-rules="required|min:6" name="Eldescription"></textarea>
+              <span class="validation-errors" v-show="errors.has('Eldescription')">{{ errors.first('Eldescription') }}</span>
             </div>
             <div class="form-group">
-              <label for="access">Format</label>
-              <select class="form-control input-lg" v-model="element.format">
+              <label for="Elformat">Format</label>
+              <select class="form-control input-lg" id="Elformat" name="Elformat" v-validate data-vv-rules="required" v-model="element.format">
                 <option v-for="format in formats" v-bind:value="format">
                   {{format}}
                 </option>
               </select>
+              <span class="validation-errors" v-show="errors.has('Elformat')">{{ errors.first('Elformat') }}</span>
             </div>
             <div class="form-group">
-              <label for="access" class="form-label">Access URL</label>
-              <input type="text" class="form-control" v-model="element.accessURL" id="access" placeholder="http://">
+              <label for="Elaccess" class="form-label">Access URL</label>
+              <input type="text" class="form-control" v-model="element.accessURL" v-validate data-vv-rules="url" name="Elaccess" id="Elaccess" placeholder="http://">
+              <span class="validation-errors" v-show="errors.has('Elaccess')">{{ errors.first('Elaccess') }}</span>
             </div>
             <div class="form-group">
-              <label for="download" class="form-label">Download URL</label>
-              <div>
-                <input type="text" class="form-control" v-model="element.downloadURL" id="download" placeholder="http://">
-              </div>
+              <label for="Eldownload" class="form-label">Download URL</label>
+              <input type="text" class="form-control" v-model="element.downloadURL" v-validate data-vv-rules="url" id="Eldownload" name="Eldownload" placeholder="http://">
+              <span class="validation-errors" v-show="errors.has('Eldownload')">{{ errors.first('Eldownload') }}</span>
             </div>
             <div class="form-group">
-              <label for="startdate">From Date</label>
-              <input type="date" class="form-control" v-model="element.temporalStart" id="startdate" placeholder="startDate">
+              <label for="Elstartdate">From Date</label>
+              <input type="date" class="form-control" v-model="element.temporalStart" id="Elstartdate" name="Elstartdate" placeholder="startDate">
+              <span class="validation-errors" v-show="errors.has('Elstartdate')">{{ errors.first('Elstartdate') }}</span>
             </div>
             <div class="form-group">
-              <label for="enddate">To Date</label>
-              <input type="date" class="form-control" v-model="element.temporalEnd" id="enddate" placeholder="endDate">
+              <label for="Elenddate">To Date</label>
+              <input type="date" class="form-control" v-model="element.temporalEnd" id="Elenddate" name="Elenddate" placeholder="endDate">
+              <span class="validation-errors" v-show="errors.has('Elenddate')">{{ errors.first('Elenddate') }}</span>
             </div>
           </form>
           <a v-if="$route.params.eid !== 'undefined'" class="btn btn-danger" @click="remove">Delete</a>

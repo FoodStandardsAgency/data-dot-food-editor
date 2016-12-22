@@ -1,6 +1,7 @@
 export default {
-  title: 'Example title',
-  description: 'Example description',
+  title: '',
+  description: '',
   fromDate: '',
-  toDate: ''
+  toDate: '',
+  format: ''
 }
