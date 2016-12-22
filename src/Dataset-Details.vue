@@ -48,6 +48,7 @@ Allow editing of all attributes
           <div class="form-group">
             <label for="frequency">Frequency</label>
             <input type="text" class="form-control input-lg" id="frequency" name="frequency" v-model="dataset.frequency"/>
+            <span class="iso8601">{{dataset.frequency | iso8601}}</span>
           </div>
           <!-- Landing Page -->
           <div class="form-group">
@@ -129,6 +130,7 @@ Allow editing of all attributes
   import { getDataset, getDirectorates, getElement, saveDataset, removeDataset } from './Api'
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
+  import iso8601 from './iso8601'
 
   export default {
     created () {
@@ -181,6 +183,17 @@ Allow editing of all attributes
         searchQuery: '',
         directorates: [],
         element: []
+      }
+    },
+    filters: {
+      iso8601 (d) {
+        if (d.startsWith('R/')) {
+          d = d.substring(2, 10000)
+        } else {
+          return 'Needs to begin with "R/"'
+        }
+        let parsed = iso8601.Period.parseToString(d)
+        return 'repeating every ' + parsed
       }
     },
     methods: {
