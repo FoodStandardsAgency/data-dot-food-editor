@@ -13,70 +13,87 @@ Allow editing of all attributes
     <div id="details" v-if="dataset" :key="dataset.id">
       <div class="container">
         <form>
+
           <div class="pull-right">
             <a v-if="$route.params.id !== 'new'" @click="remove" class="btn btn-danger">Delete</a>
-            <router-link to="/" class="btn">Cancel</router-link>
+            <router-link to="/" role="button" class="btn btn-default">Cancel</router-link>
             <a @click="save" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</a>
           </div>
+
+          <!-- Title -->
           <div class="form-group" style="clear:right;">
             <label for="title">Title</label>
-            <input type="text" class="form-control input-lg" id="text" placeholder="" v-model="dataset.title">
+            <input type="text" class="form-control input-lg" autocomplete="off" id="title" name="title" :class="{'input': true, 'is-danger': errors.has('title') }" v-validate data-vv-rules="required|min:8" placeholder="" v-model="dataset.title">
+            <span class="validation-errors" v-show="errors.has('title')">{{ errors.first('title') }}</span>
           </div>
+          <!-- description -->
           <div class="form-group">
-            <label for="exampleInputPassword1">Description</label>
-            <textarea class="form-control" rows="6" v-model="dataset.description"></textarea>
+            <label for="description">Description</label>
+            <textarea class="form-control" rows="6" name="description" id="description" v-validate data-vv-rules="required|min:20" v-model="dataset.description"></textarea>
+            <span class="validation-errors" v-show="errors.has('description')">{{ errors.first('description') }}</span>
           </div>
+          <!-- Publisher -->
           <div class="form-group">
-            <label for="exampleInputPassword1">Publisher</label>
-            <input type="text" class="form-control input-lg" v-model="dataset.publisher"/>
+            <label for="publisher">Publisher</label>
+            <input type="text" class="form-control input-lg" name="publisher" id="publisher" v-validate data-vv-rules="required" v-model="dataset.publisher"/>
+            <span class="validation-errors" v-show="errors.has('publisher')">{{ errors.first('publisher') }}</span>
           </div>
+          <!-- Licence -->
           <div class="form-group">
-            <label for="exampleInputPassword1">Licence</label>
-            <input type="text" class="form-control input-lg" v-model="dataset.licence"/>
+            <label for="licence">Licence</label>
+            <input type="text" class="form-control input-lg" id="licence" name="licence" v-validate data-vv-rules="url" v-model="dataset.licence"/>
+            <span class="validation-errors" v-show="errors.has('licence')">{{ errors.first('licence') }}</span>
           </div>
+          <!-- frequency -->
           <div class="form-group">
-            <label for="exampleInputPassword1">Frequency</label>
-            <input type="text" class="form-control input-lg" v-model="dataset.frequency"/>
+            <label for="frequency">Frequency</label>
+            <input type="text" class="form-control input-lg" id="frequency" name="frequency" v-model="dataset.frequency"/>
           </div>
+          <!-- Landing Page -->
           <div class="form-group">
-            <label for="exampleInputPassword1">Landing Page</label>
-            <input type="text" class="form-control input-lg" v-model="dataset.landingPage"/>
+            <label for="landing">Landing Page</label>
+            <input type="text" class="form-control input-lg" id="landing" name="landing" v-validate data-vv-rules="url" v-model="dataset.landingPage"/>
+            <span class="validation-errors" v-show="errors.has('landing')">{{ errors.first('landing') }}</span>
           </div>
-
+          <!-- Directorate -->
           <div class="form-group">
-            <label for="exampleInputFile">Directorate</label>
-            <select class="form-control input-lg" v-model="dataset.directorate">
+            <label for="directorate">Directorate</label>
+            <select class="form-control input-lg" id="directorate" name="directorate" v-model="dataset.directorate">
               <option v-for="directorate in directorates" v-bind:value="directorate">
                 {{directorate.label}}
               </option>
             </select>
           </div>
         </form>
+        <!-- Publish -->
         <form class="form-inline">
           <div class="form-group form-group-lg">
             <label>Publish</label>
             <label class="radio">
-              <label class="control-label col-sm-2" for="inlineRadio1">Published</label>
-              <input type="radio" name="inlineRadioOptions" id="inlineRadio1" class="input-lg" v-model="dataset.published" v-bind:value="true">
+              <label class="control-label col-sm-2" for="published">Published</label>
+              <input type="radio" name="published" id="publish" class="input-lg" v-model="dataset.published" v-bind:value="true">
             </label>
             <label class="radio">
-              <label class="control-label col-sm-2" for="inlineRadio2">Draft</label>
-              <input type="radio" name="inlineRadioOptions" id="inlineRadio2" class="input-lg" v-model="dataset.published" v-bind:value="false">
+              <label class="control-label col-sm-2" for="published">Draft</label>
+              <input type="radio" name="published" id="draft" class="input-lg" v-model="dataset.published" v-bind:value="false">
             </label>
           </div>
         </form>
 
         <form>
+          <!-- Keywords -->
           <div class="form-group">
             <label for="keyword">Keywords</label>
             <tags-input
               :tags="dataset.keyword"
               @tags-change="handleTagsChange"></tags-input>
           </div>
+          <!-- Owner -->
           <div class="form-group">
             <label for="owner">Owner</label>
             <textarea class="form-control input-lg" rows="3" v-model="dataset.owner"></textarea>
           </div>
+          <!-- Notes -->
           <div class="form-group">
             <label for="title">Notes</label>
             <textarea class="form-control input-lg" rows="2" v-model="dataset.notes"></textarea>
