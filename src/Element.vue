@@ -148,4 +148,5 @@ Displayed as a modal
 </script>
 
 <style lang='scss' scoped>
+  @import './assets/validation-errors';
 </style>

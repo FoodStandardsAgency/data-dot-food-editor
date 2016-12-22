@@ -253,6 +253,8 @@ Allow editing of all attributes
 </script>
 
 <style lang='scss'>
+  @import './assets/validation-errors';
+
   .tags-input .tag, .tags-input .gap  {
     font-size: 18px!important;
     line-height: 1.33333!important;
