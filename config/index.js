@@ -26,9 +26,9 @@ module.exports = {
         '/metadata-repository': {
           target: 'http://localhost:8080/',
           changeOrigin: true,
-          // pathRewrite: {
-          //   '^/api': ''
-          // }
+          pathRewrite: {
+            '^/metadata-repository': ''
+          }
         }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
