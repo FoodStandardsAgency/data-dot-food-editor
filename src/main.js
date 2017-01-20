@@ -12,6 +12,7 @@ import App from './App' // Compositor
 
 import DatasetDetails from './Dataset-Details'
 import ElementList from './Element-List'
+import ElementDetails from './Element-Details'
 import DatasetList from './Dataset-List'
 import Grid from 'vue2-bootstrap-table'
 import Search from './components/Search.vue'
@@ -37,10 +38,10 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: DatasetList, name: 'list' },
-    { path: '/dataset/:id', component: DatasetDetails, name: 'dataset' },
+    { path: '/', component: DatasetList, name: 'datasets' },
+    { path: '/dataset/:id?', component: DatasetDetails, name: 'dataset' },
     { path: '/dataset/:id/elements', component: ElementList, name: 'elements' },
-    { path: '/dataset/:id/elements/:eid', component: ElementList, name: 'element' }
+    { path: '/dataset/:id/elements/:eid', component: ElementDetails, name: 'element' }
   ]
 })
 
