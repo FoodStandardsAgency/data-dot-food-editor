@@ -230,25 +230,45 @@ Allow editing of all attributes
           })
         }
       },
-      fetchData () {
-        if (this.$route.params.id !== 'new') {
-          getDataset({id: this.$route.params.id}).then((dataset) => {
-            this.dataset = dataset
-          }, (e) => {
-            alert('sorry, something went wrong')
-          })
-
-          getElement({id: this.$route.params.id}).then((ele) => {
-            this.element = ele
-          }, (e) => {
-            alert('sorry, something went wrong')
-          })
-        }
-        getDirectorates().then((dset) => {
-          this.directorates = dset
+      getKeywords () {
+        getKeywordsText().then((keywords) => {
+          this.allowedKeywords = keywords
         }, (e) => {
           alert('sorry, something went wrong')
         })
+      },
+      fetchData () {
+        if (this.$route.query.saved === 'true') {
+          this.successMsg = 'Added Successfully'
+          this.unsavedChanges = false
+        }
+
+        getDirectorates().then((dset) => {
+          // Loading the data in to a select box when the current value isn't one of the
+          // Options will remove the value from the property!
+          // Fixed by loading the directorates first
+          this.directorates = dset
+
+          if (this.$route.params.id !== 'new') {
+            getDataset({id: this.$route.params.id}).then((dataset) => {
+              delete dataset.keywords
+              this.dataset = dataset
+            }, (e) => {
+              alert('sorry, something went wrong')
+            })
+
+            getElements({id: this.$route.params.id}).then((ele) => {
+              this.element = ele
+            }, (e) => {
+              alert('sorry, something went wrong')
+            })
+          } else {
+            this.dataset = JSON.parse(JSON.stringify(blankDataset))
+          }
+        }, (e) => {
+          alert('sorry, something went wrong')
+        })
+        this.getKeywords()
       }
     },
     components: {
