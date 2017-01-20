@@ -1,0 +1,34 @@
+[
+  {
+    "name": "csv",
+    "code": "text/csv"
+  },
+  {
+    "name": "pdf",
+    "code": "application/pdf"
+  },
+  {
+    "name": "html",
+    "code": "text/html"
+  },
+  {
+    "name": "web",
+    "code": "text/html"
+  },
+  {
+    "name": "rdfa",
+    "code": "text/html"
+  },
+  {
+    "name": "xml",
+    "code": "application/xml"
+  },
+  {
+    "name": "excel",
+    "code": "application/vnd.ms-excel"
+  },
+  {
+    "name": "json",
+    "code": "application/json"
+  }
+]
