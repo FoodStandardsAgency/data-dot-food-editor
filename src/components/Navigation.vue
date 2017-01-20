@@ -22,14 +22,9 @@ Replace with any site-specific navigation elements and styling
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><h2>Dataset catalogue</h2></li>
-
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/todo">Reports</router-link></li>
-            <li><router-link to="/todo">Admin</router-link></li>
-
-          <!-- <li class="active"><a href="dataset-editor-list.html">Home <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Reports</a></li>
-          <li><a href="#">Admin</a></li> -->
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/todo">Reports</router-link></li>
+          <li><router-link to="/todo">Admin</router-link></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
