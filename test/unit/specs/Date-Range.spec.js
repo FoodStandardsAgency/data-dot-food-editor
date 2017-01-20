@@ -8,10 +8,13 @@ describe('Date-range.vue', () => {
       render: (h) => h(DateRange, {
         domProps: {
           data: [{arr: [{a: '2014-01-02', b: '2014-02-03'}], startProp: 'a', endProp: 'b'}]
-        }
+        },
+        arr: [{a: '2014-01-02', b: '2014-02-03'}],
+        startProp: 'a',
+        endProp: 'b'
       })
-    })
-    // console.log(vm.$el)
-    // expect(vm.$el.querySelector('.daterange')).to.exist
+    }).$mount()
+    // console.log(JSON.stringify(vm.$el).querySelector('div'))
+    expect(vm.$el.querySelector('.daterange')).to.contain('element')
   })
 })
