@@ -8,7 +8,7 @@ Allow editing of all attributes
       <ol class="breadcrumb">
         <li><router-link :to="{ name: 'datasets'}" class="active">Datasets</router-link></li>
         <li><router-link :to="{ name: 'dataset', params: { id: $route.params.id, eid: 'new' }}" class="active">{{$route.params.id}}</router-link></li>
-        <li>Elements</li>
+        <li>elements</li>
       </ol>
     </div>
     <div id="details" v-if="dataset" :key="dataset.id">
@@ -18,6 +18,8 @@ Allow editing of all attributes
 
         <div class="form-group assets-group">
           <search :searchEvent="searchListener"></search>
+
+          <messages :success="successMsg" :warn="warnMsg"></messages>
 
           <a @click="addElement" class="btn btn-success pull-right" aria-label="Add">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -37,8 +39,6 @@ Allow editing of all attributes
           <date-range :arr="elements" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
         </div>
       </div>
-      <modal v-if="selectedElement" :element="selectedElement" @close="closeElement"></modal>
-
     </div>
 
     <div id="details" v-else>
@@ -50,22 +50,11 @@ Allow editing of all attributes
 <script>
   /* global confirm */
   import 'bootstrap'
-  import Element from './Element'
-  import $ from 'jquery'
-  import { getElement, getDataset } from './Api'
+  import { getElements, getDataset } from './Api'
 
   export default {
     created () {
       this.fetchData()
-
-      if (this.$route.params.eid) {
-        getElement({id: this.$route.params.id, eid: this.$route.params.eid}, (err, element) => {
-          if (err) {} else {
-            this.selectedElement = element
-            $('#elementModal').modal('show')
-          }
-        })
-      }
     },
     watch: {
       '$route': 'fetchData'
@@ -110,42 +99,33 @@ Allow editing of all attributes
             addClass: 'hidden-xs'
           }
         ],
-        searchQuery: '',
-        selectedElement: {}
+        searchQuery: ''
       }
     },
     methods: {
       searchListener: function (val) {
         this.searchQuery = val
       },
-      closeElement (el) {
-        // Update the full list of elements - may have changed.
-        this.fetchData()
-      },
       addElement () {
-        let newElement = require('./blank-element')
-        this.elements.push(newElement)
-        this.openElement(newElement) // Open editor
+        this.$router.push({name: 'element', params: { id: this.$route.params.id, eid: 'new' }})
       },
       openElement (el) {
         let id = decodeURIComponent(el['@id'])
         let cleanId = id.split('/').pop()
         this.$router.push({name: 'element', params: { id: this.$route.params.id, eid: cleanId }})
-
-        this.selectedElement = JSON.parse(JSON.stringify(el))
-        $('#elementModal').modal('show')
       },
       fetchData () {
-        getElement({id: this.$route.params.id}).then((elements) => {
+        if (this.$route.query.deleted) {
+          this.successMsg = 'Deleted Successfully'
+        }
+
+        getElements({id: this.$route.params.id}).then((elements) => {
           this.elements = elements
         })
         getDataset({id: this.$route.params.id}).then((dataset) => {
           this.dataset = dataset
         })
       }
-    },
-    components: {
-      modal: Element
     }
   }
 </script>
