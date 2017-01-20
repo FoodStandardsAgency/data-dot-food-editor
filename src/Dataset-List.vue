@@ -17,6 +17,8 @@ Add new dataset
     <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
     <search :searchEvent="searchListener"></search>
 
+    <messages :success="successMsg" :warn="warnMsg"></messages>
+
     <div class="rowsPerPage">
       Items per page:
       <select class="input input-md" v-model="rowsPerPage">
@@ -43,7 +45,7 @@ Add new dataset
 </template>
 
 <script>
-  import { getDataset } from './Api'
+  import { getDatasets } from './Api'
   export default {
     data () {
       return {
@@ -68,7 +70,8 @@ Add new dataset
           }
         ],
         searchQuery: '',
-        tableData: []
+        tableData: [],
+        rowsPerPage: 10
       }
     },
     created: function () {
@@ -81,9 +84,13 @@ Add new dataset
         this.$router.push({name: 'dataset', params: { id: cleanId }})
       },
       fetchData () {
+        if (this.$route.query.deleted) {
+          this.successMsg = 'Deleted Successfully'
+        }
+
         this.error = this.post = null
         this.loading = true
-        getDataset({}).then((dataset) => {
+        getDatasets({}).then((dataset) => {
           this.loading = false
           this.tableData = dataset
         }, (e) => {
@@ -98,4 +105,8 @@ Add new dataset
 </script>
 
 <style lang='scss' scoped>
+  .rowsPerPage{
+    float: right;
+    padding: 10px 0;
+  }
 </style>
