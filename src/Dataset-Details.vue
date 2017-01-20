@@ -12,9 +12,8 @@ Allow editing of all attributes
     </div>
     <div id="details" v-if="dataset" :key="dataset.id">
       <div class="container">
-        <form>
-
-          <div class="pull-right">
+        <form v-on:submit.prevent="onSubmit">
+          <div class="pull-right buttons">
             <a v-if="$route.params.id !== 'new'" @click="remove" class="btn btn-danger">Delete</a>
             <router-link to="/" role="button" class="btn btn-default">Cancel</router-link>
             <a @click="save" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</a>
@@ -25,6 +24,7 @@ Allow editing of all attributes
           <div class="form-group" style="clear:right;">
             <label for="title">Title</label>
             <input type="text" class="form-control input-lg" autocomplete="off" id="title" name="title" :class="{'input': true, 'is-danger': errors.has('title') }" v-validate data-vv-rules="required|min:8" placeholder="" v-model="dataset.title">
+            <!-- <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span> -->
             <span class="validation-errors" v-show="errors.has('title')">{{ errors.first('title') }}</span>
           </div>
           <!-- description -->
@@ -42,33 +42,33 @@ Allow editing of all attributes
           <!-- Licence -->
           <div class="form-group">
             <label for="licence">Licence</label>
-            <input type="text" class="form-control input-lg" id="licence" name="licence" v-validate data-vv-rules="url" v-model="dataset.licence"/>
-            <span class="validation-errors" v-show="errors.has('licence')">{{ errors.first('licence') }}</span>
+            <input type="text" class="form-control input-lg" id="license" name="license" v-validate data-vv-rules="url" v-model="dataset.license"/>
+            <span class="validation-errors" v-show="errors.has('license')">{{ errors.first('license') }}</span>
           </div>
           <!-- frequency -->
           <div class="form-group">
             <label for="frequency">Frequency</label>
-            <input type="text" class="form-control input-lg" id="frequency" name="frequency" v-model="dataset.frequency"/>
-            <span class="iso8601">{{dataset.frequency | iso8601}}</span>
+            <input type="text" class="form-control input-lg" id="frequency" name="frequency" v-model="dataset.accrualPeriodicity"/>
+            <span class="iso8601">{{dataset.accrualPeriodicity | iso8601}}</span>
           </div>
           <!-- Landing Page -->
           <div class="form-group">
             <label for="landing">Landing Page</label>
-            <input type="text" class="form-control input-lg" id="landing" name="landing" v-validate data-vv-rules="url" v-model="dataset.landingPage"/>
-            <span class="validation-errors" v-show="errors.has('landing')">{{ errors.first('landing') }}</span>
+            <input type="text" class="form-control input-lg" id="landingPage" name="landingPage" v-validate data-vv-rules="url" v-model="dataset.landingPage"/>
+            <span class="validation-errors" v-show="errors.has('landingPage')">{{ errors.first('landingPage') }}</span>
           </div>
           <!-- Directorate -->
           <div class="form-group">
             <label for="directorate">Directorate</label>
             <select class="form-control input-lg" id="directorate" name="directorate" v-model="dataset.directorate">
-              <option v-for="directorate in directorates" v-bind:value="directorate">
-                {{directorate.label}}
+              <option v-for="directorateItem in directorates" v-bind:value="directorateItem['@id']">
+                {{directorateItem.prefLabel}}
               </option>
             </select>
           </div>
         </form>
         <!-- Publish -->
-        <form class="form-inline">
+        <form v-on:submit.prevent="onSubmit" class="form-inline">
           <div class="form-group form-group-lg">
             <label>Publish</label>
             <label class="radio">
@@ -82,7 +82,7 @@ Allow editing of all attributes
           </div>
         </form>
 
-        <form>
+        <form v-on:submit.prevent="">
           <!-- Keywords -->
           <div class="form-group">
             <label for="keyword">Keywords</label>
@@ -92,8 +92,8 @@ Allow editing of all attributes
           </div>
           <!-- Owner -->
           <div class="form-group">
-            <label for="owner">Owner</label>
-            <textarea class="form-control input-lg" rows="3" v-model="dataset.owner"></textarea>
+            <label for="ownerName">Owner name</label>
+            <textarea id="ownerName" name="ownerName" class="form-control input-lg" rows="3" v-model="dataset.ownerName"></textarea>
           </div>
           <!-- Notes -->
           <div class="form-group">
@@ -108,7 +108,7 @@ Allow editing of all attributes
           </p>
           <div>
             <template v-if="$route.params.id !== 'new'">
-              <date-range :arr="element" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
+              <arr-length :arr="element"></arr-length>
               <router-link :to="{ name: 'elements', params: { id: $route.params.id }}" class="btn btn-danger">Edit elements</router-link>
             </template>
             <template v-else>
@@ -128,7 +128,7 @@ Allow editing of all attributes
 
 <script>
   /* global confirm alert */
-  import { getDataset, getDirectorates, getElement, saveDataset, removeDataset } from './Api'
+  import {getDataset, getDirectorates, getElements, saveDataset, removeDataset, getKeywordsText, saveKeyword} from './Api'
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
   import iso8601 from './iso8601'
@@ -183,48 +183,87 @@ Allow editing of all attributes
         ],
         searchQuery: '',
         directorates: [],
-        element: []
+        element: [],
+        allowedKeywords: [],
         warnMsg: '',
         successMsg: ''
       }
     },
     filters: {
       iso8601 (d) {
-        if (d.startsWith('R/')) {
-          d = d.substring(2, 10000)
-        } else {
-          return 'Needs to begin with "R/"'
+        if (d) {
+          if (d.startsWith('R/')) {
+            d = d.substring(2, 10000)
+          } else {
+            return 'Needs to begin with "R/"'
+          }
+          let parsed = iso8601.Period.parseToString(d)
+          return 'repeating every ' + parsed
         }
-        let parsed = iso8601.Period.parseToString(d)
-        return 'repeating every ' + parsed
       }
     },
     methods: {
       handleTagsChange (index, text) {
+        console.log(index, text)
         if (!this.dataset.keyword) {
           this.dataset.keyword = []
         }
         if (text) {
-          this.dataset.keyword.splice(index, 0, text)
-        } else {
+          text = text.toLowerCase()
+          if (this.dataset.keyword.indexOf(text) !== -1) {
+            return // Already exists in tags
+          }
+          // Check that the keyword is one of the allowed keywords
+          // Prompt before adding text
+          if (this.allowedKeywords.indexOf(text) === -1) {
+            if (confirm('Are you sure you want to add a new tag?')) {
+              // Add tag to globally allowed tags
+
+              let keywordTemplate = {
+                '@id': '',
+                'prefLabel': '',
+                'type': 'http://vocab.epimorphics.com/def/catalog/Keyword'
+              }
+
+              keywordTemplate['@id'] = text
+              keywordTemplate['prefLabel'] = text // [0].toUpperCase() + text.substring(1) // Init caps
+
+              saveKeyword({}, keywordTemplate).then((resp) => {
+                this.getKeywords() // Update locally stored keywords object
+                this.dataset.keyword.splice(index, 0, text)
+              }, (e) => {
+                alert('sorry, something went wrong')
+              })
+            } else {
+              this.dataset.keyword.splice(index, 1)
+            }
+          } else {
+            this.dataset.keyword.splice(index, 0, text)
+          }
+        } else { // Delete tag
           this.dataset.keyword.splice(index, 1)
         }
       },
       save () {
         saveDataset({id: this.$route.params.id}, this.dataset).then((resp) => {
           this.unsavedChanges = false
-          this.$router.push({path: '/'})
           this.successMsg = 'Updated Successfully'
+
+          // TODO slightly hacky.
+          if (resp.headers.map.location && resp.headers.map.location[0]) {
+            let id = resp.headers.map.location[0].split('/').pop()
+            this.$router.push({name: 'dataset', params: {id: id}, query: {saved: true}})
+          }
         }, (err) => {
-          console.log('Something went wrong ' + err.message)
           this.warnMsg = 'Something went wrong, please try again'
+          console.error(err)
         })
       },
       remove () {
         if (confirm('Are you sure you want to delete this Dataset?')) {
           removeDataset({id: this.$route.params.id}).then((resp) => {
             this.unsavedChanges = false
-            this.$router.push({path: '/'})
+            this.$router.push({name: 'datasets', query: {deleted: true}})
           }, (err) => {
             console.log('Something went wrong ' + err.message)
           })
@@ -279,6 +318,21 @@ Allow editing of all attributes
 
 <style lang='scss'>
   @import './assets/validation-errors';
+
+  .messages {
+    width: 100%;
+    clear: right;
+    text-align: center;
+  }
+
+  .buttons{
+    margin-bottom: 10px;
+  }
+
+  .messages .message {
+    padding: 10px;
+    margin: 10px 0;
+  }
 
   .tags-input .tag, .tags-input .gap  {
     font-size: 18px!important;
