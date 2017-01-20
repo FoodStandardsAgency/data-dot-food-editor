@@ -16,7 +16,9 @@ import DatasetList from './Dataset-List'
 import Grid from 'vue2-bootstrap-table'
 import Search from './components/Search.vue'
 import DateRange from './components/Date-Range'
+import ArrLength from './components/Arr-Length'
 import Moment from 'vue-moment'
+import Messages from './components/Messages'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
@@ -27,6 +29,8 @@ Vue.use(VeeValidate)
 Vue.component('grid', Grid)
 Vue.component('search', Search)
 Vue.component('date-range', DateRange)
+Vue.component('arr-length', ArrLength)
+Vue.component('messages', Messages)
 
 // Configure routes
 const router = new VueRouter({
