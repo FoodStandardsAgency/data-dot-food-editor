@@ -17,12 +17,22 @@ Add new dataset
     <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
     <search :searchEvent="searchListener"></search>
 
+    <div class="rowsPerPage">
+      Items per page:
+      <select class="input input-md" v-model="rowsPerPage">
+        <option v-bind:value="10">10</option>
+        <option v-bind:value="25">25</option>
+        <option v-bind:value="100">100</option>
+        <option v-bind:value="100000">All</option>
+      </select>
+    </div>
+
     <div class="row">
       <div class="col-sm-12" id="wrapper">
         <grid
           :data="tableData"
           :columns="headers"
-          :rowsPerPage="10"
+          :rowsPerPage="rowsPerPage"
           @clickRow="rowClick"
           :filter-key="searchQuery">
         </grid>
