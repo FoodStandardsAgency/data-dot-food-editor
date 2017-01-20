@@ -19,7 +19,8 @@ Allow editing of all attributes
             <router-link to="/" role="button" class="btn btn-default">Cancel</router-link>
             <a @click="save" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</a>
           </div>
-
+          <!-- Messages -->
+          <messages :success="successMsg" :warn="warnMsg"></messages>
           <!-- Title -->
           <div class="form-group" style="clear:right;">
             <label for="title">Title</label>
@@ -183,6 +184,8 @@ Allow editing of all attributes
         searchQuery: '',
         directorates: [],
         element: []
+        warnMsg: '',
+        successMsg: ''
       }
     },
     filters: {
@@ -211,8 +214,10 @@ Allow editing of all attributes
         saveDataset({id: this.$route.params.id}, this.dataset).then((resp) => {
           this.unsavedChanges = false
           this.$router.push({path: '/'})
+          this.successMsg = 'Updated Successfully'
         }, (err) => {
           console.log('Something went wrong ' + err.message)
+          this.warnMsg = 'Something went wrong, please try again'
         })
       },
       remove () {
