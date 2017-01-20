@@ -6,7 +6,7 @@ Allow editing of all attributes
   <main>
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href="/">Datasets</a></li>
+        <li><router-link :to="{ name: 'datasets'}" class="active">Datasets</router-link></li>
         <li>{{$route.params.id}}</li>
       </ol>
     </div>
