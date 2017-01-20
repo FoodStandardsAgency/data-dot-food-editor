@@ -3,12 +3,15 @@ export default {
   description: '',
   element: [],
   publisher: '',
-  licence: '',
-  frequency: '',
+  license: '',
+  accrualPeriodicity: '',
   landingPage: '',
-  directorate: {},
+  directorate: '',
   published: '',
   keyword: [],
-  owner: '',
-  notes: ''
+  keywords: [],
+  ownerName: '',
+  notes: '',
+  type: [ 'http://vocab.epimorphics.com/def/catalog/Dataset' ],
+  '@id': ''
 }
