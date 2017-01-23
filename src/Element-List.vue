@@ -85,17 +85,20 @@ Allow editing of all attributes
             path: 'description'
           },
           {
-            title: 'format',
-            path: 'format'
+            title: 'no. distributions',
+            path: 'distribution',
+            render: function (val) {
+              return val instanceof Array ? val.length : 1
+            }
           },
           {
-            title: 'fromDate',
-            path: 'temporalStart',
+            title: 'startDate',
+            path: 'startDate',
             addClass: 'hidden-xs'
           },
           {
-            title: 'toDate',
-            path: 'temporalEnd',
+            title: 'endDate',
+            path: 'endDate',
             addClass: 'hidden-xs'
           }
         ],
