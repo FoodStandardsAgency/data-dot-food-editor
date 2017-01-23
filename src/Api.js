@@ -16,14 +16,14 @@ let keyword = Vue.resource('/metadata-repository/catalog/keyword{/id}', {}, {}, 
 /* - - - - - - - - Dataset functions - - - - - - - - - - -  */
 export function getDataset (query) {
   return dataset.get(query)
-    .then(parse)
-    .then(itemItems)
-    .then(arrSingletoObj)
-    .then(forceArrPropKeyword)
+    .then(parse) // to JSON
+    .then(itemItems) // Remove item or items JSON response ambiguity
+    .then(arrSingletoObj) // If a single object in array remove array
+    .then(forceArrPropKeyword) // Ensure attribute is always array
     .then((jsn) => {
-      return mergeProto(jsn, blankDataset)
+      return mergeProto(jsn, blankDataset) // Ensure has all objects keys defined
     })
-    .then(simplifyDirectorate)
+    .then(simplifyDirectorate) // Simplify directorate object
 }
 
 export function getDatasets (query) {
@@ -111,51 +111,52 @@ export function getDatatypes () {
 }
 
 /* - - - - - - - Helper functions - - - - - - - - - */
+// Returned data structure can be of either items or item
+// Remove ambiguity
 let itemItems = (jsn) => {
   return jsn.item ? jsn.item : jsn.items
 }
 
+// Ensure object has all attribute keys available
+// This is so Vue can attach watchers to them
 let mergeProto = (jsn, proto) => {
-  // Ensure object has all keys available
-  // This is so Vue can attach watchers to them
-  let merged = Object.assign(JSON.parse(JSON.stringify(proto)), jsn)
-  return merged
+  if (jsn instanceof Array) {
+    return jsn.map((jsnEl) => {
+      return mergeProto(jsnEl, proto)
+    })
+  }
+  return Object.assign(JSON.parse(JSON.stringify(proto)), jsn)
 }
 
+// Simplify directorate property to allow simple comparison on select element
+// @id is all that's needed to update
 let simplifyDirectorate = (jsn) => {
-  // Simplify directorate property to allow simple comparison on select element
-  // @id is all that's needed to update
   if (jsn.directorate && typeof jsn.directorate === 'object') {
-    console.log(jsn.directorate)
     jsn.directorate = jsn.directorate['@id']
   }
   return jsn
 }
 
+// If a single object in array, remove array
 let arrSingletoObj = (jsn) => {
   return (typeof jsn.length !== 'undefined' && jsn.length === 1) ? jsn[0] : jsn
 }
 
+// Ensures property value is an array
+// Fix issue where if only 1 keyword it's not an array
 let forceArrProp = (jsn, attrName) => {
-  // Fix issue where if only 1 keyword it's not an array
   if (jsn[attrName]) {
     jsn[attrName] = [].concat(jsn[attrName])
   }
   return jsn
 }
 
-let forceArrPropKeyword = (jsn) => {
-  return forceArrProp(jsn, 'keyword')
-}
-
-let forceArrPropDistribution = (jsn) => {
-  return forceArrProp(jsn, 'distribution')
-}
-
+// Parse JSON string to object
 let parse = (d) => {
   return d.json()
 }
 
+// Transform object to single attribute
 let extractAttr = (d, attrName) => {
   return d.map((el) => {
     return el[attrName]
@@ -164,4 +165,12 @@ let extractAttr = (d, attrName) => {
 
 let extractPrefLabel = (d) => {
   return extractAttr(d, 'prefLabel')
+}
+
+let forceArrPropKeyword = (jsn) => {
+  return forceArrProp(jsn, 'keyword')
+}
+
+let forceArrPropDistribution = (jsn) => {
+  return forceArrProp(jsn, 'distribution')
 }
