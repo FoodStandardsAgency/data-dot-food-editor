@@ -6,6 +6,7 @@ import Vue from 'vue'
 import VueResource from 'vue-resource'
 import blankDataset from './blank-dataset'
 import blankElement from './blank-element'
+import blankDistribution from './blank-distribution'
 Vue.use(VueResource)
 
 let dataset = Vue.resource('/metadata-repository/catalog/dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
@@ -59,6 +60,11 @@ export function getElement (query) {
       return mergeProto(jsn, blankElement)
     })
     .then(forceArrPropDistribution)
+    .then((jsn) => {
+      // Ensure each distribution is based on the distribution prototype
+      jsn.distribution = mergeProto(jsn.distribution, blankDistribution)
+      return jsn
+    })
 }
 
 export function getElements (query) {
