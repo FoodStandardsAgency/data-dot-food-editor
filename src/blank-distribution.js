@@ -1,7 +1,7 @@
 export default {
   '@id': '',
   'downloadURL': '',
-  'identifier': '',
+  'accessURL': '',
   'mediaType': '',
   'type': 'http://www.w3.org/ns/dcat#Distribution'
 }
