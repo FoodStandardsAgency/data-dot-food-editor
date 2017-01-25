@@ -30,4 +30,9 @@ Apply any custom site-wide styles
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  .table th {
+      background-color: #5cb85c;
+      color: rgba(255,255,255,0.66);
+  }
 </style>
