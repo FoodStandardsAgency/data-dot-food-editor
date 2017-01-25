@@ -7,41 +7,41 @@ Add new dataset
 -->
 <template>
   <main>
-  <div class="container">
-    <div class="pull-right" style="margin-top:15px;">
-      <router-link to="/dataset/new" class="btn btn-success" title="add dataset">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-      </router-link>
-    </div>
-    <h1>FSA open data catalogue</h1>
-    <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
-    <search :searchEvent="searchListener"></search>
+    <div class="container">
+      <div class="pull-right" style="margin-top:15px;">
+        <router-link to="/dataset/new" class="btn btn-success" title="add dataset">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </router-link>
+      </div>
+      <h1>FSA open data catalogue</h1>
+      <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
+      <search :searchEvent="searchListener"></search>
 
-    <messages :success="successMsg" :warn="warnMsg"></messages>
+      <messages :success="successMsg" :warn="warnMsg"></messages>
 
-    <div class="rowsPerPage">
-      Items per page:
-      <select class="input input-md" v-model="rowsPerPage">
-        <option v-bind:value="10">10</option>
-        <option v-bind:value="25">25</option>
-        <option v-bind:value="100">100</option>
-        <option v-bind:value="100000">All</option>
-      </select>
-    </div>
+      <div class="rowsPerPage">
+        Items per page:
+        <select class="input input-md" v-model="rowsPerPage">
+          <option v-bind:value="10">10</option>
+          <option v-bind:value="25">25</option>
+          <option v-bind:value="100">100</option>
+          <option v-bind:value="100000">All</option>
+        </select>
+      </div>
 
-    <div class="row">
-      <div class="col-sm-12" id="wrapper">
-        <grid
-          :data="tableData"
-          :columns="headers"
-          :rowsPerPage="rowsPerPage"
-          @clickRow="rowClick"
-          :filter-key="searchQuery">
-        </grid>
+      <div class="row">
+        <div class="col-sm-12" id="wrapper">
+          <grid
+            :data="tableData"
+            :columns="headers"
+            :rowsPerPage="rowsPerPage"
+            @clickRow="rowClick"
+            :filter-key="searchQuery">
+          </grid>
+        </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 </template>
 
 <script>
