@@ -13,6 +13,9 @@ Allow editing of all attributes
     </div>
     <div id="details" v-if="dataset" :key="dataset.id">
       <div class="container">
+        <a @click="addElement" class="btn btn-success pull-right" aria-label="Add">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
 
         <h2>{{dataset.title}}</h2>
 
@@ -21,9 +24,15 @@ Allow editing of all attributes
 
           <messages :success="successMsg" :warn="warnMsg"></messages>
 
-          <a @click="addElement" class="btn btn-success pull-right" aria-label="Add">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          </a>
+          <div class="rowsPerPage">
+            Items per page:
+            <select class="input input-md" v-model="rowsPerPage">
+              <option v-bind:value="10">10</option>
+              <option v-bind:value="25">25</option>
+              <option v-bind:value="100">100</option>
+              <option v-bind:value="100000">All</option>
+            </select>
+          </div>
 
           <label for="assets">Elements</label>
           <div class="asset-table">
@@ -31,7 +40,7 @@ Allow editing of all attributes
               :data="elements"
               :columns="headers"
               @clickRow="openElement"
-              :rowsPerPage="25"
+              :rowsPerPage="rowsPerPage"
               :filter-key="searchQuery"
               :custom-empty-table-text="'No elements'">
             </grid>
@@ -70,6 +79,7 @@ Allow editing of all attributes
     },
     data () {
       return {
+        rowsPerPage: 100,
         elements: [],
         dataset: {
           element: [],
@@ -134,4 +144,8 @@ Allow editing of all attributes
 </script>
 
 <style lang='scss'>
+  .rowsPerPage{
+    float: right;
+    padding: 10px 0;
+  }
 </style>
