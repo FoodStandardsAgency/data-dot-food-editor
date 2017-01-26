@@ -131,6 +131,7 @@ Allow editing of all attributes
   import {getDataset, getDirectorates, getElements, saveDataset, removeDataset, getKeywordsText, saveKeyword} from './Api'
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
+  import blankKeyword from './blank-keyword'
   import iso8601 from './iso8601'
 
   export default {
@@ -219,11 +220,7 @@ Allow editing of all attributes
             if (confirm('Are you sure you want to add a new global tag?')) {
               // Add tag to globally allowed tags
 
-              let keywordTemplate = {
-                '@id': '',
-                'prefLabel': '',
-                'type': 'http://vocab.epimorphics.com/def/catalog/Keyword'
-              }
+              let keywordTemplate = JSON.parse(JSON.stringify(blankKeyword))
 
               keywordTemplate['@id'] = text
               keywordTemplate['prefLabel'] = text // [0].toUpperCase() + text.substring(1) // Init caps
