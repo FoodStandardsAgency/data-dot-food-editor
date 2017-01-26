@@ -25,6 +25,7 @@ export function getDataset (query) {
       return mergeProto(jsn, blankDataset) // Ensure has all objects keys defined
     })
     .then(simplifyDirectorate) // Simplify directorate object
+    .then(removeRPeriod) // Simplify directorate object
 }
 
 export function getDatasets (query) {
@@ -137,7 +138,16 @@ let mergeProto = (jsn, proto) => {
 // Simplify directorate property to allow simple comparison on select element
 // @id is all that's needed to update
 let simplifyDirectorate = (jsn) => {
-  if (jsn.directorate && typeof jsn.directorate === 'object') {
+  if (jsn.accrualPeriodicity) {
+    jsn.accrualPeriodicity = jsn.accrualPeriodicity.substring(3, 10000)
+  }
+  return jsn
+}
+
+// Simplify directorate property to allow simple comparison on select element
+// @id is all that's needed to update
+let removeRPeriod = (jsn) => {
+  if (jsn.repeat && typeof jsn.directorate === 'object') {
     jsn.directorate = jsn.directorate['@id']
   }
   return jsn

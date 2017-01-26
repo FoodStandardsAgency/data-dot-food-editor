@@ -47,8 +47,11 @@ Allow editing of all attributes
           </div>
           <!-- frequency -->
           <div class="form-group">
-            <label for="frequency">Frequency</label>
-            <input type="text" class="form-control input-lg" id="frequency" name="frequency" v-model="dataset.accrualPeriodicity"/>
+            <label for="frequency">Publish Frequency</label>
+            <div class="input-group">
+              <div class="input-group-addon">R/P</div>
+              <input type="text" class="form-control input-lg" id="frequency" name="frequency" v-model="dataset.accrualPeriodicity"/>
+            </div>
             <span class="iso8601">{{dataset.accrualPeriodicity | iso8601}}</span>
           </div>
           <!-- Landing Page -->
@@ -193,13 +196,8 @@ Allow editing of all attributes
     filters: {
       iso8601 (d) {
         if (d) {
-          if (d.startsWith('R/')) {
-            d = d.substring(2, 10000)
-          } else {
-            return 'Needs to begin with "R/"'
-          }
-          let parsed = iso8601.Period.parseToString(d)
-          return 'repeating every ' + parsed
+          let parsed = iso8601.Period.parseToString('P' + d)
+          return 'Typically published every ' + (parsed || '...')
         }
       }
     },
@@ -242,7 +240,13 @@ Allow editing of all attributes
         }
       },
       save () {
-        saveDataset({id: this.$route.params.id}, this.dataset).then((resp) => {
+        let dataset = JSON.parse(JSON.stringify(this.dataset))
+        // Re-add the Repeating / Period part to dataset.accrualPeriodicity
+        if (dataset.accrualPeriodicity) {
+          dataset.accrualPeriodicity = 'R/P' + this.dataset.accrualPeriodicity
+        }
+
+        saveDataset({id: this.$route.params.id}, dataset).then((resp) => {
           this.unsavedChanges = false
           this.successMsg = 'Updated Successfully'
 
