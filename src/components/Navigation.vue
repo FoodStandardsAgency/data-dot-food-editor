@@ -3,6 +3,10 @@ Template Navigation
 Replace with any site-specific navigation elements and styling
 -->
 <template>
+  <div class="demo">
+    <h3> This is a demo </h3>
+    <p> data may be erased at any time </p>
+  <div>
   <nav class="navbar navbar-default">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,4 +37,9 @@ Replace with any site-specific navigation elements and styling
 
 <script></script>
 
-<style></style>
+<style>
+  .demo {
+    text-align: center;
+    color: #F00;
+  }
+</style>
