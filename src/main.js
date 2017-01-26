@@ -20,6 +20,8 @@ import DateRange from './components/Date-Range'
 import ArrLength from './components/Arr-Length'
 import Moment from 'vue-moment'
 import Messages from './components/Messages'
+import Reports from './Reports'
+import Chart from 'vue-echarts'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
@@ -32,6 +34,7 @@ Vue.component('search', Search)
 Vue.component('date-range', DateRange)
 Vue.component('arr-length', ArrLength)
 Vue.component('messages', Messages)
+Vue.component('chart', Chart)
 
 // Configure routes
 const router = new VueRouter({
@@ -39,6 +42,7 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     { path: '/', component: DatasetList, name: 'datasets' },
+    { path: '/reports', component: Reports, name: 'reports' },
     { path: '/dataset/:id?', component: DatasetDetails, name: 'dataset' },
     { path: '/dataset/:id/elements', component: ElementList, name: 'elements' },
     { path: '/dataset/:id/elements/:eid', component: ElementDetails, name: 'element' }

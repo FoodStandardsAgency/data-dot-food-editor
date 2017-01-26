@@ -23,7 +23,7 @@ Replace with any site-specific navigation elements and styling
         <ul class="nav navbar-nav">
           <li><h2>Dataset catalogue</h2></li>
           <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/todo">Reports</router-link></li>
+          <li><router-link to="/reports">Reports</router-link></li>
           <li><router-link to="/todo">Admin</router-link></li>
         </ul>
       </div><!-- /.navbar-collapse -->
