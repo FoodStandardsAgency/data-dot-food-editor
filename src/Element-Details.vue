@@ -36,66 +36,61 @@ Displayed as a modal
             <span class="validation-errors" v-show="errors.has('Eldescription')">{{ errors.first('Eldescription') }}</span>
           </div>
           <div class="form-group">
-            <label for="Elformat">Format</label>
-            <select class="form-control input-lg" id="Elformat" name="Elformat" v-validate data-vv-rules="required" v-model="element.format">
-              <option v-for="datatype in datatypes" v-bind:value="datatype.code">
-                {{datatype.name}}
-              </option>
-            </select>
-            <span class="validation-errors" v-show="errors.has('Elformat')">{{ errors.first('Elformat') }}</span>
-          </div>
-          <div class="form-group">
-            <label for="Elaccess" class="form-label">Access URL</label>
-            <input type="text" class="form-control" v-model="element.accessURL" v-validate data-vv-rules="url" name="Elaccess" id="Elaccess" placeholder="http://">
-            <span class="validation-errors" v-show="errors.has('Elaccess')">{{ errors.first('Elaccess') }}</span>
-          </div>
-          <div class="form-group">
-            <label for="Eldownload" class="form-label">Download URL</label>
-            <input type="text" class="form-control" v-model="element.downloadURL" v-validate data-vv-rules="url" id="Eldownload" name="Eldownload" placeholder="http://">
-            <span class="validation-errors" v-show="errors.has('Eldownload')">{{ errors.first('Eldownload') }}</span>
-          </div>
-          <div class="form-group">
             <label for="Elstartdate">From Date</label>
-            <input type="date" class="form-control" v-model="element.startDate" id="Elstartdate" name="Elstartdate" placeholder="startDate">
+            <input type="date" class="form-control" v-model="element.startDate" id="Elstartdate" name="Elstartdate" placeholder="dd/mm/yyyy">
             <span class="validation-errors" v-show="errors.has('Elstartdate')">{{ errors.first('Elstartdate') }}</span>
           </div>
           <div class="form-group">
             <label for="Elenddate">To Date</label>
-            <input type="date" class="form-control" v-model="element.endDate" id="Elenddate" name="Elenddate" placeholder="endDate">
+            <input type="date" class="form-control" v-model="element.endDate" id="Elenddate" name="Elenddate" placeholder="dd/mm/yyyy">
             <span class="validation-errors" v-show="errors.has('Elenddate')">{{ errors.first('Elenddate') }}</span>
           </div>
         </form>
     </div>
 
-  </div>
-
-  <!-- <div class="modal fade" id="boolModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <div class="pull-right">
-            <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-            <button @click="save" type="button" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</button>
-          </div>
-          <h4 class="modal-title" id="myModalLabel">Are you sure you want to?</h4>
+    <div class="container distributions">
+      <h3>Distributions</h3>
+      <p>Distributions available for this asset</p>
+      <button @click="newDistribution">Add distribution</button>
+      <div class="distribution row" v-for="(distribution, index) in element.distribution">
+        <div class="closeBtnHolder">
+          <button v-on:click="removeDistribution(index)" class="pull-right">Remove</button>
         </div>
-
-        <div class="modal-body">
-          <form>
-            <div class="form-group" style="clear:left">
-              <label for="Eltitle">Title</label>
-              <input type="text" class="form-control" v-model="element.title" id="Eltitle" v-validate data-vv-rules="required|min:8" name="Eltitle">
-              <span class="validation-errors" v-show="errors.has('Eltitle')">{{ errors.first('Eltitle') }}</span>
-            </div>
+        <div class="form-group col-md-6">
+          <label for="Elformat">Format</label>
+          <select class="form-control" :id="'Elformat' + index" v-validate data-vv-rules="required" data-vv-as="Format" :name="'Elformat' + index" v-model="distribution.mediaType">
+            <option v-for="datatype in datatypes" v-bind:value="datatype.code">
+              {{datatype.name}}
+            </option>
+          </select>
+          <span class="validation-errors" v-show="errors.has('Elformat' + index)">{{ errors.first('Elformat' + index) }}</span>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Elaccess" class="form-label">Access URL</label>
+          <input type="text" class="form-control" v-model="distribution.accessURL" v-validate data-vv-rules="url" data-vv-as="Access" :name="'Elaccess' + index" :id="'Elaccess'  + index" placeholder="http://">
+          <span class="validation-errors" v-show="errors.has('Elaccess' + index)">{{ errors.first('Elaccess' + index) }}</span>
+        </div>
+        <div class="form-group col-md-12">
+          <label>Static</label>
+          <span class="help-block">Is the resource static, e.g. can a user get different results at different times</span>
+          <input type="checkbox">Static</input>
+        </div>
+        <div class="form-group">
+          <label for="Eldownload" class="form-label">Download URL</label>
+          <input type="text" class="form-control" v-model="distribution.downloadURL" v-validate data-vv-rules="url" data-vv-as="Download" :id="'Eldownload' + index" :name="'Eldownload' + index" placeholder="http://">
+          <span class="validation-errors" v-show="errors.has('Eldownload' + index)">{{ errors.first('Eldownload' + index) }}</span>
         </div>
       </div>
     </div>
-  </div> -->
+
+  </div>
 </template>
 <script>
   /* global confirm alert */
   import blankElement from './blank-element'
+  import blankDistribution from './blank-distribution'
+  import uuid from 'uuid'
+  import statics from './statics'
 
   import {getDatatypes, saveElement, removeElement, getElement} from './Api'
 
@@ -108,7 +103,6 @@ Displayed as a modal
       'element': {
         deep: true,
         handler: function (val, oldVal) {
-          console.log(val)
           if (!this.beforeLoad) {
             this.unsavedChanges = true
           } else {
@@ -187,6 +181,16 @@ Displayed as a modal
             alert('sorry, something went wrong.')
           })
         }
+      },
+      newDistribution () {
+        // Add a new distribution to distributions
+        let newDistro = JSON.parse(JSON.stringify(blankDistribution))
+        newDistro['@id'] = statics.distributionUri + uuid.v4()
+        this.element.distribution.push(newDistro)
+        console.log(newDistro)
+      },
+      removeDistribution (index) {
+        this.element.distribution.splice(index, 1)
       }
     }
   }
@@ -194,4 +198,13 @@ Displayed as a modal
 
 <style lang='scss' scoped>
   @import './assets/validation-errors';
+
+  .distribution {
+    border: 1px solid #AAA;
+    margin: 10px 0;
+    padding: 5px 5px;
+  }
+  .closeBtnHolder {
+    padding-bottom: 20px;
+  }
 </style>
