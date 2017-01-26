@@ -13,7 +13,7 @@ Allow editing of all attributes
     </div>
     <div id="details" v-if="dataset" :key="dataset.id">
       <div class="container">
-        <a @click="addElement" class="btn btn-success pull-right" aria-label="Add">
+        <a @click="addElement" class="btn btn-success pull-right" title="add element" aria-label="Add">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </a>
 
