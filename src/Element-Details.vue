@@ -35,15 +35,17 @@ Displayed as a modal
             <textarea class="form-control" v-model="element.description" rows="5" id="Eldescription" v-validate data-vv-rules="required|min:6" name="Eldescription"></textarea>
             <span class="validation-errors" v-show="errors.has('Eldescription')">{{ errors.first('Eldescription') }}</span>
           </div>
-          <div class="form-group">
-            <label for="Elstartdate">From Date</label>
-            <input type="date" class="form-control" v-model="element.startDate" id="Elstartdate" name="Elstartdate" placeholder="dd/mm/yyyy">
-            <span class="validation-errors" v-show="errors.has('Elstartdate')">{{ errors.first('Elstartdate') }}</span>
-          </div>
-          <div class="form-group">
-            <label for="Elenddate">To Date</label>
-            <input type="date" class="form-control" v-model="element.endDate" id="Elenddate" name="Elenddate" placeholder="dd/mm/yyyy">
-            <span class="validation-errors" v-show="errors.has('Elenddate')">{{ errors.first('Elenddate') }}</span>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="Elstartdate">Start Date</label>
+              <input type="date" class="form-control" v-model="element.startDate" id="Elstartdate" name="Elstartdate" placeholder="dd/mm/yyyy">
+              <span class="validation-errors" v-show="errors.has('Elstartdate')">{{ errors.first('Elstartdate') }}</span>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="Elenddate">End Date</label>
+              <input type="date" class="form-control" v-model="element.endDate" id="Elenddate" name="Elenddate" placeholder="dd/mm/yyyy">
+              <span class="validation-errors" v-show="errors.has('Elenddate')">{{ errors.first('Elenddate') }}</span>
+            </div>
           </div>
         </form>
     </div>
