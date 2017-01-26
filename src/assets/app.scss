@@ -3,15 +3,21 @@
 }
 
 .nav li {
-  min-height: 75px;
+  // min-height: 75px;
 }
 
 .nav li a {
-  min-height: 75px;
+  margin-top: 33px;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
 }
 
-.nav h2 {
-  margin-right: 5em;
+@media (min-width: 992px) {
+  .nav h2 {
+    margin-right: 5em;
+    margin-top: 27px;
+    margin-bottom: 0px;
+  }
 }
 
 body {
