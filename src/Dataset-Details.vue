@@ -216,7 +216,7 @@ Allow editing of all attributes
           // Check that the keyword is one of the allowed keywords
           // Prompt before adding text
           if (this.allowedKeywords.indexOf(text) === -1) {
-            if (confirm('Are you sure you want to add a new tag?')) {
+            if (confirm('Are you sure you want to add a new global tag?')) {
               // Add tag to globally allowed tags
 
               let keywordTemplate = {
