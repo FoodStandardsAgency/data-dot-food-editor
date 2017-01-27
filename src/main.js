@@ -4,6 +4,8 @@ Vue app configuration
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
+import 'date-input-polyfill' // Polyfill for HTML5 Date input
+
 import Vue from 'vue'
 import Vuex from 'vuex' // State management
 import VueRouter from 'vue-router' // Router
