@@ -131,12 +131,14 @@ Allow editing of all attributes
 </template>
 
 <script>
-  /* global confirm alert */
   import {getDataset, getDirectorates, getElements, saveDataset, removeDataset, getKeywordsText, saveKeyword} from './Api'
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
   import blankKeyword from './blank-keyword'
   import iso8601 from './iso8601'
+  import bootbox from 'bootbox'
+  import cancelConfirm from './cancelConfirm'
+  import log from './log'
 
   export default {
     created () {
@@ -156,9 +158,7 @@ Allow editing of all attributes
     },
     beforeRouteLeave (to, from, next) {
       if (this.unsavedChanges) {
-        if (confirm('Are you sure you want to cancel?')) {
-          next()
-        }
+        cancelConfirm(next)
       } else {
         next()
       }
@@ -204,7 +204,7 @@ Allow editing of all attributes
     },
     methods: {
       handleTagsChange (index, text) {
-        console.log(index, text)
+        log(index, text)
         if (!this.dataset.keyword) {
           this.dataset.keyword = []
         }
@@ -216,23 +216,25 @@ Allow editing of all attributes
           // Check that the keyword is one of the allowed keywords
           // Prompt before adding text
           if (this.allowedKeywords.indexOf(text) === -1) {
-            if (confirm('Are you sure you want to add a new global tag?')) {
-              // Add tag to globally allowed tags
+            let that = this
+            bootbox.confirm('Are you sure you want to add a new global tag?', function (userResult) {
+              if (userResult) {
+                // Add tag to globally allowed tags
+                let keywordTemplate = JSON.parse(JSON.stringify(blankKeyword))
 
-              let keywordTemplate = JSON.parse(JSON.stringify(blankKeyword))
+                keywordTemplate['@id'] = text
+                keywordTemplate['prefLabel'] = text // [0].toUpperCase() + text.substring(1) // Init caps
 
-              keywordTemplate['@id'] = text
-              keywordTemplate['prefLabel'] = text // [0].toUpperCase() + text.substring(1) // Init caps
-
-              saveKeyword({}, keywordTemplate).then((resp) => {
-                this.getKeywords() // Update locally stored keywords object
-                this.dataset.keyword.splice(index, 0, text)
-              }, (e) => {
-                alert('sorry, something went wrong')
-              })
-            } else {
-              this.dataset.keyword.splice(index, 1)
-            }
+                saveKeyword({}, keywordTemplate).then((resp) => {
+                  that.getKeywords() // Update locally stored keywords object
+                  that.dataset.keyword.splice(index, 0, text)
+                }, (e) => {
+                  log(e)
+                })
+              } else {
+                that.dataset.keyword.splice(index, 1)
+              }
+            })
           } else {
             this.dataset.keyword.splice(index, 0, text)
           }
@@ -258,24 +260,26 @@ Allow editing of all attributes
           }
         }, (err) => {
           this.warnMsg = 'Something went wrong, please try again'
-          console.error(err)
+          log(err)
         })
       },
       remove () {
-        if (confirm('Are you sure you want to delete this Dataset?')) {
+        bootbox.confirm('Are you sure you want to delete this Dataset?', function (userResult) {
+          if (!userResult) return
+
           removeDataset({id: this.$route.params.id}).then((resp) => {
             this.unsavedChanges = false
             this.$router.push({name: 'datasets', query: {deleted: true}})
-          }, (err) => {
-            console.log('Something went wrong ' + err.message)
+          }, (e) => {
+            log(e)
           })
-        }
+        })
       },
       getKeywords () {
         getKeywordsText().then((keywords) => {
           this.allowedKeywords = keywords
         }, (e) => {
-          alert('sorry, something went wrong')
+          log(e)
         })
       },
       fetchData () {
@@ -295,19 +299,19 @@ Allow editing of all attributes
               delete dataset.keywords
               this.dataset = dataset
             }, (e) => {
-              alert('sorry, something went wrong')
+              log(e)
             })
 
             getElements({id: this.$route.params.id}).then((ele) => {
               this.element = ele
             }, (e) => {
-              alert('sorry, something went wrong')
+              log(e)
             })
           } else {
             this.dataset = JSON.parse(JSON.stringify(blankDataset))
           }
         }, (e) => {
-          alert('sorry, something went wrong')
+          log(e)
         })
         this.getKeywords()
       }

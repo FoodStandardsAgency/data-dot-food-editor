@@ -88,11 +88,14 @@ Displayed as a modal
   </div>
 </template>
 <script>
-  /* global confirm alert */
   import blankElement from './blank-element'
   import blankDistribution from './blank-distribution'
   import uuid from 'uuid'
   import statics from './statics'
+  import 'bootstrap'
+  import bootbox from 'bootbox'
+  import cancelConfirm from './cancelConfirm'
+  import log from './log'
 
   import {getDatatypes, saveElement, removeElement, getElement} from './Api'
 
@@ -115,9 +118,7 @@ Displayed as a modal
     },
     beforeRouteLeave (to, from, next) {
       if (this.unsavedChanges) {
-        if (confirm('Are you sure you want to cancel?')) {
-          next()
-        }
+        cancelConfirm(next)
       } else {
         next()
       }
@@ -134,7 +135,7 @@ Displayed as a modal
       getDatatypes().then((dset) => {
         this.datatypes = dset
       }, (e) => {
-        alert('sorry, something went wrong')
+        log(e)
       })
     },
     methods: {
@@ -148,7 +149,7 @@ Displayed as a modal
           getElement({id: this.$route.params.id, eid: this.$route.params.eid}).then((ele) => {
             this.element = ele
           }, (e) => {
-            alert('sorry, something went wrong')
+            log(e)
           })
         } else {
           this.element = JSON.parse(JSON.stringify(blankElement))
@@ -168,11 +169,13 @@ Displayed as a modal
             this.$router.push({name: 'element', params: {id: this.$route.params.id, eid: eid}, query: {saved: true}})
           }
         }, (e) => {
-          alert('sorry, something went wrong.')
+          log(e)
         })
       },
       remove () {
-        if (confirm('Are you sure you want to delete this element?')) {
+        bootbox.confirm('Are you sure you want to delete this element?', function (userResult) {
+          if (!userResult) return
+
           removeElement({
             id: this.$route.params.id,
             eid: this.$route.params.eid
@@ -180,9 +183,9 @@ Displayed as a modal
             this.unsavedChanges = false
             this.$router.push({name: 'elements', params: {id: this.$route.params.id}, query: {deleted: true}})
           }, (e) => {
-            alert('sorry, something went wrong.')
+            log(e)
           })
-        }
+        })
       },
       newDistribution () {
         // Add a new distribution to distributions
