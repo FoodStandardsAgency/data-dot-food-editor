@@ -9,7 +9,7 @@ import 'date-input-polyfill' // Polyfill for HTML5 Date input
 import Vue from 'vue'
 import Vuex from 'vuex' // State management
 import VueRouter from 'vue-router' // Router
-import VeeValidate from 'vee-validate'
+import VeeValidate, { Validator } from 'vee-validate'
 import App from './App' // Compositor
 
 import DatasetDetails from './Dataset-Details'
@@ -21,9 +21,12 @@ import Search from './components/Search.vue'
 import DateRange from './components/Date-Range'
 import ArrLength from './components/Arr-Length'
 import Moment from 'vue-moment'
+import VMoment from 'moment'
 import Messages from './components/Messages'
 import Reports from './Reports'
 import Chart from 'vue-echarts'
+
+Validator.installDateTimeValidators(VMoment)
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
