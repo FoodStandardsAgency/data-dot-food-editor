@@ -23,12 +23,12 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         // proxy all requests starting with /api to jsonplaceholder
-        '/metadata-repository': {
+        '/catalog': {
           target: 'http://localhost:8080/',
           changeOrigin: true,
-          pathRewrite: {
-            '^/metadata-repository': ''
-          }
+          // pathRewrite: {
+          //   '^/metadata-repository': ''
+          // }
         }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

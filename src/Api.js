@@ -9,10 +9,11 @@ import blankElement from './blank-element'
 import blankDistribution from './blank-distribution'
 Vue.use(VueResource)
 
-let dataset = Vue.resource('/metadata-repository/catalog/dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let dataset = Vue.resource('/catalog/dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 // let nDataset = Vue.resource('/metadata-repository/catalog{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let element = Vue.resource('/metadata-repository/catalog/dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let keyword = Vue.resource('/metadata-repository/catalog/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let element = Vue.resource('/catalog/dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let keyword = Vue.resource('/catalog/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let directoratesEndpoint = '/catalog/directorates'
 
 /* - - - - - - - - Dataset functions - - - - - - - - - - -  */
 export function getDataset (query) {
@@ -110,7 +111,7 @@ export function saveKeyword (query, pObj) {
 
 /* - - - - - - - - Additional functions - - - - - - - - - - -  */
 export function getDirectorates () {
-  return Vue.http.get('/metadata-repository/catalog/directorates', {}).then(parse).then(itemItems)
+  return Vue.http.get(directoratesEndpoint, {}).then(parse).then(itemItems)
 }
 
 export function getDatatypes () {
