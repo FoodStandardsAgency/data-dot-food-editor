@@ -50,9 +50,10 @@ Allow editing of all attributes
             <label for="frequency">Publish Frequency</label>
             <div class="input-group">
               <div class="input-group-addon">R/P</div>
-              <input type="text" class="form-control input-lg" id="frequency" name="frequency" v-model="dataset.accrualPeriodicity"/>
+              <input type="text" class="form-control input-lg" id="frequency" v-validate data-vv-rules="iso8601" name="frequency" v-model="dataset.accrualPeriodicity"/>
             </div>
-            <span class="iso8601">{{dataset.accrualPeriodicity | iso8601}}</span>
+            <span class="validation-errors" v-show="errors.has('frequency')">{{ errors.first('frequency') }}</span>
+            <span v-show="!errors.has('frequency')" class="iso8601">{{dataset.accrualPeriodicity | iso8601}}</span>
           </div>
           <!-- Landing Page -->
           <div class="form-group">
@@ -243,7 +244,7 @@ Allow editing of all attributes
         let dataset = JSON.parse(JSON.stringify(this.dataset))
         // Re-add the Repeating / Period part to dataset.accrualPeriodicity
         if (dataset.accrualPeriodicity) {
-          dataset.accrualPeriodicity = 'R/P' + this.dataset.accrualPeriodicity
+          dataset.accrualPeriodicity = 'R/P' + this.dataset.accrualPeriodicity.toUpperCase()
         }
 
         saveDataset({id: this.$route.params.id}, dataset).then((resp) => {

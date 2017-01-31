@@ -25,6 +25,9 @@ import VMoment from 'moment'
 import Messages from './components/Messages'
 import Reports from './Reports'
 import Chart from 'vue-echarts'
+import vee8601 from './vee-iso8601'
+
+Validator.extend('iso8601', vee8601)
 
 Validator.installDateTimeValidators(VMoment)
 
