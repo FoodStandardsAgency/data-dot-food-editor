@@ -57,8 +57,6 @@ Allow editing of all attributes
 </template>
 
 <script>
-  /* global confirm */
-  import 'bootstrap'
   import { getElements, getDataset } from './Api'
 
   export default {
@@ -67,15 +65,6 @@ Allow editing of all attributes
     },
     watch: {
       '$route': 'fetchData'
-    },
-    beforeRouteLeave (to, from, next) {
-      if (this.unsavedChanges) {
-        if (confirm('Are you sure you want to cancel?')) {
-          next()
-        }
-      } else {
-        next()
-      }
     },
     data () {
       return {
@@ -144,7 +133,7 @@ Allow editing of all attributes
 </script>
 
 <style lang='scss'>
-  .rowsPerPage{
+  .rowsPerPage {
     float: right;
     padding: 10px 0;
   }
