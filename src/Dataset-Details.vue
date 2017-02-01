@@ -206,9 +206,6 @@ Allow editing of all attributes
     methods: {
       handleTagsChange (index, text) {
         log(index, text)
-        if (!this.dataset.keyword) {
-          this.dataset.keyword = []
-        }
         if (text) {
           text = text.toLowerCase()
           if (this.dataset.keyword.indexOf(text) !== -1) {
@@ -247,7 +244,7 @@ Allow editing of all attributes
         let dataset = JSON.parse(JSON.stringify(this.dataset))
         // Re-add the Repeating / Period part to dataset.accrualPeriodicity
         if (dataset.accrualPeriodicity) {
-          dataset.accrualPeriodicity = 'R/P' + this.dataset.accrualPeriodicity.toUpperCase()
+          dataset.accrualPeriodicity = 'R/P' + dataset.accrualPeriodicity.toUpperCase()
         }
 
         saveDataset({id: this.$route.params.id}, dataset).then((resp) => {
