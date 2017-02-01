@@ -139,6 +139,7 @@ Allow editing of all attributes
   import bootbox from 'bootbox'
   import cancelConfirm from './cancelConfirm'
   import log from './log'
+  import parseHeader from './parseHeader'
 
   export default {
     created () {
@@ -253,9 +254,8 @@ Allow editing of all attributes
           this.unsavedChanges = false
           this.successMsg = 'Updated Successfully'
 
-          // TODO slightly hacky.
-          if (resp.headers.map.location && resp.headers.map.location[0]) {
-            let id = resp.headers.map.location[0].split('/').pop()
+          let id = parseHeader(resp.headers)
+          if (id) {
             this.$router.push({name: 'dataset', params: {id: id}, query: {saved: true}})
           }
         }, (err) => {

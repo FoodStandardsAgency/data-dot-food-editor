@@ -96,6 +96,7 @@ Displayed as a modal
   import bootbox from 'bootbox'
   import cancelConfirm from './cancelConfirm'
   import log from './log'
+  import parseHeader from './parseHeader'
 
   import {getDatatypes, saveElement, removeElement, getElement} from './Api'
 
@@ -163,9 +164,8 @@ Displayed as a modal
           this.unsavedChanges = false
           this.successMsg = 'Updated Successfully'
 
-          // TODO slightly hacky
-          if (resp.headers.map.location && resp.headers.map.location[0]) {
-            let eid = resp.headers.map.location[0].split('/').pop()
+          let eid = parseHeader(resp.headers)
+          if (eid) {
             this.$router.push({name: 'element', params: {id: this.$route.params.id, eid: eid}, query: {saved: true}})
           }
         }, (e) => {
@@ -192,7 +192,6 @@ Displayed as a modal
         let newDistro = JSON.parse(JSON.stringify(blankDistribution))
         newDistro['@id'] = statics.distributionUri + uuid.v4()
         this.element.distribution.push(newDistro)
-        console.log(newDistro)
       },
       removeDistribution (index) {
         this.element.distribution.splice(index, 1)
