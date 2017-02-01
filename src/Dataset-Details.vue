@@ -24,10 +24,9 @@ Allow editing of all attributes
           <div class="form-group" style="clear:right;">
             <label for="title">Title</label>
             <input type="text" class="form-control input-lg" autocomplete="off" id="title" name="title" :class="{'input': true, 'is-danger': errors.has('title') }" v-validate data-vv-rules="required|min:8" placeholder="" v-model="dataset.title">
-            <!-- <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span> -->
             <span class="validation-errors" v-show="errors.has('title')">{{ errors.first('title') }}</span>
           </div>
-          <!-- description -->
+          <!-- Description -->
           <div class="form-group">
             <label for="description">Description</label>
             <textarea class="form-control" rows="6" name="description" id="description" v-validate data-vv-rules="required|min:20" v-model="dataset.description"></textarea>
@@ -45,7 +44,7 @@ Allow editing of all attributes
             <input type="text" class="form-control input-lg" id="license" name="license" v-validate data-vv-rules="url" v-model="dataset.license"/>
             <span class="validation-errors" v-show="errors.has('license')">{{ errors.first('license') }}</span>
           </div>
-          <!-- frequency -->
+          <!-- Frequency -->
           <div class="form-group">
             <label for="frequency">Publish Frequency</label>
             <div class="input-group">
@@ -153,7 +152,6 @@ Allow editing of all attributes
       'dataset': {
         deep: true,
         handler: function (val, oldVal) {
-          console.log(JSON.stringify(val), JSON.stringify(oldVal))
           if (val.notation === oldVal.notation && !this.beforeLoad) {
             this.unsavedChanges = true
           }
