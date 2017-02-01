@@ -15,11 +15,11 @@ Displayed as a modal
     </div>
     <div id="details" v-if="element" :key="element.id">
       <div class="container">
-        <form>
+        <form v-on:submit.prevent="">
           <div class="pull-right buttons">
             <a v-if="$route.params.eid !== 'undefined'" class="btn btn-danger" @click="remove">Delete</a>
             <router-link :to="{ name: 'elements', params: { id: $route.params.id, eid: 'new' }}" class="btn btn-default">Cancel</router-link>
-            <button @click="save" type="button" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</button>
+            <button @click="save" type="button" class="btn btn-success">Save</button> <!-- :disabled="!unsavedChanges ? true : false" -->
           </div>
           <h4 class="modal-title" id="myModalLabel">Element editor</h4>
 
@@ -110,7 +110,7 @@ Displayed as a modal
         deep: true,
         handler: function (val, oldVal) {
           if (!this.beforeLoad) {
-            this.unsavedChanges = true
+            // this.unsavedChanges = true
           } else {
             this.beforeLoad = false
           }
@@ -129,6 +129,8 @@ Displayed as a modal
         datatypes: [],
         unsavedChanges: false,
         beforeLoad: true,
+        successMsg: '',
+        warnMsg: '',
         element: JSON.parse(JSON.stringify(blankElement))
       }
     },

@@ -12,11 +12,11 @@ Allow editing of all attributes
     </div>
     <div id="details" v-if="dataset" :key="dataset.id">
       <div class="container">
-        <form v-on:submit.prevent="onSubmit">
+        <form v-on:submit.prevent="">
           <div class="pull-right buttons">
             <a v-if="$route.params.id !== 'new'" @click="remove" class="btn btn-danger">Delete</a>
             <router-link to="/" role="button" class="btn btn-default">Cancel</router-link>
-            <a @click="save" :disabled="!unsavedChanges ? true : false" class="btn btn-success">Save</a>
+            <a @click="save" class="btn btn-success">Save</a> <!-- :disabled="!unsavedChanges ? true : false" -->
           </div>
           <!-- Messages -->
           <messages :success="successMsg" :warn="warnMsg"></messages>
@@ -71,7 +71,7 @@ Allow editing of all attributes
           </div>
         </form>
         <!-- Publish -->
-        <form v-on:submit.prevent="onSubmit">
+        <form v-on:submit.prevent="">
           <label>Published</label>
           <span id="helpBlock" class="help-block">Publish Dataset to the public site. Can take up to 30 mins</span>
 
@@ -153,7 +153,7 @@ Allow editing of all attributes
         deep: true,
         handler: function (val, oldVal) {
           if (val.notation === oldVal.notation && !this.beforeLoad) {
-            this.unsavedChanges = true
+            // this.unsavedChanges = true
           }
           this.beforeLoad = false
         }
