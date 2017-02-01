@@ -72,20 +72,22 @@ Allow editing of all attributes
           </div>
         </form>
         <!-- Publish -->
-        <form v-on:submit.prevent="onSubmit" class="form-inline">
-          <div class="form-group form-group-lg">
-            <label>Publish</label>
-            <label class="radio">
-              <label class="control-label col-sm-2" for="published">Published</label>
-              <input type="radio" name="published" id="publish" class="input-lg" v-model="dataset.published" v-bind:value="true">
-            </label>
-            <label class="radio">
-              <label class="control-label col-sm-2" for="published">Draft</label>
-              <input type="radio" name="published" id="draft" class="input-lg" v-model="dataset.published" v-bind:value="false">
+        <form v-on:submit.prevent="onSubmit">
+          <label>Published</label>
+          <span id="helpBlock" class="help-block">Publish Dataset to the public site. Can take up to 30 mins</span>
+
+          <div class="radio">
+            <label>
+              <input type="radio" name="published" id="publish" v-model="dataset.published" v-bind:value="true">
+              Publish
             </label>
           </div>
-        </form>
-
+          <div class="radio">
+            <label>
+              <input type="radio" name="published" id="draft" v-model="dataset.published" v-bind:value="false">
+              Draft
+            </label>
+          </div>
         <form v-on:submit.prevent="">
           <!-- Keywords -->
           <div class="form-group">
