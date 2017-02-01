@@ -263,12 +263,13 @@ Allow editing of all attributes
         })
       },
       remove () {
+        let that = this
         bootbox.confirm('Are you sure you want to delete this Dataset?', function (userResult) {
           if (!userResult) return
 
-          removeDataset({id: this.$route.params.id}).then((resp) => {
-            this.unsavedChanges = false
-            this.$router.push({name: 'datasets', query: {deleted: true}})
+          removeDataset({id: that.$route.params.id}).then((resp) => {
+            that.unsavedChanges = false
+            that.$router.push({name: 'datasets', query: {deleted: true}})
           }, (e) => {
             log(e)
           })

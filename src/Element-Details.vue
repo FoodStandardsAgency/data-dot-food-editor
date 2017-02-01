@@ -175,15 +175,16 @@ Displayed as a modal
         })
       },
       remove () {
+        let that = this
         bootbox.confirm('Are you sure you want to delete this element?', function (userResult) {
           if (!userResult) return
 
           removeElement({
-            id: this.$route.params.id,
-            eid: this.$route.params.eid
+            id: that.$route.params.id,
+            eid: that.$route.params.eid
           }).then((resp) => {
-            this.unsavedChanges = false
-            this.$router.push({name: 'elements', params: {id: this.$route.params.id}, query: {deleted: true}})
+            that.unsavedChanges = false
+            that.$router.push({name: 'elements', params: {id: that.$route.params.id}, query: {deleted: true}})
           }, (e) => {
             log(e)
           })
