@@ -109,9 +109,10 @@ Allow editing of all attributes
         </form>
 
         <div class="form-group assets-group">
-          <p>
-            <label for="assets">Elements</label>
-          </p>
+          <h3>
+            Dataset Elements
+          </h3>
+          <p>Elements are versions of a dataset. These are, for example, different years or locations</p>
           <div>
             <template v-if="$route.params.id !== 'new'">
               <arr-length :arr="element"></arr-length>
@@ -152,6 +153,7 @@ Allow editing of all attributes
       'dataset': {
         deep: true,
         handler: function (val, oldVal) {
+          console.log(JSON.stringify(val), JSON.stringify(oldVal))
           if (val.notation === oldVal.notation && !this.beforeLoad) {
             this.unsavedChanges = true
           }
