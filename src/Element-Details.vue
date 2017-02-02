@@ -92,7 +92,6 @@ Displayed as a modal
   import blankDistribution from './blank-distribution'
   import uuid from 'uuid'
   import statics from './statics'
-  import 'bootstrap'
   import bootbox from 'bootbox'
   import cancelConfirm from './cancelConfirm'
   import log from './log'
@@ -194,7 +193,7 @@ Displayed as a modal
         // Add a new distribution to distributions
         let newDistro = JSON.parse(JSON.stringify(blankDistribution))
         newDistro['@id'] = statics.distributionUri + uuid.v4()
-        this.element.distribution.push(newDistro)
+        this.element.distribution = [newDistro].concat(this.element.distribution) // Add as first element
       },
       removeDistribution (index) {
         this.element.distribution.splice(index, 1)
