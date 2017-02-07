@@ -13,9 +13,9 @@ import VeeValidate, { Validator } from 'vee-validate'
 import App from './App' // Compositor
 
 import DatasetDetails from './Dataset-Details'
+import DatasetList from './Dataset-List'
 import ElementList from './Element-List'
 import ElementDetails from './Element-Details'
-import DatasetList from './Dataset-List'
 import Grid from 'vue2-bootstrap-table'
 import Search from './components/Search.vue'
 import DateRange from './components/Date-Range'
