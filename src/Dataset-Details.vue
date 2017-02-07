@@ -41,8 +41,11 @@ Allow editing of all attributes
           <!-- Licence -->
           <div class="form-group">
             <label for="licence">Licence</label>
-            <input type="text" class="form-control input-lg" id="license" name="license" v-validate data-vv-rules="url" v-model="dataset.license"/>
-            <span class="validation-errors" v-show="errors.has('license')">{{ errors.first('license') }}</span>
+            <select class="form-control input-lg" id="license" name="license" v-model="dataset.license">
+              <option v-for="licenceItem in licences" v-bind:value="licenceItem">
+                {{licenceItem.label}}
+              </option>
+            </select>
           </div>
           <!-- Frequency -->
           <div class="form-group">
@@ -133,7 +136,7 @@ Allow editing of all attributes
 </template>
 
 <script>
-  import {getDataset, getDirectorates, getElements, saveDataset, removeDataset, getKeywordsText, saveKeyword} from './Api'
+  import {getDataset, getDirectorates, getLicences, getElements, saveDataset, removeDataset, getKeywordsText, saveKeyword} from './Api'
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
   import blankKeyword from './blank-keyword'
@@ -294,22 +297,29 @@ Allow editing of all attributes
           // Fixed by loading the directorates first
           this.directorates = dset
 
-          if (this.$route.params.id !== 'new') {
-            getDataset({id: this.$route.params.id}).then((dataset) => {
-              delete dataset.keywords
-              this.dataset = dataset
-            }, (e) => {
-              log(e)
-            })
+          getLicences().then((licences) => {
+            // Fix load of licences also before dataset
+            this.licences = licences
 
-            getElements({id: this.$route.params.id}).then((ele) => {
-              this.element = ele
-            }, (e) => {
-              log(e)
-            })
-          } else {
-            this.dataset = JSON.parse(JSON.stringify(blankDataset))
-          }
+            if (this.$route.params.id !== 'new') {
+              getDataset({id: this.$route.params.id}).then((dataset) => {
+                delete dataset.keywords
+                this.dataset = dataset
+              }, (e) => {
+                log(e)
+              })
+
+              getElements({id: this.$route.params.id}).then((ele) => {
+                this.element = ele
+              }, (e) => {
+                log(e)
+              })
+            } else {
+              this.dataset = JSON.parse(JSON.stringify(blankDataset))
+            }
+          }, (e) => {
+            log(e)
+          })
         }, (e) => {
           log(e)
         })

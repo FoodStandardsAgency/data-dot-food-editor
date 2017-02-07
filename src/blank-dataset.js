@@ -3,7 +3,10 @@ export default {
   description: '',
   element: [],
   publisher: '',
-  license: 'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+  license: {
+    '@id': 'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+    'label': 'Open Government Licence (v3)'
+  },
   accrualPeriodicity: '',
   landingPage: '',
   directorate: '',

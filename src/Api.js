@@ -114,6 +114,10 @@ export function getDirectorates () {
   return Vue.http.get(directoratesEndpoint, {}).then(parse).then(itemItems)
 }
 
+export function getLicences () {
+  return Vue.http.get('/static/api/Licences.json', {}).then(parse)
+}
+
 export function getDatatypes () {
   return Vue.http.get('/static/api/Datatypes.json', {}).then(parse)
 }
