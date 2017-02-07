@@ -1,20 +1,24 @@
 import Vue from 'vue'
 import DateRange from 'src/components/Date-Range'
+import Moment from 'vue-moment'
 
 describe('Date-range.vue', () => {
   it('should render correct contents', () => {
-    const vm = new Vue({
-      el: document.createElement('div'),
-      render: (h) => h(DateRange, {
-        domProps: {
-          data: [{arr: [{a: '2014-01-02', b: '2014-02-03'}], startProp: 'a', endProp: 'b'}]
-        },
-        arr: [{a: '2014-01-02', b: '2014-02-03'}],
-        startProp: 'a',
-        endProp: 'b'
-      })
-    }).$mount()
-    // console.log(JSON.stringify(vm.$el).querySelector('div'))
-    expect(vm.$el.querySelector('.daterange')).to.contain('element')
+    const propsData = {
+      arr: [{start: '1970-1-1', end: '1971-1-1'}], // data
+      startProp: 'start',
+      endProp: 'end'
+    }
+
+    Vue.use(Moment)
+
+    const Ctor = Vue.extend(DateRange)
+    const vm = new Ctor({ propsData }).$mount()
+
+    expect(vm.$el.querySelector('.daterange').textContent)
+      .to.contain('element')
+
+    expect(vm.$el.querySelector('.daterange').textContent)
+      .to.contain('1')
   })
 })
