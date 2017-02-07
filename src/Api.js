@@ -9,11 +9,11 @@ import blankElement from './blank-element'
 import blankDistribution from './blank-distribution'
 Vue.use(VueResource)
 
-let dataset = Vue.resource('/catalog/dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let dataset = Vue.resource('/catalog/editor/dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 // let nDataset = Vue.resource('/metadata-repository/catalog{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let element = Vue.resource('/catalog/dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let keyword = Vue.resource('/catalog/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let directoratesEndpoint = '/catalog/directorates'
+let element = Vue.resource('/catalog/editor/dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let keyword = Vue.resource('/catalog/editor/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let directoratesEndpoint = '/catalog/data/directorates'
 
 /* - - - - - - - - Dataset functions - - - - - - - - - - -  */
 export function getDataset (query) {
