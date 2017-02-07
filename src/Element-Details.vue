@@ -54,35 +54,10 @@ Displayed as a modal
       <h3>Distributions</h3>
       <p>Distributions available for this asset</p>
       <button @click="newDistribution">Add distribution</button>
-      <div class="distribution row" v-for="(distribution, index) in element.distribution">
-        <div class="closeBtnHolder">
-          <button v-on:click="removeDistribution(index)" class="pull-right">Remove</button>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="Elformat">Format</label>
-          <select class="form-control" :id="'Elformat' + index" v-validate data-vv-rules="required" data-vv-as="Format" :name="'Elformat' + index" v-model="distribution.mediaType">
-            <option v-for="datatype in datatypes" v-bind:value="datatype.code">
-              {{datatype.name}}
-            </option>
-          </select>
-          <span class="validation-errors" v-show="errors.has('Elformat' + index)">{{ errors.first('Elformat' + index) }}</span>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="Elaccess" class="form-label">Access URL</label>
-          <input type="text" class="form-control" v-model="distribution.accessURL" v-validate data-vv-rules="url" data-vv-as="Access" :name="'Elaccess' + index" :id="'Elaccess'  + index" placeholder="http://">
-          <span class="validation-errors" v-show="errors.has('Elaccess' + index)">{{ errors.first('Elaccess' + index) }}</span>
-        </div>
-        <div class="form-group col-md-12">
-          <label>Static</label>
-          <span class="help-block">Is the resource static, e.g. can a user get different results at different times</span>
-          <input type="checkbox">Static</input>
-        </div>
-        <div class="form-group">
-          <label for="Eldownload" class="form-label">Download URL</label>
-          <input type="text" class="form-control" v-model="distribution.downloadURL" v-validate data-vv-rules="url" data-vv-as="Download" :id="'Eldownload' + index" :name="'Eldownload' + index" placeholder="http://">
-          <span class="validation-errors" v-show="errors.has('Eldownload' + index)">{{ errors.first('Eldownload' + index) }}</span>
-        </div>
-      </div>
+
+      <template class="distributions row" v-for="(distribution, index) in element.distribution">
+        <distribution :distribution="distribution"></distribution>
+      </template>
     </div>
 
   </div>
@@ -90,6 +65,7 @@ Displayed as a modal
 <script>
   import blankElement from './blank-element'
   import blankDistribution from './blank-distribution'
+  import DistributionDetails from './Distribution-Details'
   import uuid from 'uuid'
   import statics from './statics'
   import bootbox from 'bootbox'
@@ -102,6 +78,9 @@ Displayed as a modal
   export default {
     created () {
       this.fetchData()
+    },
+    components: {
+      distribution: DistributionDetails
     },
     watch: {
       '$route': 'fetchData',
