@@ -6,10 +6,10 @@ Displayed as a modal
 <template>
   <div class="distribution">
     <div class="closeBtnHolder">
-      <button v-on:click="this.$emit('remove')" class="pull-right">Remove</button>
+      <button v-on:click="$emit('remove')" class="pull-right">Remove</button>
     </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group">
       <label for="Elformat">Format</label>
       <select class="form-control" :id="'Elformat' + index" v-validate data-vv-rules="required" data-vv-as="Format" :name="'Elformat' + index" v-model="distribution.mediaType">
         <option v-for="datatype in datatypes" v-bind:value="datatype.code">
@@ -18,13 +18,14 @@ Displayed as a modal
       </select>
       <span class="validation-errors" v-show="errors.has('Elformat' + index)">{{ errors.first('Elformat' + index) }}</span>
     </div>
-    <div class="form-group col-md-6">
+
+    <div class="form-group">
       <label for="Eldownload" class="form-label">URL</label>
       <input type="text" class="form-control" v-model="url" v-validate data-vv-rules="url" data-vv-as="Download" :id="'Eldownload' + index" :name="'Eldownload' + index" placeholder="http://">
       <span class="validation-errors" v-show="errors.has('Eldownload' + index)">{{ errors.first('Eldownload' + index) }}</span>
     </div>
 
-    <div class="form-group col-md-3">
+    <div class="form-group">
       <label>
         <input type="radio" name="published" id="publish" v-model="isAccessURL" v-bind:value="!!true">
         Access URL
@@ -34,6 +35,7 @@ Displayed as a modal
         <input type="radio" name="published" id="publish" v-model="isAccessURL" v-bind:value="!true">
         Direct Download URL
       </label>
+    </div>
   </div>
 </template>
 <script>
