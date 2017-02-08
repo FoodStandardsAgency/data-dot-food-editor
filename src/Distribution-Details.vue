@@ -6,7 +6,7 @@ Displayed as a modal
 <template>
   <div class="distribution">
     <div class="closeBtnHolder">
-      <button v-on:click="$emit('remove')" class="pull-right">Remove</button>
+      <button v-on:click="$emit('remove', distribution)" class="pull-right">Remove</button>
     </div>
 
     <div class="form-group">
@@ -27,12 +27,12 @@ Displayed as a modal
 
     <div class="form-group">
       <label>
-        <input type="radio" name="published" id="publish" v-model="isAccessURL" v-bind:value="!!true">
+        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!!true">
         Access URL
       </label>
 
       <label>
-        <input type="radio" name="published" id="publish" v-model="isAccessURL" v-bind:value="!true">
+        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!true">
         Direct Download URL
       </label>
     </div>
@@ -50,7 +50,8 @@ Displayed as a modal
       }
     },
     props: {
-      distribution: Object
+      distribution: Object,
+      index: Number
     },
     mounted () {
       this.isAccessURL = !!this.distribution.accessURL

@@ -56,7 +56,7 @@ Displayed as a modal
       <button @click="newDistribution">Add distribution</button>
 
       <template class="distributions row" v-for="(distribution, index) in element.distribution">
-        <distribution :distribution="distribution"></distribution>
+        <distribution @remove="removeDistribution" :distribution="distribution" :index="index"></distribution>
       </template>
     </div>
 
@@ -174,8 +174,8 @@ Displayed as a modal
         newDistro['@id'] = statics.distributionUri + uuid.v4()
         this.element.distribution = [newDistro].concat(this.element.distribution) // Add as first element
       },
-      removeDistribution (index) {
-        this.element.distribution.splice(index, 1)
+      removeDistribution (el) {
+        this.element.distribution.splice(this.element.distribution.indexOf(el), 1)
       }
     }
   }
