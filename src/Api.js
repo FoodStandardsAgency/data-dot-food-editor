@@ -14,6 +14,8 @@ let dataset = Vue.resource('/catalog/editor/dataset{/id}', {}, {}, {headers: {'C
 let element = Vue.resource('/catalog/editor/dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let keyword = Vue.resource('/catalog/editor/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let directoratesEndpoint = '/catalog/data/directorates'
+let activitiesEndpoint = '/catalog/data/activities'
+let securityEndpoint = '/catalog/system/security/'
 
 /* - - - - - - - - Dataset functions - - - - - - - - - - -  */
 export function getDataset (query) {
@@ -109,9 +111,27 @@ export function saveKeyword (query, pObj) {
   return keyword.save({}, pObj)
 }
 
+/* - - - - - - - - User functions - - - - - - - - - - -  */
+export function getLoggedInUser () {
+  return Vue.http.get(securityEndpoint + 'user', {}).then(parse).then(itemItems)
+}
+
+export function login (user) {
+  user.rememberMe = true
+  return Vue.http.post(securityEndpoint + 'login', user).then(parse).then(itemItems)
+}
+
+export function logout () {
+  return Vue.http.post(securityEndpoint + 'logout', {}).then(parse).then(itemItems)
+}
+
 /* - - - - - - - - Additional functions - - - - - - - - - - -  */
 export function getDirectorates () {
   return Vue.http.get(directoratesEndpoint, {}).then(parse).then(itemItems)
+}
+
+export function getActivities () {
+  return Vue.http.get(activitiesEndpoint, {}).then(parse).then(itemItems)
 }
 
 export function getLicences () {

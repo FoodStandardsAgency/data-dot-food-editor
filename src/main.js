@@ -12,6 +12,7 @@ import VueRouter from 'vue-router' // Router
 import VeeValidate, { Validator } from 'vee-validate'
 import App from './App' // Compositor
 
+import Login from './Login'
 import DatasetDetails from './Dataset-Details'
 import DatasetList from './Dataset-List'
 import ElementList from './Element-List'
@@ -50,6 +51,7 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     { path: '/', component: DatasetList, name: 'datasets' },
+    { path: '/login', component: Login, name: 'login' },
     { path: '/reports', component: Reports, name: 'reports' },
     { path: '/dataset/:id?', component: DatasetDetails, name: 'dataset' },
     { path: '/dataset/:id/elements', component: ElementList, name: 'elements' },
