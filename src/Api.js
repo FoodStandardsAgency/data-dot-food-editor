@@ -10,7 +10,6 @@ import blankDistribution from './blank-distribution'
 Vue.use(VueResource)
 
 let dataset = Vue.resource('/catalog/editor/dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-// let nDataset = Vue.resource('/metadata-repository/catalog{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let element = Vue.resource('/catalog/editor/dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let keyword = Vue.resource('/catalog/editor/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let directoratesEndpoint = '/catalog/data/directorates'
@@ -42,6 +41,8 @@ export function saveDataset (query, pObj) {
   pObj.keywords = pObj.keyword.map(function (word) {
     return 'http://data.food.gov.uk/catalog/keyword/' + word
   })
+
+  pObj = removeEmptyStrings(pObj)
 
   if (query.id === 'new') {
     return dataset.save({}, pObj)
@@ -80,6 +81,8 @@ export function getElements (query) {
 export function saveElement (query, pObj) {
   // Populate the temporal property from the date fields
   pObj.temporal = pObj.startDate + '/' + pObj.endDate
+
+  pObj = removeEmptyStrings(pObj)
 
   if (query.eid === 'new') {
     delete query.eid
@@ -131,7 +134,27 @@ export function getDirectorates () {
 }
 
 export function getActivities () {
-  return Vue.http.get(activitiesEndpoint, {}).then(parse).then(itemItems)
+  return Vue.http.get(activitiesEndpoint, {}).then(parse).then(itemItems).then((dset) => {
+    let iteree = function (curr, past) {
+      if (curr.narrower) {
+        for (let iter of curr.narrower) {
+          let nPast = past.concat([curr.label])
+          iteree(iter, nPast)
+        }
+      }
+      curr.niceName = past.join('/') + '/' + curr.label
+      if (past.length) {
+        curr.niceName = '/' + curr.niceName
+      }
+      newData.push(curr)
+    }
+
+    let newData = []
+    for (let k of dset) {
+      iteree(k, [])
+    }
+    return newData.reverse() // Builds up path from small to big
+  })
 }
 
 export function getLicences () {
@@ -147,6 +170,15 @@ export function getDatatypes () {
 // Remove ambiguity
 let itemItems = (jsn) => {
   return jsn.item ? jsn.item : jsn.items
+}
+
+// Remove empty strings from objects
+let removeEmptyStrings = (pObj) => {
+  for (let k in pObj) {
+    if (pObj[k] === '') {
+      delete pObj[k]
+    }
+  }
 }
 
 // Ensure object has all attribute keys available
