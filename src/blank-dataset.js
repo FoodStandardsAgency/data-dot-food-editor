@@ -12,6 +12,7 @@ export default {
   directorate: '',
   published: '',
   keyword: [],
+  activity: [],
   keywords: [],
   ownerName: '',
   notes: '',

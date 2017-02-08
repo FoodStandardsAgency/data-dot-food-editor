@@ -179,6 +179,7 @@ let removeEmptyStrings = (pObj) => {
       delete pObj[k]
     }
   }
+  return pObj
 }
 
 // Ensure object has all attribute keys available
