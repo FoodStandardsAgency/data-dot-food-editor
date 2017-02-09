@@ -285,24 +285,18 @@ Allow editing of all attributes
         })
       },
       getKeywords () {
-        getKeywordsText().then((keywords) => {
+        return getKeywordsText().then((keywords) => {
           this.allowedKeywords = keywords
         }, (e) => {
           log(e)
         })
       },
+      getActivityName (activity) {
+        for (let curr in this.activities) {
+          if (this.activities[curr]['@id'] === activity['@id']) {
+            return this.activities[curr].niceName
+          }
         }
-
-        getDirectorates().then((dset) => {
-          // Loading the data in to a select box when the current value isn't one of the
-          // Options will remove the value from the property!
-          // Fixed by loading the directorates first
-          this.directorates = dset
-
-          getLicences().then((licences) => {
-            // Fix load of licences also before dataset
-            this.licences = licences
-
       },
       fetchData () {
         // Load order is important for the data
@@ -342,13 +336,7 @@ Allow editing of all attributes
             } else {
               this.dataset = JSON.parse(JSON.stringify(blankDataset))
             }
-          }, (e) => {
-            log(e)
           })
-        }, (e) => {
-          log(e)
-        })
-        this.getKeywords()
       }
     },
     components: {
@@ -436,5 +424,27 @@ Allow editing of all attributes
     text-decoration: none;
     outline: 0;
     background-color: #428bca;
+  }
+
+  .tag {
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    color: #858585;
+    font-weight: normal;
+    font-size: 1.1em;
+    padding: 0 0.5ch;
+    display: inline-block;
+  }
+  .hl-click{
+    cursor: pointer;
+  }
+  .activity-add{
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  .hl-click::after {
+    color: rgba(0, 0, 0, 0.6);
+    content: "\2A2F";
+    padding-left: 1px;
   }
 </style>
