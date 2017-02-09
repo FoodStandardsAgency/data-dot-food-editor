@@ -198,8 +198,8 @@ let mergeProto = (jsn, proto) => {
 // Simplify directorate property to allow simple comparison on select element
 // @id is all that's needed to update
 let simplifyDirectorate = (jsn) => {
-  if (jsn.accrualPeriodicity) {
-    jsn.accrualPeriodicity = jsn.accrualPeriodicity.substring(3, 10000)
+  if (typeof jsn.directorate === 'object') {
+    jsn.directorate = jsn.directorate['@id']
   }
   return jsn
 }
@@ -207,8 +207,8 @@ let simplifyDirectorate = (jsn) => {
 // Simplify directorate property to allow simple comparison on select element
 // @id is all that's needed to update
 let removeRPeriod = (jsn) => {
-  if (jsn.repeat && typeof jsn.directorate === 'object') {
-    jsn.directorate = jsn.directorate['@id']
+  if (jsn.accrualPeriodicity) {
+    jsn.accrualPeriodicity = jsn.accrualPeriodicity.substring(3, 10000)
   }
   return jsn
 }
