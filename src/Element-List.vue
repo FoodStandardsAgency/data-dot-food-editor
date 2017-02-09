@@ -25,6 +25,18 @@ Allow editing of all attributes
 
           <messages :success="successMsg" :warn="warnMsg"></messages>
 
+          <div class="asset-table">
+            <grid
+              :data="elements"
+              :columns="headers"
+              @clickRow="openElement"
+              :rowsPerPage="rowsPerPage"
+              :filter-key="searchQuery"
+              :isLoading="loading"
+              :custom-empty-table-text="'No elements'">
+            </grid>
+          </div>
+
           <div class="rowsPerPage">
             Items per page:
             <select class="input input-md" v-model="rowsPerPage">
@@ -35,18 +47,7 @@ Allow editing of all attributes
             </select>
           </div>
 
-          <label for="assets">Elements</label>
-          <div class="asset-table">
-            <grid
-              :data="elements"
-              :columns="headers"
-              @clickRow="openElement"
-              :rowsPerPage="rowsPerPage"
-              :filter-key="searchQuery"
-              :custom-empty-table-text="'No elements'">
-            </grid>
-          </div>
-          <date-range :arr="elements" :startProp="'temporalStart'" :endProp="'temporalEnd'"></date-range>
+          <date-range :arr="elements" :startProp="'startDate'" :endProp="'endDate'"></date-range>
         </div>
       </div>
     </div>
@@ -59,6 +60,7 @@ Allow editing of all attributes
 
 <script>
   import { getElements, getDataset } from './Api'
+  import log from './log'
 
   export default {
     created () {
@@ -135,6 +137,14 @@ Allow editing of all attributes
           log(e)
         })
       }
+    },
+    filters: {
+      limit (str, length) {
+        if (str.length > length) {
+          return str.substr(0, length) + '...'
+        }
+        return str
+      }
     }
   }
 </script>
@@ -142,6 +152,6 @@ Allow editing of all attributes
 <style lang='scss'>
   .rowsPerPage {
     float: right;
-    padding: 10px 0;
+    padding-bottom: 10px;
   }
 </style>
