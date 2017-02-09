@@ -27,12 +27,12 @@ Displayed as a modal
 
           <div class="form-group" style="clear:left">
             <label for="Eltitle">Title</label>
-            <input type="text" class="form-control" v-model="element.title" id="Eltitle" v-validate data-vv-rules="required|min:8" name="Eltitle">
+            <input type="text" class="form-control" v-model="element.title" data-vv-as="title" id="Eltitle" v-validate data-vv-rules="required|min:8" name="Eltitle">
             <span class="validation-errors" v-show="errors.has('Eltitle')">{{ errors.first('Eltitle') }}</span>
           </div>
           <div class="form-group">
             <label for="Eldescription">Description</label>
-            <textarea class="form-control" v-model="element.description" rows="5" id="Eldescription" v-validate data-vv-rules="required|min:6" name="Eldescription"></textarea>
+            <textarea class="form-control" v-model="element.description" data-vv-as="description" rows="5" id="Eldescription" v-validate data-vv-rules="required|min:6" name="Eldescription"></textarea>
             <span class="validation-errors" v-show="errors.has('Eldescription')">{{ errors.first('Eldescription') }}</span>
           </div>
           <div class="row">
