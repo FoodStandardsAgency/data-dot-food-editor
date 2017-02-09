@@ -52,8 +52,7 @@ Displayed as a modal
 
     <div class="container distributions">
       <h3>Distributions</h3>
-      <p>Distributions available for this asset</p>
-      <button @click="newDistribution">Add distribution</button>
+      <p>Distributions are for different file format versions of an element</p>
 
       <template class="distributions row" v-for="(distribution, index) in element.distribution">
         <distribution @remove="removeDistribution" :distribution="distribution" :index="index"></distribution>
