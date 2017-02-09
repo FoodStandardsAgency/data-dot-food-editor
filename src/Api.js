@@ -34,6 +34,7 @@ export function getDatasets (query) {
   return dataset.get(query)
     .then(parse)
     .then(itemItems)
+    .then(reverse) // Simplify directorate object
 }
 
 export function saveDataset (query, pObj) {
@@ -76,6 +77,7 @@ export function getElements (query) {
   return element.get(query)
     .then(parse)
     .then(itemItems)
+    .then(reverse) // Simplify directorate object
 }
 
 export function saveElement (query, pObj) {
@@ -247,4 +249,8 @@ let forceArrPropKeyword = (jsn) => {
 
 let forceArrPropDistribution = (jsn) => {
   return forceArrProp(jsn, 'distribution')
+}
+
+let reverse = (arr) => {
+  return arr.reverse()
 }
