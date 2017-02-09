@@ -11,7 +11,7 @@ Also supports an empty text value
 
 <script>
   import moment from 'moment'
-  let dateFormat = 'DD/MM/YYYY'
+  let dateFormat = 'YYYY/MM/DD'
   export default {
     props: {
       arr: Array, // data
