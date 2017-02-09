@@ -50,7 +50,14 @@ Displayed as a modal
         </form>
     </div>
 
+
     <div class="container distributions">
+      <hr/>
+      <div class="pull-right">
+        <button class="btn btn-success add-distribution" @click="newDistribution" title="add distribution">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+      </div>
       <h3>Distributions</h3>
       <p>Distributions are for different file format versions of an element</p>
 
@@ -191,4 +198,5 @@ Displayed as a modal
   .closeBtnHolder {
     padding-bottom: 20px;
   }
+  .add-distribution {}
 </style>
