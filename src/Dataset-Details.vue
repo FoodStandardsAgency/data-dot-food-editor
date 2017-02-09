@@ -151,7 +151,13 @@ Allow editing of all attributes
       this.fetchData()
     },
     watch: {
-      '$route': 'fetchData',
+      '$route': function () {
+        if (this.$route.query.saved) {
+          this.successMsg = 'Added Successfully'
+          this.unsavedChanges = false
+        }
+        this.fetchData()
+      },
       'dataset': {
         deep: true,
         handler: function (val, oldVal) {
@@ -285,10 +291,6 @@ Allow editing of all attributes
           log(e)
         })
       },
-      fetchData () {
-        if (this.$route.query.saved === 'true') {
-          this.successMsg = 'Added Successfully'
-          this.unsavedChanges = false
         }
 
         getDirectorates().then((dset) => {
@@ -301,6 +303,29 @@ Allow editing of all attributes
             // Fix load of licences also before dataset
             this.licences = licences
 
+      },
+      fetchData () {
+        // Load order is important for the data
+        // Load dependancies first then load the dataset
+        // This stops issues with the select boxes changing underlying values
+        getDirectorates()
+          .then((dset) => {
+            // Loading the data in to a select box when the current value isn't one of the
+            // Options will remove the value from the property!
+            // Fixed by loading the directorates first
+            this.directorates = dset
+          })
+          .then(this.getKeywords())
+          .then(
+            getLicences()
+              .then((licences) => {
+                // Fix load of licences also before dataset
+                this.licences = licences
+              }, (e) => {
+                log(e)
+              })
+          )
+          .then(() => {
             if (this.$route.params.id !== 'new') {
               getDataset({id: this.$route.params.id}).then((dataset) => {
                 delete dataset.keywords
