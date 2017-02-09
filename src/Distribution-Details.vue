@@ -11,6 +11,8 @@ Displayed as a modal
       </button>
     </div>
 
+    <h4>Distribution</h4>
+
     <div class="form-group">
       <label for="Elformat">Format</label>
       <select class="form-control" :id="'Elformat' + index" v-validate data-vv-rules="required" data-vv-as="Format" :name="'Elformat' + index" v-model="distribution.mediaType">
@@ -22,12 +24,7 @@ Displayed as a modal
     </div>
 
     <div class="form-group">
-      <label for="Eldownload" class="form-label">URL</label>
-      <input type="text" class="form-control" v-model="url" v-validate data-vv-rules="url" data-vv-as="Download" :id="'Eldownload' + index" :name="'Eldownload' + index" placeholder="http://">
-      <span class="validation-errors" v-show="errors.has('Eldownload' + index)">{{ errors.first('Eldownload' + index) }}</span>
-    </div>
-
-    <div class="form-group">
+      <div><label>Type</label></div>
       <label>
         <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!!true">
         Access URL
@@ -37,6 +34,13 @@ Displayed as a modal
         <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!true">
         Direct Download URL
       </label>
+      <p class="help-block">Direct download URLs are links directly to the data. Access URLs are to a webpage describing the data</p>
+    </div>
+
+    <div class="form-group">
+      <label for="Eldownload" class="form-label">URL</label>
+      <input type="text" class="form-control" v-model="url" v-validate data-vv-rules="url" data-vv-as="Download" :id="'Eldownload' + index" :name="'Eldownload' + index">
+      <span class="validation-errors" v-show="errors.has('Eldownload' + index)">{{ errors.first('Eldownload' + index) }}</span>
     </div>
   </div>
 </template>
