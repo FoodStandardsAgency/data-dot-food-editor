@@ -207,12 +207,7 @@ Allow editing of all attributes
       }
     },
     filters: {
-      iso8601 (d) {
-        if (d) {
-          let parsed = iso8601.Period.parseToString('P' + d)
-          return 'Typically published every ' + (parsed || '...')
-        }
-      }
+      iso8601
     },
     methods: {
       handleTagsChange (index, text) {

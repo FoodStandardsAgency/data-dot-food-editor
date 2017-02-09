@@ -17,7 +17,7 @@ Allow editing of all attributes
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </a>
 
-        <h2>{{dataset.title | limit(30)}} / elements</h2>
+        <h2>{{dataset.title | strLimit(30)}} / elements</h2>
         <p>Elements are versions of a dataset split, for example, by area or date.</p>
 
         <div class="form-group assets-group">
@@ -61,6 +61,7 @@ Allow editing of all attributes
 <script>
   import { getElements, getDataset } from './Api'
   import log from './log'
+  import strLimit from './filters/limit'
 
   export default {
     created () {
@@ -139,12 +140,7 @@ Allow editing of all attributes
       }
     },
     filters: {
-      limit (str, length) {
-        if (str.length > length) {
-          return str.substr(0, length) + '...'
-        }
-        return str
-      }
+      strLimit
     }
   }
 </script>
