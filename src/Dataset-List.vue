@@ -36,6 +36,7 @@ Add new dataset
             :columns="headers"
             :rowsPerPage="rowsPerPage"
             @clickRow="rowClick"
+            :isLoading="loading"
             :filter-key="searchQuery">
           </grid>
         </div>
@@ -71,7 +72,8 @@ Add new dataset
         ],
         searchQuery: '',
         tableData: [],
-        rowsPerPage: 10
+        rowsPerPage: 10,
+        loading: true
       }
     },
     created: function () {
@@ -91,8 +93,9 @@ Add new dataset
         this.error = this.post = null
         this.loading = true
         getDatasets({}).then((dataset) => {
-          this.loading = false
           this.tableData = dataset
+          this.loading = false
+          this.loading = false
         }, (e) => {
           console.log('couldn\'t load datasets', e)
         })
@@ -105,7 +108,7 @@ Add new dataset
 </script>
 
 <style lang='scss' scoped>
-  .rowsPerPage{
+  .rowsPerPage {
     float: right;
     padding: 10px 0;
   }

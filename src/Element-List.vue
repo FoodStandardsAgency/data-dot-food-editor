@@ -102,7 +102,8 @@ Allow editing of all attributes
             addClass: 'hidden-xs'
           }
         ],
-        searchQuery: ''
+        searchQuery: '',
+        loading: true
       }
     },
     methods: {
@@ -121,12 +122,17 @@ Allow editing of all attributes
         if (this.$route.query.deleted) {
           this.successMsg = 'Deleted Successfully'
         }
-
+        this.loading = true
         getElements({id: this.$route.params.id}).then((elements) => {
           this.elements = elements
+          this.loading = false
+        }, (e) => {
+          log(e)
         })
         getDataset({id: this.$route.params.id}).then((dataset) => {
           this.dataset = dataset
+        }, (e) => {
+          log(e)
         })
       }
     }
