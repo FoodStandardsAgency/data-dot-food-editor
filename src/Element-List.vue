@@ -21,7 +21,7 @@ Allow editing of all attributes
         <p>Elements are versions of a dataset split, for example, by area or date.</p>
 
         <div class="form-group assets-group">
-          <search :searchEvent="searchListener"></search>
+          <search :placeholder="'search elements'" :searchEvent="searchListener"></search>
 
           <messages :success="successMsg" :warn="warnMsg"></messages>
 

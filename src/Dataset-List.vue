@@ -15,7 +15,7 @@ Add new dataset
       </div>
       <h1>FSA open data catalogue</h1>
       <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
-      <search :searchEvent="searchListener"></search>
+      <search :placeholder="'search datasets'" :searchEvent="searchListener"></search>
 
       <messages :success="successMsg" :warn="warnMsg"></messages>
 

@@ -5,7 +5,7 @@ Renders a search box and uses callback for input update events
 <template>
   <div class="custom-search-input">
     <div class="input-group col-md-12">
-      <input type="text" class="form-control input" placeholder="search" v-model="searchQuery" />
+      <input type="text" class="form-control input" :placeholder="placeholder || 'search'" v-model="searchQuery" />
       <span class="input-group-btn">
           <button class="btn btn-info btn" type="button">
               <i class="glyphicon glyphicon-search"></i>
@@ -18,7 +18,8 @@ Renders a search box and uses callback for input update events
 <script>
   export default {
     props: {
-      searchEvent: Function
+      searchEvent: Function,
+      placeholder: String
     },
     data: function () {
       return {
