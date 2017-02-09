@@ -2,7 +2,7 @@ export default {
   title: '',
   description: '',
   element: [],
-  publisher: '',
+  publisher: 'http://www.food.gov.uk/#id',
   license: {
     '@id': 'http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
     'label': 'Open Government Licence (v3)'
