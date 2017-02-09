@@ -5,8 +5,10 @@ Displayed as a modal
 -->
 <template>
   <div class="distribution">
-    <div class="closeBtnHolder">
-      <button v-on:click="$emit('remove', distribution)" class="pull-right">Remove</button>
+    <div class="closeBtnHolder pull-right">
+      <button v-on:click="$emit('remove', distribution)" class="btn btn-danger">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
     </div>
 
     <div class="form-group">
