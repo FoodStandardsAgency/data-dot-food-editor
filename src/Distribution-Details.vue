@@ -15,7 +15,7 @@ Displayed as a modal
 
     <div class="form-group">
       <label for="Elformat">Format</label>
-      <select class="form-control" :id="'Elformat' + index" v-validate data-vv-rules="required" data-vv-as="Format" :name="'Elformat' + index" v-model="distribution.mediaType">
+      <select class="form-control" :id="'Elformat' + index" v-validate data-vv-rules="required" data-vv-as="format" :name="'Elformat' + index" v-model="distribution.mediaType">
         <option v-for="datatype in datatypes" v-bind:value="datatype.code">
           {{datatype.name}}
         </option>
@@ -39,7 +39,7 @@ Displayed as a modal
 
     <div class="form-group">
       <label for="Eldownload" class="form-label">URL</label>
-      <input type="text" class="form-control" v-model="url" v-validate data-vv-rules="url" data-vv-as="Download" :id="'Eldownload' + index" :name="'Eldownload' + index">
+      <input type="text" class="form-control" v-model="url" v-validate data-vv-rules="url" data-vv-as="url" :id="'Eldownload' + index" :name="'Eldownload' + index">
       <span class="validation-errors" v-show="errors.has('Eldownload' + index)">{{ errors.first('Eldownload' + index) }}</span>
     </div>
   </div>
