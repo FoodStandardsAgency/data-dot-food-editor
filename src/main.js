@@ -48,7 +48,7 @@ Vue.component('chart', Chart)
 // Configure routes
 const router = new VueRouter({
   mode: 'history',
-  base: __dirname,
+  base: '/catalog-editor',
   routes: [
     { path: '/', component: DatasetList, name: 'datasets' },
     { path: '/login', component: Login, name: 'login' },
