@@ -12,120 +12,177 @@ Allow editing of all attributes
     </div>
     <div id="details" v-if="dataset" :key="dataset.id">
       <div class="container">
-        <form v-on:submit.prevent="">
-          <div class="pull-right buttons">
-            <a v-if="$route.params.id !== 'new'" @click="remove" class="btn btn-danger">Delete</a>
-            <router-link to="/" role="button" class="btn btn-default">Cancel</router-link>
-            <a @click="save" class="btn btn-success">Save</a> <!-- :disabled="!unsavedChanges ? true : false" -->
-          </div>
-          <!-- Messages -->
-          <messages :success="successMsg" :warn="warnMsg"></messages>
-          <!-- Title -->
-          <div class="form-group" style="clear:right;">
-            <label for="title">Title</label>
-            <input type="text" class="form-control input-lg" autocomplete="off" id="title" name="title" :class="{'input': true, 'is-danger': errors.has('title') }" v-validate data-vv-rules="required|min:8" placeholder="" v-model="dataset.title">
-            <span class="validation-errors" v-show="errors.has('title')">{{ errors.first('title') }}</span>
-          </div>
-          <!-- Description -->
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" rows="6" name="description" id="description" v-validate data-vv-rules="required|min:20" v-model="dataset.description"></textarea>
-            <span class="validation-errors" v-show="errors.has('description')">{{ errors.first('description') }}</span>
-          </div>
-          <!-- Publisher -->
-          <div class="form-group">
-            <label for="publisher">Publisher</label>
-            <input type="text" class="form-control input-lg" name="publisher" id="publisher" v-validate data-vv-rules="required" v-model="dataset.publisher"/>
-            <span class="validation-errors" v-show="errors.has('publisher')">{{ errors.first('publisher') }}</span>
-          </div>
-          <!-- Licence -->
-          <div class="form-group">
-            <label for="licence">Licence</label>
-            <select class="form-control input-lg" id="license" name="license" v-model="dataset.license">
-              <option v-for="licenceItem in licences" v-bind:value="licenceItem">
-                {{licenceItem.label}}
-              </option>
-            </select>
-          </div>
-          <!-- Frequency -->
-          <div class="form-group">
-            <label for="frequency">Publish Frequency</label>
-            <div class="input-group">
-              <div class="input-group-addon">R/P</div>
-              <input type="text" class="form-control input-lg" id="frequency" v-validate data-vv-rules="iso8601" name="frequency" v-model="dataset.accrualPeriodicity"/>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="pull-right buttons">
+              <a v-if="$route.params.id !== 'new'" @click="remove" class="btn btn-danger">Delete</a>
+              <router-link to="/" role="button" class="btn btn-default">Cancel</router-link>
+              <a @click="save" class="btn btn-success">Save</a> <!-- :disabled="!unsavedChanges ? true : false" -->
             </div>
-            <span class="validation-errors" v-show="errors.has('frequency')">{{ errors.first('frequency') }}</span>
-            <span v-show="!errors.has('frequency')" class="iso8601">{{dataset.accrualPeriodicity | iso8601}}</span>
-          </div>
-          <!-- Landing Page -->
-          <div class="form-group">
-            <label for="landing">Landing Page</label>
-            <input type="text" class="form-control input-lg" id="landingPage" name="landingPage" v-validate data-vv-rules="url" v-model="dataset.landingPage"/>
-            <span class="validation-errors" v-show="errors.has('landingPage')">{{ errors.first('landingPage') }}</span>
-          </div>
-          <!-- Directorate -->
-          <div class="form-group">
-            <label for="directorate">Directorate</label>
-            <select class="form-control input-lg" id="directorate" name="directorate" v-model="dataset.directorate">
-              <option v-for="directorateItem in directorates" v-bind:value="directorateItem['@id']">
-                {{directorateItem.prefLabel}}
-              </option>
-            </select>
-          </div>
-        </form>
-        <!-- Publish -->
-        <form v-on:submit.prevent="">
-          <label>Published</label>
-          <span id="helpBlock" class="help-block">Publish Dataset to the public site. Can take up to 30 mins</span>
-
-          <div class="radio">
-            <label>
-              <input type="radio" name="published" id="publish" v-model="dataset.published" v-bind:value="true">
-              Publish
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="published" id="draft" v-model="dataset.published" v-bind:value="false">
-              Draft
-            </label>
-          </div>
-        <form v-on:submit.prevent="">
-          <!-- Keywords -->
-          <div class="form-group">
-            <label for="keyword">Keywords</label>
-            <tags-input
-              :tags="dataset.keyword"
-              @tags-change="handleTagsChange"></tags-input>
-          </div>
-          <!-- Owner -->
-          <div class="form-group">
-            <label for="ownerName">Owner details (internal only)</label>
-            <textarea id="ownerName" name="ownerName" class="form-control input-lg" rows="3" v-model="dataset.ownerName"></textarea>
-          </div>
-          <!-- Notes -->
-          <div class="form-group">
-            <label for="title">Notes  (internal only)</label>
-            <textarea class="form-control input-lg" rows="2" v-model="dataset.notes"></textarea>
-          </div>
-        </form>
-
-        <div class="form-group assets-group">
-          <h3>
-            Dataset Elements
-          </h3>
-          <p>Elements are versions of a dataset. These are, for example, different years or locations</p>
-          <div>
-            <template v-if="$route.params.id !== 'new'">
-              <arr-length :arr="element"></arr-length>
-              <router-link :to="{ name: 'elements', params: { id: $route.params.id }}" class="btn btn-danger">Edit elements</router-link>
-            </template>
-            <template v-else>
-              <p>Please save Dataset before adding elements</p>
-            </template>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-9 dataset-panel">
+            <form v-on:submit.prevent="">
+              <!-- Messages -->
+              <messages :success="successMsg" :warn="warnMsg"></messages>
+              <!-- Title -->
+              <div class="form-group" style="clear:right;">
+                <label for="title">Title</label>
+                <input type="text" class="form-control input-lg" data-disable-validate-on="input|change" autocomplete="off" id="title" name="title" :class="{'input': true, 'is-danger': errors.has('title') }" v-validate data-vv-rules="required|min:8" placeholder="" v-model="dataset.title">
+                <span class="validation-errors" v-show="errors.has('title')">{{ errors.first('title') }}</span>
+              </div>
+              <!-- Description -->
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" rows="6" name="description" id="description" v-validate data-vv-rules="required|min:20" v-model="dataset.description"></textarea>
+                <span class="validation-errors" v-show="errors.has('description')">{{ errors.first('description') }}</span>
+              </div>
+              <!-- Publisher -->
+              <div class="form-group">
+                <label for="publisher">Publisher</label>
+                <input type="text" class="form-control input-lg" name="publisher" id="publisher" v-validate data-vv-rules="required" v-model="dataset.publisher"/>
+                <span class="validation-errors" v-show="errors.has('publisher')">{{ errors.first('publisher') }}</span>
+              </div>
+              <!-- Licence -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="licence">Licence</label>
+                    <select class="form-control input-lg" id="license" name="license" v-model="dataset.license">
+                      <option v-for="licenceItem in licences" v-bind:value="licenceItem">
+                        {{licenceItem.label}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <!-- Directorate -->
+                  <div class="form-group">
+                    <label for="directorate">Directorate</label>
+                    <select class="form-control input-lg" id="directorate" name="directorate" v-model="dataset.directorate">
+                      <option v-for="directorateItem in directorates" v-bind:value="directorateItem['@id']">
+                        {{directorateItem.prefLabel}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- Frequency -->
+              <div class="form-group">
+                <label for="frequency">Publish Frequency</label>
+                <div class="input-group">
+                  <div class="input-group-addon">R/P</div>
+                  <input type="text" class="form-control input-lg" id="frequency" v-validate data-vv-rules="iso8601" name="frequency" v-model="dataset.accrualPeriodicity"/>
+                </div>
+                <span class="validation-errors" v-show="errors.has('frequency')">{{ errors.first('frequency') }}</span>
+                <span v-show="!errors.has('frequency')" class="iso8601">{{dataset.accrualPeriodicity | iso8601}}</span>
+              </div>
+              <!-- Landing Page -->
+              <div class="form-group">
+                <label for="landing">Landing Page URL</label>
+                <input type="text" class="form-control input-lg" id="landingPage" name="landingPage" v-validate data-vv-rules="url" v-model="dataset.landingPage"/>
+                <p class="help-block">A webpage describing the dataset</p>
+                <span class="validation-errors" v-show="errors.has('landingPage')">{{ errors.first('landingPage') }}</span>
+              </div>
+            </form>
+            <!-- Publish -->
+            <form v-on:submit.prevent="">
+              <label>Published</label>
+              <span id="helpBlock" class="help-block">Publish Dataset to the public site. Can take up to 30 mins</span>
 
+              <div class="radio">
+                <label>
+                  <input type="radio" name="published" id="publish" v-model="dataset.published" v-bind:value="true">
+                  Publish
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="published" id="draft" v-model="dataset.published" v-bind:value="false">
+                  Draft
+                </label>
+              </div>
+            </form>
+            <!-- Issued -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="landing">Issued</label>
+                  <input type="date" class="form-control input-lg" id="issued" name="issued" v-model="dataset.issued"/>
+                  <p class="help-block">The date the dataset was first issued</p>
+                </div>
+              </div>
+              <!-- Modified -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="landing">Modified</label>
+                  <input type="date" class="form-control input-lg" id="modified" name="modified" v-model="dataset.issued"/>
+                  <p class="help-block">The date the dataset was last modified</p>
+                </div>
+              </div>
+            </div>
+            <form v-on:submit.prevent="">
+              <!-- Keywords -->
+              <div class="form-group">
+                <label for="keyword">Keywords</label>
+                <tags-input
+                  :tags="dataset.keyword"
+                  @tags-change="handleTagsChange"></tags-input>
+              </div>
+              <!-- Activities -->
+              <div class="form-group">
+                <h4>Activities</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="keyword">Selected activities</label>
+                    <div>
+                      <span class="tag" v-for="activity in dataset.activity">
+                        {{getActivityName(activity)}}
+                        <span class="hl-click" v-on:click="removeActivity(activity)"></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="keyword">All Activities</label>
+                    <div>
+                      <span class="tag activity-add" v-for="activity in activities" v-on:click="addActivity(activity)">
+                        {{activity.niceName}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Owner -->
+              <div class="form-group">
+                <label for="ownerName">Owner details (internal only)</label>
+                <textarea id="ownerName" name="ownerName" class="form-control input-lg" rows="3" v-model="dataset.ownerName"></textarea>
+              </div>
+              <!-- Notes -->
+              <div class="form-group">
+                <label for="title">Notes  (internal only)</label>
+                <textarea class="form-control input-lg" rows="2" v-model="dataset.notes"></textarea>
+              </div>
+            </form>
+          </div><!-- /col-md-9 -->
+          <div class="col-md-3">
+            <div class="form-group assets-group">
+              <h3>
+                Elements
+              </h3>
+              <p>Elements are versions of a dataset. These are, for example, different years or locations</p>
+              <div>
+                <template v-if="$route.params.id !== 'new'">
+                  <arr-length :arr="element"></arr-length>
+                  <router-link :to="{ name: 'elements', params: { id: $route.params.id }}" class="btn btn-danger">Edit elements</router-link>
+                </template>
+                <template v-else>
+                  <p>Please save Dataset before adding elements</p>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div><!-- /row -->
       </div>
     </div>
 
@@ -136,11 +193,11 @@ Allow editing of all attributes
 </template>
 
 <script>
-  import {getDataset, getDirectorates, getLicences, getElements, saveDataset, removeDataset, getKeywordsText, saveKeyword} from './Api'
+  import {getDataset, getDirectorates, getLicences, getActivities, getElements, saveDataset, removeDataset, getKeywordsText, saveKeyword} from './Api'
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
   import blankKeyword from './blank-keyword'
-  import iso8601 from './iso8601'
+  import iso8601 from './filters/iso8601'
   import bootbox from 'bootbox'
   import cancelConfirm from './cancelConfirm'
   import log from './log'
@@ -200,6 +257,7 @@ Allow editing of all attributes
         ],
         searchQuery: '',
         directorates: [],
+        activities: [],
         element: [],
         allowedKeywords: [],
         warnMsg: '',
@@ -211,7 +269,6 @@ Allow editing of all attributes
     },
     methods: {
       handleTagsChange (index, text) {
-        log(index, text)
         if (text) {
           text = text.toLowerCase()
           if (this.dataset.keyword.indexOf(text) !== -1) {
@@ -244,6 +301,14 @@ Allow editing of all attributes
           }
         } else { // Delete tag
           this.dataset.keyword.splice(index, 1)
+        }
+      },
+      removeActivity (activ) {
+        this.dataset.activity.splice(this.dataset.activity.indexOf(activ), 1)
+      },
+      addActivity (activ) {
+        if (this.dataset.activity.indexOf(activ) === -1) {
+          this.dataset.activity.push(activ)
         }
       },
       save () {
@@ -304,6 +369,12 @@ Allow editing of all attributes
             // Fixed by loading the directorates first
             this.directorates = dset
           })
+          .then(
+            getActivities()
+              .then((dset) => {
+                this.activities = dset
+              })
+          )
           .then(this.getKeywords())
           .then(
             getLicences()
@@ -441,5 +512,11 @@ Allow editing of all attributes
     color: rgba(0, 0, 0, 0.6);
     content: "\2A2F";
     padding-left: 1px;
+  }
+
+  @media (min-width: 992px) {
+    .dataset-panel{
+      border-right: 1px solid #DDD;
+    }
   }
 </style>
