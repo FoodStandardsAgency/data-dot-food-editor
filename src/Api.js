@@ -14,6 +14,7 @@ let element = Vue.resource('/catalog/editor/dataset{/id}/element{/eid}', {}, {},
 let keyword = Vue.resource('/catalog/editor/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let directoratesEndpoint = '/catalog/data/directorates'
 let activitiesEndpoint = '/catalog/data/activities'
+let licenseEndpoint = '/catalog/editor/license/'
 let securityEndpoint = '/catalog/system/security/'
 
 /* - - - - - - - - Dataset functions - - - - - - - - - - -  */
@@ -160,7 +161,7 @@ export function getActivities () {
 }
 
 export function getLicences () {
-  return Vue.http.get('/static/api/Licences.json', {}).then(parse)
+  return Vue.http.get(licenseEndpoint, {}).then(parse).then(itemItems)
 }
 
 export function getDatatypes () {
