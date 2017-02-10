@@ -19,7 +19,7 @@ Replace with any site-specific navigation elements and styling
             <span class="icon-bar"></span>
           </button>
           <router-link to="/" class="navbar-brand">
-            <img src="/static/img/logo.png" alt="Food Standards Agency" height="50"/>
+            <img src="/dataset-editor/img/logo.png" alt="Food Standards Agency" height="50"/>
           </router-link>
         </div>
 
