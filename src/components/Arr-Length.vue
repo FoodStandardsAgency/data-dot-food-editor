@@ -5,7 +5,7 @@ Also supports an empty text value
 -->
 <template>
   <div>
-    <span class="daterange">contains {{arr.length}} element(s)</span>
+    <span class="daterange">Dataset contains {{arr.length}} element(s)</span>
   </div>
 </template>
 
