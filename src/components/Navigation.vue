@@ -18,9 +18,9 @@ Replace with any site-specific navigation elements and styling
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">
+          <router-link to="/" class="navbar-brand">
             <img src="/static/img/logo.png" alt="Food Standards Agency" height="50"/>
-          </a>
+          </router-link>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -29,7 +29,7 @@ Replace with any site-specific navigation elements and styling
             <li><h2>Dataset catalogue</h2></li>
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/reports">Reports</router-link></li>
-            <li><router-link to="/todo">Admin</router-link></li>
+            <!-- <li><router-link to="/todo">Admin</router-link></li> -->
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
