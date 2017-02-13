@@ -12,8 +12,8 @@ Vue.use(VueResource)
 let dataset = Vue.resource('/catalog/editor/dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let element = Vue.resource('/catalog/editor/dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let keyword = Vue.resource('/catalog/editor/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let directoratesEndpoint = '/catalog/data/directorates'
-let activitiesEndpoint = '/catalog/data/activities'
+let directoratesEndpoint = '/catalog/editor/directorates'
+let activitiesEndpoint = '/catalog/editor/activities'
 let licenseEndpoint = '/catalog/editor/license/'
 let securityEndpoint = '/catalog/system/security/'
 
