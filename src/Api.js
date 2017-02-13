@@ -16,6 +16,7 @@ let directoratesEndpoint = '/catalog/editor/directorates'
 let activitiesEndpoint = '/catalog/editor/activities'
 let licenseEndpoint = '/catalog/editor/license/'
 let securityEndpoint = '/catalog/system/security/'
+let datatypesEndpoint = '/catalog-editor/static/api/Datatypes.json'
 
 /* - - - - - - - - Dataset functions - - - - - - - - - - -  */
 export function getDataset (query) {
@@ -165,7 +166,7 @@ export function getLicences () {
 }
 
 export function getDatatypes () {
-  return Vue.http.get('/static/api/Datatypes.json', {}).then(parse)
+  return Vue.http.get(datatypesEndpoint, {}).then(parse)
 }
 
 /* - - - - - - - Helper functions - - - - - - - - - */
