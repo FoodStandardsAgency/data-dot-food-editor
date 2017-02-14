@@ -1,9 +1,9 @@
 <template>
-  <ul class="nav navbar-nav navbar-right">
+  <ul class="nav navbar-nav navbar-right" v-if="user">
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <span class="glyphicon glyphicon-user"></span> 
-        <strong>Example User</strong>
+        <strong>{{user.name}}</strong>
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
       <ul class="dropdown-menu">
@@ -16,8 +16,8 @@
               </p>
               </div> -->
               <div class="col-lg-8">
-                <p class="text-center"><strong>Example user</strong></p>
-                <p class="text-center small">example@email.com</p>
+                <p class="text-center"><strong>{{user.name}}</strong></p>
+                <p class="text-center small">{{user.userid}}</p>
                 <!-- <p class="text-left">
                 <a href="#" class="btn btn-primary btn-block btn-sm">Account details</a>
                 </p> -->
@@ -31,7 +31,7 @@
               <div class="row">
                 <div class="col-lg-12">
                   <p>
-                    <a href="#" class="btn btn-danger btn-block">Logout</a>
+                    <a @click="logout" class="btn btn-danger btn-block">Logout</a>
                 </p>
               </div>
             </div>
@@ -42,37 +42,43 @@
   </ul>
 </template>
 <script>
-  import {getLoggedInUser} from './Api'
+  import {getLoggedInUser, logout as apiLogout} from '../Api'
 
   export default {
     created () {
       this.fetchData()
     },
     components: {},
-    watch: {},
-    beforeRouteLeave (to, from, next) {},
+    watch: {
+      '$route': 'fetchData'
+    },
     data () {
       return {
         user: {}
       }
     },
     mounted () {
-      getDatatypes().then((dset) => {
-        this.datatypes = dset
-      }, (e) => {
-        log(e)
-      })
     },
     methods: {
       fetchData () {
-        getLoggedInUser().then(function (user) {
+        getLoggedInUser().then((user) => {
           if (user) {
-
+            this.user = user
           } else {
-            // Redirect to login page
-            
+            this.redirectToLogin() // Redirect to login page
           }
+        }, (e) => {
+          this.redirectToLogin()
         })
+      },
+      logout () {
+        apiLogout().then((user) => {
+          this.redirectToLogin() // Redirect to login page
+        })
+      },
+      redirectToLogin () {
+        this.user = null
+        this.$router.push({name: 'login', params: { loggedOut: true }})
       }
     }
   }

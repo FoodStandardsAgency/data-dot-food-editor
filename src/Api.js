@@ -120,16 +120,16 @@ export function saveKeyword (query, pObj) {
 
 /* - - - - - - - - User functions - - - - - - - - - - -  */
 export function getLoggedInUser () {
-  return Vue.http.get(securityEndpoint + 'user', {}).then(parse).then(itemItems)
+  return Vue.http.get(securityEndpoint + 'user', {}).then(parse)
 }
 
 export function login (user) {
   user.rememberMe = true
-  return Vue.http.post(securityEndpoint + 'login', user).then(parse).then(itemItems)
+  return Vue.http.post(securityEndpoint + 'login', user, {emulateJSON: true})
 }
 
 export function logout () {
-  return Vue.http.post(securityEndpoint + 'logout', {}).then(parse).then(itemItems)
+  return Vue.http.post(securityEndpoint + 'logout')
 }
 
 /* - - - - - - - - Additional functions - - - - - - - - - - -  */
