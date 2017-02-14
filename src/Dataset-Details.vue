@@ -117,7 +117,7 @@ Allow editing of all attributes
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="landing">Modified</label>
-                  <input type="date" class="form-control input-lg" id="modified" name="modified" v-model="dataset.issued"/>
+                  <input type="date" class="form-control input-lg" id="modified" name="modified" v-model="dataset.modified"/>
                   <p class="help-block">The date the dataset was last modified</p>
                 </div>
               </div>
