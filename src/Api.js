@@ -12,10 +12,11 @@ Vue.use(VueResource)
 let dataset = Vue.resource('/catalog/editor/dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let element = Vue.resource('/catalog/editor/dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
 let keyword = Vue.resource('/catalog/editor/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let directoratesEndpoint = '/catalog/data/directorates'
-let activitiesEndpoint = '/catalog/data/activities'
+let directoratesEndpoint = '/catalog/editor/directorates'
+let activitiesEndpoint = '/catalog/editor/activities'
 let licenseEndpoint = '/catalog/editor/license/'
 let securityEndpoint = '/catalog/system/security/'
+let datatypesEndpoint = '/catalog-editor/static/api/Datatypes.json'
 
 /* - - - - - - - - Dataset functions - - - - - - - - - - -  */
 export function getDataset (query) {
@@ -119,16 +120,16 @@ export function saveKeyword (query, pObj) {
 
 /* - - - - - - - - User functions - - - - - - - - - - -  */
 export function getLoggedInUser () {
-  return Vue.http.get(securityEndpoint + 'user', {}).then(parse).then(itemItems)
+  return Vue.http.get(securityEndpoint + 'user', {}).then(parse)
 }
 
 export function login (user) {
   user.rememberMe = true
-  return Vue.http.post(securityEndpoint + 'login', user).then(parse).then(itemItems)
+  return Vue.http.post(securityEndpoint + 'login', user, {emulateJSON: true})
 }
 
 export function logout () {
-  return Vue.http.post(securityEndpoint + 'logout', {}).then(parse).then(itemItems)
+  return Vue.http.post(securityEndpoint + 'logout')
 }
 
 /* - - - - - - - - Additional functions - - - - - - - - - - -  */
@@ -165,7 +166,7 @@ export function getLicences () {
 }
 
 export function getDatatypes () {
-  return Vue.http.get('/static/api/Datatypes.json', {}).then(parse)
+  return Vue.http.get(datatypesEndpoint, {}).then(parse)
 }
 
 /* - - - - - - - Helper functions - - - - - - - - - */

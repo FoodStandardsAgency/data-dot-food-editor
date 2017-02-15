@@ -19,7 +19,7 @@
     "vee-validate": "^2.0.0-beta.18",
     "vue-echarts": "^2.2.0",
     "vue-resource": "^1.0.3",
-    "vue2-bootstrap-table": "^0.1.5"
+    "vue2-bootstrap-table": "^0.1.6"
   },
   "devDependencies": {
     "autoprefixer": "6.4.0",
@@ -89,7 +89,7 @@
     "vue-moment": "2.0.2",
     "vue-router": "2.1.1",
     "vue-style-loader": "^1.0.0",
-    "vue-tagsinput": "2.0.0-beta2",
+    "vue-tagsinput": "paperclipmonkey/vue-tagsinput@master",
     "vue-template-compiler": "2.1.0",
     "vuex": "2.0.0",
     "webpack": "^1.13.2",

@@ -19,7 +19,7 @@ Replace with any site-specific navigation elements and styling
             <span class="icon-bar"></span>
           </button>
           <router-link to="/" class="navbar-brand">
-            <img src="/static/img/logo.png" alt="Food Standards Agency" height="50"/>
+            <img src="/catalog-editor/static/img/logo.png" alt="Food Standards Agency" height="50"/>
           </router-link>
         </div>
 
@@ -31,13 +31,21 @@ Replace with any site-specific navigation elements and styling
             <li><router-link to="/reports">Reports</router-link></li>
             <!-- <li><router-link to="/todo">Admin</router-link></li> -->
           </ul>
+          <navigationUser></navigationUser>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
   </div>
 </template>
 
-<script></script>
+<script>
+  import navigationUser from './Navigation-User'
+  export default {
+    components: {
+      navigationUser
+    }
+  }
+</script>
 
 <style>
   .demo {

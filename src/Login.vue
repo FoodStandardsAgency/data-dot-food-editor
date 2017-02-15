@@ -6,19 +6,22 @@ Allow editing of all attributes
   <main>
     <div id="login">
       <div class="container">
-        <form v-on:submit.prevent="">
-          <div class="form-group col-md-6">
-            <label for="username">Email</label>
-            <input type="text" v-model="username"/>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="username">Password</label>
-            <input type="password" v-model="password" />
-          </div>
-          <div class="form-group col-md-6">
-            <button @click="login">Login</button>
-          </div>
-        </form>
+        <div class="loginForm col-md-6 col-md-offset-3">
+          <messages :success="successMsg" :warn="warnMsg"></messages>
+          <form v-on:submit.prevent="">
+            <div class="form-group">
+              <label for="username">Email</label>
+              <input type="text" class="input" v-model="username"/>
+            </div>
+            <div class="form-group">
+              <label for="username">Password</label>
+              <input type="password" class="input" v-model="password" />
+            </div>
+            <div class="form-group">
+              <button @click="login">Login</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </main>
@@ -34,35 +37,38 @@ Allow editing of all attributes
     watch: {
       '$route': 'fetchData'
     },
-    beforeRouteLeave (to, from, next) {},
+    beforeRouteLeave (to, from, next) {
+      if (this.loggedIn) {
+        next()
+      }
+    },
     data () {
       return {
         username: '',
         password: '',
         successMsg: '',
-        warnMsg: ''
+        warnMsg: '',
+        loggedIn: false
       }
     },
     filters: {},
     methods: {
       login () {
-        console.log('logging in')
-        ApiLogin({userid: this.username, password: this.password}).then(function (user) {
-          if (user) {
-            this.$router.push({name: 'datasets'})
-          } else {
-            // Error couldn't log in
-            this.warnMsg = 'Sorry, couldn\'t log in with those details'
-          }
+        ApiLogin({userid: this.username, password: this.password}).then(() => {
+          this.redirect()
         }, (e) => {
-          this.warnMsg = 'Sorry, couldn\'t log in with those details'
+          this.warnMsg = 'Sorry, couldn\'t log in: ' + e.body
         })
       },
+      redirect () {
+        this.loggedIn = true // Allow navigation away
+        this.$router.push({name: 'datasets'})
+      },
       fetchData () {
+        window.that = this
         getLoggedInUser().then((user) => {
           if (user) {
-            // Redirect to /
-            this.$router.push({name: 'datasets'})
+            this.redirect()
           }
         }, (e) => {
           // Do nothing, we're in the right place
@@ -74,4 +80,8 @@ Allow editing of all attributes
 </script>
 
 <style lang='scss'>
+  .loginForm {
+    margin-top: 20px;
+    text-align: center;
+  }
 </style>
