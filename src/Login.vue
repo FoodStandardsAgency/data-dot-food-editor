@@ -38,35 +38,37 @@ Allow editing of all attributes
       '$route': 'fetchData'
     },
     beforeRouteLeave (to, from, next) {
-      next()
+      if (this.loggedIn) {
+        next()
+      }
     },
     data () {
       return {
         username: '',
         password: '',
         successMsg: '',
-        warnMsg: ''
+        warnMsg: '',
+        loggedIn: false
       }
     },
     filters: {},
     methods: {
       login () {
         ApiLogin({userid: this.username, password: this.password}).then(() => {
-          this.$router.push({name: 'datasets'})
+          this.redirect()
         }, (e) => {
           this.warnMsg = 'Sorry, couldn\'t log in: ' + e.body
         })
       },
       redirect () {
+        this.loggedIn = true // Allow navigation away
         this.$router.push({name: 'datasets'})
       },
       fetchData () {
         window.that = this
         getLoggedInUser().then((user) => {
           if (user) {
-            // Redirect to /
-            window.$router = this.$router
-            this.$router.push({path: '/'})
+            this.redirect()
           }
         }, (e) => {
           // Do nothing, we're in the right place
