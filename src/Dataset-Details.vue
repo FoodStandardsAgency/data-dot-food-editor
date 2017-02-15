@@ -150,24 +150,21 @@ Allow editing of all attributes
               <!-- Activities -->
               <div class="form-group">
                 <h4>Activities</h4>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label for="keyword">Selected activities</label>
-                    <div>
-                      <span class="tag" v-for="activity in dataset.activity">
-                        {{getActivityName(activity)}}
-                        <span class="hl-click" v-on:click="removeActivity(activity)"></span>
-                      </span>
-                    </div>
+                <div class="input-group">
+                  <div class="form-control input-lg tags-input activities-input">
+                    <span class="tag" v-for="activity in dataset.activity">
+                      {{getActivityName(activity)}}
+                      <span class="hl-click" v-on:click="removeActivity(activity)"></span>
+                    </span>
                   </div>
-                  <div class="col-md-6">
-                    <label for="keyword">All Activities</label>
-                    <div>
-                      <span class="tag activity-add" v-for="activity in activities" v-on:click="addActivity(activity)">
-                        {{activity.niceName}}
-                      </span>
-                    </div>
-                  </div>
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-lg btn-default dropdown-toggle keywords-dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Activities   <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right keywords-dropdown">
+                      <li v-for="activity in activities"><a href="#" v-on:click.prevent="addActivity(activity)">{{activity.niceName}}</a></li>
+                    </ul>
+                  </div><!-- /btn-group -->
                 </div>
               </div>
               <!-- Owner -->
@@ -455,6 +452,13 @@ Allow editing of all attributes
   .tags-input {
     box-shadow: none!important;
     border-radius: 0!important;
+    height: auto;
+    padding: 4px 8px!important;
+  }
+
+  .activities-input {
+    min-height: 46px;
+    padding-top: 10px!important;
   }
 
   .hl-click {
@@ -562,9 +566,9 @@ Allow editing of all attributes
     border-radius: 3px;
     color: #858585;
     font-weight: normal;
-    font-size: 1.1em;
     padding: 0 0.5ch;
     display: inline-block;
+    margin-right: 5px;
   }
   .hl-click{
     cursor: pointer;
