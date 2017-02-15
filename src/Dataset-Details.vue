@@ -288,6 +288,7 @@ Allow editing of all attributes
     methods: {
       handleAddTag () {
         let tag = this.newTagInput
+        this.newTagInput = '' // Clear input
         this.handleTagsChange(this.dataset.keyword.length, tag)
       },
       addTagObject (tag) {
