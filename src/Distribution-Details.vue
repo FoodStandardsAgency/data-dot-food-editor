@@ -24,24 +24,29 @@ Displayed as a modal
     </div>
 
     <div class="form-group">
-      <div><label>Type</label></div>
-      <label>
-        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!!true">
-        Access URL
-      </label>
-
-      <label>
-        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!true">
-        Direct Download URL
-      </label>
-      <p class="help-block">Direct download URLs are links directly to the data. Access URLs are to a webpage describing the data</p>
-    </div>
-
-    <div class="form-group">
       <label for="Eldownload" class="form-label">URL</label>
       <input type="text" class="form-control" v-model="url" v-validate data-vv-rules="url" data-vv-as="url" :id="'Eldownload' + index" :name="'Eldownload' + index">
       <span class="validation-errors" v-show="errors.has('Eldownload' + index)">{{ errors.first('Eldownload' + index) }}</span>
     </div>
+
+    <div class="form-group">
+      <div>
+        <label>URL Type</label>
+      </div>
+      <label class="radio-direct-download">
+        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!true">
+        Direct Download URL
+      </label>
+      <label>
+        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!!true">
+        Access URL
+      </label>
+      <p class="help-block">
+        A Direct Download URL links directly to the data whereas an Access URL links to a webpage describing the data. <br/>
+        When possible a Direct Download URL should be made available.
+      </p>
+    </div>
+
   </div>
 </template>
 <script>
@@ -97,6 +102,10 @@ Displayed as a modal
 
 <style lang='scss' scoped>
   @import './assets/validation-errors';
+
+  .radio-direct-download{
+    margin-right: 20px;
+  }
 
   .distribution {
     border: 1px solid #AAA;
