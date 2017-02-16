@@ -20,10 +20,11 @@ Displayed as a modal
             <a v-if="$route.params.eid !== 'undefined'" class="btn btn-danger" @click="remove">Delete</a>
             <router-link :to="{ name: 'elements', params: { id: $route.params.id, eid: 'new' }}" class="btn btn-default">Cancel</router-link>
             <button @click="save" type="button" class="btn btn-success">Save</button> <!-- :disabled="!unsavedChanges ? true : false" -->
+            <button @click="createMessage" type="button" class="btn btn-success">New message</button> <!-- :disabled="!unsavedChanges ? true : false" -->
           </div>
           <h4 class="modal-title" id="myModalLabel">Element editor</h4>
 
-          <messages :success="successMsg" :warn="warnMsg"></messages>
+          <messages v-on:message="incrementTotal" :success="successMsg" :warn="warnMsg"></messages>
 
           <div class="form-group" style="clear:left">
             <label for="Eltitle">Title</label>
@@ -126,6 +127,9 @@ Displayed as a modal
       })
     },
     methods: {
+      createMessage () {
+        this.$emit('message', 'message content')
+      },
       fetchData () {
         if (this.$route.query.saved) {
           this.successMsg = 'Added Successfully'
