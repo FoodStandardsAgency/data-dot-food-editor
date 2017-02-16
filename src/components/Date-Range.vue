@@ -5,7 +5,7 @@ Also supports an empty text value
 -->
 <template>
   <div>
-    <span class="daterange">contains {{arr.length}} element(s) from {{firstDate | moment('MMMM Do YYYY') }} - {{lastDate | moment('MMMM Do YYYY') }}</span>
+    <span class="daterange">contains {{arr.length}} element(s) from {{firstDate | momentProxy('MMMM Do YYYY') }} - {{lastDate | momentProxy('MMMM Do YYYY') }}</span>
   </div>
 </template>
 
@@ -17,6 +17,12 @@ Also supports an empty text value
       arr: Array, // data
       startProp: String,
       endProp: String
+    },
+    filters: {
+      momentProxy (a, b) {
+        if (a === '∞') return a
+        return a.format(b)
+      }
     },
     computed: {
       firstDate () {
