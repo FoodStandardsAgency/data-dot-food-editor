@@ -130,14 +130,16 @@ Add new dataset
         this.updateKeywordData(counts, allKeywords)
       },
       updatePub (asyncData) {
-        this.$refs.pie.mergeOptions({
-          series: [{
-            data: [
-              {value: asyncData.pub, name: 'Published'},
-              {value: asyncData.unpub, name: 'Draft'}
-            ]
-          }]
-        })
+        if (this.$refs.pie) {
+          this.$refs.pie.mergeOptions({
+            series: [{
+              data: [
+                {value: asyncData.pub, name: 'Published'},
+                {value: asyncData.unpub, name: 'Draft'}
+              ]
+            }]
+          })
+        }
       },
       updateKeywordData (asyncData, keywords) {
         let k = _.map(asyncData, function (k, v, e) {
