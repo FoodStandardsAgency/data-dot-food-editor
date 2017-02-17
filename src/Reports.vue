@@ -11,9 +11,23 @@ Add new dataset
       <div class="pull-right" style="margin-top:15px;">
       </div>
       <h1>Reports</h1>
-      <p class="text-muted">One</p>
+      <h3>Published datasets</h3>
+
       <chart :options="pubGraph" ref="pie"></chart>
-      <chart :options="keywordGraph" ref="bar"></chart>
+
+      <div class="row">
+
+        <h3>Keyword usage</h3>
+        <div class="col-sm-12" id="wrapper">
+          <grid
+            :data="keywordTableData"
+            :columns="headers"
+            :rowsPerPage="10000"
+            :filter-key="searchQuery"
+            :isLoading="loading">
+          </grid>
+        </div>
+      </div>
     </div>
   </main>
 </template>
@@ -25,6 +39,17 @@ Add new dataset
   export default {
     data () {
       return {
+        keywordTableData: [],
+        headers: [
+          {
+            title: 'title',
+            path: 'name'
+          },
+          {
+            title: 'count',
+            path: 'count'
+          }
+        ],
         pubGraph: {
           title: {
             text: 'Published vs Draft',
@@ -57,43 +82,6 @@ Add new dataset
                   shadowColor: 'rgba(0, 0, 0, 0.5)'
                 }
               }
-            }
-          ]
-        },
-        keywordGraph: {
-          title: {
-            text: 'Keywords',
-            subtext: 'usage',
-            x: 'center'
-          },
-          tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-              type: 'shadow'
-            }
-          },
-          legend: {
-            data: ['Usage']
-          },
-          grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-          },
-          xAxis: {
-            type: 'value',
-            boundaryGap: [0, 1]
-          },
-          yAxis: {
-            type: 'category',
-            data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
-          },
-          series: [
-            {
-              name: 'Usage',
-              type: 'bar',
-              data: [18203, 23489, 29034, 104970, 131744, 630230]
             }
           ]
         }
@@ -132,7 +120,11 @@ Add new dataset
         let counts = {}
         for (var i = 0; i < allKeywords.length; i++) {
           var num = allKeywords[i]
-          counts[num] = counts[num] ? counts[num] + 1 : 1
+          if (!counts[num]) {
+            counts[num] = {}
+          }
+          counts[num].count = counts[num].count ? counts[num].count + 1 : 1
+          counts[num].name = num
         }
 
         this.updateKeywordData(counts, allKeywords)
@@ -151,18 +143,7 @@ Add new dataset
         let k = _.map(asyncData, function (k, v, e) {
           return k
         })
-
-        this.$refs.bar.mergeOptions({
-          yAxis: {
-            type: 'category',
-            data: keywords
-          },
-          series: [{
-            name: 'Usage',
-            type: 'bar',
-            data: k
-          }]
-        })
+        this.keywordTableData = k
       }
     }
   }
