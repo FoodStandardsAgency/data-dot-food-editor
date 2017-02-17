@@ -17,7 +17,7 @@ Displayed as a modal
       <div class="container">
         <form v-on:submit.prevent="">
           <div class="pull-right buttons">
-            <a v-if="$route.params.eid !== 'undefined'" class="btn btn-danger" @click="remove">Delete</a>
+            <a v-if="$route.params.eid !== 'new'" class="btn btn-danger" @click="remove">Delete</a>
             <router-link :to="{ name: 'elements', params: { id: $route.params.id, eid: 'new' }}" class="btn btn-default">Cancel</router-link>
             <button @click="save" type="button" class="btn btn-success">Save</button> <!-- :disabled="!unsavedChanges ? true : false" -->
             <button @click="createMessage" type="button" class="btn btn-success">New message</button> <!-- :disabled="!unsavedChanges ? true : false" -->
