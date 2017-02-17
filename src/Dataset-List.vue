@@ -17,7 +17,7 @@ Add new dataset
       <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
       <search :placeholder="'search datasets'" :searchEvent="searchListener"></search>
 
-      <messages :success="successMsg" :warn="warnMsg"></messages>
+      <messages/>
 
       <div class="rowsPerPage">
         Items per page:
@@ -47,6 +47,8 @@ Add new dataset
 
 <script>
   import { getDatasets } from './Api'
+  import bus from './components/bus'
+
   export default {
     data () {
       return {
@@ -87,7 +89,10 @@ Add new dataset
       },
       fetchData () {
         if (this.$route.query.deleted) {
-          this.successMsg = 'Deleted Successfully'
+          bus.$emit('message', {
+            str: 'Deleted Successfully',
+            success: true
+          })
         }
 
         this.error = this.post = null

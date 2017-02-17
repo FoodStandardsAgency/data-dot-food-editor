@@ -5,49 +5,37 @@ Show messages from the page in a standard format
 <template>
   <div class="messages">
     <transition name="fade">
-      <div class="message successMsg bg-success" v-if="showSuccess">{{success}}</div>
-    </transition>
-    <transition name="fade">
-      <div class="message warnMsg bg-danger" v-if="showWarn">{{warn}}</div>
+      <div class="message" v-bind:class="{successMsg: success, 'bg-success': success, 'warnMsg': !success, 'bg-danger': !success}" v-if="str">{{str}}</div>
     </transition>
   </div>
 </template>
 
 <script>
-  let successTimeout
+  import bus from './bus'
+  let timeout
   // let warnTimeout
   export default {
     created () {
-      this.$on('message', function (msg) {
-        console.log('New Message', msg)
+      bus.$on('message', (msg) => {
+        console.log('Bus data', msg)
+        // Merge msg with prototype
+        // Then apply to data
+        this.str = msg.str
+        this.success = msg.success
+
+        if (timeout) {
+          clearTimeout(timeout)
+        }
+        timeout = setTimeout(() => {
+          console.log('hide success')
+          this.str = ''
+        }, 5000)
       })
-    },
-    props: {
-      success: String,
-      warn: String
     },
     data: function () {
       return {
-        showSuccess: false,
-        showWarn: false
-      }
-    },
-    watch: {
-      success (oldVal) {
-        console.log('show success')
-
-        this.showSuccess = true
-        if (successTimeout) {
-          clearTimeout(successTimeout)
-        }
-        successTimeout = setTimeout(() => {
-          console.log('hide success')
-          this.showSuccess = false
-          this.success = ''
-        }, 1000)
-      },
-      warn (oldVal) {
-        // warnTimeout = new Date().getTime()
+        str: '',
+        success: true
       }
     }
   }
@@ -55,9 +43,9 @@ Show messages from the page in a standard format
 
 <style scoped>
   .fade-enter-active, .fade-leave-active {
-    transition: opacity 1s
+    transition: opacity 2s;
   }
   .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-    opacity: 0
+    opacity: 0;
   }
 </style>

@@ -25,7 +25,7 @@ Allow editing of all attributes
           <div class="col-md-9 dataset-panel">
             <form v-on:submit.prevent="">
               <!-- Messages -->
-              <messages :success="successMsg" :warn="warnMsg"></messages>
+              <messages/>
               <!-- Title -->
               <div class="form-group" style="clear:right;">
                 <label for="title">Title</label>
@@ -216,6 +216,7 @@ Allow editing of all attributes
   import cancelConfirm from './cancelConfirm'
   import log from './log'
   import parseHeader from './parseHeader'
+  import bus from './components/bus'
 
   export default {
     created () {
@@ -224,7 +225,10 @@ Allow editing of all attributes
     watch: {
       '$route': function () {
         if (this.$route.query.saved) {
-          this.successMsg = 'Added Successfully'
+          bus.$emit('message', {
+            str: 'Added Successfully',
+            success: true
+          })
           this.unsavedChanges = false
         }
         this.fetchData()
@@ -274,8 +278,6 @@ Allow editing of all attributes
         activities: [],
         element: [],
         allowedKeywords: [],
-        warnMsg: '',
-        successMsg: '',
         newTagInput: ''
       }
     },
@@ -346,14 +348,20 @@ Allow editing of all attributes
 
         saveDataset({id: this.$route.params.id}, dataset).then((resp) => {
           this.unsavedChanges = false
-          this.successMsg = 'Updated Successfully'
+          bus.$emit('message', {
+            str: 'Updated Successfully',
+            success: true
+          })
 
           let id = parseHeader(resp.headers)
           if (id) {
             this.$router.push({name: 'dataset', params: {id: id}, query: {saved: true}})
           }
         }, (err) => {
-          this.warnMsg = 'Something went wrong, please try again'
+          bus.$emit('message', {
+            str: 'Something went wrong, please try again',
+            success: false
+          })
           log(err)
         })
       },

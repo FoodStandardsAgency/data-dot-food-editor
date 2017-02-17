@@ -23,7 +23,7 @@ Displayed as a modal
           </div>
           <h4 class="modal-title" id="myModalLabel">Element editor</h4>
 
-          <messages v-on:message="incrementTotal" :success="successMsg" :warn="warnMsg"></messages>
+          <messages/>
 
           <div class="form-group" style="clear:left">
             <label for="Eltitle">Title</label>
@@ -78,6 +78,7 @@ Displayed as a modal
   import cancelConfirm from './cancelConfirm'
   import log from './log'
   import parseHeader from './parseHeader'
+  import bus from './components/bus'
 
   import {getDatatypes, saveElement, removeElement, getElement} from './Api'
 
@@ -113,8 +114,6 @@ Displayed as a modal
         datatypes: [],
         unsavedChanges: false,
         beforeLoad: true,
-        successMsg: '',
-        warnMsg: '',
         element: JSON.parse(JSON.stringify(blankElement))
       }
     },
@@ -128,8 +127,10 @@ Displayed as a modal
     methods: {
       fetchData () {
         if (this.$route.query.saved) {
-          this.successMsg = 'Added Successfully'
-          this.unsavedChanges = false
+          bus.$emit('message', {
+            str: 'Added Successfully',
+            success: true
+          })
         }
 
         if (this.$route.params.eid !== 'new') {
@@ -148,7 +149,10 @@ Displayed as a modal
           eid: this.$route.params.eid
         }, this.element).then((resp) => {
           this.unsavedChanges = false
-          this.successMsg = 'Updated Successfully'
+          bus.$emit('message', {
+            str: 'Updated Successfully',
+            success: true
+          })
 
           let eid = parseHeader(resp.headers)
           if (eid) {

@@ -21,9 +21,9 @@ Allow editing of all attributes
         <p>Elements are versions of a dataset split, for example, by area or date.</p>
 
         <div class="form-group assets-group">
-          <search :placeholder="'search elements'" :searchEvent="searchListener"></search>
+          <messages/>
 
-          <messages :success="successMsg" :warn="warnMsg"></messages>
+          <search :placeholder="'search elements'" :searchEvent="searchListener"></search>
 
           <div class="asset-table">
             <grid
@@ -62,6 +62,7 @@ Allow editing of all attributes
   import { getElements, getDataset } from './Api'
   import log from './log'
   import strLimit from './filters/limit'
+  import bus from './components/bus'
 
   export default {
     created () {
@@ -123,7 +124,11 @@ Allow editing of all attributes
       },
       fetchData () {
         if (this.$route.query.deleted) {
-          this.successMsg = 'Deleted Successfully'
+          console.log('Query deleted')
+          bus.$emit('message', {
+            str: 'Deleted Successfully',
+            success: true
+          })
         }
         this.loading = true
         getElements({id: this.$route.params.id}).then((elements) => {
