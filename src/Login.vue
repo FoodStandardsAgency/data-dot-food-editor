@@ -7,7 +7,7 @@ Allow editing of all attributes
     <div id="login">
       <div class="container">
         <div class="loginForm col-md-6 col-md-offset-3">
-          <messages :success="successMsg" :warn="warnMsg"></messages>
+          <messages/>
           <form v-on:submit.prevent="">
             <div class="form-group">
               <label for="username">Email</label>
@@ -29,6 +29,7 @@ Allow editing of all attributes
 
 <script>
   import {getLoggedInUser, login as ApiLogin} from './Api'
+  import bus from './components/Bus'
 
   export default {
     created () {
@@ -46,8 +47,6 @@ Allow editing of all attributes
       return {
         username: '',
         password: '',
-        successMsg: '',
-        warnMsg: '',
         loggedIn: false
       }
     },
@@ -55,9 +54,16 @@ Allow editing of all attributes
     methods: {
       login () {
         ApiLogin({userid: this.username, password: this.password}).then(() => {
+          bus.$emit('message', {
+            str: 'Logged in Successfully',
+            success: true
+          })
           this.redirect()
         }, (e) => {
-          this.warnMsg = 'Sorry, couldn\'t log in: ' + e.body
+          bus.$emit('message', {
+            str: 'Sorry, couldn\'t log in: ' + e.body,
+            success: false
+          })
         })
       },
       redirect () {
