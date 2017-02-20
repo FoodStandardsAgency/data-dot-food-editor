@@ -18,6 +18,7 @@ let activitiesEndpoint = baseEndpoint + 'activities'
 let licenseEndpoint = baseEndpoint + 'license/'
 let securityEndpoint = '/catalog/system/security/'
 let datatypesEndpoint = '/catalog-editor/static/api/Datatypes.json'
+let publishEndpoint = baseEndpoint + 'publish'
 
 /* - - - - - - - - Dataset functions - - - - - - - - - - -  */
 export function getDataset (query) {
@@ -170,6 +171,10 @@ export function getDatatypes () {
   return Vue.http.get(datatypesEndpoint, {}).then(parse)
 }
 
+export function publish () {
+  return Vue.http.post(publishEndpoint, {}).then(parse)
+}
+
 /* - - - - - - - Helper functions - - - - - - - - - */
 // Returned data structure can be of either items or item
 // Remove ambiguity
@@ -180,7 +185,11 @@ let itemItems = (jsn) => {
 // Remove empty strings from objects
 let removeEmptyStrings = (pObj) => {
   for (let k in pObj) {
-    if (pObj[k] === '') {
+    // Need to drill down in to objects
+    if (pObj[k] === 'object') {
+      pObj[k] = removeEmptyStrings(pObj[k])
+    }
+    if (pObj[k] === '' || pObj[k] === null) {
       delete pObj[k]
     }
   }

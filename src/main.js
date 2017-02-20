@@ -25,6 +25,7 @@ import Moment from 'vue-moment'
 import VMoment from 'moment'
 import Messages from './components/Messages'
 import Reports from './Reports'
+import Publish from './Publish'
 import Chart from 'vue-echarts'
 import vee8601 from './vee-iso8601'
 
@@ -53,6 +54,7 @@ const router = new VueRouter({
     { path: '/', component: DatasetList, name: 'datasets' },
     { path: '/login', component: Login, name: 'login' },
     { path: '/reports', component: Reports, name: 'reports' },
+    { path: '/publish', component: Publish, name: 'publish' },
     { path: '/dataset/:id?', component: DatasetDetails, name: 'dataset' },
     { path: '/dataset/:id/elements', component: ElementList, name: 'elements' },
     { path: '/dataset/:id/elements/:eid', component: ElementDetails, name: 'element' }
