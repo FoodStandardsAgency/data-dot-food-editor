@@ -9,12 +9,13 @@ import blankElement from './blank-element'
 import blankDistribution from './blank-distribution'
 Vue.use(VueResource)
 
-let dataset = Vue.resource('/catalog/editor/dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let element = Vue.resource('/catalog/editor/dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let keyword = Vue.resource('/catalog/editor/keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
-let directoratesEndpoint = '/catalog/editor/directorates'
-let activitiesEndpoint = '/catalog/editor/activities'
-let licenseEndpoint = '/catalog/editor/license/'
+let baseEndpoint = '/catalog/editor/'
+let dataset = Vue.resource(baseEndpoint + 'dataset{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let element = Vue.resource(baseEndpoint + 'dataset{/id}/element{/eid}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let keyword = Vue.resource(baseEndpoint + 'keyword{/id}', {}, {}, {headers: {'Content-type': 'application/ld+json'}})
+let directoratesEndpoint = baseEndpoint + 'directorates'
+let activitiesEndpoint = baseEndpoint + 'activities'
+let licenseEndpoint = baseEndpoint + 'license/'
 let securityEndpoint = '/catalog/system/security/'
 let datatypesEndpoint = '/catalog-editor/static/api/Datatypes.json'
 
