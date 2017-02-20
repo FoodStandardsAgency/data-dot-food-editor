@@ -17,7 +17,6 @@ Show messages from the page in a standard format
   export default {
     created () {
       bus.$on('message', (msg) => {
-        console.log('Bus data', msg)
         // Merge msg with prototype
         // Then apply to data
         this.str = msg.str
@@ -27,7 +26,6 @@ Show messages from the page in a standard format
           clearTimeout(timeout)
         }
         timeout = setTimeout(() => {
-          console.log('hide success')
           this.str = ''
         }, 5000)
       })
