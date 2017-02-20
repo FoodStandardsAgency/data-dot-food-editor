@@ -211,12 +211,12 @@ Allow editing of all attributes
   import tagsinput from 'vue-tagsinput'
   import blankDataset from './blank-dataset'
   import blankKeyword from './blank-keyword'
-  import iso8601 from './filters/iso8601'
+  import iso8601 from './filters/Iso8601'
   import bootbox from 'bootbox'
   import cancelConfirm from './cancelConfirm'
   import log from './log'
   import parseHeader from './parseHeader'
-  import bus from './components/bus'
+  import bus from './components/Bus'
 
   export default {
     created () {

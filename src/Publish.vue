@@ -20,7 +20,7 @@ Call endpoint to start push to public servers
 
 <script>
   import { publish as apiPublish } from './Api'
-  import bus from './components/bus'
+  import bus from './components/Bus'
 
   export default {
     data () {

@@ -78,7 +78,7 @@ Displayed as a modal
   import cancelConfirm from './cancelConfirm'
   import log from './log'
   import parseHeader from './parseHeader'
-  import bus from './components/bus'
+  import bus from './components/Bus'
 
   import {getDatatypes, saveElement, removeElement, getElement} from './Api'
 

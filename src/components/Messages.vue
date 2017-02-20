@@ -11,7 +11,7 @@ Show messages from the page in a standard format
 </template>
 
 <script>
-  import bus from './bus'
+  import bus from './Bus'
   let timeout
   // let warnTimeout
   export default {

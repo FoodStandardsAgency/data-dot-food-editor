@@ -61,8 +61,8 @@ Allow editing of all attributes
 <script>
   import { getElements, getDataset } from './Api'
   import log from './log'
-  import strLimit from './filters/limit'
-  import bus from './components/bus'
+  import strLimit from './filters/Limit'
+  import bus from './components/Bus'
 
   export default {
     created () {

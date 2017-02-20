@@ -47,7 +47,7 @@ Add new dataset
 
 <script>
   import { getDatasets } from './Api'
-  import bus from './components/bus'
+  import bus from './components/Bus'
 
   export default {
     data () {
