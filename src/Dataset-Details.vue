@@ -89,7 +89,7 @@ Allow editing of all attributes
             <!-- Publish -->
             <form v-on:submit.prevent="">
               <label>Published</label>
-              <span id="helpBlock" class="help-block">Publish Dataset to the public site. Can take up to 30 mins</span>
+              <span id="helpBlock" class="help-block">Publish Dataset to the public site during the next <router-link :to="{ name: 'publish'}">publish cycle</router-link></span>
 
               <div class="radio">
                 <label>
@@ -226,7 +226,7 @@ Allow editing of all attributes
       '$route': function () {
         if (this.$route.query.saved) {
           bus.$emit('message', {
-            str: 'Added Successfully',
+            str: 'Added Successfully. Changes won\'t appear publicly until published',
             success: true
           })
           this.unsavedChanges = false
@@ -349,7 +349,7 @@ Allow editing of all attributes
         saveDataset({id: this.$route.params.id}, dataset).then((resp) => {
           this.unsavedChanges = false
           bus.$emit('message', {
-            str: 'Updated Successfully',
+            str: 'Updated Successfully. Changes won\'t appear publicly until published',
             success: true
           })
 

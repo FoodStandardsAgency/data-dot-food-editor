@@ -128,7 +128,7 @@ Displayed as a modal
       fetchData () {
         if (this.$route.query.saved) {
           bus.$emit('message', {
-            str: 'Added Successfully',
+            str: 'Added Successfully. Changes won\'t appear publicly until published',
             success: true
           })
         }
@@ -150,7 +150,7 @@ Displayed as a modal
         }, this.element).then((resp) => {
           this.unsavedChanges = false
           bus.$emit('message', {
-            str: 'Updated Successfully',
+            str: 'Updated Successfully. Changes won\'t appear publicly until published',
             success: true
           })
 
