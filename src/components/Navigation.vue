@@ -27,7 +27,7 @@ Replace with any site-specific navigation elements and styling
             <li><router-link to="/reports">Reports</router-link></li>
             <li><router-link to="/publish">Publish</router-link></li>
           </ul>
-          <!-- <navigationUser></navigationUser> -->
+          <navigationUser></navigationUser>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
