@@ -97,7 +97,9 @@ Add new dataset
 
         this.error = this.post = null
         this.loading = true
-        getDatasets({}).then((dataset) => {
+        getDatasets({
+          '_view': 'compact'
+        }).then((dataset) => {
           this.tableData = dataset
           this.loading = false
           this.loading = false
