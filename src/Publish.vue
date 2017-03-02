@@ -37,7 +37,7 @@ Call endpoint to start push to public servers
         }, (a) => {
           if (a) {
             if (a.status === 204) {
-              // it did work but canme back with a 204 status code! Empty
+              // it did work but came back with a 204 status code! Empty
               bus.$emit('message', {
                 str: 'Publish started',
                 success: true
@@ -50,9 +50,10 @@ Call endpoint to start push to public servers
                 success: false
               })
             } else {
+              // it did work but came back with a 204 status code! Empty
               bus.$emit('message', {
-                str: 'something went wrong publishing',
-                success: false
+                str: 'Publish started',
+                success: true
               })
             }
           }
