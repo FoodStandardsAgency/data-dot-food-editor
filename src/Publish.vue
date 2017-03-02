@@ -41,6 +41,11 @@ Call endpoint to start push to public servers
                 str: a.body,
                 success: false
               })
+            } else {
+              bus.$emit('message', {
+                str: 'something went wrong publishing',
+                success: false
+              })
             }
           }
         })
