@@ -18,7 +18,7 @@ Allow editing of all attributes
         </a>
 
         <h2>{{dataset.title | strLimit(30)}} / elements</h2>
-        <p>Elements are versions of a dataset split, for example, by area or date.</p>
+        <p>Elements are versions of a dataset split, for example by area or date.</p>
 
         <div class="form-group assets-group">
           <messages/>
