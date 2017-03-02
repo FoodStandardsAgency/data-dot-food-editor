@@ -54,15 +54,12 @@ Add new dataset
       return {
         headers: [
           {
-            title: 'published',
-            path: 'published',
-            render: function (val) {
-              return val ? 'yes' : 'no'
-            }
-          }, {
             title: 'notation',
             path: '@id',
-            addClass: 'hidden-xs'
+            addClass: 'hidden-xs',
+            render: function (val) {
+              return val.split('/').pop()
+            }
           }, {
             title: 'title',
             path: 'title'
@@ -70,6 +67,13 @@ Add new dataset
             title: 'description',
             path: 'description',
             addClass: 'hidden-xs'
+          },
+          {
+            title: 'published',
+            path: 'published',
+            render: function (val) {
+              return val ? 'yes' : 'no'
+            }
           }
         ],
         searchQuery: '',
