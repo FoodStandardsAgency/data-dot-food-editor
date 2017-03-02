@@ -587,9 +587,11 @@ Allow editing of all attributes
     margin-right: 5px;
   }
   .hl-click::after {
-    color: rgba(0, 0, 0, 0.6);
-    content: "\2A2F";
-    padding-left: 1px;
+    color: rgba(0,0,0,.6);
+    content: "\f05c";
+    font: normal normal normal 14px/1 FontAwesome;
+    display: block;
+    margin-top: 2px;
   }
 
   @media (min-width: 992px) {
