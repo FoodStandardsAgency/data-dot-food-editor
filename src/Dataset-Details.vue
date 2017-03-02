@@ -587,8 +587,8 @@ Allow editing of all attributes
     margin-right: 5px;
   }
   .hl-click::after {
-    color: rgba(0,0,0,.6);
-    content: "\f05c";
+    color: rgba(0,0,0,.5)!important;
+    content: "\f05c"!important;
     font: normal normal normal 14px/1 FontAwesome;
     display: block;
     margin-top: 2px;
