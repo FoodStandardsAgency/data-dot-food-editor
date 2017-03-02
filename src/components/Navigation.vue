@@ -43,5 +43,8 @@ Replace with any site-specific navigation elements and styling
   }
 </script>
 
-<style>
+<style lang='scss' scoped>
+  .navbar-nav li {
+    font-weight: bold;
+  }
 </style>
