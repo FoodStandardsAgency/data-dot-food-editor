@@ -77,6 +77,7 @@ Allow editing of all attributes
                 </div>
                 <span class="validation-errors" v-show="errors.has('frequency')">{{ errors.first('frequency') }}</span>
                 <span v-show="!errors.has('frequency')" class="iso8601">{{dataset.accrualPeriodicity | iso8601}}</span>
+                <span v-show="!errors.has('frequency') && !dataset.accrualPeriodicity" class="iso8601">Example: 1Y for repeating yearly, 1M for every month</span>
               </div>
               <!-- Landing Page -->
               <div class="form-group">
