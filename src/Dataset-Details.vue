@@ -188,7 +188,7 @@ Allow editing of all attributes
               <div>
                 <template v-if="$route.params.id !== 'new'">
                   <arr-length :arr="element"></arr-length>
-                  <router-link :to="{ name: 'elements', params: { id: $route.params.id }}" class="btn btn-danger">Edit elements</router-link>
+                  <router-link :to="{ name: 'elements', params: { id: $route.params.id }}" class="btn btn-primary">Edit elements</router-link>
                 </template>
                 <template v-else>
                   <p>Please save Dataset before adding elements</p>
