@@ -170,12 +170,12 @@ Allow editing of all attributes
               </div>
               <!-- Owner -->
               <div class="form-group">
-                <label for="ownerName">Owner details (internal only)</label>
+                <label for="ownerName">Owner details (not publicly published)</label>
                 <textarea id="ownerName" name="ownerName" class="form-control input-lg" rows="3" v-model="dataset.ownerName"></textarea>
               </div>
               <!-- Notes -->
               <div class="form-group">
-                <label for="title">Notes  (internal only)</label>
+                <label for="title">Notes  (not publicly published)</label>
                 <textarea class="form-control input-lg" rows="2" v-model="dataset.notes"></textarea>
               </div>
             </form>
