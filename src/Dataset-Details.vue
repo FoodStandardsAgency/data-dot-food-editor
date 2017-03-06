@@ -87,24 +87,6 @@ Allow editing of all attributes
                 <span class="validation-errors" v-show="errors.has('landingPage')">{{ errors.first('landingPage') }}</span>
               </div>
             </form>
-            <!-- Publish -->
-            <form v-on:submit.prevent="">
-              <label>Published</label>
-              <span id="helpBlock" class="help-block">Publish Dataset to the public site during the next <router-link :to="{ name: 'publish'}">publish cycle</router-link></span>
-
-              <div class="radio">
-                <label>
-                  <input type="radio" name="published" id="publish" v-model="dataset.published" v-bind:value="true">
-                  Publish
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="published" id="draft" v-model="dataset.published" v-bind:value="false">
-                  Draft
-                </label>
-              </div>
-            </form>
             <!-- Issued -->
             <div class="row">
               <div class="col-md-6">
@@ -168,16 +150,6 @@ Allow editing of all attributes
                   </div><!-- /btn-group -->
                 </div>
               </div>
-              <!-- Owner -->
-              <div class="form-group">
-                <label for="ownerName">Owner details (not publicly published)</label>
-                <textarea id="ownerName" name="ownerName" class="form-control input-lg" rows="3" v-model="dataset.ownerName"></textarea>
-              </div>
-              <!-- Notes -->
-              <div class="form-group">
-                <label for="title">Notes  (not publicly published)</label>
-                <textarea class="form-control input-lg" rows="2" v-model="dataset.notes"></textarea>
-              </div>
             </form>
           </div><!-- /col-md-9 -->
           <div class="col-md-3">
@@ -196,6 +168,39 @@ Allow editing of all attributes
                 </template>
               </div>
             </div>
+
+            <!-- Publish -->
+            <hr/>
+            <form v-on:submit.prevent="">
+              <h3>Publication</h3>
+              <span id="helpBlock" class="help-block">Publish Dataset to the public site during the next <router-link :to="{ name: 'publish'}">publish cycle</router-link></span>
+
+              <div class="radio">
+                <label>
+                  <input type="radio" name="published" id="publish" v-model="dataset.published" v-bind:value="true">
+                  Mark as "To Publish"
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="published" id="draft" v-model="dataset.published" v-bind:value="false">
+                  Mark as "Draft"
+                </label>
+              </div>
+            </form>
+            <hr/>
+            <!-- Owner -->
+            <div class="form-group">
+              <label for="ownerName">Owner details (not publicly published)</label>
+              <textarea id="ownerName" name="ownerName" class="form-control input-lg" rows="3" v-model="dataset.ownerName"></textarea>
+            </div>
+            <hr/>
+            <!-- Notes -->
+            <div class="form-group">
+              <label for="title">Notes (not publicly published)</label>
+              <textarea class="form-control input-lg" rows="2" v-model="dataset.notes"></textarea>
+            </div>
+
           </div>
         </div><!-- /row -->
       </div>
