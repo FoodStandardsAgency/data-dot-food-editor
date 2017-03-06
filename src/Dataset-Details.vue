@@ -439,9 +439,6 @@ Allow editing of all attributes
             }
           })
       }
-    },
-    components: {
-      'tags-input': tagsinput
     }
   }
 </script>
