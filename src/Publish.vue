@@ -8,11 +8,12 @@ Call endpoint to start push to public servers
       <div class="pull-right" style="margin-top:15px;">
       </div>
       <h1>Publish</h1>
-      <button class="btn btn-lg btn-success pull-right" @click="publish">Publish</button>
+      <button class="btn btn-lg btn-success pull-right" @click="publish">Publish all</button>
 
-      <h3>Copy changes from editor to public browser</h3>
+      <h3>Publish changes from editor to public dataset browser</h3>
       <messages/>
-      <p>Click publish to start the process of publishing the current editor datasets to the public browse site. </p>
+      <p>Click publish to start the process of publishing all datasets marked as <em>'to Publish'</em>.</p>
+      <p>This will publish all changes made to the data by any user.</p>
       <p>This process can take up to 10 minutes, please be patient. </p>
     </div>
   </main>
