@@ -110,11 +110,14 @@ Allow editing of all attributes
               <div class="form-group">
                 <label for="keyword">Keywords</label>
                 <div class="input-group">
-                  <tags-input
-                    :tags="dataset.keyword"
-                    @tags-change="handleTagsChange" class="form-control input-lg"></tags-input>
+                  <div class="form-control input-lg tags-input activities-input">
+                    <span class="tag" v-for="keyword in dataset.keyword">
+                      {{keyword.prefLabel}}
+                      <span class="hl-click" v-on:click="removeTag(keyword)"></span>
+                    </span>
+                  </div>
                   <div class="input-group-btn">
-                    <button type="button" class="btn btn-lg btn-default dropdown-toggle keywords-dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tags <span class="caret"></span></button>
+                    <button type="button" class="btn btn-lg btn-success dropdown-toggle keywords-dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right keywords-dropdown">
                       <li>
                         <div class="add-tag-form">
@@ -125,7 +128,7 @@ Allow editing of all attributes
                         </div>
                       </li>
                       <li role="separator" class="divider"></li>
-                      <li v-for="keyword in allowedKeywords"><a href="#" v-on:click.prevent="addTagObject(keyword)">{{keyword}}</a></li>
+                      <li v-for="keyword in allowedKeywords"><a href="#" v-on:click.prevent="addTagObject(keyword)">{{keyword.prefLabel}}</a></li>
                     </ul>
                   </div><!-- /btn-group -->
                 </div>
@@ -141,8 +144,8 @@ Allow editing of all attributes
                     </span>
                   </div>
                   <div class="input-group-btn">
-                    <button type="button" class="btn btn-lg btn-default dropdown-toggle keywords-dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Activities   <span class="caret"></span>
+                    <button type="button" class="btn btn-lg btn-success dropdown-toggle keywords-dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Add <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right keywords-dropdown">
                       <li v-for="activity in activities"><a href="#" v-on:click.prevent="addActivity(activity)">{{activity.niceName}}</a></li>
@@ -213,8 +216,7 @@ Allow editing of all attributes
 </template>
 
 <script>
-  import {getDataset, getDirectorates, getLicences, getActivities, getElements, saveDataset, removeDataset, getKeywordsText, saveKeyword} from './Api'
-  import tagsinput from 'vue-tagsinput'
+  import {getDataset, getDirectorates, getLicences, getActivities, getElements, saveDataset, removeDataset, getKeywordsObjects, saveKeyword} from './Api'
   import blankDataset from './blank-dataset'
   import blankKeyword from './blank-keyword'
   import iso8601 from './filters/Iso8601'
@@ -223,6 +225,7 @@ Allow editing of all attributes
   import log from './log'
   import parseHeader from './parseHeader'
   import bus from './components/Bus'
+  import statics from './statics'
 
   export default {
     created () {
@@ -294,47 +297,56 @@ Allow editing of all attributes
       handleAddTag () {
         let tag = this.newTagInput
         this.newTagInput = '' // Clear input
-        this.handleTagsChange(this.dataset.keyword.length, tag)
+        this.createTagObject(tag)
+      },
+      removeTag (activ) {
+        this.dataset.keyword.splice(this.dataset.keyword.indexOf(activ), 1)
       },
       addTagObject (tag) {
-        if (this.dataset.keyword.indexOf(tag) !== -1) {
-          return // Already exists in tags
+        if (this.dataset.keyword.some((keyword) => {
+          return keyword['@id'] === tag['@id']
+        })) {
+          return
         }
         this.dataset.keyword.push(tag)
       },
-      handleTagsChange (index, text) {
+      createTagObject (text) {
         if (text) {
           text = text.toLowerCase()
-          if (this.dataset.keyword.indexOf(text) !== -1) {
-            return // Already exists in tags
-          }
+          let keyWordId = statics.keywordUri + text.replace(/[/!£^&*()@#?$%\s]/g, '-')
           // Check that the keyword is one of the allowed keywords
           // Prompt before adding text
-          if (this.allowedKeywords.indexOf(text) === -1) {
-            let that = this
-            bootbox.confirm('Are you sure you want to add a new global tag?', function (userResult) {
-              if (userResult) {
-                // Add tag to globally allowed tags
-                let keywordTemplate = JSON.parse(JSON.stringify(blankKeyword))
 
-                keywordTemplate['@id'] = text
-                keywordTemplate['prefLabel'] = text // [0].toUpperCase() + text.substring(1) // Init caps
-
-                saveKeyword({}, keywordTemplate).then((resp) => {
-                  that.getKeywords() // Update locally stored keywords object
-                  that.dataset.keyword.splice(index, 0, text)
-                }, (e) => {
-                  log(e)
-                })
-              } else {
-                that.dataset.keyword.splice(index, 1)
-              }
-            })
-          } else {
-            this.dataset.keyword.splice(index, 0, text)
+          if (this.allowedKeywords.some((keyword) => {
+            if (keyword['@id'] === keyWordId) {
+              this.addTagObject(keyword)
+              return true
+            }
+            return false
+          })) {
+            return
           }
-        } else { // Delete tag
-          this.dataset.keyword.splice(index, 1)
+
+          let that = this
+          bootbox.confirm('Are you sure you want to add a new global tag?', function (userResult) {
+            if (userResult) {
+              // Add tag to globally allowed tags
+              let newKeyword = JSON.parse(JSON.stringify(blankKeyword))
+
+              newKeyword['prefLabel'] = text
+
+              // Populate the keywords property from the keyword field
+
+              newKeyword['@id'] = keyWordId
+
+              saveKeyword({}, newKeyword).then((resp) => {
+                that.getKeywords() // Update locally stored keywords object
+                that.dataset.keyword.push(newKeyword)
+              }, (e) => {
+                log(e)
+              })
+            }
+          })
         }
       },
       removeActivity (activ) {
@@ -385,7 +397,7 @@ Allow editing of all attributes
         })
       },
       getKeywords () {
-        return getKeywordsText().then((keywords) => {
+        return getKeywordsObjects().then((keywords) => {
           this.allowedKeywords = keywords
         }, (e) => {
           log(e)
@@ -428,6 +440,14 @@ Allow editing of all attributes
           .then(() => {
             if (this.$route.params.id !== 'new') {
               getDataset({id: this.$route.params.id}).then((dataset) => {
+                let joinedKeywords = []
+                dataset.keywords.map((keyword, index) => {
+                  let keywordObj = this.allowedKeywords.find(function (el) {
+                    return el['@id'] === keyword ? el : false
+                  })
+                  joinedKeywords.push(keywordObj)
+                })
+                dataset.keyword = joinedKeywords
                 delete dataset.keywords
                 this.dataset = dataset
               }, (e) => {
