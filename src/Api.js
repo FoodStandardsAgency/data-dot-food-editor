@@ -27,6 +27,8 @@ export function getDataset (query) {
     .then(itemItems) // Remove item or items JSON response ambiguity
     .then(arrSingletoObj) // If a single object in array remove array
     .then(forceArrPropKeyword) // Ensure attribute is always array
+    .then(forceArrPropKeywords) // Ensure attribute is always array
+    // .then(sortKeyword) // Sort keywords by prefLabel
     .then((jsn) => {
       return mergeProto(jsn, blankDataset) // Ensure has all objects keys defined
     })
@@ -42,12 +44,17 @@ export function getDatasets (query) {
 }
 
 export function saveDataset (query, pObj) {
-  // Populate the keywords property from the keyword field
-  pObj.keywords = pObj.keyword.map(function (word) {
-    return 'http://data.food.gov.uk/catalog/keyword/' + word
+  pObj = removeEmptyStrings(pObj)
+
+  // Separate keyword tags from ids
+  pObj.keywords = pObj.keyword.map((kword) => {
+    return kword['@id']
   })
 
-  pObj = removeEmptyStrings(pObj)
+  // Separate keyword tags from ids
+  pObj.keyword = pObj.keyword.map((kword) => {
+    return kword['prefLabel']
+  })
 
   if (query.id === 'new') {
     return dataset.save({}, pObj)
@@ -107,13 +114,9 @@ export function getKeywordsObjects (query) {
   return keyword.get(query)
     .then(parse)
     .then(itemItems)
-}
-
-export function getKeywordsText (query) {
-  return keyword.get(query)
-    .then(parse)
-    .then(itemItems)
-    .then(extractPrefLabel)
+    .then((d) => {
+      return d.sort(dynamicSort('prefLabel'))
+    })
 }
 
 export function saveKeyword (query, pObj) {
@@ -244,20 +247,33 @@ let parse = (d) => {
   return d.json()
 }
 
-// Transform object to single attribute
-let extractAttr = (d, attrName) => {
-  return d.map((el) => {
-    return el[attrName]
-  })
+// Sort function taken from http://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value-in-javascript
+function dynamicSort (property) {
+  var sortOrder = 1
+  if (property[0] === '-') {
+    sortOrder = -1
+    property = property.substr(1)
+  }
+  return function (a, b) {
+    var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0
+    return result * sortOrder
+  }
 }
 
-let extractPrefLabel = (d) => {
-  return extractAttr(d, 'prefLabel')
+let forceArrPropKeywords = (jsn) => {
+  return forceArrProp(jsn, 'keywords')
 }
 
 let forceArrPropKeyword = (jsn) => {
   return forceArrProp(jsn, 'keyword')
 }
+//
+// let sortKeyword = (jsn) => {
+//   if (jsn.keyword) {
+//     jsn.keyword = jsn.keyword.sort(dynamicSort('prefLabel'))
+//   }
+//   return jsn
+// }
 
 let forceArrPropDistribution = (jsn) => {
   return forceArrProp(jsn, 'distribution')

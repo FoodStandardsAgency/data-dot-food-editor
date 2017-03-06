@@ -49,10 +49,6 @@ export function getKeywordsObjects (query) {
   return exampleKeywords
 }
 
-export function getKeywordsText (query) {
-  return {}
-}
-
 export function saveKeyword (query, pObj) {
   return {}
 }
