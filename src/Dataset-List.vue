@@ -54,13 +54,6 @@ Add new dataset
       return {
         headers: [
           {
-            title: 'notation',
-            path: '@id',
-            addClass: 'hidden-xs',
-            render: function (val) {
-              return val.split('/').pop()
-            }
-          }, {
             title: 'title',
             path: 'title'
           }, {
