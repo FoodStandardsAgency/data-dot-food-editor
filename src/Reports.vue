@@ -12,7 +12,9 @@ Add new dataset
       </div>
       <h1>Reports</h1>
       <h3>Published datasets</h3>
-
+      <div class="alert alert-warning text-center">
+        <p>This is an idea of what could be shown on the reports page. Please <a href="mailto:fsa-support@epimorphics.com">send feedback</a> with ideas of what you'd like to see here.</p>
+      </div>
       <chart :options="pubGraph" ref="pie"></chart>
 
       <div class="row">
