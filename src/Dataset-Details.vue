@@ -441,12 +441,16 @@ Allow editing of all attributes
             if (this.$route.params.id !== 'new') {
               getDataset({id: this.$route.params.id}).then((dataset) => {
                 let joinedKeywords = []
-                dataset.keywords.map((keyword, index) => {
-                  let keywordObj = this.allowedKeywords.find(function (el) {
-                    return el['@id'] === keyword ? el : false
+                if (dataset.keywords) {
+                  dataset.keywords.map((keyword, index) => {
+                    let keywordObj = this.allowedKeywords.find(function (el) {
+                      return el['@id'] === keyword ? el : false
+                    })
+                    if (keywordObj) {
+                      joinedKeywords.push(keywordObj)
+                    }
                   })
-                  joinedKeywords.push(keywordObj)
-                })
+                }
                 dataset.keyword = joinedKeywords
                 delete dataset.keywords
                 this.dataset = dataset
