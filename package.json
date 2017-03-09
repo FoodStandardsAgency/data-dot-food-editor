@@ -1,6 +1,6 @@
 {
   "name": "dataset-browse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dataset browser front-end",
   "author": "Michael Waterworth <mike@3equals.co.uk>",
   "private": true,
