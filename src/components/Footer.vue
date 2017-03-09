@@ -9,12 +9,22 @@ Template footer
         Data catalog editor by Epimorphics Ltd, linked-data technology <br/>
         For help and support, please contact <a href="mailto:support@epimorphics.com">Support</a> <br/>
         &copy; {{ new Date().getFullYear() }}
+        <div class="version">{{version}}</div>
       </div>
     </div>
   </footer>
 </template>
 
-<script></script>
+<script>
+  /* global __VERSION__ */
+  export default {
+    data: function () {
+      return {
+        version: '' + __VERSION__
+      }
+    }
+  }
+</script>
 
 <style scoped>
   footer {
