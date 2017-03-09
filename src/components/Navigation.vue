@@ -27,7 +27,7 @@ Replace with any site-specific navigation elements and styling
             <li><router-link to="/reports">Reports</router-link></li>
             <li><router-link to="/publish">Publication</router-link></li>
           </ul>
-          <navigationUser></navigationUser>
+          <navigationUser v-if="env === 'production'"></navigationUser>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -35,8 +35,14 @@ Replace with any site-specific navigation elements and styling
 </template>
 
 <script>
+  /* global __NODE_ENV__ */
   import navigationUser from './Navigation-User'
   export default {
+    data: function () {
+      return {
+        env: __NODE_ENV__
+      }
+    },
     components: {
       navigationUser
     }
