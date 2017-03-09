@@ -3,8 +3,10 @@ var config = require('../config')
 var utils = require('./utils')
 var webpack = require('webpack')
 var projectRoot = path.resolve(__dirname, '../')
+var versionString = 'v' + require('../package.json').version.toString()
 
 var env = process.env.NODE_ENV
+var env2 = JSON.stringify(env)
 // check env & config/index.js to decide weither to enable CSS Sourcemaps for the
 // various preprocessor loaders added to vue-loader at the end of this file
 var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
@@ -41,6 +43,10 @@ module.exports = {
         $: "jquery",
         'window.jQuery': "jquery",
         jQuery: "jquery"
+    }),
+    new webpack.DefinePlugin({
+      __VERSION__: JSON.stringify(versionString),
+      __NODE_ENV__: env2
     })
   ],
   module: {
