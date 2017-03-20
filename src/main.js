@@ -12,6 +12,13 @@ import VueRouter from 'vue-router' // Router
 import VeeValidate, { Validator } from 'vee-validate'
 import App from './App' // Compositor
 
+import Raven from 'raven-js'
+import RavenVue from 'raven-js/plugins/vue'
+
+Raven.config('https://f8c1bdf4d6224952b07d9ff4300424bc@sentry.io/149867')
+    .addPlugin(RavenVue, Vue)
+    .install()
+
 import Login from './Login'
 import DatasetDetails from './Dataset-Details'
 import DatasetList from './Dataset-List'

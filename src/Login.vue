@@ -30,6 +30,7 @@ Allow editing of all attributes
 <script>
   import {getLoggedInUser, login as ApiLogin} from './Api'
   import bus from './components/Bus'
+  import Raven from 'raven-js'
 
   export default {
     created () {
@@ -54,6 +55,9 @@ Allow editing of all attributes
     methods: {
       login () {
         ApiLogin({userid: this.username, password: this.password}).then(() => {
+          Raven.setUserContext({
+            email: this.username
+          })
           bus.$emit('message', {
             str: 'Logged in Successfully',
             success: true
