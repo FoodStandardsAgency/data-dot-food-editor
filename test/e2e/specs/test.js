@@ -13,10 +13,10 @@ module.exports = {
       .waitForElementVisible('#app', 5000)
       .pause(2000)
       .assert.elementPresent('.navbar')
-      .verify.containsText('h2', 'Dataset catalogue')
+      .verify.containsText('h2', 'Dataset catalog')
 
       // FSA branding header
-      .verify.containsText('h1', 'FSA open data catalogue')
+      .verify.containsText('h1', 'FSA open data catalog')
       .expect.element('.view').to.be.present
 
     browser

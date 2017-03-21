@@ -13,7 +13,7 @@ Add new dataset
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </router-link>
       </div>
-      <h1>FSA open data catalogue</h1>
+      <h1>FSA open data catalog</h1>
       <p class="text-muted">View and update Food Standards Agency open datasets and related assets.</p>
       <search :placeholder="'search datasets'" :searchEvent="searchListener"></search>
 
