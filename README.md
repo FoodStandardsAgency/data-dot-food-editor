@@ -15,6 +15,14 @@ The app relies on having a back-end Cairn server running to deal with API calls.
 
 If the SPA needs to be run on an alternative port use `PORT=8081 npm run dev`
 
+### Fuseki server cheatsheet
+
+`export PATH=$PATH:~/Documents/Epimorphics/apache-jena-fuseki-2.4.0/`
+
+`export FUSEKI_HOME=~/Documents/Epimorphics/apache-jena-fuseki-2.4.0/`
+
+`fuseki-server --config=asm.ttl`
+
 ## Build Setup
 
 ``` bash
