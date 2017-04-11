@@ -18041,8 +18041,8 @@ export default [
     "@id": "http://data.food.gov.uk/catalog/data/dataset/fsa-12-01k/element/76a35ce2677e9c1ba6f7086a67d3fa82",
     "dataset": {
       "@id": "http://data.food.gov.uk/catalog/data/dataset/fsa-12-01k",
-      "description": "The data catalogue is more detailed and against each asset title are listed the datasets, which form part of the overall collection of information that makes up the asset. A dataset can take many forms (tables, spreadsheets, database reports) but is essentially a structured set of data.",
-      "title": "Data Catalogue"
+      "description": "The data catalog is more detailed and against each asset title are listed the datasets, which form part of the overall collection of information that makes up the asset. A dataset can take many forms (tables, spreadsheets, database reports) but is essentially a structured set of data.",
+      "title": "Data Catalog"
     },
     "description": "The dataset list is more detailed and against each asset title are listed the datasets, which form part of the overall collection of information that makes up the asset. A dataset can take many forms (tables, spreadsheets, database reports) but is essentially a structured set of data.",
     "distribution": {

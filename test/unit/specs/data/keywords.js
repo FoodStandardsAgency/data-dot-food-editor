@@ -18,7 +18,7 @@ export default [
   "communications",
   "compliant",
   "contamination",
-  "data catalogue",
+  "data catalog",
   "data",
   "data list",
   "data protection",

@@ -22,7 +22,7 @@ Replace with any site-specific navigation elements and styling
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><h2>Dataset catalogue</h2></li>
+            <li><h2>Dataset catalog</h2></li>
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/reports">Reports</router-link></li>
             <li><router-link to="/publish">Publication</router-link></li>

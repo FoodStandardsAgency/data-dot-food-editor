@@ -8,6 +8,6 @@ describe('Navigation.vue', () => {
       render: (h) => h(Navigation)
     })
     expect(vm.$el.querySelector('.nav h2').textContent)
-      .to.contain('Dataset catalogue')
+      .to.contain('Dataset catalog')
   })
 })
