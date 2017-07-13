@@ -1,8 +1,8 @@
 {
   "name": "dataset-browse",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dataset browser front-end",
-  "author": "Michael Waterworth <mike@3equals.co.uk>",
+  "author": "Michael Waterworth <mike.waterworth@epimorphics.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
