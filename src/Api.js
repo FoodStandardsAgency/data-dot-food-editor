@@ -4,9 +4,9 @@
 
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import blankDataset from './blank-dataset'
-import blankElement from './blank-element'
-import blankDistribution from './blank-distribution'
+import blankDataset from './proto/blank-dataset'
+import blankElement from './proto/blank-element'
+import blankDistribution from './proto/blank-distribution'
 Vue.use(VueResource)
 
 let baseEndpoint = '/catalog/editor/'

@@ -69,8 +69,8 @@ Displayed as a modal
   </div>
 </template>
 <script>
-  import blankElement from './blank-element'
-  import blankDistribution from './blank-distribution'
+  import blankElement from './proto/blank-element'
+  import blankDistribution from './proto/blank-distribution'
   import DistributionDetails from './Distribution-Details'
   import uuid from 'uuid'
   import statics from './statics'

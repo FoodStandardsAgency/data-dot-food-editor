@@ -217,8 +217,8 @@ Allow editing of all attributes
 
 <script>
   import {getDataset, getDirectorates, getLicences, getActivities, getElements, saveDataset, removeDataset, getKeywordsObjects, saveKeyword} from './Api'
-  import blankDataset from './blank-dataset'
-  import blankKeyword from './blank-keyword'
+  import blankDataset from './proto/blank-dataset'
+  import blankKeyword from './proto/blank-keyword'
   import iso8601 from './filters/Iso8601'
   import bootbox from 'bootbox'
   import cancelConfirm from './cancelConfirm'
