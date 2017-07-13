@@ -10,7 +10,7 @@ export default {
   accrualPeriodicity: '',
   landingPage: '',
   directorate: '',
-  published: '',
+  published: false,
   keyword: [],
   activity: [],
   keywords: [],
