@@ -7,7 +7,7 @@ Template footer
       <img src="../assets/epimorphics.png" class="epimorphics-logo" alt="Epimorphics">
       <div>
         Data catalog editor by Epimorphics Ltd, linked-data technology <br/>
-        For help and support, please contact <a href="mailto:support@epimorphics.com">Support</a> <br/>
+        For help and support, please contact <a href="mailto:fsa-support@epimorphics.com">Support</a> <br/>
         &copy; {{ new Date().getFullYear() }}
         <div class="version">{{version}}</div>
       </div>
