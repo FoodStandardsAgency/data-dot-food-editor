@@ -1,6 +1,6 @@
 {
   "name": "dataset-browse",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Dataset browser front-end",
   "author": "Michael Waterworth <mike.waterworth@epimorphics.com>",
   "private": true,
