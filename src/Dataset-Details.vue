@@ -339,6 +339,7 @@ Allow editing of all attributes
 
               newKeyword['@id'] = keyWordId
 
+              // eslint-disable-next-line no-unused-vars
               saveKeyword({}, newKeyword).then((resp) => {
                 that.getKeywords() // Update locally stored keywords object
                 that.dataset.keyword.push(newKeyword)
@@ -388,6 +389,7 @@ Allow editing of all attributes
         bootbox.confirm('Are you sure you want to delete this Dataset?', function (userResult) {
           if (!userResult) return
 
+          // eslint-disable-next-line no-unused-vars
           removeDataset({id: that.$route.params.id}).then((resp) => {
             that.unsavedChanges = false
             that.$router.push({name: 'datasets', query: {deleted: true}})
@@ -442,6 +444,7 @@ Allow editing of all attributes
               getDataset({id: this.$route.params.id}).then((dataset) => {
                 let joinedKeywords = []
                 if (dataset.keywords) {
+                  // eslint-disable-next-line no-unused-vars
                   dataset.keywords.map((keyword, index) => {
                     let keywordObj = this.allowedKeywords.find(function (el) {
                       return el['@id'] === keyword ? el : false
