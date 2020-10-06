@@ -6,7 +6,13 @@ module.exports = {
       }
     }
   },
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      title: 'Dataset Editor'
+    }
+  },
   configureWebpack: {
-    
+    // All webpack related configs go here
   }
 }
