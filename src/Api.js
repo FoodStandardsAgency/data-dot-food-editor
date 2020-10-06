@@ -57,9 +57,9 @@ export function saveDataset (query, pObj) {
   })
 
   if (query.id === 'new') {
-    return dataset.save({}, pObj)
+    return dataset.save({}, JSON.stringify(pObj))
   } else {
-    return dataset.update(query, pObj)
+    return dataset.update(query, JSON.stringify(pObj))
   }
 }
 
