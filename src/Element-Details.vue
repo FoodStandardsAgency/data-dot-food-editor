@@ -67,6 +67,7 @@ Displayed as a modal
     </div>
 
   </div>
+  </main>
 </template>
 <script>
   import blankElement from './proto/blank-element'
