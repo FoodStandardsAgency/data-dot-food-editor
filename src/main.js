@@ -29,7 +29,7 @@ import Search from './components/Search.vue'
 import DateRange from './components/Date-Range'
 import ArrLength from './components/Arr-Length'
 import Moment from 'vue-moment'
-import VMoment from 'moment'
+import moment from 'moment'
 import Messages from './components/Messages'
 import Reports from './Reports'
 import Publish from './Publish'
@@ -38,7 +38,7 @@ import vee8601 from './vee-iso8601'
 
 Validator.extend('iso8601', vee8601)
 
-Validator.installDateTimeValidators(VMoment)
+window.moment = moment;
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
