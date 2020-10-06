@@ -18,7 +18,6 @@ Template footer
 <script>
 import { version } from '../../package.json'
 
-  /* global __VERSION__ */
   export default {
     data: function () {
       return {
