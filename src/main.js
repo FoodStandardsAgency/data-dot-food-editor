@@ -68,14 +68,7 @@ const router = new VueRouter({
   ]
 })
 
-/* eslint-disable no-new */
 new Vue({
   router,
-  el: '#app',
-  template: `
-    <div id="app">
-      <app></app>
-    </div>
-    `,
-  components: {App}
-})
+  render: h => h(App),
+}).$mount('#app')
