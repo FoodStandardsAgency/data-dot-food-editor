@@ -287,7 +287,8 @@ Allow editing of all attributes
         activities: [],
         element: [],
         allowedKeywords: [],
-        newTagInput: ''
+        newTagInput: '',
+        licences: []
       }
     },
     filters: {
