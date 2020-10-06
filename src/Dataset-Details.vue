@@ -220,8 +220,6 @@ Allow editing of all attributes
   import blankDataset from './proto/blank-dataset'
   import blankKeyword from './proto/blank-keyword'
   import iso8601 from './filters/Iso8601'
-  import bootbox from 'bootbox'
-  import cancelConfirm from './cancelConfirm'
   import log from './log'
   import parseHeader from './parseHeader'
   import bus from './components/Bus'
@@ -254,7 +252,7 @@ Allow editing of all attributes
     },
     beforeRouteLeave (to, from, next) {
       if (this.unsavedChanges) {
-        cancelConfirm(next)
+        // cancelConfirm(next)
       } else {
         next()
       }
@@ -329,8 +327,10 @@ Allow editing of all attributes
           }
 
           let that = this
-          bootbox.confirm('Are you sure you want to add a new global tag?', function (userResult) {
-            if (userResult) {
+          this.$dialog
+            .confirm('Are you sure you want to add a new global tag?')
+            // eslint-disable-next-line no-unused-vars
+            .then(function(dialog) { // confirmed
               // Add tag to globally allowed tags
               let newKeyword = JSON.parse(JSON.stringify(blankKeyword))
 
@@ -347,8 +347,9 @@ Allow editing of all attributes
               }, (e) => {
                 log(e)
               })
-            }
-          })
+            })
+            .catch(function() { // canceled
+            });
         }
       },
       removeActivity (activ) {
@@ -387,17 +388,20 @@ Allow editing of all attributes
       },
       remove () {
         let that = this
-        bootbox.confirm('Are you sure you want to delete this Dataset?', function (userResult) {
-          if (!userResult) return
-
+        this.$dialog
+          .confirm('Are you sure you want to delete this Dataset?')
           // eslint-disable-next-line no-unused-vars
-          removeDataset({id: that.$route.params.id}).then((resp) => {
-            that.unsavedChanges = false
-            that.$router.push({name: 'datasets', query: {deleted: true}})
-          }, (e) => {
-            log(e)
+          .then(function(dialog) { // confirmed
+            // eslint-disable-next-line no-unused-vars
+            removeDataset({id: that.$route.params.id}).then((resp) => {
+              that.unsavedChanges = false
+              that.$router.push({name: 'datasets', query: {deleted: true}})
+            }, (e) => {
+              log(e)
+            })
           })
-        })
+          .catch(function() { // canceled
+          });
       },
       getKeywords () {
         return getKeywordsObjects().then((keywords) => {

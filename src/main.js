@@ -35,6 +35,11 @@ import Reports from './Reports'
 import Publish from './Publish'
 import Chart from 'vue-echarts'
 import vee8601 from './vee-iso8601'
+import VuejsDialog from 'vuejs-dialog';
+// import VuejsDialogMixin from 'vuejs-dialog/dist/vuejs-dialog-mixin.min.js'; // only needed in custom components
+ 
+// include the default style
+import 'vuejs-dialog/dist/vuejs-dialog.min.css';
 
 Validator.extend('iso8601', vee8601)
 
@@ -44,6 +49,7 @@ Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(Moment)
 Vue.use(VeeValidate)
+Vue.use(VuejsDialog);
 
 // Register custom components as globally available
 Vue.component('grid', Grid)

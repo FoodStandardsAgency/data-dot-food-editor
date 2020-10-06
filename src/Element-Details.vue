@@ -75,8 +75,6 @@ Displayed as a modal
   import DistributionDetails from './Distribution-Details'
   import uuid from 'uuid'
   import statics from './statics'
-  import bootbox from 'bootbox'
-  import cancelConfirm from './cancelConfirm'
   import log from './log'
   import parseHeader from './parseHeader'
   import bus from './components/Bus'
@@ -105,7 +103,7 @@ Displayed as a modal
     },
     beforeRouteLeave (to, from, next) {
       if (this.unsavedChanges) {
-        cancelConfirm(next)
+        // cancelConfirm(next)
       } else {
         next()
       }
@@ -165,19 +163,23 @@ Displayed as a modal
       },
       remove () {
         let that = this
-        bootbox.confirm('Are you sure you want to delete this element?', function (userResult) {
-          if (!userResult) return
-
-          removeElement({
-            id: that.$route.params.id,
-            eid: that.$route.params.eid
-          }).then((resp) => {
-            that.unsavedChanges = false
-            that.$router.push({name: 'elements', params: {id: that.$route.params.id}, query: {deleted: true}})
-          }, (e) => {
-            log(e)
+        this.$dialog
+          .confirm('Are you sure you want to delete this element?')
+          // eslint-disable-next-line no-unused-vars
+          .then(function(dialog) { // confirmed
+            removeElement({
+              id: that.$route.params.id,
+              eid: that.$route.params.eid
+            // eslint-disable-next-line no-unused-vars
+            }).then((resp) => {
+              that.unsavedChanges = false
+              that.$router.push({name: 'elements', params: {id: that.$route.params.id}, query: {deleted: true}})
+            }, (e) => {
+              log(e)
+            })
           })
-        })
+          .catch(function() { // canceled
+          });
       },
       newDistribution () {
         // Add a new distribution to distributions
