@@ -42,6 +42,7 @@
   </ul>
 </template>
 <script>
+  import 'bootstrap'
   import {getLoggedInUser, logout as apiLogout} from '../Api'
 
   export default {
