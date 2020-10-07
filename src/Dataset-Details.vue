@@ -50,7 +50,7 @@ Allow editing of all attributes
                   <div class="form-group">
                     <label for="licence">Licence</label>
                     <select class="form-control input-lg" id="license" name="license" v-model="dataset.license">
-                      <option v-for="licenceItem in licences" v-bind:key="licenceItem['@id']">
+                      <option v-for="licenceItem in licences" v-bind:value="licenceItem" v-bind:key="licenceItem['@id']">
                         {{licenceItem.label}}
                       </option>
                     </select>
@@ -61,7 +61,7 @@ Allow editing of all attributes
                   <div class="form-group">
                     <label for="directorate">Directorate</label>
                     <select class="form-control input-lg" id="directorate" name="directorate" v-model="dataset.directorate">
-                      <option v-for="directorateItem in directorates" v-bind:key="directorateItem['@id']">
+                      <option v-for="directorateItem in directorates" v-bind:value="directorateItem['@id']" v-bind:key="directorateItem['@id']">
                         {{directorateItem.prefLabel}}
                       </option>
                     </select>
