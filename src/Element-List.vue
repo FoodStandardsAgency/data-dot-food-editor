@@ -124,7 +124,6 @@ Allow editing of all attributes
       },
       fetchData () {
         if (this.$route.query.deleted) {
-          console.log('Query deleted')
           bus.$emit('message', {
             str: 'Deleted Successfully',
             success: true
