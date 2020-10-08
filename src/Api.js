@@ -99,9 +99,9 @@ export function saveElement (query, pObj) {
 
   if (query.eid === 'new') {
     delete query.eid
-    return element.save(query, pObj)
+    return element.save(query, JSON.stringify(pObj))
   } else {
-    return element.update(query, pObj)
+    return element.update(query, JSON.stringify(pObj))
   }
 }
 
