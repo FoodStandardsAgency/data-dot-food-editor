@@ -120,7 +120,7 @@ export function getKeywordsObjects (query) {
 }
 
 export function saveKeyword (query, pObj) {
-  return keyword.save({}, pObj)
+  return keyword.save({}, JSON.stringify(pObj))
 }
 
 /* - - - - - - - - User functions - - - - - - - - - - -  */
