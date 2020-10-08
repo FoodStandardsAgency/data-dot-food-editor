@@ -62,7 +62,7 @@ Displayed as a modal
       <p>Distributions are for different file format versions of an element</p>
 
       <template class="distributions row" v-for="(distribution, index) in element.distribution">
-        <distribution @remove="removeDistribution" :distribution="distribution" :index="index"></distribution>
+        <distribution @remove="removeDistribution" :distribution="distribution" :index="index" v-bind:key="index"></distribution>
       </template>
     </div>
 

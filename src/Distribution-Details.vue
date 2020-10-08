@@ -16,7 +16,7 @@ Displayed as a modal
     <div class="form-group">
       <label for="Elformat">Format</label>
       <select class="form-control" :id="'Elformat' + index" v-validate data-vv-rules="required" data-vv-as="format" :name="'Elformat' + index" v-model="distribution.mediaType">
-        <option v-for="datatype in datatypes" v-bind:value="datatype.code">
+        <option v-for="datatype in datatypes" v-bind:value="datatype.code" v-bind:key="datatype.code">
           {{datatype.name}}
         </option>
       </select>
