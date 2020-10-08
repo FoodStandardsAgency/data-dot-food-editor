@@ -94,7 +94,7 @@ Displayed as a modal
     watch: {
       // whenever question changes, this function will run
       isAccessURL: function () {
-        this.url = this.url
+        // this.url = this.url
       }
     }
   }

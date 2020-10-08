@@ -92,6 +92,7 @@ Displayed as a modal
       '$route': 'fetchData',
       'element': {
         deep: true,
+        // eslint-disable-next-line no-unused-vars
         handler: function (val, oldVal) {
           if (!this.beforeLoad) {
             // this.unsavedChanges = true

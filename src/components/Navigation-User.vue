@@ -68,11 +68,13 @@
           } else {
             this.redirectToLogin() // Redirect to login page
           }
+        // eslint-disable-next-line no-unused-vars
         }, (e) => {
           this.redirectToLogin()
         })
       },
       logout () {
+        // eslint-disable-next-line no-unused-vars
         apiLogout().then((user) => {
           this.redirectToLogin() // Redirect to login page
         })
