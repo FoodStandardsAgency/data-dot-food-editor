@@ -80,6 +80,7 @@ Allow editing of all attributes
           if (user) {
             this.redirect()
           }
+        // eslint-disable-next-line no-unused-vars
         }, (e) => {
           // Do nothing, we're in the right place
         })
