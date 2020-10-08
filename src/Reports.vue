@@ -143,7 +143,9 @@ Add new dataset
           })
         }
       },
+      // eslint-disable-next-line no-unused-vars
       updateKeywordData (asyncData, keywords) {
+        // eslint-disable-next-line no-unused-vars
         let k = _.map(asyncData, function (k, v, e) {
           return k
         })

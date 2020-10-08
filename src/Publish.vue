@@ -30,6 +30,7 @@ Call endpoint to start push to public servers
     created: function () {},
     methods: {
       publish () {
+        // eslint-disable-next-line no-unused-vars
         apiPublish().then(function (a) {
           bus.$emit('message', {
             str: 'Publish started',
