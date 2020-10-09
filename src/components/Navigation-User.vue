@@ -81,7 +81,12 @@
       },
       redirectToLogin () {
         this.user = null
-        this.$router.push({name: 'login', params: { loggedOut: true }}).catch(() => {})
+        this.$router.push({name: 'login', params: { loggedOut: true }}).catch((error) => {
+          if (error.name !== 'NavigationDuplicated' &&
+          error.message.includes('Avoided redundant navigation to current location')) {
+            console.log(error)
+          }
+        })
       }
     }
   }
