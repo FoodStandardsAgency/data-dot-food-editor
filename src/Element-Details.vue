@@ -48,25 +48,22 @@ Displayed as a modal
             </div>
           </div>
         </form>
-    </div>
-
-
-    <div class="container distributions">
-      <hr/>
-      <div class="pull-right">
-        <button class="btn btn-success add-distribution" @click="newDistribution" title="add distribution">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button>
       </div>
-      <h3>Distributions</h3>
-      <p>Distributions are for different file format versions of an element</p>
+      <div class="container distributions">
+        <hr/>
+        <div class="pull-right">
+          <button class="btn btn-success add-distribution" @click="newDistribution" title="add distribution">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+        </div>
+        <h3>Distributions</h3>
+        <p>Distributions are for different file format versions of an element</p>
 
-      <template class="distributions row" v-for="(distribution, index) in element.distribution">
-        <distribution @remove="removeDistribution" :distribution="distribution" :index="index" :key="index"></distribution>
-      </template>
+        <template class="distributions row" v-for="(distribution, index) in element.distribution">
+          <distribution @remove="removeDistribution" :distribution="distribution" :index="index" :key="index"></distribution>
+        </template>
+      </div>
     </div>
-
-  </div>
   </main>
 </template>
 <script>
@@ -92,8 +89,7 @@ Displayed as a modal
       '$route': 'fetchData',
       'element': {
         deep: true,
-        // eslint-disable-next-line no-unused-vars
-        handler: function (val, oldVal) {
+        handler: function () {
           if (!this.beforeLoad) {
             // this.unsavedChanges = true
           } else {
@@ -166,13 +162,11 @@ Displayed as a modal
         let that = this
         this.$dialog
           .confirm('Are you sure you want to delete this element?')
-          // eslint-disable-next-line no-unused-vars
-          .then(function(dialog) { // confirmed
+          .then(function() { // confirmed
             removeElement({
               id: that.$route.params.id,
               eid: that.$route.params.eid
-            // eslint-disable-next-line no-unused-vars
-            }).then((resp) => {
+            }).then(() => {
               that.unsavedChanges = false
               that.$router.push({name: 'elements', params: {id: that.$route.params.id}, query: {deleted: true}})
             }, (e) => {

@@ -128,7 +128,9 @@ Allow editing of all attributes
                         </div>
                       </li>
                       <li role="separator" class="divider"></li>
-                      <li v-for="keyword in allowedKeywords" :key="keyword['@id']"><a href="#" v-on:click.prevent="addTagObject(keyword)">{{keyword.prefLabel}}</a></li>
+                      <li v-for="keyword in allowedKeywords" :key="keyword['@id']">
+                        <a href="#" v-on:click.prevent="addTagObject(keyword)">{{keyword.prefLabel}}</a>
+                      </li>
                     </ul>
                   </div><!-- /btn-group -->
                 </div>
@@ -148,7 +150,9 @@ Allow editing of all attributes
                       Add <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right keywords-dropdown">
-                      <li v-for="activity in activities" :key="activity['@id']"><a href="#" v-on:click.prevent="addActivity(activity)">{{activity.niceName}}</a></li>
+                      <li v-for="activity in activities" :key="activity['@id']">
+                        <a href="#" v-on:click.prevent="addActivity(activity)">{{activity.niceName}}</a>
+                      </li>
                     </ul>
                   </div><!-- /btn-group -->
                 </div>
@@ -329,8 +333,7 @@ Allow editing of all attributes
           let that = this
           this.$dialog
             .confirm('Are you sure you want to add a new global tag?')
-            // eslint-disable-next-line no-unused-vars
-            .then(function(dialog) { // confirmed
+            .then(function() { // confirmed
               // Add tag to globally allowed tags
               let newKeyword = JSON.parse(JSON.stringify(blankKeyword))
 
@@ -340,8 +343,7 @@ Allow editing of all attributes
 
               newKeyword['@id'] = keyWordId
 
-              // eslint-disable-next-line no-unused-vars
-              saveKeyword({}, newKeyword).then((resp) => {
+              saveKeyword({}, newKeyword).then(() => {
                 that.getKeywords() // Update locally stored keywords object
                 that.dataset.keyword.push(newKeyword)
               }, (e) => {
@@ -390,10 +392,8 @@ Allow editing of all attributes
         let that = this
         this.$dialog
           .confirm('Are you sure you want to delete this Dataset?')
-          // eslint-disable-next-line no-unused-vars
-          .then(function(dialog) { // confirmed
-            // eslint-disable-next-line no-unused-vars
-            removeDataset({id: that.$route.params.id}).then((resp) => {
+          .then(function() { // confirmed
+            removeDataset({id: that.$route.params.id}).then(() => {
               that.unsavedChanges = false
               that.$router.push({name: 'datasets', query: {deleted: true}})
             }, (e) => {
@@ -449,8 +449,7 @@ Allow editing of all attributes
               getDataset({id: this.$route.params.id}).then((dataset) => {
                 let joinedKeywords = []
                 if (dataset.keywords) {
-                  // eslint-disable-next-line no-unused-vars
-                  dataset.keywords.map((keyword, index) => {
+                  dataset.keywords.map((keyword) => {
                     let keywordObj = this.allowedKeywords.find(function (el) {
                       return el['@id'] === keyword ? el : false
                     })
