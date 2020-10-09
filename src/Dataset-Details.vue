@@ -50,7 +50,7 @@ Allow editing of all attributes
                   <div class="form-group">
                     <label for="licence">Licence</label>
                     <select class="form-control input-lg" id="license" name="license" v-model="dataset.license">
-                      <option v-for="licenceItem in licences" v-bind:value="licenceItem" v-bind:key="licenceItem['@id']">
+                      <option v-for="licenceItem in licences" :value="licenceItem" :key="licenceItem['@id']">
                         {{licenceItem.label}}
                       </option>
                     </select>
@@ -61,7 +61,7 @@ Allow editing of all attributes
                   <div class="form-group">
                     <label for="directorate">Directorate</label>
                     <select class="form-control input-lg" id="directorate" name="directorate" v-model="dataset.directorate">
-                      <option v-for="directorateItem in directorates" v-bind:value="directorateItem['@id']" v-bind:key="directorateItem['@id']">
+                      <option v-for="directorateItem in directorates" :value="directorateItem['@id']" :key="directorateItem['@id']">
                         {{directorateItem.prefLabel}}
                       </option>
                     </select>
@@ -111,7 +111,7 @@ Allow editing of all attributes
                 <label for="keyword">Keywords</label>
                 <div class="input-group">
                   <div class="form-control input-lg tags-input activities-input">
-                    <span class="tag" v-for="keyword in dataset.keyword" v-bind:key="keyword['@id']">
+                    <span class="tag" v-for="keyword in dataset.keyword" :key="keyword['@id']">
                       {{keyword.prefLabel}}
                       <span class="hl-click" v-on:click="removeTag(keyword)"></span>
                     </span>
@@ -128,7 +128,7 @@ Allow editing of all attributes
                         </div>
                       </li>
                       <li role="separator" class="divider"></li>
-                      <li v-for="keyword in allowedKeywords" v-bind:key="keyword['@id']"><a href="#" v-on:click.prevent="addTagObject(keyword)">{{keyword.prefLabel}}</a></li>
+                      <li v-for="keyword in allowedKeywords" :key="keyword['@id']"><a href="#" v-on:click.prevent="addTagObject(keyword)">{{keyword.prefLabel}}</a></li>
                     </ul>
                   </div><!-- /btn-group -->
                 </div>
@@ -138,7 +138,7 @@ Allow editing of all attributes
                 <h4>Activities</h4>
                 <div class="input-group">
                   <div class="form-control input-lg tags-input activities-input">
-                    <span class="tag" v-for="activity in dataset.activity" v-bind:key="activity['@id']">
+                    <span class="tag" v-for="activity in dataset.activity" :key="activity['@id']">
                       {{getActivityName(activity)}}
                       <span class="hl-click" v-on:click="removeActivity(activity)"></span>
                     </span>
@@ -148,7 +148,7 @@ Allow editing of all attributes
                       Add <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right keywords-dropdown">
-                      <li v-for="activity in activities" v-bind:key="activity['@id']"><a href="#" v-on:click.prevent="addActivity(activity)">{{activity.niceName}}</a></li>
+                      <li v-for="activity in activities" :key="activity['@id']"><a href="#" v-on:click.prevent="addActivity(activity)">{{activity.niceName}}</a></li>
                     </ul>
                   </div><!-- /btn-group -->
                 </div>
@@ -180,13 +180,13 @@ Allow editing of all attributes
 
               <div class="radio">
                 <label>
-                  <input type="radio" name="published" id="publish" v-model="dataset.published" v-bind:value="true">
+                  <input type="radio" name="published" id="publish" v-model="dataset.published" :value="true">
                   Mark as "To Publish"
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="published" id="draft" v-model="dataset.published" v-bind:value="false">
+                  <input type="radio" name="published" id="draft" v-model="dataset.published" :value="false">
                   Mark as "Draft"
                 </label>
               </div>

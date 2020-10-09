@@ -40,10 +40,10 @@ Allow editing of all attributes
           <div class="rowsPerPage">
             Items per page:
             <select class="input input-md" v-model="rowsPerPage">
-              <option v-bind:value="10">10</option>
-              <option v-bind:value="25">25</option>
-              <option v-bind:value="100">100</option>
-              <option v-bind:value="100000">All</option>
+              <option :value="10">10</option>
+              <option :value="25">25</option>
+              <option :value="100">100</option>
+              <option :value="100000">All</option>
             </select>
           </div>
 
