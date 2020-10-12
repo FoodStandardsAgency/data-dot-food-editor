@@ -1,46 +1,35 @@
-# dataset-browse
+# data-dot-food-editor
 
-> Dataset Catalog editor front-end
-Based on Vue.js
+This project allows the users to add or edit datasets for the data catalogue on [data.food.gov.uk](https://data.food.gov.uk/catalog). Each dataset has one or more elements, which are subsets of the dataset by some theme (eg. data from a certain period of time). The app uses `Vue.js 2` as the main framework and was created via `Vue CLI`.
 
-This code can be genericised but is currently minimally using the FSA livery.
+If the app is running in production mode, it will need a local API with the following:
+- `/catalog/editor/` as a base endpoint for requests such as datasets, elements, keywords, directorates, activities, license, publish, etc.
+- `/catalog/system/security/` as a security endpoint for requests such as getLoggedInUser, login, logout, etc.
+- `/catalog-editor/static/api/Datatypes.json` as an endpoint for datatypes
 
-It's an SPA so runs inside the users browser. Minimal state is kept as a login cookie.
+If the app is running in development mode, all requests to the API will be proxied to `https://fsa-dev-catalog-editor.epimorphics.net`, which is the dev server.
 
-The code is laid out as a MVC app with little shared state.
+Currently, tests may or may not work. They need a complete rewrite, using updated dependencies.
 
-Testing in Vue has been problematic and so sadly aren't implemented.
-
-The app relies on having a back-end Cairn server running to deal with API calls. To do this it runs a forwarding proxy to `localhost:8080`. Run a CairnJ instance on this port.
-
-If the SPA needs to be run on an alternative port use `PORT=8081 npm run dev`
-
-### Fuseki server cheatsheet
-
-`export PATH=$PATH:~/Documents/Epimorphics/apache-jena-fuseki-2.4.0/`
-
-`export FUSEKI_HOME=~/Documents/Epimorphics/apache-jena-fuseki-2.4.0/`
-
-`fuseki-server --config=asm.ttl`
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+## Project setup
 ```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
