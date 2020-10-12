@@ -86,7 +86,9 @@ Add new dataset
               }
             }
           ]
-        }
+        },
+        searchQuery: undefined,
+        loading: undefined
       }
     },
     created: function () {
