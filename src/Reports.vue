@@ -37,6 +37,7 @@ Add new dataset
 <script>
   import { getDatasets } from './Api'
   import _ from 'lodash'
+  import 'echarts'
 
   export default {
     data () {
