@@ -38,7 +38,7 @@ Displayed as a modal
         Direct Download URL
       </label>
       <label>
-        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" :value="!!true">
+        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" :value="true">
         Access URL
       </label>
       <p class="help-block">
@@ -94,7 +94,7 @@ Displayed as a modal
     watch: {
       // whenever question changes, this function will run
       isAccessURL: function () {
-        // this.url = this.url
+        
       }
     }
   }
