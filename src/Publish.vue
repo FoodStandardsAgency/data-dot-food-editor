@@ -30,7 +30,7 @@ Call endpoint to start push to public servers
     created: function () {},
     methods: {
       publish () {
-        apiPublish().then(function (a) {
+        apiPublish().then(function () {
           bus.$emit('message', {
             str: 'Publish started',
             success: true

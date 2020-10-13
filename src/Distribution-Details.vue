@@ -16,7 +16,7 @@ Displayed as a modal
     <div class="form-group">
       <label for="Elformat">Format</label>
       <select class="form-control" :id="'Elformat' + index" v-validate data-vv-rules="required" data-vv-as="format" :name="'Elformat' + index" v-model="distribution.mediaType">
-        <option v-for="datatype in datatypes" v-bind:value="datatype.code">
+        <option v-for="datatype in datatypes" :value="datatype.code" :key="datatype.code">
           {{datatype.name}}
         </option>
       </select>
@@ -34,11 +34,11 @@ Displayed as a modal
         <label>URL Type</label>
       </div>
       <label class="radio-direct-download">
-        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!true">
+        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" :value="!true">
         Direct Download URL
       </label>
       <label>
-        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" v-bind:value="!!true">
+        <input type="radio" :name="'published' + index" :id="'publish' + index" v-model="isAccessURL" :value="true">
         Access URL
       </label>
       <p class="help-block">
@@ -94,7 +94,7 @@ Displayed as a modal
     watch: {
       // whenever question changes, this function will run
       isAccessURL: function () {
-        this.url = this.url
+        
       }
     }
   }

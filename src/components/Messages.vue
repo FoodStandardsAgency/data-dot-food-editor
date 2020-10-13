@@ -5,7 +5,7 @@ Show messages from the page in a standard format
 <template>
   <div class="messages">
     <transition name="fade">
-      <div class="message" v-bind:class="{successMsg: success, 'bg-success': success, 'warnMsg': !success, 'bg-danger': !success}" v-if="str">{{str}}</div>
+      <div class="message" :class="{successMsg: success, 'bg-success': success, 'warnMsg': !success, 'bg-danger': !success}" v-if="str">{{str}}</div>
     </transition>
   </div>
 </template>

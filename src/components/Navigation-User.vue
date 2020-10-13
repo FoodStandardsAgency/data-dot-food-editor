@@ -2,7 +2,7 @@
   <ul class="nav navbar-nav navbar-right" v-if="user">
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <span class="glyphicon glyphicon-user"></span> 
+        <span class="glyphicon glyphicon-user"></span>
         <strong>{{user.name}}</strong>
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
@@ -42,7 +42,9 @@
   </ul>
 </template>
 <script>
+  import 'bootstrap'
   import {getLoggedInUser, logout as apiLogout} from '../Api'
+  import log from '../log'
 
   export default {
     created () {
@@ -67,18 +69,23 @@
           } else {
             this.redirectToLogin() // Redirect to login page
           }
-        }, (e) => {
+        }, () => {
           this.redirectToLogin()
         })
       },
       logout () {
-        apiLogout().then((user) => {
+        apiLogout().then(() => {
           this.redirectToLogin() // Redirect to login page
         })
       },
       redirectToLogin () {
         this.user = null
-        this.$router.push({name: 'login', params: { loggedOut: true }})
+        this.$router.push({name: 'login', params: { loggedOut: true }}).catch((error) => {
+          if (error.name !== 'NavigationDuplicated' &&
+          error.message.includes('Avoided redundant navigation to current location')) {
+            log(error)
+          }
+        })
       }
     }
   }

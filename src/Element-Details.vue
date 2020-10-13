@@ -48,25 +48,23 @@ Displayed as a modal
             </div>
           </div>
         </form>
-    </div>
-
-
-    <div class="container distributions">
-      <hr/>
-      <div class="pull-right">
-        <button class="btn btn-success add-distribution" @click="newDistribution" title="add distribution">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button>
       </div>
-      <h3>Distributions</h3>
-      <p>Distributions are for different file format versions of an element</p>
+      <div class="container distributions">
+        <hr/>
+        <div class="pull-right">
+          <button class="btn btn-success add-distribution" @click="newDistribution" title="add distribution">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+        </div>
+        <h3>Distributions</h3>
+        <p>Distributions are for different file format versions of an element</p>
 
-      <template class="distributions row" v-for="(distribution, index) in element.distribution">
-        <distribution @remove="removeDistribution" :distribution="distribution" :index="index"></distribution>
-      </template>
+        <template class="distributions row" v-for="(distribution, index) in element.distribution">
+          <distribution @remove="removeDistribution" :distribution="distribution" :index="index" :key="index"></distribution>
+        </template>
+      </div>
     </div>
-
-  </div>
+  </main>
 </template>
 <script>
   import blankElement from './proto/blank-element'
@@ -74,8 +72,6 @@ Displayed as a modal
   import DistributionDetails from './Distribution-Details'
   import uuid from 'uuid'
   import statics from './statics'
-  import bootbox from 'bootbox'
-  import cancelConfirm from './cancelConfirm'
   import log from './log'
   import parseHeader from './parseHeader'
   import bus from './components/Bus'
@@ -93,7 +89,7 @@ Displayed as a modal
       '$route': 'fetchData',
       'element': {
         deep: true,
-        handler: function (val, oldVal) {
+        handler: function () {
           if (!this.beforeLoad) {
             // this.unsavedChanges = true
           } else {
@@ -104,7 +100,7 @@ Displayed as a modal
     },
     beforeRouteLeave (to, from, next) {
       if (this.unsavedChanges) {
-        cancelConfirm(next)
+        // cancelConfirm(next)
       } else {
         next()
       }
@@ -164,19 +160,21 @@ Displayed as a modal
       },
       remove () {
         let that = this
-        bootbox.confirm('Are you sure you want to delete this element?', function (userResult) {
-          if (!userResult) return
-
-          removeElement({
-            id: that.$route.params.id,
-            eid: that.$route.params.eid
-          }).then((resp) => {
-            that.unsavedChanges = false
-            that.$router.push({name: 'elements', params: {id: that.$route.params.id}, query: {deleted: true}})
-          }, (e) => {
-            log(e)
+        this.$dialog
+          .confirm('Are you sure you want to delete this element?')
+          .then(function() { // confirmed
+            removeElement({
+              id: that.$route.params.id,
+              eid: that.$route.params.eid
+            }).then(() => {
+              that.unsavedChanges = false
+              that.$router.push({name: 'elements', params: {id: that.$route.params.id}, query: {deleted: true}})
+            }, (e) => {
+              log(e)
+            })
           })
-        })
+          .catch(function() { // canceled
+          });
       },
       newDistribution () {
         // Add a new distribution to distributions

@@ -37,6 +37,7 @@ Add new dataset
 <script>
   import { getDatasets } from './Api'
   import _ from 'lodash'
+  import 'echarts'
 
   export default {
     data () {
@@ -86,7 +87,9 @@ Add new dataset
               }
             }
           ]
-        }
+        },
+        searchQuery: undefined,
+        loading: undefined
       }
     },
     created: function () {
@@ -143,11 +146,11 @@ Add new dataset
           })
         }
       },
-      updateKeywordData (asyncData, keywords) {
-        let k = _.map(asyncData, function (k, v, e) {
+      updateKeywordData (asyncData) {
+        let keywordData = _.map(asyncData, function (k) {
           return k
         })
-        this.keywordTableData = k
+        this.keywordTableData = keywordData
       }
     }
   }

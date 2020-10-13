@@ -29,21 +29,23 @@ import Search from './components/Search.vue'
 import DateRange from './components/Date-Range'
 import ArrLength from './components/Arr-Length'
 import Moment from 'vue-moment'
-import VMoment from 'moment'
 import Messages from './components/Messages'
 import Reports from './Reports'
 import Publish from './Publish'
 import Chart from 'vue-echarts'
 import vee8601 from './vee-iso8601'
+import VuejsDialog from 'vuejs-dialog';
+ 
+// include the default style
+import 'vuejs-dialog/dist/vuejs-dialog.min.css';
 
 Validator.extend('iso8601', vee8601)
-
-Validator.installDateTimeValidators(VMoment)
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(Moment)
 Vue.use(VeeValidate)
+Vue.use(VuejsDialog);
 
 // Register custom components as globally available
 Vue.component('grid', Grid)
@@ -68,14 +70,7 @@ const router = new VueRouter({
   ]
 })
 
-/* eslint-disable no-new */
 new Vue({
   router,
-  el: '#app',
-  template: `
-    <div id="app">
-      <app></app>
-    </div>
-    `,
-  components: {App}
-})
+  render: h => h(App),
+}).$mount('#app')

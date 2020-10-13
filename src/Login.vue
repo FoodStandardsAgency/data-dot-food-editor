@@ -80,7 +80,7 @@ Allow editing of all attributes
           if (user) {
             this.redirect()
           }
-        }, (e) => {
+        }, () => {
           // Do nothing, we're in the right place
         })
       }

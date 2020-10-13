@@ -16,11 +16,12 @@ Template footer
 </template>
 
 <script>
-  /* global __VERSION__ */
+import { version } from '../../package.json'
+
   export default {
     data: function () {
       return {
-        version: '' + __VERSION__
+        version: "v" + version
       }
     }
   }

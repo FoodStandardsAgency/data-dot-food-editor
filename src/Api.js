@@ -57,9 +57,9 @@ export function saveDataset (query, pObj) {
   })
 
   if (query.id === 'new') {
-    return dataset.save({}, pObj)
+    return dataset.save({}, JSON.stringify(pObj))
   } else {
-    return dataset.update(query, pObj)
+    return dataset.update(query, JSON.stringify(pObj))
   }
 }
 
@@ -99,9 +99,9 @@ export function saveElement (query, pObj) {
 
   if (query.eid === 'new') {
     delete query.eid
-    return element.save(query, pObj)
+    return element.save(query, JSON.stringify(pObj))
   } else {
-    return element.update(query, pObj)
+    return element.update(query, JSON.stringify(pObj))
   }
 }
 
@@ -120,7 +120,7 @@ export function getKeywordsObjects (query) {
 }
 
 export function saveKeyword (query, pObj) {
-  return keyword.save({}, pObj)
+  return keyword.save({}, JSON.stringify(pObj))
 }
 
 /* - - - - - - - - User functions - - - - - - - - - - -  */

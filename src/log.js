@@ -1,4 +1,4 @@
-/* global alert */
+// global alert
 import Raven from 'raven-js'
 export default function (...a) {
   if (console && console.log) {
