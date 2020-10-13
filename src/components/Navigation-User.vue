@@ -44,6 +44,7 @@
 <script>
   import 'bootstrap'
   import {getLoggedInUser, logout as apiLogout} from '../Api'
+  import log from '../log'
 
   export default {
     created () {
@@ -82,7 +83,7 @@
         this.$router.push({name: 'login', params: { loggedOut: true }}).catch((error) => {
           if (error.name !== 'NavigationDuplicated' &&
           error.message.includes('Avoided redundant navigation to current location')) {
-            console.log(error)
+            log(error)
           }
         })
       }
