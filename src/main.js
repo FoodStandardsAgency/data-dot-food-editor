@@ -15,7 +15,7 @@ import App from './App' // Compositor
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
 
-Raven.config('https://aaca4a3903f348ea974ed415f69018a6@sentry.io/160077')
+Raven.config(process.env.NODE_ENV == 'production' ? 'https://aaca4a3903f348ea974ed415f69018a6@sentry.io/160077' : false)
     .addPlugin(RavenVue, Vue)
     .install()
 

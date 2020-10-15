@@ -38,12 +38,12 @@ Displayed as a modal
           <div class="row">
             <div class="form-group col-md-6">
               <label for="Elstartdate">Start Date</label>
-              <input type="date" class="form-control" v-model="element.startDate" data-vv-as="start date" v-validate data-vv-rules="date_format:YYYY-MM-DD" id="Elstartdate" name="Elstartdate" placeholder="dd/mm/yyyy">
+              <input type="date" class="form-control" v-model="element.startDate" data-vv-as="start date" v-validate data-vv-rules="date_format:yyyy-MM-dd" id="Elstartdate" name="Elstartdate" placeholder="dd/mm/yyyy">
               <span class="validation-errors" v-show="errors.has('Elstartdate')">{{ errors.first('Elstartdate') }}</span>
             </div>
             <div class="form-group col-md-6">
               <label for="Elenddate">End Date</label>
-              <input type="date" class="form-control" v-model="element.endDate" data-vv-as="end date" v-validate data-vv-rules="date_format:YYYY-MM-DD" id="Elenddate" name="Elenddate" placeholder="dd/mm/yyyy">
+              <input type="date" class="form-control" v-model="element.endDate" data-vv-as="end date" v-validate data-vv-rules="date_format:yyyy-MM-dd" id="Elenddate" name="Elenddate" placeholder="dd/mm/yyyy">
               <span class="validation-errors" v-show="errors.has('Elenddate')">{{ errors.first('Elenddate') }}</span>
             </div>
           </div>
