@@ -26,6 +26,7 @@ Replace with any site-specific navigation elements and styling
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/reports">Reports</router-link></li>
             <li><router-link to="/publish">Publication</router-link></li>
+            <li><router-link to="/help">Help</router-link></li>
           </ul>
           <navigationUser></navigationUser>
         </div><!-- /.navbar-collapse -->
