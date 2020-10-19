@@ -19,6 +19,6 @@ export default {
 
 <style lang="scss" scoped>
 h2 {
-  font-size: 1.5em;;
+  font-size: 1.5em;
 }
 </style>
