@@ -1,5 +1,9 @@
 # data-dot-food-editor change history
 
+## 1.1.2 - 2020-10-21 (Bogdan)
+
+- Added validation of the login form inputs
+
 ## 1.0.6 - 2020-10-16 (Bogdan)
 
 - Replaced the FSA support email address with a more specific one
