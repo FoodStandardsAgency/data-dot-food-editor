@@ -17,6 +17,8 @@ Add new dataset
       </div>
       <chart :options="pubGraph" ref="pie"></chart>
 
+      <messages/>
+
       <div class="row">
 
         <h3>Keyword usage</h3>
@@ -38,6 +40,7 @@ Add new dataset
   import { getDatasets } from './Api'
   import _ from 'lodash'
   import 'echarts'
+  import bus from './components/Bus'
 
   export default {
     data () {
@@ -94,6 +97,14 @@ Add new dataset
     },
     created: function () {
       this.fetchData()
+    },
+    mounted () {
+      setTimeout(() => {
+        bus.$emit('message', {
+          str: 'Loading, please wait ...',
+          success: true
+        })
+      }, 1000)
     },
     methods: {
       fetchData () {
