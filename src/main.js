@@ -32,6 +32,7 @@ import Moment from 'vue-moment'
 import Messages from './components/Messages'
 import Reports from './Reports'
 import Publish from './Publish'
+import Help from './Help'
 import Chart from 'vue-echarts'
 import vee8601 from './vee-iso8601'
 import VuejsDialog from 'vuejs-dialog';
@@ -64,6 +65,7 @@ const router = new VueRouter({
     { path: '/login', component: Login, name: 'login' },
     { path: '/reports', component: Reports, name: 'reports' },
     { path: '/publish', component: Publish, name: 'publish' },
+    { path: '/help', component: Help, name: 'help' },
     { path: '/dataset/:id?', component: DatasetDetails, name: 'dataset' },
     { path: '/dataset/:id/elements', component: ElementList, name: 'elements' },
     { path: '/dataset/:id/elements/:eid', component: ElementDetails, name: 'element' }
