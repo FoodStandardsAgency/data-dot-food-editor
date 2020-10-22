@@ -1,5 +1,10 @@
 # data-dot-food-editor change history
 
+## 1.1.1 - 2020-10-20 (Bogdan)
+
+- Added a fix for keywords and activities dropdowns; the bug was caused by
+  updating the dependecies. It should now work as intended
+
 ## 1.1.0 - 2020-10-16 (Bogdan)
 
 - Added a help page and a link to it in the navigation bar. It's currently just
