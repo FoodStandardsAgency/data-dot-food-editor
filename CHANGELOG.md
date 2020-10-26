@@ -1,5 +1,10 @@
 # data-dot-food-editor change history
 
+## 1.1.4 - 2020-10-26 (Bogdan)
+
+- Removed old unit tests and configs. Added new unit tests based on the old ones
+  that use Jest as a framework and Vue Test Utils to run
+
 ## 1.1.1 - 2020-10-20 (Bogdan)
 
 - Added a fix for keywords and activities dropdowns; the bug was caused by
