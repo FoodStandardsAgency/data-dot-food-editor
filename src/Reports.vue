@@ -17,7 +17,11 @@ Add new dataset
       </div>
       <chart :options="pubGraph" ref="pie"></chart>
 
-      <messages/>
+      <div class="messages">
+        <transition name="fade">
+          <div class="message successMsg bg-success" v-if="message">{{message}}</div>
+        </transition>
+      </div>
 
       <div class="row">
 
@@ -40,11 +44,11 @@ Add new dataset
   import { getDatasets } from './Api'
   import _ from 'lodash'
   import 'echarts'
-  import bus from './components/Bus'
 
   export default {
     data () {
       return {
+        message: '',
         keywordTableData: [],
         headers: [
           {
@@ -96,15 +100,8 @@ Add new dataset
       }
     },
     created: function () {
+      this.message = 'Loading, please wait ...'
       this.fetchData()
-    },
-    mounted () {
-      setTimeout(() => {
-        bus.$emit('message', {
-          str: 'Loading, please wait ...',
-          success: true
-        })
-      }, 1000)
     },
     methods: {
       fetchData () {
@@ -113,6 +110,7 @@ Add new dataset
           // Process data first
           this.processPub(datasets)
           this.processkeywords(datasets)
+          this.message = ''
         }, (e) => {
           console.log('couldn\'t load datasets', e)
         })
