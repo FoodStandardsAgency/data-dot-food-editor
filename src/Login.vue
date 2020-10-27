@@ -10,12 +10,12 @@ Allow editing of all attributes
           <messages/>
           <form v-on:submit.prevent="">
             <div class="form-group">
-              <label for="username">Email</label>
+              <label class="form-label" for="username">Email</label>
               <input type="text" class="input" name="email" id="email" v-validate data-vv-rules="required" v-model="username"/>
               <span class="validation-errors" v-show="errors.has('email')">{{ errors.first('email') }}</span>
             </div>
             <div class="form-group">
-              <label for="username">Password</label>
+              <label class="form-label" for="username">Password</label>
               <input type="password" class="input" name="password" id="password" v-validate data-vv-rules="required" v-model="password" />
               <span class="validation-errors" v-show="errors.has('password')">{{ errors.first('password') }}</span>
             </div>
@@ -91,17 +91,17 @@ Allow editing of all attributes
   }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
   .loginForm {
     margin-top: 20px;
     text-align: center;
   }
 
-  span {
+  .validation-errors {
     display: block;
   }
 
-  label {
+  .form-label {
     padding-right: 1em;
   }
 </style>
