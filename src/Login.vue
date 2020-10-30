@@ -97,10 +97,6 @@ Allow editing of all attributes
     text-align: center;
   }
 
-  .validation-errors {
-    display: block;
-  }
-
   .form-label {
     padding-right: 1em;
   }
