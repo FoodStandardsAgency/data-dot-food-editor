@@ -117,21 +117,23 @@ Allow editing of all attributes
                     </span>
                   </div>
                   <div class="input-group-btn">
-                    <button type="button" class="btn btn-lg btn-success dropdown-toggle keywords-dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></button>
-                    <ul class="dropdown-menu dropdown-menu-right keywords-dropdown">
-                      <li>
-                        <div class="add-tag-form">
-                          <form v-on:submit.prevent="handleAddTag">
-                            <label>New tag</label>
-                            <input v-model="newTagInput" type="text"/>
-                          </form>
-                        </div>
-                      </li>
-                      <li role="separator" class="divider"></li>
-                      <li v-for="keyword in allowedKeywords" :key="keyword['@id']">
-                        <a href="#" v-on:click.prevent="addTagObject(keyword)">{{keyword.prefLabel}}</a>
-                      </li>
-                    </ul>
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-lg btn-success dropdown-toggle keywords-dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></button>
+                      <ul class="dropdown-menu keywords-dropdown">
+                        <li>
+                          <div class="add-tag-form">
+                            <form v-on:submit.prevent="handleAddTag">
+                              <label>New tag</label>
+                              <input v-model="newTagInput" type="text"/>
+                            </form>
+                          </div>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li v-for="keyword in allowedKeywords" :key="keyword['@id']">
+                          <a href="#" v-on:click.prevent="addTagObject(keyword)">{{keyword.prefLabel}}</a>
+                        </li>
+                      </ul>
+                    </div>
                   </div><!-- /btn-group -->
                 </div>
               </div>
@@ -146,14 +148,16 @@ Allow editing of all attributes
                     </span>
                   </div>
                   <div class="input-group-btn">
-                    <button type="button" class="btn btn-lg btn-success dropdown-toggle keywords-dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Add <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right keywords-dropdown">
-                      <li v-for="activity in activities" :key="activity['@id']">
-                        <a href="#" v-on:click.prevent="addActivity(activity)">{{activity.niceName}}</a>
-                      </li>
-                    </ul>
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-lg btn-success dropdown-toggle keywords-dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Add <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu keywords-dropdown">
+                        <li v-for="activity in activities" :key="activity['@id']">
+                          <a href="#" v-on:click.prevent="addActivity(activity)">{{activity.niceName}}</a>
+                        </li>
+                      </ul>
+                    </div>
                   </div><!-- /btn-group -->
                 </div>
               </div>
