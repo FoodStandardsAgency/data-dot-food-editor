@@ -12,12 +12,12 @@ Allow editing of all attributes
             <div class="form-group">
               <label class="form-label" for="username">Email</label>
               <input type="text" class="input" name="email" id="email" v-validate data-vv-rules="required" v-model="username"/>
-              <span class="validation-errors" v-show="errors.has('email')">{{ errors.first('email') }}</span>
+              <div class="validation-errors" v-show="errors.has('email')">{{ errors.first('email') }}</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="username">Password</label>
               <input type="password" class="input" name="password" id="password" v-validate data-vv-rules="required" v-model="password" />
-              <span class="validation-errors" v-show="errors.has('password')">{{ errors.first('password') }}</span>
+              <div class="validation-errors" v-show="errors.has('password')">{{ errors.first('password') }}</div>
             </div>
             <div class="form-group">
               <button @click="login">Login</button>
