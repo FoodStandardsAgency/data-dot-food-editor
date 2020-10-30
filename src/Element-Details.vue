@@ -19,7 +19,7 @@ Displayed as a modal
           <div class="pull-right buttons">
             <a v-if="$route.params.eid !== 'new'" class="btn btn-danger" @click="remove">Delete</a>
             <router-link :to="{ name: 'elements', params: { id: $route.params.id, eid: 'new' }}" class="btn btn-default">Cancel</router-link>
-            <button @click="save" type="button" class="btn btn-success">Save</button> <!-- :disabled="!unsavedChanges ? true : false" -->
+            <button @click="checkAndSave" type="button" class="btn btn-success">Save</button> <!-- :disabled="!unsavedChanges ? true : false" -->
           </div>
           <h4 class="modal-title" id="myModalLabel">Element editor</h4>
 
@@ -139,7 +139,7 @@ Displayed as a modal
           this.element = JSON.parse(JSON.stringify(blankElement))
         }
       },
-      save () {
+      checkAndSave () {
         const url = this.element.distribution[0].accessURL || this.element.distribution[0].downloadURL
         if (url.includes('://csvlint.io/') ||
             url.includes('://webarchive.nationalarchives.gov.uk/') ||
@@ -148,46 +148,32 @@ Displayed as a modal
               this.$dialog
                 .confirm('Are you sure the distribution URL is in the right format?')
                 .then(function() { // confirmed
-                  saveElement({
-                    id: that.$route.params.id,
-                    eid: that.$route.params.eid
-                  }, that.element).then((resp) => {
-                    that.unsavedChanges = false
-                    bus.$emit('message', {
-                      str: 'Updated Successfully. Changes won\'t appear publicly until published',
-                      success: true
-                    })
-
-                    let eid = parseHeader(resp.headers)
-                    if (eid) {
-                      that.$router.push({name: 'element', params: {id: that.$route.params.id, eid: eid}, query: {saved: true}})
-                    }
-                  }, (e) => {
-                    log(e)
-                  })
+                  that.save()
                 })
                 .catch(function() { // canceled
-                  that.url = ''
                 });
         } else {
-          saveElement({
-            id: this.$route.params.id,
-            eid: this.$route.params.eid
-          }, this.element).then((resp) => {
-            this.unsavedChanges = false
-            bus.$emit('message', {
-              str: 'Updated Successfully. Changes won\'t appear publicly until published',
-              success: true
-            })
-
-            let eid = parseHeader(resp.headers)
-            if (eid) {
-              this.$router.push({name: 'element', params: {id: this.$route.params.id, eid: eid}, query: {saved: true}})
-            }
-          }, (e) => {
-            log(e)
-          })
+          this.save()
         }
+      },
+      save () {
+        saveElement({
+          id: this.$route.params.id,
+          eid: this.$route.params.eid
+        }, this.element).then((resp) => {
+          this.unsavedChanges = false
+          bus.$emit('message', {
+            str: 'Updated Successfully. Changes won\'t appear publicly until published',
+            success: true
+          })
+
+          let eid = parseHeader(resp.headers)
+          if (eid) {
+            this.$router.push({name: 'element', params: {id: this.$route.params.id, eid: eid}, query: {saved: true}})
+          }
+        }, (e) => {
+          log(e)
+        })
       },
       remove () {
         let that = this
