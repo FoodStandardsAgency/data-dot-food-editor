@@ -1,6 +1,11 @@
 # data-dot-food-editor change history
 
 
+## 1.1.4 - 2020-10-26 (Bogdan)
+
+- Removed old unit tests and configs. Added new unit tests based on the old ones
+  that use Jest as a framework and Vue Test Utils to run
+
 ## 1.1.3 - 2020-10-21 (Bogdan)
 
 - Added a loading message on the reports page to indicate to the user that the
