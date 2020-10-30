@@ -1,5 +1,11 @@
 # data-dot-food-editor change history
 
+## 1.1.5 - 2020-10-30 (Bogdan)
+
+- Added an extra confirmation dialog on save in case the distribution link from
+  an element is pasted from `csvlint.io`, `webarchive.nationalarchives.gov.uk`
+  or from a `http://` website
+
 ## 1.1.1 - 2020-10-20 (Bogdan)
 
 - Added a fix for keywords and activities dropdowns; the bug was caused by
