@@ -17,6 +17,12 @@ Add new dataset
       </div>
       <chart :options="pubGraph" ref="pie"></chart>
 
+      <div class="messages">
+        <transition name="fade">
+          <div class="message successMsg bg-success" v-if="message">{{message}}</div>
+        </transition>
+      </div>
+
       <div class="row">
 
         <h3>Keyword usage</h3>
@@ -42,6 +48,7 @@ Add new dataset
   export default {
     data () {
       return {
+        message: '',
         keywordTableData: [],
         headers: [
           {
@@ -93,6 +100,7 @@ Add new dataset
       }
     },
     created: function () {
+      this.message = 'Loading, please wait ...'
       this.fetchData()
     },
     methods: {
@@ -102,6 +110,7 @@ Add new dataset
           // Process data first
           this.processPub(datasets)
           this.processkeywords(datasets)
+          this.message = ''
         }, (e) => {
           console.log('couldn\'t load datasets', e)
         })
@@ -157,7 +166,13 @@ Add new dataset
 </script>
 
 <style lang='scss' scoped>
-.ct-chart{
-  height: 300px;
-}
+  .ct-chart{
+    height: 300px;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 2s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+    opacity: 0;
+  }
 </style>
