@@ -140,23 +140,54 @@ Displayed as a modal
         }
       },
       save () {
-        saveElement({
-          id: this.$route.params.id,
-          eid: this.$route.params.eid
-        }, this.element).then((resp) => {
-          this.unsavedChanges = false
-          bus.$emit('message', {
-            str: 'Updated Successfully. Changes won\'t appear publicly until published',
-            success: true
-          })
+        const url = this.element.distribution[0].accessURL || this.element.distribution[0].downloadURL
+        if (url.includes('://csvlint.io/') ||
+            url.includes('://webarchive.nationalarchives.gov.uk/') ||
+            url.startsWith('http://')) {
+              let that = this
+              this.$dialog
+                .confirm('Are you sure the distribution URL is in the right format?')
+                .then(function() { // confirmed
+                  saveElement({
+                    id: that.$route.params.id,
+                    eid: that.$route.params.eid
+                  }, that.element).then((resp) => {
+                    that.unsavedChanges = false
+                    bus.$emit('message', {
+                      str: 'Updated Successfully. Changes won\'t appear publicly until published',
+                      success: true
+                    })
 
-          let eid = parseHeader(resp.headers)
-          if (eid) {
-            this.$router.push({name: 'element', params: {id: this.$route.params.id, eid: eid}, query: {saved: true}})
-          }
-        }, (e) => {
-          log(e)
-        })
+                    let eid = parseHeader(resp.headers)
+                    if (eid) {
+                      that.$router.push({name: 'element', params: {id: that.$route.params.id, eid: eid}, query: {saved: true}})
+                    }
+                  }, (e) => {
+                    log(e)
+                  })
+                })
+                .catch(function() { // canceled
+                  that.url = ''
+                });
+        } else {
+          saveElement({
+            id: this.$route.params.id,
+            eid: this.$route.params.eid
+          }, this.element).then((resp) => {
+            this.unsavedChanges = false
+            bus.$emit('message', {
+              str: 'Updated Successfully. Changes won\'t appear publicly until published',
+              success: true
+            })
+
+            let eid = parseHeader(resp.headers)
+            if (eid) {
+              this.$router.push({name: 'element', params: {id: this.$route.params.id, eid: eid}, query: {saved: true}})
+            }
+          }, (e) => {
+            log(e)
+          })
+        }
       },
       remove () {
         let that = this
