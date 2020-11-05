@@ -10,6 +10,10 @@
 
 - Added a loading message on the reports page to indicate to the user that the
   pie chart is loading, and some small visual changes
+  
+## 1.1.2 - 2020-10-21 (Bogdan)
+
+- Added validation of the login form inputs
 
 ## 1.1.1 - 2020-10-20 (Bogdan)
 
