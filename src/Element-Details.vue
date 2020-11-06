@@ -75,6 +75,7 @@ Displayed as a modal
   import log from './log'
   import parseHeader from './parseHeader'
   import bus from './components/Bus'
+  import commonErrors from './common-errors.json'
 
   import {getDatatypes, saveElement, removeElement, getElement} from './Api'
 
@@ -139,22 +140,39 @@ Displayed as a modal
           this.element = JSON.parse(JSON.stringify(blankElement))
         }
       },
-      checkAndSave () {
+      check() {
         const url = this.element.distribution[0].accessURL || this.element.distribution[0].downloadURL
-        if (url.includes('://csvlint.io/') ||
-            url.includes('://webarchive.nationalarchives.gov.uk/') ||
-            url.startsWith('http://')) {
-              let that = this
-              this.$dialog
-                .confirm('Are you sure the distribution URL is in the right format?')
-                .then(function() { // confirmed
-                  that.save()
-                })
-                .catch(function() { // canceled
-                });
-        } else {
-          this.save()
+        var errorMsg = ''
+        Object.keys(commonErrors).forEach(key => {
+          commonErrors[key].forEach(value => {
+            switch (key) {
+              case "includes":
+                if (url.includes(value)) {
+                  errorMsg = 'Distribution URL would not normally contain "' + value + '". Are you sure this is correct?'
+                }
+                break
+              case "startsWith":
+                if (url.startsWith(value)) {
+                  errorMsg = 'Distribution URL would normally start with an https, not "' + value + '", scheme. Are you sure this is correct?'
+                }
+                break
+            }
+          })
+        })
+        return errorMsg
+      },
+      checkAndSave () {
+        let promise = Promise.resolve()
+        const checksResult = this.check()
+        if (checksResult != '') {
+          promise = this.$dialog.confirm(checksResult)
         }
+
+        promise
+          .then(() => {
+            this.save()
+          })
+          .catch(() => {})
       },
       save () {
         saveElement({
