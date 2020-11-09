@@ -164,7 +164,7 @@ Displayed as a modal
       checkAndSave () {
         let promise = Promise.resolve()
         const checksResult = this.check()
-        if (checksResult != '') {
+        if (checksResult !== '') {
           promise = this.$dialog.confirm(checksResult)
         }
 
