@@ -148,12 +148,12 @@ Displayed as a modal
             switch (key) {
               case "includes":
                 if (url.includes(value)) {
-                  errorMsg = 'Distribution URL would not normally contain "' + value + '". Are you sure this is correct?'
+                  errorMsg = `Distribution URL would not normally contain "${value}". Are you sure this is correct?`
                 }
                 break
               case "startsWith":
                 if (url.startsWith(value)) {
-                  errorMsg = 'Distribution URL would normally start with an https, not "' + value + '", scheme. Are you sure this is correct?'
+                  errorMsg = `Distribution URL would normally start with an https, not "${value}", scheme. Are you sure this is correct?`
                 }
                 break
             }
