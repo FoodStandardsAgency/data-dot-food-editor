@@ -1,6 +1,12 @@
 # data-dot-food-editor change history
 
 
+## 1.1.5 - 2020-10-30 (Bogdan)
+
+- Added an extra confirmation dialog on save in case the distribution link from
+  an element is pasted from `csvlint.io`, `webarchive.nationalarchives.gov.uk`
+  or from a `http://` website
+
 ## 1.1.4 - 2020-10-26 (Bogdan)
 
 - Removed old unit tests and configs. Added new unit tests based on the old ones

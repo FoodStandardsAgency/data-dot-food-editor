@@ -19,7 +19,7 @@ Displayed as a modal
           <div class="pull-right buttons">
             <a v-if="$route.params.eid !== 'new'" class="btn btn-danger" @click="remove">Delete</a>
             <router-link :to="{ name: 'elements', params: { id: $route.params.id, eid: 'new' }}" class="btn btn-default">Cancel</router-link>
-            <button @click="save" type="button" class="btn btn-success">Save</button> <!-- :disabled="!unsavedChanges ? true : false" -->
+            <button @click="checkAndSave" type="button" class="btn btn-success">Save</button> <!-- :disabled="!unsavedChanges ? true : false" -->
           </div>
           <h4 class="modal-title" id="myModalLabel">Element editor</h4>
 
@@ -75,6 +75,7 @@ Displayed as a modal
   import log from './log'
   import parseHeader from './parseHeader'
   import bus from './components/Bus'
+  import commonErrors from './common-errors.json'
 
   import {getDatatypes, saveElement, removeElement, getElement} from './Api'
 
@@ -138,6 +139,40 @@ Displayed as a modal
         } else {
           this.element = JSON.parse(JSON.stringify(blankElement))
         }
+      },
+      check() {
+        const url = this.element.distribution[0].accessURL || this.element.distribution[0].downloadURL
+        var errorMsg = ''
+        Object.keys(commonErrors).forEach(key => {
+          commonErrors[key].forEach(value => {
+            switch (key) {
+              case "includes":
+                if (url.includes(value)) {
+                  errorMsg = `Distribution URL would not normally contain "${value}". Are you sure this is correct?`
+                }
+                break
+              case "startsWith":
+                if (url.startsWith(value)) {
+                  errorMsg = `Distribution URL would normally start with an https, not "${value}", scheme. Are you sure this is correct?`
+                }
+                break
+            }
+          })
+        })
+        return errorMsg
+      },
+      checkAndSave () {
+        let promise = Promise.resolve()
+        const checksResult = this.check()
+        if (checksResult !== '') {
+          promise = this.$dialog.confirm(checksResult)
+        }
+
+        promise
+          .then(() => {
+            this.save()
+          })
+          .catch(() => {})
       },
       save () {
         saveElement({

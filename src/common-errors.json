@@ -1,0 +1,4 @@
+{
+    "includes": [ "webarchive.nationalarchives.gov.uk", "csvlint.io"],
+    "startsWith": [ "http://" ]
+}
