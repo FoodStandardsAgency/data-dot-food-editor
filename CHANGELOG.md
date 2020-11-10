@@ -1,10 +1,25 @@
 # data-dot-food-editor change history
 
+
 ## 1.1.5 - 2020-10-30 (Bogdan)
 
 - Added an extra confirmation dialog on save in case the distribution link from
   an element is pasted from `csvlint.io`, `webarchive.nationalarchives.gov.uk`
   or from a `http://` website
+
+## 1.1.4 - 2020-10-26 (Bogdan)
+
+- Removed old unit tests and configs. Added new unit tests based on the old ones
+  that use Jest as a framework and Vue Test Utils to run
+
+## 1.1.3 - 2020-10-21 (Bogdan)
+
+- Added a loading message on the reports page to indicate to the user that the
+  pie chart is loading, and some small visual changes
+  
+## 1.1.2 - 2020-10-21 (Bogdan)
+
+- Added validation of the login form inputs
 
 ## 1.1.1 - 2020-10-20 (Bogdan)
 
