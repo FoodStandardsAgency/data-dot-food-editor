@@ -18,7 +18,7 @@ module.exports = {
       title: 'Dataset Editor'
     }
   },
+  publicPath: process.env.PUBLIC_PATH || '',
   configureWebpack: {
-    // All webpack related configs go here
   }
 }
