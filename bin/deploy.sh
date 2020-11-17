@@ -26,6 +26,9 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# Copy additional files
+cp public/htaccess dist/.htaccess
+
 tar  -C dist -czf ${DIST_FILE} .
 
 echo Distribution archive created. Copying to S3.
