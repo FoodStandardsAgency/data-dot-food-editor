@@ -1,5 +1,9 @@
 # data-dot-food-editor change history
 
+## 1.2.0 - 2020-11-17 (Ian)
+
+- Created a new build process to deploy the app via an S3 bucket
+- Rewrite of the README
 
 ## 1.1.5 - 2020-10-30 (Bogdan)
 
@@ -16,7 +20,7 @@
 
 - Added a loading message on the reports page to indicate to the user that the
   pie chart is loading, and some small visual changes
-  
+
 ## 1.1.2 - 2020-10-21 (Bogdan)
 
 - Added validation of the login form inputs
