@@ -1,5 +1,9 @@
 # data-dot-food-editor change history
 
+## 1.2.1 - 2020-11-18 (Ian)
+
+- change support link to new central email address
+
 ## 1.2.0 - 2020-11-17 (Ian)
 
 - Created a new build process to deploy the app via an S3 bucket

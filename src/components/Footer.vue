@@ -6,11 +6,13 @@ Template footer
     <div class="container">
       <img src="../assets/epimorphics.png" class="epimorphics-logo" alt="Epimorphics">
       <div>
-        Data catalog editor by Epimorphics Ltd, linked-data technology <br/>
-        For help and support, please contact <a href="mailto:data-fguk-fsa-support@epimorphics.com">Support</a> <br/>
-        &copy; {{ new Date().getFullYear() }}
-        <div class="version">{{version}}</div>
+        Data catalog editor by Epimorphics Ltd.<br/>
+        For help or suggestions, please
+        <a href="mailto:fsa-services-support@epimorphics.com?subject=data-dot-food-editor">
+          contact support
+        </a>
       </div>
+      <div class="version">{{version}}</div>
     </div>
   </footer>
 </template>
