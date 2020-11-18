@@ -28,6 +28,7 @@ fi
 
 # Copy additional files
 cp public/htaccess dist/.htaccess
+cp -R static dist
 
 tar  -C dist -czf ${DIST_FILE} .
 
