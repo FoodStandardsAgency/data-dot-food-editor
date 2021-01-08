@@ -140,32 +140,42 @@ Displayed as a modal
           this.element = JSON.parse(JSON.stringify(blankElement))
         }
       },
-      check() {
-        const url = this.element.distribution[0].accessURL || this.element.distribution[0].downloadURL
+      checkDistributionsUrl() {
         var errorMsg = ''
-        Object.keys(commonErrors).forEach(key => {
-          commonErrors[key].forEach(value => {
-            switch (key) {
-              case "includes":
-                if (url.includes(value)) {
-                  errorMsg = `Distribution URL would not normally contain "${value}". Are you sure this is correct?`
-                }
-                break
-              case "startsWith":
-                if (url.startsWith(value)) {
-                  errorMsg = `Distribution URL would normally start with an https, not "${value}", scheme. Are you sure this is correct?`
-                }
-                break
-            }
+
+        for (var i = 0 ; i < this.element.distribution.length ; i++) {
+          const url = this.element.distribution[i].accessURL || this.element.distribution[i].downloadURL
+          Object.keys(commonErrors).forEach(key => {
+            commonErrors[key].forEach(value => {
+              switch (key) {
+                case "includes":
+                  if (url.includes(value)) {
+                    errorMsg += `Distribution "${i + 1}" URL would not normally contain "${value}".\n`
+                  }
+                  break
+                case "startsWith":
+                  if (url.startsWith(value)) {
+                    errorMsg += `Distribution "${i + 1}" URL would normally start with an https, not "${value}", scheme.\n`
+                  }
+                  break
+              }
+            })
           })
-        })
+        }
+
+        if (errorMsg != '')
+          errorMsg += 'Are you sure this is correct?'
+        
         return errorMsg
       },
       checkAndSave () {
         let promise = Promise.resolve()
-        const checksResult = this.check()
-        if (checksResult !== '') {
-          promise = this.$dialog.confirm(checksResult)
+
+        if (this.element.distribution.length != 0) {
+          const checksUrls = this.checkDistributionsUrl()
+          if (checksUrls !== '') {
+            promise = this.$dialog.confirm(checksUrls)
+          }
         }
 
         promise
@@ -236,4 +246,10 @@ Displayed as a modal
     padding-bottom: 20px;
   }
   .add-distribution {}
+</style>
+
+<style>
+  .dg-content {
+    white-space: pre-wrap;
+  }
 </style>
