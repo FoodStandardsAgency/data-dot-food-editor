@@ -7,60 +7,173 @@ Displayed as a modal
   <main>
     <div class="container">
       <ol class="breadcrumb">
-        <li><router-link :to="{ name: 'datasets'}" class="active">Datasets</router-link></li>
-        <li><router-link :to="{ name: 'dataset', params: { id: $route.params.id, eid: 'new' }}" class="active">{{$route.params.id}}</router-link></li>
-        <li><router-link :to="{ name: 'elements', params: { id: $route.params.id, eid: 'new' }}" class="active">elements</router-link></li>
-        <li>{{$route.params.eid}}</li>
+        <li>
+          <router-link
+            :to="{ name: 'datasets'}"
+            class="active"
+          >
+            Datasets
+          </router-link>
+        </li>
+        <li>
+          <router-link
+            :to="{ name: 'dataset', params: { id: $route.params.id, eid: 'new' }}"
+            class="active"
+          >
+            {{ $route.params.id }}
+          </router-link>
+        </li>
+        <li>
+          <router-link
+            :to="{ name: 'elements', params: { id: $route.params.id, eid: 'new' }}"
+            class="active"
+          >
+            elements
+          </router-link>
+        </li>
+        <li>{{ $route.params.eid }}</li>
       </ol>
     </div>
-    <div id="details" v-if="element" :key="element.id">
+    <div
+      v-if="element"
+      id="details"
+      :key="element.id"
+    >
       <div class="container">
-        <form v-on:submit.prevent="">
+        <form @submit.prevent="">
           <div class="pull-right buttons">
-            <a v-if="$route.params.eid !== 'new'" class="btn btn-danger" @click="remove">Delete</a>
-            <router-link :to="{ name: 'elements', params: { id: $route.params.id, eid: 'new' }}" class="btn btn-default">Cancel</router-link>
-            <button @click="checkAndSave" type="button" class="btn btn-success">Save</button> <!-- :disabled="!unsavedChanges ? true : false" -->
+            <a
+              v-if="$route.params.eid !== 'new'"
+              class="btn btn-danger"
+              @click="remove"
+            >Delete</a>
+            <router-link
+              :to="{ name: 'elements', params: { id: $route.params.id, eid: 'new' }}"
+              class="btn btn-default"
+            >
+              Cancel
+            </router-link>
+            <button
+              type="button"
+              class="btn btn-success"
+              @click="checkAndSave"
+            >
+              Save
+            </button> <!-- :disabled="!unsavedChanges ? true : false" -->
           </div>
-          <h4 class="modal-title" id="myModalLabel">Element editor</h4>
+          <h4
+            id="myModalLabel"
+            class="modal-title"
+          >
+            Element editor
+          </h4>
 
-          <messages/>
+          <messages />
 
-          <div class="form-group" style="clear:left">
+          <div
+            class="form-group"
+            style="clear:left"
+          >
             <label for="Eltitle">Title</label>
-            <input type="text" class="form-control" v-model="element.title" data-vv-as="title" id="Eltitle" v-validate data-vv-rules="required|min:8" name="Eltitle">
-            <span class="validation-errors" v-show="errors.has('Eltitle')">{{ errors.first('Eltitle') }}</span>
+            <input
+              id="Eltitle"
+              v-model="element.title"
+              v-validate
+              type="text"
+              class="form-control"
+              data-vv-as="title"
+              data-vv-rules="required|min:8"
+              name="Eltitle"
+            >
+            <span
+              v-show="errors.has('Eltitle')"
+              class="validation-errors"
+            >{{ errors.first('Eltitle') }}</span>
           </div>
           <div class="form-group">
             <label for="Eldescription">Description</label>
-            <textarea class="form-control" v-model="element.description" data-vv-as="description" rows="5" id="Eldescription" v-validate data-vv-rules="required|min:6" name="Eldescription"></textarea>
-            <span class="validation-errors" v-show="errors.has('Eldescription')">{{ errors.first('Eldescription') }}</span>
+            <textarea
+              id="Eldescription"
+              v-model="element.description"
+              v-validate
+              class="form-control"
+              data-vv-as="description"
+              rows="5"
+              data-vv-rules="required|min:6"
+              name="Eldescription"
+            />
+            <span
+              v-show="errors.has('Eldescription')"
+              class="validation-errors"
+            >{{ errors.first('Eldescription') }}</span>
           </div>
           <div class="row">
             <div class="form-group col-md-6">
               <label for="Elstartdate">Start Date</label>
-              <input type="date" class="form-control" v-model="element.startDate" data-vv-as="start date" v-validate data-vv-rules="date_format:yyyy-MM-dd" id="Elstartdate" name="Elstartdate" placeholder="dd/mm/yyyy">
-              <span class="validation-errors" v-show="errors.has('Elstartdate')">{{ errors.first('Elstartdate') }}</span>
+              <input
+                id="Elstartdate"
+                v-model="element.startDate"
+                v-validate
+                type="date"
+                class="form-control"
+                data-vv-as="start date"
+                data-vv-rules="date_format:yyyy-MM-dd"
+                name="Elstartdate"
+                placeholder="dd/mm/yyyy"
+              >
+              <span
+                v-show="errors.has('Elstartdate')"
+                class="validation-errors"
+              >{{ errors.first('Elstartdate') }}</span>
             </div>
             <div class="form-group col-md-6">
               <label for="Elenddate">End Date</label>
-              <input type="date" class="form-control" v-model="element.endDate" data-vv-as="end date" v-validate data-vv-rules="date_format:yyyy-MM-dd" id="Elenddate" name="Elenddate" placeholder="dd/mm/yyyy">
-              <span class="validation-errors" v-show="errors.has('Elenddate')">{{ errors.first('Elenddate') }}</span>
+              <input
+                id="Elenddate"
+                v-model="element.endDate"
+                v-validate
+                type="date"
+                class="form-control"
+                data-vv-as="end date"
+                data-vv-rules="date_format:yyyy-MM-dd"
+                name="Elenddate"
+                placeholder="dd/mm/yyyy"
+              >
+              <span
+                v-show="errors.has('Elenddate')"
+                class="validation-errors"
+              >{{ errors.first('Elenddate') }}</span>
             </div>
           </div>
         </form>
       </div>
       <div class="container distributions">
-        <hr/>
+        <hr>
         <div class="pull-right">
-          <button class="btn btn-success add-distribution" @click="newDistribution" title="add distribution">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          <button
+            class="btn btn-success add-distribution"
+            title="add distribution"
+            @click="newDistribution"
+          >
+            <span
+              class="glyphicon glyphicon-plus"
+              aria-hidden="true"
+            />
           </button>
         </div>
         <h3>Distributions</h3>
         <p>Distributions are for different file format versions of an element</p>
 
-        <template class="distributions row" v-for="(distribution, index) in element.distribution">
-          <distribution @remove="removeDistribution" :distribution="distribution" :index="index" :key="index"></distribution>
+        <template
+          v-for="(distribution, index) in element.distribution"
+          class="distributions row"
+        >
+          <distribution
+            :key="index"
+            :distribution="distribution"
+            :index="index"
+            @remove="removeDistribution"
+          />
         </template>
       </div>
     </div>
@@ -80,11 +193,16 @@ Displayed as a modal
   import {getDatatypes, saveElement, removeElement, getElement} from './Api'
 
   export default {
-    created () {
-      this.fetchData()
-    },
     components: {
       distribution: DistributionDetails
+    },
+    data () {
+      return {
+        datatypes: [],
+        unsavedChanges: false,
+        beforeLoad: true,
+        element: JSON.parse(JSON.stringify(blankElement))
+      }
     },
     watch: {
       '$route': 'fetchData',
@@ -99,19 +217,14 @@ Displayed as a modal
         }
       }
     },
+    created () {
+      this.fetchData()
+    },
     beforeRouteLeave (to, from, next) {
       if (this.unsavedChanges) {
         // cancelConfirm(next)
       } else {
         next()
-      }
-    },
-    data () {
-      return {
-        datatypes: [],
-        unsavedChanges: false,
-        beforeLoad: true,
-        element: JSON.parse(JSON.stringify(blankElement))
       }
     },
     mounted () {
@@ -140,32 +253,47 @@ Displayed as a modal
           this.element = JSON.parse(JSON.stringify(blankElement))
         }
       },
-      check() {
-        const url = this.element.distribution[0].accessURL || this.element.distribution[0].downloadURL
-        var errorMsg = ''
+      checkDistributionUrl(dist, index) {
+        var newErrorMsg = ''
+        const url = dist.accessURL || dist.downloadURL
+
         Object.keys(commonErrors).forEach(key => {
           commonErrors[key].forEach(value => {
             switch (key) {
               case "includes":
                 if (url.includes(value)) {
-                  errorMsg = `Distribution URL would not normally contain "${value}". Are you sure this is correct?`
+                  newErrorMsg += `Distribution "${index + 1}" URL would not normally contain "${value}".\n`
                 }
                 break
               case "startsWith":
                 if (url.startsWith(value)) {
-                  errorMsg = `Distribution URL would normally start with an https, not "${value}", scheme. Are you sure this is correct?`
+                  newErrorMsg += `Distribution "${index + 1}" URL would normally start with an https, not "${value}", scheme.\n`
                 }
                 break
             }
           })
         })
+
+        return newErrorMsg
+      },
+      checkDistributionsUrl() {
+        var errorMsg = this.element.distribution.reduce((errMsg, dist, index) => {
+          return errMsg + this.checkDistributionUrl(dist, index)
+        }, '')
+
+        if (errorMsg !== '')
+          errorMsg += 'Are you sure this is correct?'
+        
         return errorMsg
       },
       checkAndSave () {
         let promise = Promise.resolve()
-        const checksResult = this.check()
-        if (checksResult !== '') {
-          promise = this.$dialog.confirm(checksResult)
+
+        if (this.element.distribution.length != 0) {
+          const checksUrls = this.checkDistributionsUrl()
+          if (checksUrls !== '') {
+            promise = this.$dialog.confirm(checksUrls)
+          }
         }
 
         promise
@@ -235,5 +363,10 @@ Displayed as a modal
   .closeBtnHolder {
     padding-bottom: 20px;
   }
-  .add-distribution {}
+</style>
+
+<style>
+  .dg-content {
+    white-space: pre-wrap;
+  }
 </style>
