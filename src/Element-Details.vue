@@ -140,28 +140,35 @@ Displayed as a modal
           this.element = JSON.parse(JSON.stringify(blankElement))
         }
       },
+      checkDistributionUrl(dist, errorMsg, index) {
+        var newErrorMsg = errorMsg
+        const url = dist.accessURL || dist.downloadURL
+
+        Object.keys(commonErrors).forEach(key => {
+          commonErrors[key].forEach(value => {
+            switch (key) {
+              case "includes":
+                if (url.includes(value)) {
+                  newErrorMsg += `Distribution "${index + 1}" URL would not normally contain "${value}".\n`
+                }
+                break
+              case "startsWith":
+                if (url.startsWith(value)) {
+                  newErrorMsg += `Distribution "${index + 1}" URL would normally start with an https, not "${value}", scheme.\n`
+                }
+                break
+            }
+          })
+        })
+
+        return newErrorMsg
+      },
       checkDistributionsUrl() {
         var errorMsg = ''
 
-        for (var i = 0 ; i < this.element.distribution.length ; i++) {
-          const url = this.element.distribution[i].accessURL || this.element.distribution[i].downloadURL
-          Object.keys(commonErrors).forEach(key => {
-            commonErrors[key].forEach(value => {
-              switch (key) {
-                case "includes":
-                  if (url.includes(value)) {
-                    errorMsg += `Distribution "${i + 1}" URL would not normally contain "${value}".\n`
-                  }
-                  break
-                case "startsWith":
-                  if (url.startsWith(value)) {
-                    errorMsg += `Distribution "${i + 1}" URL would normally start with an https, not "${value}", scheme.\n`
-                  }
-                  break
-              }
-            })
-          })
-        }
+        this.element.distribution.forEach((dist, index) => {
+          errorMsg = this.checkDistributionUrl(dist, errorMsg, index)
+        })
 
         if (errorMsg != '')
           errorMsg += 'Are you sure this is correct?'
