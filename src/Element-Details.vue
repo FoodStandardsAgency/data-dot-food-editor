@@ -253,8 +253,8 @@ Displayed as a modal
           this.element = JSON.parse(JSON.stringify(blankElement))
         }
       },
-      checkDistributionUrl(dist, errorMsg, index) {
-        var newErrorMsg = errorMsg
+      checkDistributionUrl(dist, index) {
+        var newErrorMsg = ''
         const url = dist.accessURL || dist.downloadURL
 
         Object.keys(commonErrors).forEach(key => {
@@ -277,11 +277,9 @@ Displayed as a modal
         return newErrorMsg
       },
       checkDistributionsUrl() {
-        var errorMsg = ''
-
-        this.element.distribution.forEach((dist, index) => {
-          errorMsg = this.checkDistributionUrl(dist, errorMsg, index)
-        })
+        var errorMsg = this.element.distribution.reduce((errMsg, dist, index) => {
+          return errMsg + this.checkDistributionUrl(dist, index)
+        }, '')
 
         if (errorMsg !== '')
           errorMsg += 'Are you sure this is correct?'
