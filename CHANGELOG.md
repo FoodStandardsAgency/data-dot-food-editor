@@ -1,5 +1,10 @@
 # data-dot-food-editor change history
 
+## 1.2.2 - 2021-01-12 (Bogdan)
+
+- Fix for issue GH-108: validation was preventing adding an element with
+  no download URL
+
 ## 1.2.1 - 2020-11-18 (Ian)
 
 - change support link to new central email address
